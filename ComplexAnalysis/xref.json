@@ -1,0 +1,64 @@
+{"Verso.Genre.Manual.section":
+ {"title": "Sections or chapters of the manual",
+  "description": null,
+  "contents":
+  {"My-Book--Next-Steps":
+   [{"id": "My-Book--Next-Steps",
+     "data":
+     {"title": "Next Steps",
+      "shortTitle": null,
+      "sectionNum": "2.",
+      "context":
+      [{"title": "My Book", "shortTitle": null, "number": null},
+       {"title": "Next Steps", "shortTitle": null, "number": "2"}]},
+     "address": "/Next-Steps/"}],
+   "My-Book--Introduction":
+   [{"id": "My-Book--Introduction",
+     "data":
+     {"title": "Introduction",
+      "shortTitle": null,
+      "sectionNum": "1.",
+      "context":
+      [{"title": "My Book", "shortTitle": null, "number": null},
+       {"title": "Introduction", "shortTitle": null, "number": "1"}]},
+     "address": "/Introduction/"}],
+   "My-Book":
+   [{"id": "My-Book",
+     "data":
+     {"title": "My Book",
+      "shortTitle": null,
+      "sectionNum": "",
+      "context": [{"title": "My Book", "shortTitle": null, "number": null}]},
+     "address": "/"}]}},
+ "Verso.Genre.Manual.example":
+ {"title": "Verso.Genre.Manual.example",
+  "description": null,
+  "contents":
+  {"double":
+   [{"id": "double",
+     "data":
+     {"/Introduction/#double":
+      {"display": "double", "context": ["My Book", "Introduction"]}},
+     "address": "/Introduction/"}]}},
+ "Verso.Genre.Manual.doc.tech":
+ {"title": "Terminology",
+  "description": "Definitions of technical terms",
+  "contents": {}},
+ "Verso.Genre.Manual.doc.tactic.conv":
+ {"title": "Conversion Tactics",
+  "description": "Tactics for performing targeted rewriting of subterms",
+  "contents": {}},
+ "Verso.Genre.Manual.doc.tactic":
+ {"title": "Tactic Documentation",
+  "description": "Detailed descriptions of tactics",
+  "contents": {}},
+ "Verso.Genre.Manual.doc.suggestion":
+ {"title": "Lean constant suggestions",
+  "description": "Search suggestions for Lean constants",
+  "contents": {}},
+ "Verso.Genre.Manual.doc.option":
+ {"title": "Compiler options", "description": null, "contents": {}},
+ "Verso.Genre.Manual.doc":
+ {"title": "Lean constant reference",
+  "description": "Documentation for Lean constants",
+  "contents": {}}}
