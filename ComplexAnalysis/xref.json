@@ -2,44 +2,75 @@
  {"title": "Sections or chapters of the manual",
   "description": null,
   "contents":
-  {"My-Book--Next-Steps":
-   [{"id": "My-Book--Next-Steps",
+  {"MAT3253-Complex-Variables--Next-Steps":
+   [{"id": "MAT3253-Complex-Variables--Next-Steps",
      "data":
      {"title": "Next Steps",
       "shortTitle": null,
       "sectionNum": "2.",
       "context":
-      [{"title": "My Book", "shortTitle": null, "number": null},
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
        {"title": "Next Steps", "shortTitle": null, "number": "2"}]},
      "address": "/Next-Steps/"}],
-   "My-Book--Introduction":
-   [{"id": "My-Book--Introduction",
+   "MAT3253-Complex-Variables--Chapter-1___3-Complex-conjugate-and-modulus":
+   [{"id":
+     "MAT3253-Complex-Variables--Chapter-1___3-Complex-conjugate-and-modulus",
      "data":
-     {"title": "Introduction",
+     {"title": "Chapter 1.3 Complex conjugate and modulus",
       "shortTitle": null,
       "sectionNum": "1.",
       "context":
-      [{"title": "My Book", "shortTitle": null, "number": null},
-       {"title": "Introduction", "shortTitle": null, "number": "1"}]},
-     "address": "/Introduction/"}],
-   "My-Book":
-   [{"id": "My-Book",
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
+       {"title": "Chapter 1.3 Complex conjugate and modulus",
+        "shortTitle": null,
+        "number": "1"}]},
+     "address": "/Chapter-1___3-Complex-conjugate-and-modulus/"}],
+   "MAT3253-Complex-Variables":
+   [{"id": "MAT3253-Complex-Variables",
      "data":
-     {"title": "My Book",
+     {"title": "MAT3253 Complex Variables",
       "shortTitle": null,
       "sectionNum": "",
-      "context": [{"title": "My Book", "shortTitle": null, "number": null}]},
+      "context":
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null}]},
      "address": "/"}]}},
  "Verso.Genre.Manual.example":
  {"title": "Verso.Genre.Manual.example",
   "description": null,
   "contents":
-  {"double":
-   [{"id": "double",
+  {"conj_mul_conj":
+   [{"id": "conj_mul_conj",
      "data":
-     {"/Introduction/#double":
-      {"display": "double", "context": ["My Book", "Introduction"]}},
-     "address": "/Introduction/"}]}},
+     {"/Chapter-1___3-Complex-conjugate-and-modulus/#conj_mul_conj":
+      {"display": "conj_mul_conj",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 1.3 Complex conjugate and modulus"]}},
+     "address": "/Chapter-1___3-Complex-conjugate-and-modulus/"}],
+   "conj_conj":
+   [{"id": "conj_conj",
+     "data":
+     {"/Chapter-1___3-Complex-conjugate-and-modulus/#conj_conj":
+      {"display": "conj_conj",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 1.3 Complex conjugate and modulus"]}},
+     "address": "/Chapter-1___3-Complex-conjugate-and-modulus/"}],
+   "conj_add_conj":
+   [{"id": "conj_add_conj",
+     "data":
+     {"/Chapter-1___3-Complex-conjugate-and-modulus/#conj_add_conj":
+      {"display": "conj_add_conj",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 1.3 Complex conjugate and modulus"]}},
+     "address": "/Chapter-1___3-Complex-conjugate-and-modulus/"}]}},
  "Verso.Genre.Manual.doc.tech":
  {"title": "Terminology",
   "description": "Definitions of technical terms",
