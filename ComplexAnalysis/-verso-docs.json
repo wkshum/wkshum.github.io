@@ -1,26 +1,26 @@
 {"99":
- "<code class=\"docstring\">The `norm_cast` family of tactics is used to normalize certain coercions (*casts*) in expressions.\n- `norm_cast` normalizes casts in the target.\n- `norm_cast at h` normalizes casts in hypothesis `h`.\n\nThe tactic is basically a version of `simp` with a specific set of lemmas to move casts\nupwards in the expression.\nTherefore even in situations where non-terminal `simp` calls are discouraged (because of fragility),\n`norm_cast` is considered to be safe.\nIt also has special handling of numerals.\n\nFor instance, given an assumption\n```lean\na b : ℤ\nh : ↑a + ↑b &lt; (10 : ℚ)\n```\nwriting `norm_cast at h` will turn `h` into\n```lean\nh : a + b &lt; 10\n```\n\nThere are also variants of basic tactics that use `norm_cast` to normalize expressions during\ntheir operation, to make them more flexible about the expressions they accept\n(we say that it is a tactic *modulo* the effects of `norm_cast`):\n- `exact_mod_cast` for `exact` and `apply_mod_cast` for `apply`.\n  Writing `exact_mod_cast h` and `apply_mod_cast h` will normalize casts\n  in the goal and `h` before using `exact h` or `apply h`.\n- `rw_mod_cast` for `rw`. It applies `norm_cast` between rewrites.\n- `assumption_mod_cast` for `assumption`.\n  This is effectively `norm_cast at *; assumption`, but more efficient.\n  It normalizes casts in the goal and, for every hypothesis `h` in the context,\n  it will try to normalize casts in `h` and use `exact h`.\n\nSee also `push_cast`, which moves casts inwards rather than lifting them outwards.\n</code>",
- "98":
  "<code>abs.{u_1} {α : Type u_1} [Lattice α] [AddGroup α] (a : α) : α</code><span class=\"sep\"></span><code class=\"docstring\">`abs a`, denoted `|a|`, is the absolute value of `a` </code>",
- "97":
+ "98":
  "<code>LE.le.{u} {α : Type u} [self : LE α] : α → α → Prop</code><span class=\"sep\"></span><code class=\"docstring\">The less-equal relation: `x ≤ y` \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `≤` in identifiers is `le`.\n\n * The recommended spelling of `&lt;=` in identifiers is `le` (prefer `≤` over `&lt;=`).</code>",
- "96": "<code>0 ≤ a</code>",
- "95":
+ "97": "<code>0 ≤ a</code>",
+ "96":
  "<code>AddLeftMono.{u_1} (M : Type u_1) [Add M] [LE M] : Prop</code><span class=\"sep\"></span><code class=\"docstring\">Typeclass for monotonicity of addition on the left,\nnamely `b₁ ≤ b₂ → a + b₁ ≤ a + b₂`.\n\nYou should usually not use this very granular typeclass directly, but rather a typeclass like\n`OrderedAddCommMonoid`. </code>",
- "94": "<code>α</code>",
- "93":
+ "95": "<code>α</code>",
+ "94":
  "<code>AddGroup.{u} (A : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">An `AddGroup` is an `AddMonoid` with a unary `-` satisfying `-a + a = 0`.\n\nThere is also a binary operation `-` such that `a - b = a + -b`,\nwith a default so that `a - b = a + -b` holds by definition.\n\nUse `AddGroup.ofLeftAxioms` or `AddGroup.ofRightAxioms` to define an\nadditive group structure on a type with the minimum proof obligations.\n</code>",
- "92":
+ "93":
  "<code>Lattice.{u} (α : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">A lattice is a join-semilattice which is also a meet-semilattice. </code>",
- "91":
+ "92":
  "<code class=\"docstring\">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code>",
- "90": "<code>Type u_1</code>",
- "9": "<code>Complex.ext {z w : ℂ} : z.re = w.re → z.im = w.im → z = w</code>",
- "89":
+ "91": "<code>Type u_1</code>",
+ "90":
  "<code>abs_of_nonneg.{u_1} {α : Type u_1} [Lattice α] [AddGroup α] {a : α} [AddLeftMono α] (h : 0 ≤ a) : |a| = a</code>",
+ "9": "<code>Complex.ext {z w : ℂ} : z.re = w.re → z.im = w.im → z = w</code>",
+ "89": "<code>Complex.normSq_eq_norm_sq (z : ℂ) : normSq z = ‖z‖ ^ 2</code>",
  "88":
  "<code>Norm.norm.{u_8} {E : Type u_8} [self : Norm E] : E → ℝ</code><span class=\"sep\"></span><code class=\"docstring\">the `ℝ`-valued norm function. </code>",
- "87": "<code>Complex.normSq_eq_norm_sq (z : ℂ) : normSq z = ‖z‖ ^ 2</code>",
+ "87":
+ "<code>Real.sqrt (x : ℝ) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The square root of a real number. This returns 0 for negative inputs.\n\nThis has notation `√x`. Note that `√x⁻¹` is parsed as `√(x⁻¹)`. </code>",
  "86":
  "<code>Complex.im_eq_sub_conj (z : ℂ) : ↑z.im = (z - (starRingEnd ℂ) z) / (2 * I)</code><span class=\"sep\"></span><code class=\"docstring\">A complex number `z` minus its conjugate `conj z` is `2i` times its imaginary part. </code>",
  "85":
@@ -97,7 +97,7 @@
  "49":
  "<code>HMul.hMul.{u, v, w} {α : Type u} {β : Type v} {γ : outParam (Type w)} [self : HMul α β γ] : α → β → γ</code><span class=\"sep\"></span><code class=\"docstring\">`a * b` computes the product of `a` and `b`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `*` in identifiers is `mul`.</code>",
  "48":
- "<code>conj_mul_conj (z₁ z₂ : ℂ) : (starRingEnd ℂ) z₁ * (starRingEnd ℂ) z₂ = (starRingEnd ℂ) (z₁ * z₂)</code><span class=\"sep\"></span><code class=\"docstring\">(z_1 z_2)^* = z_1^* z_2^*\n</code>",
+ "<code>conj_mul_conj (z₁ z₂ : ℂ) : (starRingEnd ℂ) z₁ * (starRingEnd ℂ) z₂ = (starRingEnd ℂ) (z₁ * z₂)</code><span class=\"sep\"></span><code class=\"docstring\">Theorem 1.3.3 part (b)\n(z_1 z_2)^* = z_1^* z_2^*\n</code>",
  "47":
  "<code>HSub.hSub.{u, v, w} {α : Type u} {β : Type v} {γ : outParam (Type w)} [self : HSub α β γ] : α → β → γ</code><span class=\"sep\"></span><code class=\"docstring\">`a - b` computes the difference of `a` and `b`.\nThe meaning of this notation is type-dependent.\n* For natural numbers, this operator saturates at 0: `a - b = 0` when `a ≤ b`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `-` in identifiers is `sub` (when used as a binary operator).</code>",
  "46":
@@ -119,7 +119,7 @@
  "38":
  "<code>HAdd.hAdd.{u, v, w} {α : Type u} {β : Type v} {γ : outParam (Type w)} [self : HAdd α β γ] : α → β → γ</code><span class=\"sep\"></span><code class=\"docstring\">`a + b` computes the sum of `a` and `b`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `+` in identifiers is `add`.</code>",
  "37":
- "<code>conj_add_conj (z₁ z₂ : ℂ) : (starRingEnd ℂ) z₁ + (starRingEnd ℂ) z₂ = (starRingEnd ℂ) (z₁ + z₂)</code><span class=\"sep\"></span><code class=\"docstring\">Theorem 1.3.3\n(z_1 + z_2)^* = z_1^* + z_2^*\n</code>",
+ "<code>conj_add_conj (z₁ z₂ : ℂ) : (starRingEnd ℂ) z₁ + (starRingEnd ℂ) z₂ = (starRingEnd ℂ) (z₁ + z₂)</code><span class=\"sep\"></span><code class=\"docstring\">Theorem 1.3.3 part (a)\n(z_1 + z_2)^* = z_1^* + z_2^*\n</code>",
  "36": "<code>z.re = 0</code>",
  "35": "<code>z.re = -z.re</code>",
  "34": "<code>((starRingEnd ℂ) z).im = (-z).im</code>",
@@ -163,23 +163,43 @@
  "13": "<code>ℝ</code>",
  "12":
  "<code class=\"docstring\">The `simp` tactic uses lemmas and hypotheses to simplify the main goal target or\nnon-dependent hypotheses. It has many variants:\n- `simp` simplifies the main goal target using lemmas tagged with the attribute `[simp]`.\n- `simp [h₁, h₂, ..., hₙ]` simplifies the main goal target using the lemmas tagged\n  with the attribute `[simp]` and the given `hᵢ`'s, where the `hᵢ`'s are expressions.-\n- If an `hᵢ` is a defined constant `f`, then `f` is unfolded. If `f` has equational lemmas associated\n  with it (and is not a projection or a `reducible` definition), these are used to rewrite with `f`.\n- `simp [*]` simplifies the main goal target using the lemmas tagged with the\n  attribute `[simp]` and all hypotheses.\n- `simp only [h₁, h₂, ..., hₙ]` is like `simp [h₁, h₂, ..., hₙ]` but does not use `[simp]` lemmas.\n- `simp [-id₁, ..., -idₙ]` simplifies the main goal target using the lemmas tagged\n  with the attribute `[simp]`, but removes the ones named `idᵢ`.\n- `simp at h₁ h₂ ... hₙ` simplifies the hypotheses `h₁ : T₁` ... `hₙ : Tₙ`. If\n  the target or another hypothesis depends on `hᵢ`, a new simplified hypothesis\n  `hᵢ` is introduced, but the old one remains in the local context.\n- `simp at *` simplifies all the hypotheses and the target.\n- `simp [*] at *` simplifies target and all (propositional) hypotheses using the\n  other hypotheses.\n</code>",
+ "119":
+ "<code>norm_add_le.{u_5} {E : Type u_5} [SeminormedAddGroup E] (a b : E) : ‖a + b‖ ≤ ‖a‖ + ‖b‖</code><span class=\"sep\"></span><code class=\"docstring\">**Triangle inequality** for the norm. </code>",
+ "118": "<code>Complex.norm_conj (z : ℂ) : ‖(starRingEnd ℂ) z‖ = ‖z‖</code>",
+ "117": "<code>Complex.re_le_norm (z : ℂ) : z.re ≤ ‖z‖</code>",
+ "116":
+ "<code class=\"docstring\">`gcongr` applies \"generalized congruence\" rules to recursively reduce a goal of form\n`⊢ R (f a₁ ... aₙ) (f b₁ ... bₙ)` to (possibly multiple) goal(s) `⊢ Rᵢ aᵢ bᵢ`, keeping only the\ndistinct pairs `aᵢ ≠ bᵢ`, where `Rᵢ` is a possibly different relation (depending on the\nprecise rule). The relations `R`, `Rᵢ` can be any two-argument relation, including `· → ·`.\n\nThis tactic is extensible: to add a \"generalized congruence\" rule, tag a theorem with the attribute\n`@[gcongr]`.\n\nIf a \"generalized congruence\" lemma has a side goal, `gcongr` will try to discharge it using\n`gcongr_discharger`, which is an extensible tactic based on `positivity`. Side goals not discharged\nin this way are left for the user.\n\n* `gcongr with x y ... z` names the variables that are introduced by descending into binders (for\n  example sums or suprema).\n* `gcongr n`, where `n` is a natural number literal, limits the depth of the recursive applications.\n  This is useful if `gcongr` is too aggressive in breaking down the goal.\n* `gcongr t`, where `t` is a term with `?_` holes, performs congruence up to the holes in `t`.\n  In other words, `gcongr f ?_` turns a goal `⊢ R (f x) (f y)` into `⊢ R x y` (but no further).\n  This is useful if `gcongr` is too aggressive in breaking down the goal.\n\nExamples:\n```\nexample {a b x c d : ℝ} (h1 : a + 1 ≤ b + 1) (h2 : c + 2 ≤ d + 2) :\n    x ^ 2 * a + c ≤ x ^ 2 * b + d := by\n  -- LHS and RHS both have the form x ^ 2 * ?_ + ?_\n  gcongr\n  · -- New goal: ⊢ a ≤ b\n    linarith\n  · -- ⊢ New goal: c ≤ d\n    linarith\n-- Resulting proof term is:\n--   add_le_add (mul_le_mul_of_nonneg_left ?_ (Even.pow_nonneg (even_two_mul 1) x)) ?_\n-- where `add_le_add` and `mul_le_mul_of_nonneg_left` are generalized congruence lemmas\n-- and the side goal `0 ≤ x ^ 2` is discharged by `gcongr_discharger`.\n```\n\n```\nexample {a b c d x : ℝ} (h : a + c + 1 ≤ b + d + 1) :\n    x ^ 2 * (a + c) + 5 ≤ x ^ 2 * (b + d) + 5 := by\n  -- Using a pattern to limit the depth.\n  gcongr x ^ 2 * ?_ + 5 -- or `gcongr 2`\n  -- New goal: ⊢ a + c ≤ b + d\n  linarith\n```\n\n```\n-- Descending into binders (here: ⨆).\nexample {f g : ℕ → ℝ≥0∞} (h : ∀ n, f n ≤ g n) : ⨆ n, f n ≤ ⨆ n, g n := by\n  gcongr with i\n  exact h i\n```\n</code>",
+ "115":
+ "<code>mul_comm.{u_1} {G : Type u_1} [CommMagma G] (a b : G) : a * b = b * a</code>",
+ "114": "<code>Complex.conj_re (z : ℂ) : ((starRingEnd ℂ) z).re = z.re</code>",
+ "113": "<code>Complex.add_re (z w : ℂ) : (z + w).re = z.re + w.re</code>",
+ "112":
+ "<code>‖z₁ + z₂‖ ^ 2 = ‖z₁‖ ^ 2 + ‖z₂‖ ^ 2 + 2 * (z₁ * (starRingEnd ℂ) z₂).re</code>",
+ "111":
+ "<code class=\"docstring\">The `have` tactic is for adding opaque definitions and hypotheses to the local context of the main goal.\nThe definitions forget their associated value and cannot be unfolded, unlike definitions added by the `let` tactic.\n\n* `have h : t := e` adds the hypothesis `h : t` if `e` is a term of type `t`.\n* `have h := e` uses the type of `e` for `t`.\n* `have : t := e` and `have := e` use `this` for the name of the hypothesis.\n* `have pat := e` for a pattern `pat` is equivalent to `match e with | pat =&gt; _`,\n  where `_` stands for the tactics that follow this one.\n  It is convenient for types that have only one applicable constructor.\n  For example, given `h : p ∧ q ∧ r`, `have ⟨h₁, h₂, h₃⟩ := h` produces the\n  hypotheses `h₁ : p`, `h₂ : q`, and `h₃ : r`.\n* The syntax `have (eq := h) pat := e` is equivalent to `match h : e with | pat =&gt; _`,\n  which adds the equation `h : e = pat` to the local context.\n\nThe tactic supports all the same syntax variants and options as the `have` term.\n\n## Properties and relations\n\n* It is not possible to unfold a variable introduced using `have`, since the definition's value is forgotten.\n  The `let` tactic introduces definitions that can be unfolded.\n* The `have h : t := e` is like doing `let h : t := e; clear_value h`.\n* The `have` tactic is preferred for propositions, and `let` is preferred for non-propositions.\n* Sometimes `have` is used for non-propositions to ensure that the variable is never unfolded,\n  which may be important for performance reasons.\n    Consider using the equivalent `let +nondep` to indicate the intent.\n\n</code>",
+ "110":
+ "<code>sq_le_sq.{u_1} {α : Type u_1} [Ring α] [LinearOrder α] [IsStrictOrderedRing α] {a b : α} : a ^ 2 ≤ b ^ 2 ↔ |a| ≤ |b|</code>",
  "11":
  "<code>Complex.im (self : ℂ) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The imaginary part of a complex number. </code>",
- "107":
+ "109":
+ "<code>add_nonneg.{u_1} {α : Type u_1} [AddZeroClass α] [Preorder α] [AddLeftMono α] {a b : α} (ha : 0 ≤ a) (hb : 0 ≤ b) :\n  0 ≤ a + b</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `Left.add_nonneg`. </code>",
+ "108":
  "<code>norm_mul.{u_2} {α : Type u_2} [Norm α] [Mul α] [NormMulClass α] (a b : α) : ‖a * b‖ = ‖a‖ * ‖b‖</code>",
- "106":
+ "107":
  "<code>mul_pow.{u_4} {M : Type u_4} [CommMonoid M] (a b : M) (n : ℕ) : (a * b) ^ n = a ^ n * b ^ n</code>",
- "105":
+ "106":
  "<code>Complex.mul_conj' (z : ℂ) : z * (starRingEnd ℂ) z = ↑‖z‖ ^ 2</code>",
- "104":
+ "105":
  "<code class=\"docstring\">`push_cast` rewrites the goal to move certain coercions (*casts*) inward, toward the leaf nodes.\nThis uses `norm_cast` lemmas in the forward direction.\nFor example, `↑(a + b)` will be written to `↑a + ↑b`.\n- `push_cast` moves casts inward in the goal.\n- `push_cast at h` moves casts inward in the hypothesis `h`.\nIt can be used with extra simp lemmas with, for example, `push_cast [Int.add_zero]`.\n\nExample:\n```lean\nexample (a b : Nat)\n    (h1 : ((a + b : Nat) : Int) = 10)\n    (h2 : ((a + b + 0 : Nat) : Int) = 10) :\n    ((a + b : Nat) : Int) = 10 := by\n  /-\n  h1 : ↑(a + b) = 10\n  h2 : ↑(a + b + 0) = 10\n  ⊢ ↑(a + b) = 10\n  -/\n  push_cast\n  /- Now\n  ⊢ ↑a + ↑b = 10\n  -/\n  push_cast at h1\n  push_cast [Int.add_zero] at h2\n  /- Now\n  h1 h2 : ↑a + ↑b = 10\n  -/\n  exact h1\n```\n\nSee also `norm_cast`.\n</code>",
- "103": "<code>Complex.ofReal_inj {z w : ℝ} : ↑z = ↑w ↔ z = w</code>",
- "102":
+ "104": "<code>Complex.ofReal_inj {z w : ℝ} : ↑z = ↑w ↔ z = w</code>",
+ "103":
  "<code>sq_eq_sq_iff_abs_eq_abs.{u_1} {α : Type u_1} [Ring α] [LinearOrder α] [IsStrictOrderedRing α] (a b : α) :\n  a ^ 2 = b ^ 2 ↔ |a| = |b|</code>",
- "101":
+ "102":
  "<code>mul_nonneg.{u_1} {α : Type u_1} [MulZeroClass α] {a b : α} [Preorder α] [PosMulMono α] (ha : 0 ≤ a) (hb : 0 ≤ b) :\n  0 ≤ a * b</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `Left.mul_nonneg`.\n\n---\n\nAssumes left covariance. </code>",
- "100":
+ "101":
  "<code>norm_nonneg.{u_5} {E : Type u_5} [SeminormedAddGroup E] (a : E) : 0 ≤ ‖a‖</code>",
+ "100":
+ "<code class=\"docstring\">The `norm_cast` family of tactics is used to normalize certain coercions (*casts*) in expressions.\n- `norm_cast` normalizes casts in the target.\n- `norm_cast at h` normalizes casts in hypothesis `h`.\n\nThe tactic is basically a version of `simp` with a specific set of lemmas to move casts\nupwards in the expression.\nTherefore even in situations where non-terminal `simp` calls are discouraged (because of fragility),\n`norm_cast` is considered to be safe.\nIt also has special handling of numerals.\n\nFor instance, given an assumption\n```lean\na b : ℤ\nh : ↑a + ↑b &lt; (10 : ℚ)\n```\nwriting `norm_cast at h` will turn `h` into\n```lean\nh : a + b &lt; 10\n```\n\nThere are also variants of basic tactics that use `norm_cast` to normalize expressions during\ntheir operation, to make them more flexible about the expressions they accept\n(we say that it is a tactic *modulo* the effects of `norm_cast`):\n- `exact_mod_cast` for `exact` and `apply_mod_cast` for `apply`.\n  Writing `exact_mod_cast h` and `apply_mod_cast h` will normalize casts\n  in the goal and `h` before using `exact h` or `apply h`.\n- `rw_mod_cast` for `rw`. It applies `norm_cast` between rewrites.\n- `assumption_mod_cast` for `assumption`.\n  This is effectively `norm_cast at *; assumption`, but more efficient.\n  It normalizes casts in the goal and, for every hypothesis `h` in the context,\n  it will try to normalize casts in `h` and use `exact h`.\n\nSee also `push_cast`, which moves casts inwards rather than lifting them outwards.\n</code>",
  "10":
  "<code>Complex.re (self : ℂ) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The real part of a complex number. </code>",
  "1": "<code><span class=\"literal string\">\"conj\"</span> : String</code>",
