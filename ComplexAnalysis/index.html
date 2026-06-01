@@ -963,13 +963,22 @@ window.onload = () => {
               <p>
                 Lean proof of selected theorems in the notes for the course MAT3253 Complex Variables.</p>
               <p>
-                This project is partially funded by CUHK(SZ) CLEAR Teaching Innovation Grant (2024),
-"Enhancement of mathematical learning using the LEAN computer proof assistant"</p>
+                The program compiles with Mathlib version 4.29.</p>
               <p>
                 As in Terence Tao's Lean companion to Analysis I, I also
 want to translation the proofs from the textbook to Lean in a faithful manner.
 Many of the proofs are already in the Lean math library, but I will still
 in many cases give a more direct translation of the textbook proof.</p>
+              <p>
+                The design of Lean is adopts proof-irrelevance. Two proofs
+with the same conclusion are equivalent. The more detailed proof
+translated from the textbook and the more concise proof from the math library
+are considered as the same proof in Lean. However, the long proof may be
+more helpful for students to understand the steps in the proof, while
+the short proof from the library is good for subsequent use in later proofs.</p>
+              <p>
+                This project is partially funded by CUHK(SZ) CLEAR Teaching Innovation Grant (2024),
+"Enhancement of mathematical learning using the LEAN computer proof assistant"</p>
               </div>
             <section>
               <h2>
