@@ -1,0 +1,13 @@
+# Lean
+.lake/build/
+.lake/packages/
+_out/
+
+# Editor files
+.DS_Store
+*.swp
+Thumbs.db
+
+# IDE files
+.vscode/
+
