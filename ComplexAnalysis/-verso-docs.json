@@ -1,4 +1,37 @@
-{"9": "<code>Complex.ext {z w : ℂ} : z.re = w.re → z.im = w.im → z = w</code>",
+{"99":
+ "<code class=\"docstring\">The `norm_cast` family of tactics is used to normalize certain coercions (*casts*) in expressions.\n- `norm_cast` normalizes casts in the target.\n- `norm_cast at h` normalizes casts in hypothesis `h`.\n\nThe tactic is basically a version of `simp` with a specific set of lemmas to move casts\nupwards in the expression.\nTherefore even in situations where non-terminal `simp` calls are discouraged (because of fragility),\n`norm_cast` is considered to be safe.\nIt also has special handling of numerals.\n\nFor instance, given an assumption\n```lean\na b : ℤ\nh : ↑a + ↑b &lt; (10 : ℚ)\n```\nwriting `norm_cast at h` will turn `h` into\n```lean\nh : a + b &lt; 10\n```\n\nThere are also variants of basic tactics that use `norm_cast` to normalize expressions during\ntheir operation, to make them more flexible about the expressions they accept\n(we say that it is a tactic *modulo* the effects of `norm_cast`):\n- `exact_mod_cast` for `exact` and `apply_mod_cast` for `apply`.\n  Writing `exact_mod_cast h` and `apply_mod_cast h` will normalize casts\n  in the goal and `h` before using `exact h` or `apply h`.\n- `rw_mod_cast` for `rw`. It applies `norm_cast` between rewrites.\n- `assumption_mod_cast` for `assumption`.\n  This is effectively `norm_cast at *; assumption`, but more efficient.\n  It normalizes casts in the goal and, for every hypothesis `h` in the context,\n  it will try to normalize casts in `h` and use `exact h`.\n\nSee also `push_cast`, which moves casts inwards rather than lifting them outwards.\n</code>",
+ "98":
+ "<code>abs.{u_1} {α : Type u_1} [Lattice α] [AddGroup α] (a : α) : α</code><span class=\"sep\"></span><code class=\"docstring\">`abs a`, denoted `|a|`, is the absolute value of `a` </code>",
+ "97":
+ "<code>LE.le.{u} {α : Type u} [self : LE α] : α → α → Prop</code><span class=\"sep\"></span><code class=\"docstring\">The less-equal relation: `x ≤ y` \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `≤` in identifiers is `le`.\n\n * The recommended spelling of `&lt;=` in identifiers is `le` (prefer `≤` over `&lt;=`).</code>",
+ "96": "<code>0 ≤ a</code>",
+ "95":
+ "<code>AddLeftMono.{u_1} (M : Type u_1) [Add M] [LE M] : Prop</code><span class=\"sep\"></span><code class=\"docstring\">Typeclass for monotonicity of addition on the left,\nnamely `b₁ ≤ b₂ → a + b₁ ≤ a + b₂`.\n\nYou should usually not use this very granular typeclass directly, but rather a typeclass like\n`OrderedAddCommMonoid`. </code>",
+ "94": "<code>α</code>",
+ "93":
+ "<code>AddGroup.{u} (A : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">An `AddGroup` is an `AddMonoid` with a unary `-` satisfying `-a + a = 0`.\n\nThere is also a binary operation `-` such that `a - b = a + -b`,\nwith a default so that `a - b = a + -b` holds by definition.\n\nUse `AddGroup.ofLeftAxioms` or `AddGroup.ofRightAxioms` to define an\nadditive group structure on a type with the minimum proof obligations.\n</code>",
+ "92":
+ "<code>Lattice.{u} (α : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">A lattice is a join-semilattice which is also a meet-semilattice. </code>",
+ "91":
+ "<code class=\"docstring\">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code>",
+ "90": "<code>Type u_1</code>",
+ "9": "<code>Complex.ext {z w : ℂ} : z.re = w.re → z.im = w.im → z = w</code>",
+ "89":
+ "<code>abs_of_nonneg.{u_1} {α : Type u_1} [Lattice α] [AddGroup α] {a : α} [AddLeftMono α] (h : 0 ≤ a) : |a| = a</code>",
+ "88":
+ "<code>Norm.norm.{u_8} {E : Type u_8} [self : Norm E] : E → ℝ</code><span class=\"sep\"></span><code class=\"docstring\">the `ℝ`-valued norm function. </code>",
+ "87": "<code>Complex.normSq_eq_norm_sq (z : ℂ) : normSq z = ‖z‖ ^ 2</code>",
+ "86":
+ "<code>Complex.im_eq_sub_conj (z : ℂ) : ↑z.im = (z - (starRingEnd ℂ) z) / (2 * I)</code><span class=\"sep\"></span><code class=\"docstring\">A complex number `z` minus its conjugate `conj z` is `2i` times its imaginary part. </code>",
+ "85":
+ "<code>Complex.re_eq_add_conj (z : ℂ) : ↑z.re = (z + (starRingEnd ℂ) z) / 2</code><span class=\"sep\"></span><code class=\"docstring\">A complex number `z` plus its conjugate `conj z` is `2` times its real part. </code>",
+ "84": "<code>Complex.I_ne_zero : I ≠ 0</code>",
+ "83":
+ "<code>div_eq_iff.{u_3} {G₀ : Type u_3} [GroupWithZero G₀] {a b c : G₀} (hb : b ≠ 0) : a / b = c ↔ a = c * b</code>",
+ "82":
+ "<code>Complex.I : ℂ</code><span class=\"sep\"></span><code class=\"docstring\">The imaginary unit. </code>",
+ "81":
+ "<code>HDiv.hDiv.{u, v, w} {α : Type u} {β : Type v} {γ : outParam (Type w)} [self : HDiv α β γ] : α → β → γ</code><span class=\"sep\"></span><code class=\"docstring\">`a / b` computes the result of dividing `a` by `b`.\nThe meaning of this notation is type-dependent.\n* For most types like `Nat`, `Int`, `Rat`, `Real`, `a / 0` is defined to be `0`.\n* For `Nat`, `a / b` rounds downwards.\n* For `Int`, `a / b` rounds downwards if `b` is positive or upwards if `b` is negative.\n  It is implemented as `Int.ediv`, the unique function satisfying\n  `a % b + b * (a / b) = a` and `0 ≤ a % b &lt; natAbs b` for `b ≠ 0`.\n  Other rounding conventions are available using the functions\n  `Int.fdiv` (floor rounding) and `Int.tdiv` (truncation rounding).\n* For `Float`, `a / 0` follows the IEEE 754 semantics for division,\n  usually resulting in `inf` or `nan`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `/` in identifiers is `div`.</code>",
  "80":
  "<code>∀ (z w : ℂ),\n  (z * w).re * (z * w).re + (z * w).im * (z * w).im = (z.re * z.re + z.im * z.im) * (w.re * w.re + w.im * w.im)</code><span class=\"sep\"></span><code class=\"docstring\">The proposition that the function preserves multiplication </code>",
  "8":
@@ -97,7 +130,7 @@
  "30":
  "<code>Complex.conj_eq_iff_im {z : ℂ} : (starRingEnd ℂ) z = z ↔ z.im = 0</code>",
  "3":
- "<code>_root_.conj_conj (z : ℂ) : (starRingEnd ℂ) ((starRingEnd ℂ) z) = z</code><span class=\"sep\"></span><code class=\"docstring\">Prop. 1.3.2 part (i)\nComplex conjugate is an involution\n</code>",
+ "<code>_root_.conj_conj (z : ℂ) : (starRingEnd ℂ) ((starRingEnd ℂ) z) = z</code><span class=\"sep\"></span><code class=\"docstring\">Prop. 1.3.2 part (a)\nComplex conjugate is an involution\n</code>",
  "29": "<code>z.im = 0</code>",
  "28":
  "<code class=\"docstring\">`linarith` attempts to find a contradiction between hypotheses that are linear (in)equalities.\nEquivalently, it can prove a linear inequality by assuming its negation and proving `False`.\n\nIn theory, `linarith` should prove any goal that is true in the theory of linear arithmetic over\nthe rationals. While there is some special handling for non-dense orders like `Nat` and `Int`,\nthis tactic is not complete for these theories and will not prove every true goal. It will solve\ngoals over arbitrary types that instantiate `CommRing`, `LinearOrder` and `IsStrictOrderedRing`.\n\nAn example:\n```lean\nexample (x y z : ℚ) (h1 : 2*x &lt; 3*y) (h2 : -4*x + 2*z &lt; 0)\n        (h3 : 12*y - 4* z &lt; 0) : False := by\n  linarith\n```\n\n`linarith` will use all appropriate hypotheses and the negation of the goal, if applicable.\nDisequality hypotheses require case splitting and are not normally considered\n(see the `splitNe` option below).\n\n`linarith [t1, t2, t3]` will additionally use proof terms `t1, t2, t3`.\n\n`linarith only [h1, h2, h3, t1, t2, t3]` will use only the goal (if relevant), local hypotheses\n`h1`, `h2`, `h3`, and proofs `t1`, `t2`, `t3`. It will ignore the rest of the local context.\n\n`linarith!` will use a stronger reducibility setting to try to identify atoms. For example,\n```lean\nexample (x : ℚ) : id x ≥ x := by\n  linarith\n```\nwill fail, because `linarith` will not identify `x` and `id x`. `linarith!` will.\nThis can sometimes be expensive.\n\n`linarith (config := { .. })` takes a config object with five\noptional arguments:\n* `discharger` specifies a tactic to be used for reducing an algebraic equation in the\n  proof stage. The default is `ring`. Other options include `simp` for basic\n  problems.\n* `transparency` controls how hard `linarith` will try to match atoms to each other. By default\n  it will only unfold `reducible` definitions.\n* If `splitHypotheses` is true, `linarith` will split conjunctions in the context into separate\n  hypotheses.\n* If `splitNe` is `true`, `linarith` will case split on disequality hypotheses.\n  For a given `x ≠ y` hypothesis, `linarith` is run with both `x &lt; y` and `x &gt; y`,\n  and so this runs linarith exponentially many times with respect to the number of\n  disequality hypotheses. (`false` by default.)\n* If `exfalso` is `false`, `linarith` will fail when the goal is neither an inequality nor `False`.\n  (`true` by default.)\n* If `minimize` is `false`, `linarith?` will report all hypotheses appearing in its initial\n  proof without attempting to drop redundancies. (`true` by default.)\n* `restrict_type` (not yet implemented in mathlib4)\n  will only use hypotheses that are inequalities over `tp`. This is useful\n  if you have e.g. both integer- and rational-valued inequalities in the local context, which can\n  sometimes confuse the tactic.\n\nA variant, `nlinarith`, does some basic preprocessing to handle some nonlinear goals.\n\nThe option `set_option trace.linarith true` will trace certain intermediate stages of the `linarith`\nroutine.\n</code>",
@@ -132,6 +165,21 @@
  "<code class=\"docstring\">The `simp` tactic uses lemmas and hypotheses to simplify the main goal target or\nnon-dependent hypotheses. It has many variants:\n- `simp` simplifies the main goal target using lemmas tagged with the attribute `[simp]`.\n- `simp [h₁, h₂, ..., hₙ]` simplifies the main goal target using the lemmas tagged\n  with the attribute `[simp]` and the given `hᵢ`'s, where the `hᵢ`'s are expressions.-\n- If an `hᵢ` is a defined constant `f`, then `f` is unfolded. If `f` has equational lemmas associated\n  with it (and is not a projection or a `reducible` definition), these are used to rewrite with `f`.\n- `simp [*]` simplifies the main goal target using the lemmas tagged with the\n  attribute `[simp]` and all hypotheses.\n- `simp only [h₁, h₂, ..., hₙ]` is like `simp [h₁, h₂, ..., hₙ]` but does not use `[simp]` lemmas.\n- `simp [-id₁, ..., -idₙ]` simplifies the main goal target using the lemmas tagged\n  with the attribute `[simp]`, but removes the ones named `idᵢ`.\n- `simp at h₁ h₂ ... hₙ` simplifies the hypotheses `h₁ : T₁` ... `hₙ : Tₙ`. If\n  the target or another hypothesis depends on `hᵢ`, a new simplified hypothesis\n  `hᵢ` is introduced, but the old one remains in the local context.\n- `simp at *` simplifies all the hypotheses and the target.\n- `simp [*] at *` simplifies target and all (propositional) hypotheses using the\n  other hypotheses.\n</code>",
  "11":
  "<code>Complex.im (self : ℂ) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The imaginary part of a complex number. </code>",
+ "107":
+ "<code>norm_mul.{u_2} {α : Type u_2} [Norm α] [Mul α] [NormMulClass α] (a b : α) : ‖a * b‖ = ‖a‖ * ‖b‖</code>",
+ "106":
+ "<code>mul_pow.{u_4} {M : Type u_4} [CommMonoid M] (a b : M) (n : ℕ) : (a * b) ^ n = a ^ n * b ^ n</code>",
+ "105":
+ "<code>Complex.mul_conj' (z : ℂ) : z * (starRingEnd ℂ) z = ↑‖z‖ ^ 2</code>",
+ "104":
+ "<code class=\"docstring\">`push_cast` rewrites the goal to move certain coercions (*casts*) inward, toward the leaf nodes.\nThis uses `norm_cast` lemmas in the forward direction.\nFor example, `↑(a + b)` will be written to `↑a + ↑b`.\n- `push_cast` moves casts inward in the goal.\n- `push_cast at h` moves casts inward in the hypothesis `h`.\nIt can be used with extra simp lemmas with, for example, `push_cast [Int.add_zero]`.\n\nExample:\n```lean\nexample (a b : Nat)\n    (h1 : ((a + b : Nat) : Int) = 10)\n    (h2 : ((a + b + 0 : Nat) : Int) = 10) :\n    ((a + b : Nat) : Int) = 10 := by\n  /-\n  h1 : ↑(a + b) = 10\n  h2 : ↑(a + b + 0) = 10\n  ⊢ ↑(a + b) = 10\n  -/\n  push_cast\n  /- Now\n  ⊢ ↑a + ↑b = 10\n  -/\n  push_cast at h1\n  push_cast [Int.add_zero] at h2\n  /- Now\n  h1 h2 : ↑a + ↑b = 10\n  -/\n  exact h1\n```\n\nSee also `norm_cast`.\n</code>",
+ "103": "<code>Complex.ofReal_inj {z w : ℝ} : ↑z = ↑w ↔ z = w</code>",
+ "102":
+ "<code>sq_eq_sq_iff_abs_eq_abs.{u_1} {α : Type u_1} [Ring α] [LinearOrder α] [IsStrictOrderedRing α] (a b : α) :\n  a ^ 2 = b ^ 2 ↔ |a| = |b|</code>",
+ "101":
+ "<code>mul_nonneg.{u_1} {α : Type u_1} [MulZeroClass α] {a b : α} [Preorder α] [PosMulMono α] (ha : 0 ≤ a) (hb : 0 ≤ b) :\n  0 ≤ a * b</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `Left.mul_nonneg`.\n\n---\n\nAssumes left covariance. </code>",
+ "100":
+ "<code>norm_nonneg.{u_5} {E : Type u_5} [SeminormedAddGroup E] (a : E) : 0 ≤ ‖a‖</code>",
  "10":
  "<code>Complex.re (self : ℂ) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The real part of a complex number. </code>",
  "1": "<code><span class=\"literal string\">\"conj\"</span> : String</code>",
