@@ -1,8 +1,36 @@
 {"9": "<code>Complex.ext {z w : ℂ} : z.re = w.re → z.im = w.im → z = w</code>",
+ "80":
+ "<code>∀ (z w : ℂ),\n  (z * w).re * (z * w).re + (z * w).im * (z * w).im = (z.re * z.re + z.im * z.im) * (w.re * w.re + w.im * w.im)</code><span class=\"sep\"></span><code class=\"docstring\">The proposition that the function preserves multiplication </code>",
  "8":
  "<code class=\"docstring\">`apply e` tries to match the current goal against the conclusion of `e`'s type.\nIf it succeeds, then the tactic returns as many subgoals as the number of premises that\nhave not been fixed by type inference or type class resolution.\nNon-dependent premises are added before dependent ones.\n\nThe `apply` tactic uses higher-order pattern matching, type class resolution,\nand first-order unification with dependent types.\n\n\nExtensions:\n\n * * `apply (config := cfg) e` allows for additional configuration (see `Lean.Meta.ApplyConfig`):\n     * `newGoals` controls which new goals are added by `apply`, in which order.\n     * `-synthAssignedInstances` will not synthesize instance implicit arguments if they have been\n       assigned by `isDefEq`.\n     * `+allowSynthFailures` will create new goals when instance synthesis fails, rather than erroring.\n     * `+approx` enables `isDefEq` approximations (see `Lean.Meta.approxDefEq`).</code>",
+ "79": "<code>Complex.normSq._proof_2 : re 1 * re 1 + im 1 * im 1 = 1</code>",
+ "78":
+ "<code>re 1 * re 1 + im 1 * im 1 = 1</code><span class=\"sep\"></span><code class=\"docstring\">The proposition that the function preserves 1 </code>",
+ "77": "<code>Complex.normSq._proof_1 : re 0 * re 0 + im 0 * im 0 = 0</code>",
+ "76":
+ "<code>re 0 * re 0 + im 0 * im 0 = 0</code><span class=\"sep\"></span><code class=\"docstring\">The proposition that the function preserves 0 </code>",
+ "75":
+ "<code>ℂ → ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The underlying function </code>",
+ "74":
+ "<code>MonoidWithZeroHom.mk.{u_7, u_8} {α : Type u_7} {β : Type u_8} [MulZeroOneClass α] [MulZeroOneClass β]\n  (toZeroHom : ZeroHom α β) (map_one' : toZeroHom.toFun 1 = 1)\n  (map_mul' : ∀ (x y : α), toZeroHom.toFun (x * y) = toZeroHom.toFun x * toZeroHom.toFun y) : α →*₀ β</code>",
+ "73":
+ "<code class=\"docstring\">* `unfold id` unfolds all occurrences of definition `id` in the target.\n* `unfold id1 id2 ...` is equivalent to `unfold id1; unfold id2; ...`.\n* `unfold id at h` unfolds at the hypothesis `h`.\n\nDefinitions can be either global or local definitions.\n\nFor non-recursive global definitions, this tactic is identical to `delta`.\nFor recursive global definitions, it uses the \"unfolding lemma\" `id.eq_def`,\nwhich is generated for each recursive definition, to unfold according to the recursive definition given by the user.\nOnly one level of unfolding is performed, in contrast to `simp only [id]`, which unfolds definition `id` recursively.\n</code>",
+ "72":
+ "<code>Complex.normSq : ℂ →*₀ ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The norm squared function. </code>",
+ "71":
+ "<code>Complex.mul_conj (z : ℂ) : z * (starRingEnd ℂ) z = ↑(normSq z)</code>",
+ "70": "<code>Complex.ofReal_im (r : ℝ) : (↑r).im = 0</code>",
  "7":
  "<code>Eq.{u_1} {α : Sort u_1} : α → α → Prop</code><span class=\"sep\"></span><code class=\"docstring\">The equality relation. It has one introduction rule, `Eq.refl`.\nWe use `a = b` as notation for `Eq a b`.\nA fundamental property of equality is that it is an equivalence relation.\n```\nvariable (α : Type) (a b c d : α)\nvariable (hab : a = b) (hcb : c = b) (hcd : c = d)\n\nexample : a = d :=\n  Eq.trans (Eq.trans hab (Eq.symm hcb)) hcd\n```\nEquality is much more than an equivalence relation, however. It has the important property that every assertion\nrespects the equivalence, in the sense that we can substitute equal expressions without changing the truth value.\nThat is, given `h1 : a = b` and `h2 : p a`, we can construct a proof for `p b` using substitution: `Eq.subst h1 h2`.\nExample:\n```\nexample (α : Type) (a b : α) (p : α → Prop)\n        (h1 : a = b) (h2 : p a) : p b :=\n  Eq.subst h1 h2\n\nexample (α : Type) (a b : α) (p : α → Prop)\n    (h1 : a = b) (h2 : p a) : p b :=\n  h1 ▸ h2\n```\nThe triangle in the second presentation is a macro built on top of `Eq.subst` and `Eq.symm`, and you can enter it by typing `\\t`.\nFor more information: [Equality](https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html#equality)\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `=` in identifiers is `eq`.</code>",
+ "69": "<code>Complex.ofReal_re (r : ℝ) : (↑r).re = r</code>",
+ "68":
+ "<code class=\"docstring\">`repeat tac` repeatedly applies `tac` so long as it succeeds.\nThe tactic `tac` may be a tactic sequence, and if `tac` fails at any point in its execution,\n`repeat` will revert any partial changes that `tac` made to the tactic state.\n\nThe tactic `tac` should eventually fail, otherwise `repeat tac` will run indefinitely.\n\nSee also:\n* `try tac` is like `repeat tac` but will apply `tac` at most once.\n* `repeat' tac` recursively applies `tac` to each goal.\n* `first | tac1 | tac2` implements the backtracking used by `repeat`\n</code>",
+ "67": "<code>Complex.ofReal_pow (r : ℝ) (n : ℕ) : ↑(r ^ n) = ↑r ^ n</code>",
+ "66":
+ "<code class=\"docstring\">Apply congruence (recursively) to goals of the form `⊢ f as = f bs` and `⊢ f as ≍ f bs`.\nThe optional parameter is the depth of the recursive applications.\nThis is useful when `congr` is too aggressive in breaking down the goal.\nFor example, given `⊢ f (g (x + y)) = f (g (y + x))`,\n`congr` produces the goals `⊢ x = y` and `⊢ y = x`,\nwhile `congr 2` produces the intended `⊢ x + y = y + x`.\n</code>",
+ "65":
+ "<code>HPow.hPow.{u, v, w} {α : Type u} {β : Type v} {γ : outParam (Type w)} [self : HPow α β γ] : α → β → γ</code><span class=\"sep\"></span><code class=\"docstring\">`a ^ b` computes `a` to the power of `b`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `^` in identifiers is `pow`.</code>",
+ "64": "<code>ℕ</code>",
  "63":
  "<code>Complex.conj_inv (x : ℂ) : (starRingEnd ℂ) x⁻¹ = ((starRingEnd ℂ) x)⁻¹</code>",
  "62":

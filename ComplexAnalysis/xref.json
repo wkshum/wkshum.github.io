@@ -14,6 +14,59 @@
         "number": null},
        {"title": "Next Steps", "shortTitle": null, "number": "2"}]},
      "address": "/Next-Steps/"}],
+   "MAT3253-Complex-Variables--Chapter-1___3-Complex-conjugate-and-modulus--DeMoivre___s-formula":
+   [{"id":
+     "MAT3253-Complex-Variables--Chapter-1___3-Complex-conjugate-and-modulus--DeMoivre___s-formula",
+     "data":
+     {"title": "DeMoivre's formula",
+      "shortTitle": null,
+      "sectionNum": "1.3.",
+      "context":
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
+       {"title": "Chapter 1.3 Complex conjugate and modulus",
+        "shortTitle": null,
+        "number": "1"},
+       {"title": "DeMoivre's formula", "shortTitle": null, "number": "3"}]},
+     "address":
+     "/Chapter-1___3-Complex-conjugate-and-modulus/DeMoivre___s-formula/"}],
+   "MAT3253-Complex-Variables--Chapter-1___3-Complex-conjugate-and-modulus--Complex-conjugate":
+   [{"id":
+     "MAT3253-Complex-Variables--Chapter-1___3-Complex-conjugate-and-modulus--Complex-conjugate",
+     "data":
+     {"title": "Complex conjugate",
+      "shortTitle": null,
+      "sectionNum": "1.1.",
+      "context":
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
+       {"title": "Chapter 1.3 Complex conjugate and modulus",
+        "shortTitle": null,
+        "number": "1"},
+       {"title": "Complex conjugate", "shortTitle": null, "number": "1"}]},
+     "address":
+     "/Chapter-1___3-Complex-conjugate-and-modulus/Complex-conjugate/"}],
+   "MAT3253-Complex-Variables--Chapter-1___3-Complex-conjugate-and-modulus--Absolute-value-___-Modulus":
+   [{"id":
+     "MAT3253-Complex-Variables--Chapter-1___3-Complex-conjugate-and-modulus--Absolute-value-___-Modulus",
+     "data":
+     {"title": "Absolute value / Modulus",
+      "shortTitle": null,
+      "sectionNum": "1.2.",
+      "context":
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
+       {"title": "Chapter 1.3 Complex conjugate and modulus",
+        "shortTitle": null,
+        "number": "1"},
+       {"title": "Absolute value / Modulus",
+        "shortTitle": null,
+        "number": "2"}]},
+     "address":
+     "/Chapter-1___3-Complex-conjugate-and-modulus/Absolute-value-___-Modulus/"}],
    "MAT3253-Complex-Variables--Chapter-1___3-Complex-conjugate-and-modulus":
    [{"id":
      "MAT3253-Complex-Variables--Chapter-1___3-Complex-conjugate-and-modulus",
@@ -47,30 +100,36 @@
   {"conj_mul_conj":
    [{"id": "conj_mul_conj",
      "data":
-     {"/Chapter-1___3-Complex-conjugate-and-modulus/#conj_mul_conj":
+     {"/Chapter-1___3-Complex-conjugate-and-modulus/Complex-conjugate/#conj_mul_conj":
       {"display": "conj_mul_conj",
        "context":
        ["MAT3253 Complex Variables",
-        "Chapter 1.3 Complex conjugate and modulus"]}},
-     "address": "/Chapter-1___3-Complex-conjugate-and-modulus/"}],
+        "Chapter 1.3 Complex conjugate and modulus",
+        "Complex conjugate"]}},
+     "address":
+     "/Chapter-1___3-Complex-conjugate-and-modulus/Complex-conjugate/"}],
    "conj_conj":
    [{"id": "conj_conj",
      "data":
-     {"/Chapter-1___3-Complex-conjugate-and-modulus/#conj_conj":
+     {"/Chapter-1___3-Complex-conjugate-and-modulus/Complex-conjugate/#conj_conj":
       {"display": "conj_conj",
        "context":
        ["MAT3253 Complex Variables",
-        "Chapter 1.3 Complex conjugate and modulus"]}},
-     "address": "/Chapter-1___3-Complex-conjugate-and-modulus/"}],
+        "Chapter 1.3 Complex conjugate and modulus",
+        "Complex conjugate"]}},
+     "address":
+     "/Chapter-1___3-Complex-conjugate-and-modulus/Complex-conjugate/"}],
    "conj_add_conj":
    [{"id": "conj_add_conj",
      "data":
-     {"/Chapter-1___3-Complex-conjugate-and-modulus/#conj_add_conj":
+     {"/Chapter-1___3-Complex-conjugate-and-modulus/Complex-conjugate/#conj_add_conj":
       {"display": "conj_add_conj",
        "context":
        ["MAT3253 Complex Variables",
-        "Chapter 1.3 Complex conjugate and modulus"]}},
-     "address": "/Chapter-1___3-Complex-conjugate-and-modulus/"}]}},
+        "Chapter 1.3 Complex conjugate and modulus",
+        "Complex conjugate"]}},
+     "address":
+     "/Chapter-1___3-Complex-conjugate-and-modulus/Complex-conjugate/"}]}},
  "Verso.Genre.Manual.doc.tech":
  {"title": "Terminology",
   "description": "Definitions of technical terms",
