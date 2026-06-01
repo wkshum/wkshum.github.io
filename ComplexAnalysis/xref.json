@@ -2,18 +2,21 @@
  {"title": "Sections or chapters of the manual",
   "description": null,
   "contents":
-  {"MAT3253-Complex-Variables--Next-Steps":
-   [{"id": "MAT3253-Complex-Variables--Next-Steps",
+  {"MAT3253-Complex-Variables--Chapter-1___4-Polar-form-and-DeMoivre-theorem":
+   [{"id":
+     "MAT3253-Complex-Variables--Chapter-1___4-Polar-form-and-DeMoivre-theorem",
      "data":
-     {"title": "Next Steps",
+     {"title": "Chapter 1.4 Polar form and DeMoivre theorem",
       "shortTitle": null,
       "sectionNum": "2.",
       "context":
       [{"title": "MAT3253 Complex Variables",
         "shortTitle": null,
         "number": null},
-       {"title": "Next Steps", "shortTitle": null, "number": "2"}]},
-     "address": "/Next-Steps/"}],
+       {"title": "Chapter 1.4 Polar form and DeMoivre theorem",
+        "shortTitle": null,
+        "number": "2"}]},
+     "address": "/Chapter-1___4-Polar-form-and-DeMoivre-theorem/"}],
    "MAT3253-Complex-Variables--Chapter-1___3-Complex-conjugate-and-modulus--Complex-conjugate":
    [{"id":
      "MAT3253-Complex-Variables--Chapter-1___3-Complex-conjugate-and-modulus--Complex-conjugate",
