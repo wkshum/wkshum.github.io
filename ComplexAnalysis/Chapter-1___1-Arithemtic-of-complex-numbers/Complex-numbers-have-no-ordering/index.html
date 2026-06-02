@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      (function(){
+  const {protocol:proto, host:hostName, pathname:path, search:srch, hash:hsh} = window.location;
+  if (!(path.endsWith("/") || path.endsWith(".html"))) {
+    window.location.replace(`${proto}//${hostName}${path}/${srch}${hsh}`);
+  }
+})()</script>
+    <base href="./../../"><meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>Complex numbers have no ordering</title><link rel="stylesheet" href="book.css">
+    <link rel="stylesheet" href="verso-vars.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js" integrity="sha384-zbcZAIxlvJtNE3Dp5nxLXdXtXyxwOdnILY1TDPVmKFhl4r4nSUG1r8bcFXGVa4Te" crossorigin="anonymous"></script>
+    <script src="-verso-search/elasticlunr.min.js"></script>
+    <script src="-verso-search/fuzzysort.min.js"></script>
+    <script src="-verso-search/searchIndex.js"></script>
+    <script type="module" src="-verso-search/search-init.js"></script>
+    <link rel="stylesheet" href="-verso-search/search-box.css">
+    <link rel="stylesheet" href="-verso-search/search-highlight.css">
+    <link rel="stylesheet" href="-verso-search/domain-display.css">
+    <script src="-verso-data/katex/katex.js"></script>
+    <script src="-verso-data/katex/math.js"></script>
+    <script src="-verso-data/popper.min.js"></script>
+    <script src="-verso-data/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="-verso-data/tippy-border.css">
+    <link rel="stylesheet" href="-verso-data/katex/katex.css">
+    <style>
+
+.hl.lean {
+  white-space: pre;
+  font-weight: normal;
+  font-style: normal;
+  font-size: inherit;
+}
+
+.hl.lean .keyword {
+  color: var(--verso-code-keyword-color,);
+  font-weight: var(--verso-code-keyword-weight, bold);
+  font-style: var(--verso-code-keyword-style, normal);
+  font-family: var(--verso-code-keyword-font-family,);
+}
+
+.hl.lean .const {
+  color: var(--verso-code-const-color,);
+  font-weight: var(--verso-code-const-weight, normal);
+  font-style: var(--verso-code-const-style, normal);
+  font-family: var(--verso-code-const-font-family,);
+}
+
+.hl.lean .var {
+  color: var(--verso-code-var-color,);
+  font-weight: var(--verso-code-var-weight, normal);
+  font-style: var(--verso-code-var-style, italic);
+  font-family: var(--verso-code-var-font-family,);
+
+  position: relative;
+}
+
+.hl.lean .literal, .hl.lean .unknown {
+  color: var(--verso-code-color,);
+  font-weight: normal;
+  font-style: normal;
+  font-family: var(--verso-code-font-family,);
+}
+
+.hover-container {
+  width: 0;
+  height: 0;
+  position: relative;
+  display: inline;
+}
+
+.hl.lean a {
+  color: inherit;
+  text-decoration: currentcolor underline dotted;
+}
+
+.hl.lean a:hover {
+  text-decoration: currentcolor underline solid;
+}
+
+.hl.lean .hover-info {
+  white-space: normal;
+}
+
+.hl.lean .token .hover-info {
+  display: none;
+  position: absolute;
+  background-color: #e5e5e5;
+  border: 1px solid black;
+  padding: 0.5rem;
+  z-index: 300;
+}
+
+.hl.lean .hover-info.messages {
+  max-height: 10rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+  padding: 0 0.5rem 0 0;
+  display: block;
+}
+
+.hl.lean .hover-info code {
+  white-space: pre-wrap;
+  background: none;
+  color: black;
+}
+
+.hl.lean .hover-info.messages > code {
+  padding: 0.5rem;
+  display: block;
+  width: fit-content;
+}
+
+.hl.lean .hover-info.messages > code:only-child {
+  margin: 0;
+}
+
+.hl.lean .hover-info.messages > code {
+  margin: 0.1rem;
+}
+
+.hl.lean .hover-info.messages > code:not(:first-child) {
+  margin-top: 0rem;
+}
+
+.hl.lean {
+}
+
+.hl.lean.block {
+  display: block;
+}
+
+.hl.lean.inline {
+  display: inline;
+  white-space: pre-wrap;
+}
+
+.hl.lean * {
+}
+
+.hl.lean .token {
+  transition: all 0.25s; /* Slight fade for highlights */
+}
+
+@media (hover: hover) {
+  .hl.lean .token.binding-hl, .hl.lean .literal.string:hover, .hl.lean .token.typed:hover {
+    background-color: #eee;
+    border-radius: 2px;
+    transition: none;
+  }
+}
+
+
+.hl.lean .has-info .token:not(.tactic-state):not(.tactic-state *), .hl.lean .has-info .inter-text:not(.tactic-state):not(.tactic-state *) {
+  text-decoration-style: wavy;
+  text-decoration-line: underline;
+  text-decoration-thickness: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.hl.lean .has-info .hover-info {
+  display: none;
+  position: absolute;
+  transform: translate(0.25rem, 0.3rem);
+  border: 1px solid black;
+  padding: 0.5rem;
+  z-index: 400;
+  text-align: left;
+}
+
+.hl.lean .has-info.error :not(.tactic-state):not(.tactic-state *){
+  text-decoration-color: red;
+}
+
+@media (hover: hover) {
+  .hl.lean .has-info.error:hover {
+    background-color: #ffb3b3;
+  }
+}
+
+.hl.lean .hover-info.messages > code.error {
+  background-color: #e5e5e5;
+  border-left: 0.2rem solid #ffb3b3;
+}
+
+.tippy-box[data-theme~='error'] .hl.lean .hover-info.messages > code.error {
+  background: none;
+  border: none;
+}
+
+.error .verso-message, .error .verso-message .token, .error .verso-message label {
+  color: var(--verso-error-color);
+}
+
+.error .verso-message .case-label:has(input[type="checkbox"])::before {
+  background-color: var(--verso-error-color) !important;
+}
+
+.hl.lean .has-info.warning :not(.tactic-state):not(.tactic-state *) {
+  text-decoration-color: var(--verso-warning-indicator-color);
+}
+
+@media (hover: hover) {
+  .hl.lean .has-info.warning:hover {
+    background-color:var(--verso-warning-color);
+  }
+}
+
+.hl.lean .hover-info.messages > code.warning {
+  background-color: var(--verso-warning-color);
+}
+
+.lean-output {
+  border-left: 0.2em solid transparent;
+  padding: 0 0 0 0.5em;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.lean-output.error {
+  border-color: var(--verso-error-indicator-color);
+}
+
+.lean-output.information {
+  border-color: var(--verso-info-indicator-color);
+}
+
+.lean-output.warning {
+  border-color: var(--verso-warning-indicator-color);
+}
+
+.hl.lean .hover-info.messages > code.error {
+  background-color: #e5e5e5;
+  border-left: 0.2rem solid var(--verso-warning-color);
+}
+
+.tippy-box[data-theme~='warning'] .hl.lean .hover-info.messages > code.warning {
+  background: none;
+  border: none;
+}
+
+
+.hl.lean .has-info.information :not(.tactic-state):not(.tactic-state *) {
+  text-decoration-color: var(--verso-info-indicator-color, blue);
+}
+
+@media (hover: hover) {
+  .hl.lean .has-info.information:hover {
+    background-color: #4777ff;
+  }
+}
+
+
+.hl.lean .hover-info.messages > code.information {
+  background-color: #e5e5e5;
+  border-left: 0.2rem solid #4777ff;
+}
+
+.tippy-box[data-theme~='info'] .hl.lean .hover-info.messages > code.information {
+  background: none;
+  border: none;
+}
+
+.hl.lean div.docstring {
+  font-family: var(--verso-text-font-family, sans-serif);
+  white-space: normal;
+  max-width: calc(min(40rem, 90vw));
+  width: max-content;
+}
+
+.hl.lean div.docstring > :last-child {
+  margin-bottom: 0;
+}
+
+.hl.lean div.docstring > :first-child {
+  margin-top: 0;
+}
+
+.hl.lean .hover-info .sep {
+  display: block;
+  width: auto;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0;
+  height: 1px;
+  border-top: 1px solid #ccc;
+}
+
+.hl.lean code {
+  font-family: var(--verso-code-font-family);
+}
+
+.hl.lean .tactic-state {
+  display: none;
+  position: relative;
+  width: fit-content;
+  border: 1px solid #888888;
+  border-radius: 0.1rem;
+  padding: 0.5rem;
+  font-family: sans-serif;
+  background-color: #ffffff;
+}
+
+.hl.lean.popup .tactic-state {
+  position: static;
+  display: block;
+  width: auto;
+  border: none;
+  padding: 0.5rem;
+  font-family: sans-serif;
+  background-color: #ffffff;
+}
+
+
+.hl.lean .tactic {
+  position: relative;
+  display: inline;
+  vertical-align: top;
+  /* Without these, mobile Safari will start making font sizes inconsistent when its text size adjustment feature is triggered.*/
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+.hl.lean .tactic:has(.tactic-toggle:checked) {
+  display: inline-grid;
+  grid-template-columns: 1fr;
+}
+
+.hl.lean .tactic-toggle:checked ~ .tactic-state {
+  display: inline-block;
+  vertical-align: top;
+  grid-row: 2;
+  justify-self: start;
+}
+
+.hl.lean .tactic > label {
+  position: relative;
+  grid-row: 1;
+  display: inline;
+}
+
+@media (hover: hover) {
+  .hl.lean .tactic:has(.tactic-toggle:not(:checked)) > label:hover {
+    background-color: #eeeeee;
+  }
+}
+
+.hl.lean .tactic-toggle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  z-index: -10;
+}
+
+.hl.lean .tactic > label::after {
+  content: "";
+  border: 1px solid #bbbbbb;
+  /* These need to be em, not rem, to scale with the font */
+  border-radius: 1em;
+  height: 0.25em;
+  vertical-align: middle;
+  width: 0.6em;
+  margin-left: 0.1em;
+  margin-right: 0.1em;
+  display: inline-block;
+  transition: all 0.5s;
+}
+
+/*
+@media (hover: hover) {
+  .hl.lean .tactic > label:hover::after {
+    border: 1px solid #aaaaaa;
+    background-color: #aaaaaa;
+    transition: all 0.5s;
+  }
+}
+*/
+
+.hl.lean .tactic > label:has(+ .tactic-toggle:checked)::after {
+  border: 1px solid #999999;
+  background-color: #999999;
+  transition: all 0.5s;
+}
+
+.hl.lean .tactic-state .goal + .goal {
+  margin-top: 1.5em;
+}
+
+/*
+Some CSS frameworks customize details/summary in ways not compatible with Verso's output.
+*/
+
+.hl.lean details {
+  display: block !important;
+  margin: 0;
+}
+
+.hl.lean details summary {
+  display: list-item !important;
+  margin: 0;
+}
+
+.hl.lean details summary:focus {
+  outline: none;
+  outline-offset: none;
+  color: inherit;
+}
+
+.hl.lean ul > li {
+  margin-bottom: 0;
+}
+
+.hl.lean details summary::marker {
+  display: inline !important;
+}
+
+.hl.lean details > summary:first-of-type {
+  list-style-type: disclosure-closed;
+  list-style-position: inside;
+}
+
+.hl.lean details[open] > summary:first-of-type {
+  list-style-type: disclosure-open;
+}
+
+.hl.lean details summary::before, .hl.lean details summary::after {
+  content: "" !important;
+  background: none;
+  display: none;
+}
+
+.hl.lean .tactic-state summary {
+  /* These need to be em, not rem, to scale with the font */
+  margin-left: -0.5em;
+}
+
+.hl.lean .tactic-state details {
+  /* These need to be em, not rem, to scale with the font */
+  padding-left: 0.5em;
+}
+
+.hl.lean .case-label {
+  display: block;
+  position: relative;
+}
+
+.hl.lean .case-label input[type="checkbox"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  z-index: -10;
+}
+
+.hl.lean .case-label:has(input[type="checkbox"])::before {
+  display: inline-block;
+  background-color: black;
+  content: ' ';
+  transition: ease 0.2s;
+  margin-right: 0.7em;
+  clip-path: polygon(100% 0, 0 0, 50% 100%);
+  width: 0.6em;
+  height: 0.6em;
+  vertical-align: middle;
+}
+
+.hl.lean .case-label:has(input[type="checkbox"]:not(:checked))::before {
+  transform: rotate(-90deg);
+}
+
+.hl.lean .case-label:has(input[type="checkbox"]) {
+
+}
+
+.hl.lean .case-label:has(input[type="checkbox"]:checked) {
+
+}
+
+
+.hl.lean .labeled-case > :not(:first-child) {
+  max-height: 0px;
+  display: block;
+  overflow: hidden;
+  transition: max-height 0.1s ease-in;
+  /* These need to be em, not rem, to scale with the font */
+  margin-left: 0.5em;
+  margin-top: 0.1em;
+}
+
+.hl.lean .labeled-case:has(.case-label input[type="checkbox"]:checked) > :not(:first-child) {
+  max-height: 100%;
+}
+
+
+.hl.lean .goal-name::before {
+  font-style: normal;
+  content: "case ";
+}
+
+.hl.lean .goal-name {
+  font-style: italic;
+  font-family: var(--verso-code-font-family);
+  color: inherit;
+}
+
+.hl.lean .hypotheses {
+  display: table;
+}
+
+.hl.lean .hypothesis {
+  display: table-row;
+}
+
+.hl.lean .hypothesis > * {
+  display: table-cell;
+}
+
+
+.hl.lean .hypotheses .colon {
+  text-align: center;
+  /* This needs to be em, not rem, to scale with the font */
+  min-width: 1em;
+}
+
+.hl.lean .hypotheses .name {
+  text-align: right;
+}
+
+.hl.lean .hypotheses .name,
+.hl.lean .hypotheses .type,
+.hl.lean .conclusion .type {
+  font-family: var(--verso-code-font-family);
+}
+
+.tippy-box {
+  /* Without these, mobile Safari will start making font sizes inconsistent when its text size adjustment feature is triggered.*/
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+.tippy-box[data-theme~='lean'] {
+  background-color: #e5e5e5;
+  color: black;
+  border: 1px solid black;
+}
+.tippy-box[data-theme~='lean'][data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: #e5e5e5;
+}
+.tippy-box[data-theme~='lean'][data-placement^='bottom'] > .tippy-arrow::before {
+  border-bottom-color: #e5e5e5;
+}
+.tippy-box[data-theme~='lean'][data-placement^='left'] > .tippy-arrow::before {
+  border-left-color: #e5e5e5;
+}
+.tippy-box[data-theme~='lean'][data-placement^='right'] > .tippy-arrow::before {
+  border-right-color: #e5e5e5;
+}
+
+.tippy-box[data-theme~='message'][data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: #e5e5e5;
+  border-width: 11px 11px 0;
+}
+.tippy-box[data-theme~='message'][data-placement^='top'] > .tippy-arrow::after {
+  bottom: -11px;
+  border-width: 11px 11px 0;
+}
+.tippy-box[data-theme~='message'][data-placement^='bottom'] > .tippy-arrow::before {
+  border-width: 0 11px 11px;
+}
+.tippy-box[data-theme~='message'][data-placement^='bottom'] > .tippy-arrow::after {
+  top: -11px;
+  border-width: 0 11px 11px;
+}
+.tippy-box[data-theme~='message'][data-placement^='left'] > .tippy-arrow::before {
+  border-left-color: #e5e5e5;
+  border-width: 11px 0 11px 11px;
+}
+.tippy-box[data-theme~='message'][data-placement^='left'] > .tippy-arrow::after {
+  right: -11px;
+  border-width: 11px 0 11px 11px;
+}
+
+.tippy-box[data-theme~='message'][data-placement^='right'] > .tippy-arrow::before {
+  border-right-color: #e5e5e5;
+  border-width: 11px 11px 11px 0;
+}
+.tippy-box[data-theme~='message'][data-placement^='right'] > .tippy-arrow::after {
+  left: -11px;
+  border-width: 11px 11px 11px 0;
+}
+
+
+
+.tippy-box[data-theme~='warning'] {
+  background-color: #e5e5e5;
+  color: black;
+  border: 3px solid var(--verso-warning-color);
+}
+
+.tippy-box[data-theme~='error'] {
+  background-color: #e5e5e5;
+  color: black;
+  border: 3px solid #f7a7af;
+}
+
+.tippy-box[data-theme~='info'] {
+  background-color: #e5e5e5;
+  color: black;
+  border: 3px solid #99b3c2;
+}
+
+.tippy-box[data-theme~='tactic'] {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+.tippy-box[data-theme~='tactic'][data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: white;
+}
+.tippy-box[data-theme~='tactic'][data-placement^='bottom'] > .tippy-arrow::before {
+  border-bottom-color: white;
+}
+.tippy-box[data-theme~='tactic'][data-placement^='left'] > .tippy-arrow::before {
+  border-left-color: white;
+}
+.tippy-box[data-theme~='tactic'][data-placement^='right'] > .tippy-arrow::before {
+  border-right-color: white;
+}
+
+.extra-doc-links {
+  list-style-type: none;
+  margin-left: 0;
+  padding: 0;
+}
+
+.extra-doc-links > li {
+  display: inline-block;
+}
+
+.extra-doc-links > li:not(:last-child)::after {
+  content: '|';
+  display: inline-block;
+  margin: 0 0.25em;
+}
+
+.verso-message .trace {
+  display: block;
+}
+
+.verso-message .trace > summary::marker {
+  color: var(--verso-text-color);
+}
+
+.verso-message .trace-children {
+  margin: 0;
+  padding: 0;
+}
+
+.verso-message .trace-children > li {
+  list-style-type: none;
+  margin-left: 1.5em;
+}
+
+.verso-message .trace-children > li:not(:has(.trace)) {
+  margin-left: 0;
+}
+
+.verso-message .trace-class {
+  color: color-mix(in srgb, currentColor 70%, transparent);
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.verso-message .text {
+  white-space: pre-wrap;
+}
+
+</style><script>
+      
+window.onload = () => {
+
+    // Don't show hovers inside of closed tactic states
+    function blockedByTactic(elem) {
+      let parent = elem.parentNode;
+      while (parent && "classList" in parent) {
+        if (parent.classList.contains("tactic")) {
+          const toggle = parent.querySelector("input.tactic-toggle");
+          if (toggle) {
+            return !toggle.checked;
+          }
+        }
+        parent = parent.parentNode;
+      }
+      return false;
+    }
+
+    // Track whether any tippy is visible (O(1) check instead of DOM scan)
+    let visibleTippyCount = 0;
+    function blockedByTippy(elem) {
+      return visibleTippyCount > 0;
+    }
+
+    // Binding highlights via event delegation with cached lookups
+    const bindingCache = new Map(); // context+binding -> [token elements]
+    let highlightedTokens = [];
+    function getBindingTokens(context, binding) {
+      const key = context + "\0" + binding;
+      let tokens = bindingCache.get(key);
+      if (!tokens) {
+        tokens = [];
+        for (const example of document.querySelectorAll(".hl.lean")) {
+          if (example.dataset.leanContext == context) {
+            for (const tok of example.querySelectorAll(".token[data-binding=\"" + CSS.escape(binding) + "\"]")) {
+              tokens.push(tok);
+            }
+          }
+        }
+        bindingCache.set(key, tokens);
+      }
+      return tokens;
+    }
+    for (const container of document.querySelectorAll(".hl.lean")) {
+      container.addEventListener("mouseover", (event) => {
+        const c = event.target.closest(".token");
+        if (!c || !c.dataset.binding || c.dataset.binding === "" || !container.contains(c)) return;
+        if (blockedByTactic(c)) return;
+        const tokens = getBindingTokens(container.dataset.leanContext, c.dataset.binding);
+        for (const tok of tokens) {
+          tok.classList.add("binding-hl");
+        }
+        highlightedTokens = tokens;
+      });
+      container.addEventListener("mouseout", (event) => {
+        const c = event.target.closest(".token");
+        if (!c || !container.contains(c)) return;
+        for (const tok of highlightedTokens) {
+          tok.classList.remove("binding-hl");
+        }
+        highlightedTokens = [];
+      });
+    }
+    /* Render docstrings */
+    if ('undefined' !== typeof marked) {
+        for (const d of document.querySelectorAll("code.docstring, pre.docstring")) {
+            const str = d.innerText;
+            const html = marked.parse(str);
+            const rendered = document.createElement("div");
+            rendered.classList.add("docstring");
+            rendered.innerHTML = html;
+            d.parentNode.replaceChild(rendered, d);
+        }
+    }
+    // Add hovers
+    let docsJson = "-verso-docs.json";
+    fetch(docsJson).then((resp) => resp.json()).then((versoDocData) => {
+
+      function hideParentTooltips(element) {
+        let parent = element.parentElement;
+        while (parent) {
+          const tippyInstance = parent._tippy;
+          if (tippyInstance) {
+            tippyInstance.hide();
+          }
+          parent = parent.parentElement;
+        }
+      }
+
+
+
+      const defaultTippyProps = {
+        /* DEBUG -- remove the space: * /
+        onHide(any) { return false; },
+        trigger: "click",
+        // */
+        /* theme: "lean", */
+        maxWidth: "none",
+        appendTo: () => document.body,
+        interactive: true,
+        delay: [100, null],
+        /* ignoreAttributes: true, */
+        followCursor: 'initial',
+        onShow(inst) {
+          if (inst.reference.className == 'tactic') {
+            const toggle = inst.reference.querySelector("input.tactic-toggle");
+            if (toggle && toggle.checked) {
+              return false;
+            }
+            hideParentTooltips(inst.reference);
+            if (blockedByTippy(inst.reference)) { return false; }
+
+          } else if (inst.reference.querySelector(".hover-info") || "versoHover" in inst.reference.dataset) {
+            if (blockedByTactic(inst.reference)) { return false };
+            if (blockedByTippy(inst.reference)) { return false; }
+          } else { // Nothing to show here!
+            return false;
+          }
+        },
+        onShown(inst) { visibleTippyCount++; },
+        onHidden(inst) { visibleTippyCount = Math.max(0, visibleTippyCount - 1); },
+        content (tgt) {
+          const content = document.createElement("span");
+          if (tgt.className == 'tactic') {
+            const state = tgt.querySelector(".tactic-state").cloneNode(true);
+            state.style.display = "block";
+            content.appendChild(state);
+            content.style.display = "block";
+            content.className = "hl lean popup";
+          } else {
+            content.className = "hl lean";
+            content.style.display = "block";
+            content.style.maxHeight = "300px";
+            content.style.overflowY = "auto";
+            content.style.overflowX = "hidden";
+            const hoverId = tgt.dataset.versoHover;
+            const hoverInfo = tgt.querySelector(".hover-info");
+            if (hoverId) { // Docstrings from the table
+              // TODO stop doing an implicit conversion from string to number here
+              let data = versoDocData[hoverId];
+              if (data) {
+                const info = document.createElement("span");
+                info.className = "hover-info";
+                info.style.display = "block";
+                info.innerHTML = data;
+                content.appendChild(info);
+                /* Render docstrings - TODO server-side */
+                if ('undefined' !== typeof marked) {
+                    for (const d of content.querySelectorAll("code.docstring, pre.docstring")) {
+                        const str = d.innerText;
+                        const html = marked.parse(str);
+                        const rendered = document.createElement("div");
+                        rendered.classList.add("docstring");
+                        rendered.innerHTML = html;
+                        d.parentNode.replaceChild(rendered, d);
+                    }
+                }
+              } else {
+                content.innerHTML = "Failed to load doc ID: " + hoverId;
+              }
+            } else if (hoverInfo) { // The inline info, still used for compiler messages
+              content.appendChild(hoverInfo.cloneNode(true));
+            }
+            const extraLinks = tgt.parentElement.dataset['versoLinks'];
+            if (extraLinks) {
+              try {
+                const extras = JSON.parse(extraLinks);
+                const links = document.createElement('ul');
+                links.className = 'extra-doc-links';
+                extras.forEach((l) => {
+                  const li = document.createElement('li');
+                  li.innerHTML = "<a href=\"" + l['href'] + "\" title=\"" + l.long + "\">" + l.short + "</a>";
+                  links.appendChild(li);
+                });
+                content.appendChild(links);
+              } catch (error) {
+                console.error(error);
+              }
+            }
+          }
+          return content;
+        }
+      };
+
+
+      document.querySelectorAll('.hl.lean .const.token, .hl.lean .keyword.token, .hl.lean .literal.token, .hl.lean .option.token, .hl.lean .var.token, .hl.lean .typed.token, .hl.lean .level-var, .hl.lean .level-const, .hl.lean .level-op, .hl.lean .sort').forEach(element => {
+        element.setAttribute('data-tippy-theme', 'lean');
+      });
+      document.querySelectorAll('.hl.lean .has-info.warning').forEach(element => {
+        element.setAttribute('data-tippy-theme', 'warning message');
+      });
+      document.querySelectorAll('.hl.lean .has-info.information').forEach(element => {
+        element.setAttribute('data-tippy-theme', 'info message');
+      });
+      document.querySelectorAll('.hl.lean .has-info.error').forEach(element => {
+        element.setAttribute('data-tippy-theme', 'error message');
+      });
+      document.querySelectorAll('.hl.lean .tactic').forEach(element => {
+        element.setAttribute('data-tippy-theme', 'tactic');
+      });
+      // Skip tokens inside closed tactics — they interfere with tactic tippys
+      const closedTactics = new Set();
+      document.querySelectorAll('.hl.lean .tactic').forEach(tactic => {
+        const toggle = tactic.querySelector('input.tactic-toggle');
+        if (toggle && !toggle.checked) closedTactics.add(tactic);
+      });
+      function isInsideClosedTactic(el) {
+        const tactic = el.closest('.tactic');
+        return tactic && tactic !== el && closedTactics.has(tactic);
+      }
+
+      const tokenSelector = '.hl.lean .const.token, .hl.lean .keyword.token, .hl.lean .literal.token, .hl.lean .option.token, .hl.lean .var.token, .hl.lean .typed.token, .hl.lean .has-info, .hl.lean .tactic, .hl.lean .level-var, .hl.lean .level-const, .hl.lean .level-op, .hl.lean .sort';
+      tippy(Array.from(document.querySelectorAll(tokenSelector)).filter(el => !isInsideClosedTactic(el)), defaultTippyProps);
+
+      // Create/destroy token tippys when tactic checkbox toggles
+      const tacticTippySelector = '.const.token, .keyword.token, .literal.token, .option.token, .var.token, .typed.token, .has-info, .level-var, .level-const, .level-op, .sort';
+      document.querySelectorAll('.hl.lean .tactic').forEach(tactic => {
+        const toggle = tactic.querySelector('input.tactic-toggle');
+        if (toggle) toggle.addEventListener('change', () => {
+          if (toggle.checked) {
+            closedTactics.delete(tactic);
+            tactic.querySelectorAll('.token').forEach(tok => {
+              if (!tok._tippy && tok.matches(tacticTippySelector)) {
+                tippy(tok, defaultTippyProps);
+              }
+            });
+          } else {
+            closedTactics.add(tactic);
+            tactic.querySelectorAll('.token').forEach(tok => {
+              if (tok._tippy) tok._tippy.destroy();
+            });
+          }
+        });
+      });
+  });
+}
+</script>
+    <script src="-verso-search/search-highlight.js" defer="defer"></script>
+    </head>
+  <body>
+    <header>
+      <div class="header-logo-wrapper"></div>
+      <div class="header-title-wrapper">
+        <a href="" class="header-title"><h1>
+            MAT3253 Complex Variables</h1>
+          </a></div>
+      </header>
+    <label for="toggle-toc" id="toggle-toc-click"><span class="line line1"></span><span class="line line2"></span><span class="line line3"></span></label><div class="with-toc">
+      <div class="toc-backdrop" onclick="document.getElementById('toggle-toc-click')?.click()"></div>
+      <nav id="toc">
+        <input type="checkbox" id="toggle-toc"><div class="first">
+          <a href="" class="toc-title"><h1>
+              MAT3253 Complex Variables</h1>
+            </a><div class="split-tocs">
+            <div class="split-toc book">
+              <div class="title">
+                <label for="--verso-manual-toc-----bookRoot" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-----bookRoot"></label><span class="">Table of Contents</span></div>
+              <table><tr class="current numbered"><td class="num">1.</td><td><a href="Chapter-1___1-Arithemtic-of-complex-numbers/#MAT3253-Complex-Variables--Chapter-1___1-Arithemtic-of-complex-numbers">Chapter 1.1 Arithemtic of complex numbers</a></td></tr><tr class="numbered"><td class="num">2.</td><td><a href="Chapter-1___3-Complex-conjugate-and-modulus/#MAT3253-Complex-Variables--Chapter-1___3-Complex-conjugate-and-modulus">Chapter 1.3 Complex conjugate and modulus</a></td></tr><tr class="numbered"><td class="num">3.</td><td><a href="Chapter-1___4-Polar-form-and-DeMoivre-theorem/#MAT3253-Complex-Variables--Chapter-1___4-Polar-form-and-DeMoivre-theorem">Chapter 1.4 Polar form and DeMoivre theorem</a></td></tr></table></div>
+            <div class="split-toc">
+              <div class="title">
+                <label for="--verso-manual-toc-MAT3253-Complex-Variables--Chapter-1___1-Arithemtic-of-complex-numbers" class="toggle-split-toc"><input type="checkbox" class="toggle-split-toc" id="--verso-manual-toc-MAT3253-Complex-Variables--Chapter-1___1-Arithemtic-of-complex-numbers" checked="checked"></label><span class="number">1.</span> <span class=""><a href="Chapter-1___1-Arithemtic-of-complex-numbers/#MAT3253-Complex-Variables--Chapter-1___1-Arithemtic-of-complex-numbers">Chapter 1.1 Arithemtic of complex numbers</a></span></div>
+              <table><tr class="numbered"><td class="num">1.1.</td><td><a href="Chapter-1___1-Arithemtic-of-complex-numbers/Data-structure-for-complex-numbers/#MAT3253-Complex-Variables--Chapter-1___1-Arithemtic-of-complex-numbers--Data-structure-for-complex-numbers">Data structure for complex numbers</a></td></tr><tr class="numbered"><td class="num">1.2.</td><td><a href="Chapter-1___1-Arithemtic-of-complex-numbers/Linear-equation-in-complex-numbers/#MAT3253-Complex-Variables--Chapter-1___1-Arithemtic-of-complex-numbers--Linear-equation-in-complex-numbers">Linear equation in complex numbers</a></td></tr><tr class="numbered"><td class="num">1.3.</td><td><a href="Chapter-1___1-Arithemtic-of-complex-numbers/Cardano-equation/#MAT3253-Complex-Variables--Chapter-1___1-Arithemtic-of-complex-numbers--Cardano-equation">Cardano equation</a></td></tr><tr class="current numbered"><td class="num">1.4.</td><td><a href="Chapter-1___1-Arithemtic-of-complex-numbers/Complex-numbers-have-no-ordering/#MAT3253-Complex-Variables--Chapter-1___1-Arithemtic-of-complex-numbers--Complex-numbers-have-no-ordering">Complex numbers have no ordering</a></td></tr></table></div>
+            <div class="split-toc">
+              <div class="title">
+                <span class="no-toggle"></span><span class="number">1.4.</span> <span class="current"><a href="Chapter-1___1-Arithemtic-of-complex-numbers/Complex-numbers-have-no-ordering/#MAT3253-Complex-Variables--Chapter-1___1-Arithemtic-of-complex-numbers--Complex-numbers-have-no-ordering">Complex numbers have no ordering</a></span></div>
+              </div>
+            </div>
+          </div>
+        <div class="last"></div>
+        </nav>
+      <main><div class="content-wrapper">
+          <nav class="prev-next-buttons">
+            <a class="local-button active" href="Chapter-1___1-Arithemtic-of-complex-numbers/Cardano-equation/#MAT3253-Complex-Variables--Chapter-1___1-Arithemtic-of-complex-numbers--Cardano-equation" rel="prev" title="1.3. Cardano equation"><span class="arrow">←</span><span class="where">1.3. Cardano equation</span></a><a class="local-button active" href="Chapter-1___3-Complex-conjugate-and-modulus/#MAT3253-Complex-Variables--Chapter-1___3-Complex-conjugate-and-modulus" rel="next" title="2. Chapter 1.3 Complex conjugate and modulus"><span class="where">2. Chapter 1.3 Complex conjugate and modulus</span><span class="arrow">→</span></a></nav>
+          <section>
+            <h1>
+              1.4. Complex numbers have no ordering<span class="permalink-widget inline"><a href="find/?domain=Verso.Genre.Manual.section&amp;name=MAT3253-Complex-Variables--Chapter-1___1-Arithemtic-of-complex-numbers--Complex-numbers-have-no-ordering" title="Permalink">🔗</a></span></h1>
+            <p>
+              The complex numbers cannot be given a linear order that is
+compatible with its field structure.</p>
+            <p>
+              Recall that a <em>linear order</em> is a total order that satisfies:
+for any a,b, either a ≤ b or b ≤ a.</p>
+            <p>
+              A <em>strict ordered ring</em> is a ring that satisfies:</p>
+            <ul>
+              <li>
+                <p>
+                  if a &lt; b, then a + c &lt; b + c for any c,</p>
+                </li>
+              <li>
+                <p>
+                  if a &lt; b and c &gt; 0, then ac &lt; bc.</p>
+                </li>
+              </ul>
+            <code class="hl lean block" data-lean-context="examples"><span class="has-info information"><span class="hover-container"><span class="hover-info messages"><code class="verso-message information"><span class="text"></span><span class="highlighted"><span class="inter-text"></span><span class="const token" data-binding="const-LinearOrder" data-verso-hover="99">LinearOrder.{u_2}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_pp_uniq.1" data-verso-hover="100">α</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059" data-verso-hover="101">Type u_2</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059" data-verso-hover="101">Type u_2</span></span></code></span></span><span class="keyword token" data-binding="kw-occ-Lean.Parser.Command.check-7431">#check</span></span><span class="inter-text"> </span><span class="const token" data-binding="const-LinearOrder" data-verso-hover="99">LinearOrder</span><span class="inter-text">
+</span><span class="has-info information"><span class="hover-container"><span class="hover-info messages"><code class="verso-message information"><span class="text"></span><span class="highlighted"><span class="inter-text"></span><span class="const token" data-binding="const-IsStrictOrderedRing" data-verso-hover="102">IsStrictOrderedRing.{u_1}</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_pp_uniq.1" data-verso-hover="103">R</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-7243200735919010059" data-verso-hover="101">Type u_1</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">[</span><span class="const token" data-binding="const-Semiring" data-verso-hover="104">Semiring</span><span class="inter-text"> </span><span class="var token" data-binding="var-_pp_uniq.1" data-verso-hover="103">R</span><span class="unknown token" data-binding="">]</span><span class="inter-text"> </span><span class="unknown token" data-binding="">[</span><span class="const token" data-binding="const-PartialOrder" data-verso-hover="105">PartialOrder</span><span class="inter-text"> </span><span class="var token" data-binding="var-_pp_uniq.1" data-verso-hover="103">R</span><span class="unknown token" data-binding="">]</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="sort token" data-binding="sort-14430969920833713138" data-verso-hover="20">Prop</span></span></code></span></span><span class="keyword token" data-binding="kw-occ-Lean.Parser.Command.check-7450">#check</span></span><span class="inter-text"> </span><span class="const token" data-binding="const-IsStrictOrderedRing" data-verso-hover="102">IsStrictOrderedRing</span><span class="inter-text">
+
+</span><span class="doc-comment token" data-binding="">/--
+Prove that the complex numbers cannot be given a
+linear order that is compatible with its field structure.
+-/</span><span class="inter-text">
+</span><span class="keyword token" data-binding="kw-occ-Lean.Parser.Command.theorem-7592">theorem</span><span class="inter-text"> </span><span class="const token" data-binding="const-not_linearOrderedField_complex" data-verso-hover="106" id="not_linearOrderedField_complex">not_linearOrderedField_complex</span><span class="inter-text">
+  </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.3" data-verso-hover="107">h1</span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-LinearOrder" data-verso-hover="99">LinearOrder</span><span class="inter-text"> </span><span class="unknown token" data-binding="">ℂ</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="var token" data-binding="var-_uniq.194" data-verso-hover="108">h2</span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="const token" data-binding="const-IsStrictOrderedRing" data-verso-hover="102">IsStrictOrderedRing</span><span class="inter-text"> </span><span class="unknown token" data-binding="">ℂ</span><span class="unknown token" data-binding="">)</span><span class="inter-text">
+    </span><span class="unknown token" data-binding="">:</span><span class="inter-text">  </span><span class="const token" data-binding="const-False" data-verso-hover="109">False</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text"> </span><span class="tactic"><label for="tactic-state-1254585030628114252-7701-7703-213"><span class="keyword token" data-binding="kw-occ-Lean.Parser.Term.byTactic-7701" data-verso-hover="6">by</span></label><input type="checkbox" class="tactic-toggle" id="tactic-state-1254585030628114252-7701-7703-213"><span class="tactic-state"><span class="goal"><span class="hypotheses"><span class="hypothesis"><span class="name"><span class="var token" data-binding="var-_uniq.3" data-verso-hover="107">h1</span></span><span class="colon">:</span><span class="type"><span class="inter-text"></span><span class="const token" data-binding="const-LinearOrder" data-verso-hover="99">LinearOrder</span><span class="inter-text"> </span><span class="const token" data-binding="const-Complex" data-verso-hover="45">ℂ</span></span></span><span class="hypothesis"><span class="name"><span class="var token" data-binding="var-_uniq.194" data-verso-hover="108">h2</span></span><span class="colon">:</span><span class="type"><span class="inter-text"></span><span class="const token" data-binding="const-IsStrictOrderedRing" data-verso-hover="102">IsStrictOrderedRing</span><span class="inter-text"> </span><span class="const token" data-binding="const-Complex" data-verso-hover="45">ℂ</span></span></span></span><span class="conclusion"><span class="prefix">⊢ </span><span class="type"><span class="inter-text"></span><span class="const token" data-binding="const-False" data-verso-hover="109">False</span><span class="inter-text"></span></span></span></span></span></span><span class="inter-text">
+
+  -- In a linear ordered ring, every square is ≥ 0.
+  </span><span class="keyword token" data-binding="kw-occ-Lean.Parser.Tactic.tacticHave__-7761" data-verso-hover="25">have</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.451" data-verso-hover="110">h0_le_I_sq</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="typed token" data-binding="" data-verso-hover="11">0</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">ℂ</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">≤</span><span class="inter-text"> </span><span class="const token" data-binding="const-Complex.I" data-verso-hover="12">I</span><span class="inter-text"> </span><span class="unknown token" data-binding="">*</span><span class="inter-text"> </span><span class="const token" data-binding="const-Complex.I" data-verso-hover="12">I</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text"> </span><span class="tactic"><label for="tactic-state-1254585030628114252-7802-7804-215"><span class="keyword token" data-binding="kw-occ-Lean.Parser.Term.byTactic-7802" data-verso-hover="6">by</span></label><input type="checkbox" class="tactic-toggle" id="tactic-state-1254585030628114252-7802-7804-215"><span class="tactic-state"><span class="goal"><span class="hypotheses"><span class="hypothesis"><span class="name"><span class="var token" data-binding="var-_uniq.3" data-verso-hover="107">h1</span></span><span class="colon">:</span><span class="type"><span class="inter-text"></span><span class="const token" data-binding="const-LinearOrder" data-verso-hover="99">LinearOrder</span><span class="inter-text"> </span><span class="const token" data-binding="const-Complex" data-verso-hover="45">ℂ</span></span></span><span class="hypothesis"><span class="name"><span class="var token" data-binding="var-_uniq.194" data-verso-hover="108">h2</span></span><span class="colon">:</span><span class="type"><span class="inter-text"></span><span class="const token" data-binding="const-IsStrictOrderedRing" data-verso-hover="102">IsStrictOrderedRing</span><span class="inter-text"> </span><span class="const token" data-binding="const-Complex" data-verso-hover="45">ℂ</span></span></span></span><span class="conclusion"><span class="prefix">⊢ </span><span class="type"><span class="inter-text"></span><span class="const token" data-binding="const-False" data-verso-hover="109">False</span><span class="inter-text"></span></span></span></span></span></span><span class="inter-text">
+    -- `mul_self_nonneg` says `0 ≤ x * x`
+    -- in any linear ordered ring.
+    </span><span class="tactic"><label for="tactic-state-7-7888-7919-217"><span class="keyword token" data-binding="kw-occ-Lean.Parser.Tactic.simpa-7888" data-verso-hover="72">simpa</span><span class="inter-text"> </span><span class="keyword token" data-binding="kw-occ-null-7894">using</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="const token" data-binding="const-mul_self_nonneg" data-verso-hover="111">mul_self_nonneg</span><span class="inter-text"> </span><span class="const token" data-binding="const-Complex.I" data-verso-hover="12">I</span><span class="unknown token" data-binding="">)</span></label><input type="checkbox" class="tactic-toggle" id="tactic-state-7-7888-7919-217"><span class="tactic-state">All goals completed! 🐙</span></span><span class="inter-text">
+
+  -- But in ℂ we know `I * I = -1`.
+  </span><span class="keyword token" data-binding="kw-occ-Lean.Parser.Tactic.tacticHave__-7961" data-verso-hover="25">have</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.6326" data-verso-hover="112">h0_le_neg1</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="typed token" data-binding="" data-verso-hover="11">0</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">ℂ</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">≤</span><span class="inter-text"> </span><span class="unknown token" data-binding="">-</span><span class="typed token" data-binding="" data-verso-hover="11">1</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text"> </span><span class="tactic"><label for="tactic-state-1254585030628114252-7999-8001-218"><span class="keyword token" data-binding="kw-occ-Lean.Parser.Term.byTactic-7999" data-verso-hover="6">by</span></label><input type="checkbox" class="tactic-toggle" id="tactic-state-1254585030628114252-7999-8001-218"><span class="tactic-state"><span class="goal"><span class="hypotheses"><span class="hypothesis"><span class="name"><span class="var token" data-binding="var-_uniq.3" data-verso-hover="107">h1</span></span><span class="colon">:</span><span class="type"><span class="inter-text"></span><span class="const token" data-binding="const-LinearOrder" data-verso-hover="99">LinearOrder</span><span class="inter-text"> </span><span class="const token" data-binding="const-Complex" data-verso-hover="45">ℂ</span></span></span><span class="hypothesis"><span class="name"><span class="var token" data-binding="var-_uniq.194" data-verso-hover="108">h2</span></span><span class="colon">:</span><span class="type"><span class="inter-text"></span><span class="const token" data-binding="const-IsStrictOrderedRing" data-verso-hover="102">IsStrictOrderedRing</span><span class="inter-text"> </span><span class="const token" data-binding="const-Complex" data-verso-hover="45">ℂ</span></span></span></span><span class="conclusion"><span class="prefix">⊢ </span><span class="type"><span class="inter-text"></span><span class="const token" data-binding="const-False" data-verso-hover="109">False</span><span class="inter-text"></span></span></span></span></span></span><span class="inter-text">
+    </span><span class="tactic"><label for="tactic-state-7-8006-8038-220"><span class="keyword token" data-binding="kw-occ-Lean.Parser.Tactic.simpa-8006" data-verso-hover="72">simpa</span><span class="inter-text"> </span><span class="unknown token" data-binding="">[</span><span class="const token" data-binding="const-Complex.I_mul_I" data-verso-hover="34">I_mul_I</span><span class="unknown token" data-binding="">]</span><span class="inter-text"> </span><span class="keyword token" data-binding="kw-occ-null-8022">using</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.451" data-verso-hover="110">h0_le_I_sq</span></label><input type="checkbox" class="tactic-toggle" id="tactic-state-7-8006-8038-220"><span class="tactic-state">All goals completed! 🐙</span></span><span class="inter-text">
+
+  -- Add 1 to both sides: 0 + 1 ≤ -1 + 1, so 1 ≤ 0.
+  </span><span class="keyword token" data-binding="kw-occ-Lean.Parser.Tactic.tacticHave__-8098" data-verso-hover="25">have</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.11471" data-verso-hover="113">h1_le_0</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="typed token" data-binding="" data-verso-hover="11">1</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">ℂ</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">≤</span><span class="inter-text"> </span><span class="typed token" data-binding="" data-verso-hover="11">0</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text"> </span><span class="tactic"><label for="tactic-state-1254585030628114252-8132-8134-221"><span class="keyword token" data-binding="kw-occ-Lean.Parser.Term.byTactic-8132" data-verso-hover="6">by</span></label><input type="checkbox" class="tactic-toggle" id="tactic-state-1254585030628114252-8132-8134-221"><span class="tactic-state"><span class="goal"><span class="hypotheses"><span class="hypothesis"><span class="name"><span class="var token" data-binding="var-_uniq.3" data-verso-hover="107">h1</span></span><span class="colon">:</span><span class="type"><span class="inter-text"></span><span class="const token" data-binding="const-LinearOrder" data-verso-hover="99">LinearOrder</span><span class="inter-text"> </span><span class="const token" data-binding="const-Complex" data-verso-hover="45">ℂ</span></span></span><span class="hypothesis"><span class="name"><span class="var token" data-binding="var-_uniq.194" data-verso-hover="108">h2</span></span><span class="colon">:</span><span class="type"><span class="inter-text"></span><span class="const token" data-binding="const-IsStrictOrderedRing" data-verso-hover="102">IsStrictOrderedRing</span><span class="inter-text"> </span><span class="const token" data-binding="const-Complex" data-verso-hover="45">ℂ</span></span></span></span><span class="conclusion"><span class="prefix">⊢ </span><span class="type"><span class="inter-text"></span><span class="const token" data-binding="const-False" data-verso-hover="109">False</span><span class="inter-text"></span></span></span></span></span></span><span class="inter-text">
+    </span><span class="tactic"><label for="tactic-state-2383812390684376623-8139-8176-223"><span class="keyword token" data-binding="kw-occ-Lean.Parser.Tactic.tacticHave__-8139" data-verso-hover="25">have</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text"> </span><span class="const token" data-binding="const-add_le_add_right" data-verso-hover="114">add_le_add_right</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.6326" data-verso-hover="112">h0_le_neg1</span><span class="inter-text"> </span><span class="typed token" data-binding="" data-verso-hover="11">1</span></label><input type="checkbox" class="tactic-toggle" id="tactic-state-2383812390684376623-8139-8176-223"><span class="tactic-state"><span class="goal"><span class="hypotheses"><span class="hypothesis"><span class="name"><span class="var token" data-binding="var-_uniq.3" data-verso-hover="107">h1</span></span><span class="colon">:</span><span class="type"><span class="inter-text"></span><span class="const token" data-binding="const-LinearOrder" data-verso-hover="99">LinearOrder</span><span class="inter-text"> </span><span class="const token" data-binding="const-Complex" data-verso-hover="45">ℂ</span></span></span><span class="hypothesis"><span class="name"><span class="var token" data-binding="var-_uniq.194" data-verso-hover="108">h2</span></span><span class="colon">:</span><span class="type"><span class="inter-text"></span><span class="const token" data-binding="const-IsStrictOrderedRing" data-verso-hover="102">IsStrictOrderedRing</span><span class="inter-text"> </span><span class="const token" data-binding="const-Complex" data-verso-hover="45">ℂ</span></span></span><span class="hypothesis"><span class="name"><span class="var token" data-binding="var-_uniq.451" data-verso-hover="110">h0_le_I_sq</span></span><span class="colon">:</span><span class="type"><span class="inter-text"></span><span class="unknown token" data-binding="">0</span><span class="inter-text"> </span><span class="const token" data-binding="const-LE.le" data-verso-hover="115">≤</span><span class="inter-text"> </span><span class="const token" data-binding="const-Complex.I" data-verso-hover="12">I</span><span class="inter-text"> </span><span class="const token" data-binding="const-HMul.hMul" data-verso-hover="15">*</span><span class="inter-text"> </span><span class="const token" data-binding="const-Complex.I" data-verso-hover="12">I</span></span></span><span class="hypothesis"><span class="name"><span class="var token" data-binding="var-_uniq.6326" data-verso-hover="112">h0_le_neg1</span></span><span class="colon">:</span><span class="type"><span class="inter-text"></span><span class="unknown token" data-binding="">0</span><span class="inter-text"> </span><span class="const token" data-binding="const-LE.le" data-verso-hover="115">≤</span><span class="inter-text"> </span><span class="unknown token" data-binding="">-</span><span class="unknown token" data-binding="">1</span></span></span><span class="hypothesis"><span class="name"><span class="var token" data-binding="var-_uniq.11564" data-verso-hover="116">this</span></span><span class="colon">:</span><span class="type"><span class="inter-text"></span><span class="unknown token" data-binding="">1</span><span class="inter-text"> </span><span class="const token" data-binding="const-HAdd.hAdd" data-verso-hover="31">+</span><span class="inter-text"> </span><span class="unknown token" data-binding="">0</span><span class="inter-text"> </span><span class="const token" data-binding="const-LE.le" data-verso-hover="115">≤</span><span class="inter-text"> </span><span class="unknown token" data-binding="">1</span><span class="inter-text"> </span><span class="const token" data-binding="const-HAdd.hAdd" data-verso-hover="31">+</span><span class="inter-text"> </span><span class="unknown token" data-binding="">-</span><span class="unknown token" data-binding="">1</span></span></span></span><span class="conclusion"><span class="prefix">⊢ </span><span class="type"><span class="inter-text"></span><span class="unknown token" data-binding="">1</span><span class="inter-text"> </span><span class="const token" data-binding="const-LE.le" data-verso-hover="115">≤</span><span class="inter-text"> </span><span class="unknown token" data-binding="">0</span></span></span></span></span></span><span class="inter-text">
+    -- Simplify both sides.
+    </span><span class="tactic"><label for="tactic-state-7-8209-8262-225"><span class="keyword token" data-binding="kw-occ-Lean.Parser.Tactic.simpa-8209" data-verso-hover="72">simpa</span><span class="inter-text"> </span><span class="unknown token" data-binding="">[</span><span class="const token" data-binding="const-add_comm" data-verso-hover="117">add_comm</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="const token" data-binding="const-add_left_comm" data-verso-hover="118">add_left_comm</span><span class="unknown token" data-binding="">,</span><span class="inter-text"> </span><span class="const token" data-binding="const-add_assoc" data-verso-hover="119">add_assoc</span><span class="unknown token" data-binding="">]</span><span class="inter-text"> </span><span class="keyword token" data-binding="kw-occ-null-8252">using</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.11564" data-verso-hover="116">this</span></label><input type="checkbox" class="tactic-toggle" id="tactic-state-7-8209-8262-225"><span class="tactic-state">All goals completed! 🐙</span></span><span class="inter-text">
+
+  -- In a linear ordered ring we must have 0 &lt; 1.
+  </span><span class="keyword token" data-binding="kw-occ-Lean.Parser.Tactic.tacticHave__-8316" data-verso-hover="25">have</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.16164" data-verso-hover="120">h0_lt_1</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="typed token" data-binding="" data-verso-hover="11">0</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">ℂ</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">&lt;</span><span class="inter-text"> </span><span class="typed token" data-binding="" data-verso-hover="11">1</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text"> </span><span class="tactic"><label for="tactic-state-1254585030628114252-8348-8350-226"><span class="keyword token" data-binding="kw-occ-Lean.Parser.Term.byTactic-8348" data-verso-hover="6">by</span></label><input type="checkbox" class="tactic-toggle" id="tactic-state-1254585030628114252-8348-8350-226"><span class="tactic-state"><span class="goal"><span class="hypotheses"><span class="hypothesis"><span class="name"><span class="var token" data-binding="var-_uniq.3" data-verso-hover="107">h1</span></span><span class="colon">:</span><span class="type"><span class="inter-text"></span><span class="const token" data-binding="const-LinearOrder" data-verso-hover="99">LinearOrder</span><span class="inter-text"> </span><span class="const token" data-binding="const-Complex" data-verso-hover="45">ℂ</span></span></span><span class="hypothesis"><span class="name"><span class="var token" data-binding="var-_uniq.194" data-verso-hover="108">h2</span></span><span class="colon">:</span><span class="type"><span class="inter-text"></span><span class="const token" data-binding="const-IsStrictOrderedRing" data-verso-hover="102">IsStrictOrderedRing</span><span class="inter-text"> </span><span class="const token" data-binding="const-Complex" data-verso-hover="45">ℂ</span></span></span></span><span class="conclusion"><span class="prefix">⊢ </span><span class="type"><span class="inter-text"></span><span class="const token" data-binding="const-False" data-verso-hover="109">False</span><span class="inter-text"></span></span></span></span></span></span><span class="inter-text"> </span><span class="tactic"><label for="tactic-state-7-8351-8359-228"><span class="keyword token" data-binding="kw-occ-Mathlib.Tactic.normNum-8351" data-verso-hover="16">norm_num</span></label><input type="checkbox" class="tactic-toggle" id="tactic-state-7-8351-8359-228"><span class="tactic-state">All goals completed! 🐙</span></span><span class="inter-text">
+
+  -- Combining: 1 &lt; 1, contradiction.
+  </span><span class="tactic"><label for="tactic-state-18162727344310931252-8401-8453-229"><span class="keyword token" data-binding="kw-occ-Lean.Parser.Tactic.tacticHave__-8401" data-verso-hover="25">have</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:</span><span class="inter-text"> </span><span class="unknown token" data-binding="">(</span><span class="typed token" data-binding="" data-verso-hover="11">1</span><span class="unknown token" data-binding="">:</span><span class="unknown token" data-binding="">ℂ</span><span class="unknown token" data-binding="">)</span><span class="inter-text"> </span><span class="unknown token" data-binding="">&lt;</span><span class="inter-text"> </span><span class="typed token" data-binding="" data-verso-hover="11">1</span><span class="inter-text"> </span><span class="unknown token" data-binding="">:=</span><span class="inter-text"> </span><span class="const token" data-binding="const-lt_of_le_of_lt" data-verso-hover="121">lt_of_le_of_lt</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.11471" data-verso-hover="113">h1_le_0</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.16164" data-verso-hover="120">h0_lt_1</span></label><input type="checkbox" class="tactic-toggle" id="tactic-state-18162727344310931252-8401-8453-229"><span class="tactic-state"><span class="goal"><span class="hypotheses"><span class="hypothesis"><span class="name"><span class="var token" data-binding="var-_uniq.3" data-verso-hover="107">h1</span></span><span class="colon">:</span><span class="type"><span class="inter-text"></span><span class="const token" data-binding="const-LinearOrder" data-verso-hover="99">LinearOrder</span><span class="inter-text"> </span><span class="const token" data-binding="const-Complex" data-verso-hover="45">ℂ</span></span></span><span class="hypothesis"><span class="name"><span class="var token" data-binding="var-_uniq.194" data-verso-hover="108">h2</span></span><span class="colon">:</span><span class="type"><span class="inter-text"></span><span class="const token" data-binding="const-IsStrictOrderedRing" data-verso-hover="102">IsStrictOrderedRing</span><span class="inter-text"> </span><span class="const token" data-binding="const-Complex" data-verso-hover="45">ℂ</span></span></span><span class="hypothesis"><span class="name"><span class="var token" data-binding="var-_uniq.451" data-verso-hover="110">h0_le_I_sq</span></span><span class="colon">:</span><span class="type"><span class="inter-text"></span><span class="unknown token" data-binding="">0</span><span class="inter-text"> </span><span class="const token" data-binding="const-LE.le" data-verso-hover="115">≤</span><span class="inter-text"> </span><span class="const token" data-binding="const-Complex.I" data-verso-hover="12">I</span><span class="inter-text"> </span><span class="const token" data-binding="const-HMul.hMul" data-verso-hover="15">*</span><span class="inter-text"> </span><span class="const token" data-binding="const-Complex.I" data-verso-hover="12">I</span></span></span><span class="hypothesis"><span class="name"><span class="var token" data-binding="var-_uniq.6326" data-verso-hover="112">h0_le_neg1</span></span><span class="colon">:</span><span class="type"><span class="inter-text"></span><span class="unknown token" data-binding="">0</span><span class="inter-text"> </span><span class="const token" data-binding="const-LE.le" data-verso-hover="115">≤</span><span class="inter-text"> </span><span class="unknown token" data-binding="">-</span><span class="unknown token" data-binding="">1</span></span></span><span class="hypothesis"><span class="name"><span class="var token" data-binding="var-_uniq.11471" data-verso-hover="113">h1_le_0</span></span><span class="colon">:</span><span class="type"><span class="inter-text"></span><span class="unknown token" data-binding="">1</span><span class="inter-text"> </span><span class="const token" data-binding="const-LE.le" data-verso-hover="115">≤</span><span class="inter-text"> </span><span class="unknown token" data-binding="">0</span></span></span><span class="hypothesis"><span class="name"><span class="var token" data-binding="var-_uniq.16164" data-verso-hover="120">h0_lt_1</span></span><span class="colon">:</span><span class="type"><span class="inter-text"></span><span class="unknown token" data-binding="">0</span><span class="inter-text"> </span><span class="const token" data-binding="const-LT.lt" data-verso-hover="122">&lt;</span><span class="inter-text"> </span><span class="unknown token" data-binding="">1</span></span></span><span class="hypothesis"><span class="name"><span class="var token" data-binding="var-_uniq.16842" data-verso-hover="123">this</span></span><span class="colon">:</span><span class="type"><span class="inter-text"></span><span class="unknown token" data-binding="">1</span><span class="inter-text"> </span><span class="const token" data-binding="const-LT.lt" data-verso-hover="122">&lt;</span><span class="inter-text"> </span><span class="unknown token" data-binding="">1</span></span></span></span><span class="conclusion"><span class="prefix">⊢ </span><span class="type"><span class="inter-text"></span><span class="const token" data-binding="const-False" data-verso-hover="109">False</span><span class="inter-text"></span></span></span></span></span></span><span class="inter-text">
+  </span><span class="tactic"><label for="tactic-state-7-8456-8478-231"><span class="keyword token" data-binding="kw-occ-Lean.Parser.Tactic.exact-8456" data-verso-hover="76">exact</span><span class="inter-text"> </span><span class="const token" data-binding="const-lt_irrefl" data-verso-hover="124">lt_irrefl</span><span class="inter-text"> </span><span class="typed token" data-binding="" data-verso-hover="11">1</span><span class="inter-text"> </span><span class="var token" data-binding="var-_uniq.16842" data-verso-hover="123">this</span></label><input type="checkbox" class="tactic-toggle" id="tactic-state-7-8456-8478-231"><span class="tactic-state">All goals completed! 🐙</span></span><span class="inter-text">
+</span><span class="unknown token" data-binding=""></span></code></section>
+          <nav class="prev-next-buttons">
+            <a class="local-button active" href="Chapter-1___1-Arithemtic-of-complex-numbers/Cardano-equation/#MAT3253-Complex-Variables--Chapter-1___1-Arithemtic-of-complex-numbers--Cardano-equation" rel="prev" title="1.3. Cardano equation"><span class="arrow">←</span><span class="where">1.3. Cardano equation</span></a><a class="local-button active" href="Chapter-1___3-Complex-conjugate-and-modulus/#MAT3253-Complex-Variables--Chapter-1___3-Complex-conjugate-and-modulus" rel="next" title="2. Chapter 1.3 Complex conjugate and modulus"><span class="where">2. Chapter 1.3 Complex conjugate and modulus</span><span class="arrow">→</span></a></nav>
+          </div>
+        </main></div>
+    </body>
+  </html>
+
