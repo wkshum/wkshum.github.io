@@ -101,6 +101,23 @@
         "shortTitle": null,
         "number": "2"}]},
      "address": "/Chapter-1___3-Complex-conjugate-and-modulus/"}],
+   "MAT3253-Complex-Variables--Chapter-1___1-Arithemtic-of-complex-numbers--n-th-root-of-unity":
+   [{"id":
+     "MAT3253-Complex-Variables--Chapter-1___1-Arithemtic-of-complex-numbers--n-th-root-of-unity",
+     "data":
+     {"title": "n-th root of unity",
+      "shortTitle": null,
+      "sectionNum": "1.5.",
+      "context":
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
+       {"title": "Chapter 1.1 Arithemtic of complex numbers",
+        "shortTitle": null,
+        "number": "1"},
+       {"title": "n-th root of unity", "shortTitle": null, "number": "5"}]},
+     "address":
+     "/Chapter-1___1-Arithemtic-of-complex-numbers/n-th-root-of-unity/"}],
    "MAT3253-Complex-Variables--Chapter-1___1-Arithemtic-of-complex-numbers--Linear-equation-in-complex-numbers":
    [{"id":
      "MAT3253-Complex-Variables--Chapter-1___1-Arithemtic-of-complex-numbers--Linear-equation-in-complex-numbers",
