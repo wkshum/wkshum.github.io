@@ -2,7 +2,25 @@
  {"title": "Sections or chapters of the manual",
   "description": null,
   "contents":
-  {"MAT3253-Complex-Variables--Chapter-2___7-Stereographic-projection":
+  {"MAT3253-Complex-Variables--Chapter-7___3-Differentiation-rules-and-differentiation-at-the-point-at-infinity":
+   [{"id":
+     "MAT3253-Complex-Variables--Chapter-7___3-Differentiation-rules-and-differentiation-at-the-point-at-infinity",
+     "data":
+     {"title":
+      "Chapter 7.3 Differentiation rules and differentiation at the point at infinity",
+      "shortTitle": null,
+      "sectionNum": "5.",
+      "context":
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
+       {"title":
+        "Chapter 7.3 Differentiation rules and differentiation at the point at infinity",
+        "shortTitle": null,
+        "number": "5"}]},
+     "address":
+     "/Chapter-7___3-Differentiation-rules-and-differentiation-at-the-point-at-infinity/"}],
+   "MAT3253-Complex-Variables--Chapter-2___7-Stereographic-projection":
    [{"id": "MAT3253-Complex-Variables--Chapter-2___7-Stereographic-projection",
      "data":
      {"title": "Chapter 2.7 Stereographic projection",
@@ -121,7 +139,7 @@
      "data":
      {"title": "n-th root of unity",
       "shortTitle": null,
-      "sectionNum": "1.5.",
+      "sectionNum": "1.6.",
       "context":
       [{"title": "MAT3253 Complex Variables",
         "shortTitle": null,
@@ -129,9 +147,26 @@
        {"title": "Chapter 1.1 Arithemtic of complex numbers",
         "shortTitle": null,
         "number": "1"},
-       {"title": "n-th root of unity", "shortTitle": null, "number": "5"}]},
+       {"title": "n-th root of unity", "shortTitle": null, "number": "6"}]},
      "address":
      "/Chapter-1___1-Arithemtic-of-complex-numbers/n-th-root-of-unity/"}],
+   "MAT3253-Complex-Variables--Chapter-1___1-Arithemtic-of-complex-numbers--Quadratic-equation":
+   [{"id":
+     "MAT3253-Complex-Variables--Chapter-1___1-Arithemtic-of-complex-numbers--Quadratic-equation",
+     "data":
+     {"title": "Quadratic equation",
+      "shortTitle": null,
+      "sectionNum": "1.4.",
+      "context":
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
+       {"title": "Chapter 1.1 Arithemtic of complex numbers",
+        "shortTitle": null,
+        "number": "1"},
+       {"title": "Quadratic equation", "shortTitle": null, "number": "4"}]},
+     "address":
+     "/Chapter-1___1-Arithemtic-of-complex-numbers/Quadratic-equation/"}],
    "MAT3253-Complex-Variables--Chapter-1___1-Arithemtic-of-complex-numbers--Linear-equation-in-complex-numbers":
    [{"id":
      "MAT3253-Complex-Variables--Chapter-1___1-Arithemtic-of-complex-numbers--Linear-equation-in-complex-numbers",
@@ -176,7 +211,7 @@
      "data":
      {"title": "Complex numbers have no ordering",
       "shortTitle": null,
-      "sectionNum": "1.4.",
+      "sectionNum": "1.5.",
       "context":
       [{"title": "MAT3253 Complex Variables",
         "shortTitle": null,
@@ -186,7 +221,7 @@
         "number": "1"},
        {"title": "Complex numbers have no ordering",
         "shortTitle": null,
-        "number": "4"}]},
+        "number": "5"}]},
      "address":
      "/Chapter-1___1-Arithemtic-of-complex-numbers/Complex-numbers-have-no-ordering/"}],
    "MAT3253-Complex-Variables--Chapter-1___1-Arithemtic-of-complex-numbers--Cardano-equation":
@@ -227,14 +262,14 @@
      "data":
      {"title": "Chapter 12.3 Sequence of holomorphic functions",
       "shortTitle": null,
-      "sectionNum": "5.",
+      "sectionNum": "6.",
       "context":
       [{"title": "MAT3253 Complex Variables",
         "shortTitle": null,
         "number": null},
        {"title": "Chapter 12.3 Sequence of holomorphic functions",
         "shortTitle": null,
-        "number": "5"}]},
+        "number": "6"}]},
      "address": "/Chapter-12___3-Sequence-of-holomorphic-functions/"}],
    "MAT3253-Complex-Variables":
    [{"id": "MAT3253-Complex-Variables",
@@ -289,6 +324,28 @@
        "context":
        ["MAT3253 Complex Variables", "Chapter 2.7 Stereographic projection"]}},
      "address": "/Chapter-2___7-Stereographic-projection/"}],
+   "solve_square_eq_constant":
+   [{"id": "solve_square_eq_constant",
+     "data":
+     {"/Chapter-1___1-Arithemtic-of-complex-numbers/Quadratic-equation/#solve_square_eq_constant":
+      {"display": "solve_square_eq_constant",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 1.1 Arithemtic of complex numbers",
+        "Quadratic equation"]}},
+     "address":
+     "/Chapter-1___1-Arithemtic-of-complex-numbers/Quadratic-equation/"}],
+   "solve_quadratic_equation":
+   [{"id": "solve_quadratic_equation",
+     "data":
+     {"/Chapter-1___1-Arithemtic-of-complex-numbers/Quadratic-equation/#solve_quadratic_equation":
+      {"display": "solve_quadratic_equation",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 1.1 Arithemtic of complex numbers",
+        "Quadratic equation"]}},
+     "address":
+     "/Chapter-1___1-Arithemtic-of-complex-numbers/Quadratic-equation/"}],
    "polar_mul'":
    [{"id": "polar_mul___",
      "data":
@@ -393,6 +450,36 @@
         "Complex conjugate"]}},
      "address":
      "/Chapter-1___3-Complex-conjugate-and-modulus/Complex-conjugate/"}],
+   "complex_lhopital_zero_zero'":
+   [{"id": "complex_lhopital_zero_zero___",
+     "data":
+     {"/Chapter-7___3-Differentiation-rules-and-differentiation-at-the-point-at-infinity/#complex_lhopital_zero_zero___":
+      {"display": "complex_lhopital_zero_zero'",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 7.3 Differentiation rules and differentiation at the point at infinity"]}},
+     "address":
+     "/Chapter-7___3-Differentiation-rules-and-differentiation-at-the-point-at-infinity/"}],
+   "complex_lhopital_zero_zero":
+   [{"id": "complex_lhopital_zero_zero",
+     "data":
+     {"/Chapter-7___3-Differentiation-rules-and-differentiation-at-the-point-at-infinity/#complex_lhopital_zero_zero":
+      {"display": "complex_lhopital_zero_zero",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 7.3 Differentiation rules and differentiation at the point at infinity"]}},
+     "address":
+     "/Chapter-7___3-Differentiation-rules-and-differentiation-at-the-point-at-infinity/"}],
+   "complex_lhopital_infinity_infinity":
+   [{"id": "complex_lhopital_infinity_infinity",
+     "data":
+     {"/Chapter-7___3-Differentiation-rules-and-differentiation-at-the-point-at-infinity/#complex_lhopital_infinity_infinity":
+      {"display": "complex_lhopital_infinity_infinity",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 7.3 Differentiation rules and differentiation at the point at infinity"]}},
+     "address":
+     "/Chapter-7___3-Differentiation-rules-and-differentiation-at-the-point-at-infinity/"}],
    "compact_implies_locallyUniform":
    [{"id": "compact_implies_locallyUniform",
      "data":
@@ -556,6 +643,26 @@
        "context":
        ["MAT3253 Complex Variables", "Chapter 2.7 Stereographic projection"]}},
      "address": "/Chapter-2___7-Stereographic-projection/"}],
+   "HasZeroOrder":
+   [{"id": "HasZeroOrder",
+     "data":
+     {"/Chapter-7___3-Differentiation-rules-and-differentiation-at-the-point-at-infinity/#HasZeroOrder":
+      {"display": "HasZeroOrder",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 7.3 Differentiation rules and differentiation at the point at infinity"]}},
+     "address":
+     "/Chapter-7___3-Differentiation-rules-and-differentiation-at-the-point-at-infinity/"}],
+   "HasDerivAtInfinity":
+   [{"id": "HasDerivAtInfinity",
+     "data":
+     {"/Chapter-7___3-Differentiation-rules-and-differentiation-at-the-point-at-infinity/#HasDerivAtInfinity":
+      {"display": "HasDerivAtInfinity",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 7.3 Differentiation rules and differentiation at the point at infinity"]}},
+     "address":
+     "/Chapter-7___3-Differentiation-rules-and-differentiation-at-the-point-at-infinity/"}],
    "DeMoivre_neg_exp":
    [{"id": "DeMoivre_neg_exp",
      "data":
