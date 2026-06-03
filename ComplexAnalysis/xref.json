@@ -221,6 +221,21 @@
         "shortTitle": null,
         "number": "1"}]},
      "address": "/Chapter-1___1-Arithemtic-of-complex-numbers/"}],
+   "MAT3253-Complex-Variables--Chapter-12___3-Sequence-of-holomorphic-functions":
+   [{"id":
+     "MAT3253-Complex-Variables--Chapter-12___3-Sequence-of-holomorphic-functions",
+     "data":
+     {"title": "Chapter 12.3 Sequence of holomorphic functions",
+      "shortTitle": null,
+      "sectionNum": "5.",
+      "context":
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
+       {"title": "Chapter 12.3 Sequence of holomorphic functions",
+        "shortTitle": null,
+        "number": "5"}]},
+     "address": "/Chapter-12___3-Sequence-of-holomorphic-functions/"}],
    "MAT3253-Complex-Variables":
    [{"id": "MAT3253-Complex-Variables",
      "data":
@@ -316,6 +331,24 @@
         "n-th root of unity"]}},
      "address":
      "/Chapter-1___1-Arithemtic-of-complex-numbers/n-th-root-of-unity/"}],
+   "locallyUniform_implies_compact":
+   [{"id": "locallyUniform_implies_compact",
+     "data":
+     {"/Chapter-12___3-Sequence-of-holomorphic-functions/#locallyUniform_implies_compact":
+      {"display": "locallyUniform_implies_compact",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 12.3 Sequence of holomorphic functions"]}},
+     "address": "/Chapter-12___3-Sequence-of-holomorphic-functions/"}],
+   "locallyUniform_iff_compact":
+   [{"id": "locallyUniform_iff_compact",
+     "data":
+     {"/Chapter-12___3-Sequence-of-holomorphic-functions/#locallyUniform_iff_compact":
+      {"display": "locallyUniform_iff_compact",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 12.3 Sequence of holomorphic functions"]}},
+     "address": "/Chapter-12___3-Sequence-of-holomorphic-functions/"}],
    "is_purely_imaginary":
    [{"id": "is_purely_imaginary",
      "data":
@@ -360,6 +393,15 @@
         "Complex conjugate"]}},
      "address":
      "/Chapter-1___3-Complex-conjugate-and-modulus/Complex-conjugate/"}],
+   "compact_implies_locallyUniform":
+   [{"id": "compact_implies_locallyUniform",
+     "data":
+     {"/Chapter-12___3-Sequence-of-holomorphic-functions/#compact_implies_locallyUniform":
+      {"display": "compact_implies_locallyUniform",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 12.3 Sequence of holomorphic functions"]}},
+     "address": "/Chapter-12___3-Sequence-of-holomorphic-functions/"}],
    "cardano2":
    [{"id": "cardano2",
      "data":
@@ -489,6 +531,15 @@
        "context":
        ["MAT3253 Complex Variables", "Chapter 2.7 Stereographic projection"]}},
      "address": "/Chapter-2___7-Stereographic-projection/"}],
+   "LocallyUniformConvergence":
+   [{"id": "LocallyUniformConvergence",
+     "data":
+     {"/Chapter-12___3-Sequence-of-holomorphic-functions/#LocallyUniformConvergence":
+      {"display": "LocallyUniformConvergence",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 12.3 Sequence of holomorphic functions"]}},
+     "address": "/Chapter-12___3-Sequence-of-holomorphic-functions/"}],
    "IsPlaneSection":
    [{"id": "IsPlaneSection",
      "data":
@@ -548,7 +599,16 @@
         "Chapter 1.4 Polar form and DeMoivre theorem",
         "DeMoivre formula"]}},
      "address":
-     "/Chapter-1___4-Polar-form-and-DeMoivre-theorem/DeMoivre-formula/"}]}},
+     "/Chapter-1___4-Polar-form-and-DeMoivre-theorem/DeMoivre-formula/"}],
+   "CompactConvergence":
+   [{"id": "CompactConvergence",
+     "data":
+     {"/Chapter-12___3-Sequence-of-holomorphic-functions/#CompactConvergence":
+      {"display": "CompactConvergence",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 12.3 Sequence of holomorphic functions"]}},
+     "address": "/Chapter-12___3-Sequence-of-holomorphic-functions/"}]}},
  "Verso.Genre.Manual.doc.tech":
  {"title": "Terminology",
   "description": "Definitions of technical terms",

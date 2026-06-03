@@ -93,16 +93,105 @@
  "<code class=\"docstring\">`exact e` closes the main goal if its target type matches that of `e`.\n</code>",
  "45":
  "<code class=\"docstring\">Applies the first constructor when\nthe goal is an inductive type with exactly two constructors, or fails otherwise.\n```\nexample : True ∨ False := by\n  left\n  trivial\n```\n</code>",
+ "442":
+ "<code>locallyUniform_iff_compact (D : Set ℂ) (hD_open : IsOpen D) (hD_nonempty : D.Nonempty) (hD_conn : IsConnected D)\n  (F : ℕ → ℂ → ℂ) (f : ℂ → ℂ) : LocallyUniformConvergence F f D ↔ CompactConvergence F f D</code><span class=\"sep\"></span><code class=\"docstring\">*Main theorem*: Locally uniform convergence and\ncompact convergence are equivalent for sequences\nof complex functions on a nonempty open connected\ndomain D ⊆ ℂ.\n</code>",
+ "441":
+ "<code>ProperSpace.isCompact_closedBall.{u} {α : Type u} {inst✝ : PseudoMetricSpace α} [self : ProperSpace α] (x : α) (r : ℝ) :\n  IsCompact (Metric.closedBall x r)</code>",
+ "440":
+ "<code>Metric.closedBall_mem_nhds.{u} {α : Type u} [PseudoMetricSpace α] (x : α) {ε : ℝ} (ε0 : 0 &lt; ε) :\n  Metric.closedBall x ε ∈ 𝓝 x</code>",
  "44":
  "<code>Not (a : Prop) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`Not p`, or `¬p`, is the negation of `p`. It is defined to be `p → False`,\nso if your goal is `¬p` you can use `intro h` to turn the goal into\n`h : p ⊢ False`, and if you have `hn : ¬p` and `h : p` then `hn h : False`\nand `(hn h).elim` will prove anything.\nFor more information: [Propositional Logic](https://lean-lang.org/theorem_proving_in_lean4/propositions_and_proofs.html#propositional-logic)\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `¬` in identifiers is `not`.</code>",
+ "439":
+ "<code>IsOpen.mem_nhds.{u} {X : Type u} [TopologicalSpace X] {x : X} {s : Set X} (hs : IsOpen s) (hx : x ∈ s) : s ∈ 𝓝 x</code>",
+ "438":
+ "<code>Filter.HasBasis.mem_iff.{u_1, u_4} {α : Type u_1} {ι : Sort u_4} {l : Filter α} {p : ι → Prop} {s : ι → Set α}\n  {t : Set α} (hl : l.HasBasis p s) : t ∈ l ↔ ∃ i, p i ∧ s i ⊆ t</code><span class=\"sep\"></span><code class=\"docstring\">Definition of `HasBasis` unfolded with implicit set argument. </code>",
+ "437":
+ "<code>Metric.nhds_basis_closedBall.{u} {α : Type u} [PseudoMetricSpace α] {x : α} :\n  (𝓝 x).HasBasis (fun ε =&gt; 0 &lt; ε) (Metric.closedBall x)</code>",
+ "436":
+ "<code>Metric.closedBall.{u} {α : Type u} [PseudoMetricSpace α] (x : α) (ε : ℝ) : Set α</code><span class=\"sep\"></span><code class=\"docstring\">`closedBall x ε` is the set of all points `y` with `dist y x ≤ ε` </code>",
+ "435": "<code>Metric.closedBall z₀ r ⊆ D</code>",
+ "434": "<code>z₀ ∈ D</code>",
+ "433": "<code>CompactConvergence F f D</code>",
+ "432":
+ "<code>compact_implies_locallyUniform (D : Set ℂ) (hD_open : IsOpen D) (hD_nonempty : D.Nonempty) (hD_conn : IsConnected D)\n  (F : ℕ → ℂ → ℂ) (f : ℂ → ℂ) (hcpt : CompactConvergence F f D) : LocallyUniformConvergence F f D</code><span class=\"sep\"></span><code class=\"docstring\">Compact convergence implies locally uniform\nconvergence for sequences of complex functions\non a nonempty open connected domain.\n</code>",
+ "431":
+ "<code>Finset.le_sup.{u_2, u_3} {α : Type u_2} {β : Type u_3} [SemilatticeSup α] [OrderBot α] {s : Finset β} {f : β → α}\n  {b : β} (hb : b ∈ s) : f b ≤ s.sup f</code>",
+ "430":
+ "<code>le_trans.{u_1} {α : Type u_1} [Preorder α] {a b c : α} : a ≤ b → b ≤ c → a ≤ c</code><span class=\"sep\"></span><code class=\"docstring\">The relation `≤` on a preorder is transitive. </code>",
  "43": "<code>¬z1 = 0</code>",
+ "429": "<code>x ∈ U z</code>",
+ "428":
+ "<code>Set.mem_iUnion₂.{u_3, u_5, u_8} {γ : Type u_3} {ι : Sort u_5} {κ : ι → Sort u_8} {x : γ} {s : (i : ι) → κ i → Set γ} :\n  x ∈ ⋃ i, ⋃ j, s i j ↔ ∃ i j, x ∈ s i j</code>",
+ "427":
+ "<code class=\"docstring\">`rcases` is a tactic that will perform `cases` recursively, according to a pattern. It is used to\ndestructure hypotheses or expressions composed of inductive types like `h1 : a ∧ b ∧ c ∨ d` or\n`h2 : ∃ x y, trans_rel R x y`. Usual usage might be `rcases h1 with ⟨ha, hb, hc⟩ | hd` or\n`rcases h2 with ⟨x, y, _ | ⟨z, hxz, hzy⟩⟩` for these examples.\n\nEach element of an `rcases` pattern is matched against a particular local hypothesis (most of which\nare generated during the execution of `rcases` and represent individual elements destructured from\nthe input expression). An `rcases` pattern has the following grammar:\n\n* A name like `x`, which names the active hypothesis as `x`.\n* A blank `_`, which does nothing (letting the automatic naming system used by `cases` name the\n  hypothesis).\n* A hyphen `-`, which clears the active hypothesis and any dependents.\n* The keyword `rfl`, which expects the hypothesis to be `h : a = b`, and calls `subst` on the\n  hypothesis (which has the effect of replacing `b` with `a` everywhere or vice versa).\n* A type ascription `p : ty`, which sets the type of the hypothesis to `ty` and then matches it\n  against `p`. (Of course, `ty` must unify with the actual type of `h` for this to work.)\n* A tuple pattern `⟨p1, p2, p3⟩`, which matches a constructor with many arguments, or a series\n  of nested conjunctions or existentials. For example if the active hypothesis is `a ∧ b ∧ c`,\n  then the conjunction will be destructured, and `p1` will be matched against `a`, `p2` against `b`\n  and so on.\n* A `@` before a tuple pattern as in `@⟨p1, p2, p3⟩` will bind all arguments in the constructor,\n  while leaving the `@` off will only use the patterns on the explicit arguments.\n* An alternation pattern `p1 | p2 | p3`, which matches an inductive type with multiple constructors,\n  or a nested disjunction like `a ∨ b ∨ c`.\n\nA pattern like `⟨a, b, c⟩ | ⟨d, e⟩` will do a split over the inductive datatype,\nnaming the first three parameters of the first constructor as `a,b,c` and the\nfirst two of the second constructor `d,e`. If the list is not as long as the\nnumber of arguments to the constructor or the number of constructors, the\nremaining variables will be automatically named. If there are nested brackets\nsuch as `⟨⟨a⟩, b | c⟩ | d` then these will cause more case splits as necessary.\nIf there are too many arguments, such as `⟨a, b, c⟩` for splitting on\n`∃ x, ∃ y, p x`, then it will be treated as `⟨a, ⟨b, c⟩⟩`, splitting the last\nparameter as necessary.\n\n`rcases` also has special support for quotient types: quotient induction into Prop works like\nmatching on the constructor `quot.mk`.\n\n`rcases h : e with PAT` will do the same as `rcases e with PAT` with the exception that an\nassumption `h : e = PAT` will be added to the context.\n</code>",
+ "426": "<code>x ∈ K</code>",
+ "425": "<code>z_fin.sup a ≤ n</code>",
+ "424":
+ "<code>Finset.sup.{u_2, u_3} {α : Type u_2} {β : Type u_3} [SemilatticeSup α] [OrderBot α] (s : Finset β) (f : β → α) : α</code><span class=\"sep\"></span><code class=\"docstring\">Supremum of a finite set: `sup {a, b, c} f = f a ⊔ f b ⊔ f c` </code>",
+ "423": "<code>z ∈ z_fin</code>",
+ "422":
+ "<code>∀ z ∈ z_fin, ∀ (b : ℕ), a z ≤ b → ∀ x ∈ U z, dist (f x) (F b x) &lt; ε</code>",
+ "421": "<code>ℂ → ℕ</code>",
+ "420": "<code>0 &lt; ε</code>",
  "42": "<code>z1 = 0</code>",
+ "419":
+ "<code>Dist.dist.{u_3} {α : Type u_3} [self : Dist α] : α → α → ℝ</code><span class=\"sep\"></span><code class=\"docstring\">Distance between two points </code>",
+ "418":
+ "<code>∀ z ∈ K, U z ∈ 𝓝 z ∧ ∀ (ε : ℝ), 0 &lt; ε → ∃ a, ∀ (b : ℕ), a ≤ b → ∀ x ∈ U z, dist (f x) (F b x) &lt; ε</code>",
+ "417":
+ "<code>Metric.tendstoUniformlyOn_iff.{u, v, u_1} {α : Type u} {β : Type v} {ι : Type u_1} [PseudoMetricSpace α] {F : ι → β → α}\n  {f : β → α} {p : Filter ι} {s : Set β} :\n  TendstoUniformlyOn F f p s ↔ ∀ ε &gt; 0, ∀ᶠ (n : ι) in p, ∀ x ∈ s, dist (f x) (F n x) &lt; ε</code><span class=\"sep\"></span><code class=\"docstring\">Expressing uniform convergence on a set using `dist`. </code>",
+ "416": "<code>∃ t, (∀ x ∈ t, x ∈ K) ∧ K ⊆ ⋃ x ∈ t, U x</code>",
+ "415":
+ "<code>IsCompact.elim_nhds_subcover.{u} {X : Type u} [TopologicalSpace X] {s : Set X} (hs : IsCompact s) (U : X → Set X)\n  (hU : ∀ x ∈ s, U x ∈ 𝓝 x) : ∃ t, (∀ x ∈ t, x ∈ s) ∧ s ⊆ ⋃ x ∈ t, U x</code>",
+ "414":
+ "<code>Finset.{u_4} (α : Type u_4) : Type u_4</code><span class=\"sep\"></span><code class=\"docstring\">`Finset α` is the type of finite sets of elements of `α`. It is implemented\nas a multiset (a list up to permutation) which has no duplicate elements. </code>",
+ "413": "<code>(∀ z ∈ z_fin, z ∈ K) ∧ K ⊆ ⋃ z ∈ z_fin, U z</code>",
+ "412": "<code>Finset ℂ</code>",
+ "411": "<code>∀ z ∈ K, U z ∈ 𝓝 z ∧ TendstoUniformlyOn F f atTop (U z)</code>",
+ "410": "<code>ℂ → Set ℂ</code>",
  "41":
  "<code class=\"docstring\">`by_cases (h :)? p` splits the main goal into two cases, assuming `h : p` in the first branch, and `h : ¬ p` in the second branch.\n</code>",
+ "409":
+ "<code class=\"docstring\">* `choose a b h h' using hyp` takes a hypothesis `hyp` of the form\n  `∀ (x : X) (y : Y), ∃ (a : A) (b : B), P x y a b ∧ Q x y a b`\n  for some `P Q : X → Y → A → B → Prop` and outputs\n  into context a function `a : X → Y → A`, `b : X → Y → B` and two assumptions:\n  `h : ∀ (x : X) (y : Y), P x y (a x y) (b x y)` and\n  `h' : ∀ (x : X) (y : Y), Q x y (a x y) (b x y)`. It also works with dependent versions.\n\n* `choose! a b h h' using hyp` does the same, except that it will remove dependency of\n  the functions on propositional arguments if possible. For example if `Y` is a proposition\n  and `A` and `B` are nonempty in the above example then we will instead get\n  `a : X → A`, `b : X → B`, and the assumptions\n  `h : ∀ (x : X) (y : Y), P x y (a x) (b x)` and\n  `h' : ∀ (x : X) (y : Y), Q x y (a x) (b x)`.\n\nThe `using hyp` part can be omitted,\nwhich will effectively cause `choose` to start with an `intro hyp`.\n\nLike `intro`, the `choose` tactic supports type annotations to specify the expected type\nof the introduced variables. This is useful for documentation and for catching mistakes early:\n```\nexample (h : ∃ n : ℕ, n &gt; 0) : True := by\n  choose (n : ℕ) (hn : n &gt; 0) using h\n  trivial\n```\nIf the provided type does not match the actual type, an error is raised.\n\nExamples:\n\n```\nexample (h : ∀ n m : ℕ, ∃ i j, m = n + i ∨ m + j = n) : True := by\n  choose i j h using h\n  guard_hyp i : ℕ → ℕ → ℕ\n  guard_hyp j : ℕ → ℕ → ℕ\n  guard_hyp h : ∀ (n m : ℕ), m = n + i n m ∨ m + j n m = n\n  trivial\n```\n\n```\nexample (h : ∀ i : ℕ, i &lt; 7 → ∃ j, i &lt; j ∧ j &lt; i+i) : True := by\n  choose! f h h' using h\n  guard_hyp f : ℕ → ℕ\n  guard_hyp h : ∀ (i : ℕ), i &lt; 7 → i &lt; f i\n  guard_hyp h' : ∀ (i : ℕ), i &lt; 7 → f i &lt; i + i\n  trivial\n```\n</code>",
+ "408":
+ "<code>nhds.{u_3} {X : Type u_3} [TopologicalSpace X] (x : X) : Filter X</code><span class=\"sep\"></span><code class=\"docstring\">A set is called a neighborhood of `x` if it contains an open set around `x`. The set of all\nneighborhoods of `x` forms a filter, the neighborhood filter at `x`, is here defined as the\ninfimum over the principal filters of all open sets containing `x`. </code>",
+ "407":
+ "<code class=\"docstring\">`generalize_proofs ids* [at locs]?` generalizes proofs in the current goal,\nturning them into new local hypotheses.\n\n- `generalize_proofs` generalizes proofs in the target.\n- `generalize_proofs at h₁ h₂` generalized proofs in hypotheses `h₁` and `h₂`.\n- `generalize_proofs at *` generalizes proofs in the entire local context.\n- `generalize_proofs pf₁ pf₂ pf₃` uses names `pf₁`, `pf₂`, and `pf₃` for the generalized proofs.\n  These can be `_` to not name proofs.\n\nIf a proof is already present in the local context, it will use that rather than create a new\nlocal hypothesis.\n\nWhen doing `generalize_proofs at h`, if `h` is a let binding, its value is cleared,\nand furthermore if `h` duplicates a preceding local hypothesis then it is eliminated.\n\nThe tactic is able to abstract proofs from under binders, creating universally quantified\nproofs in the local context.\nTo disable this, use `generalize_proofs -abstract`.\nThe tactic is also set to recursively abstract proofs from the types of the generalized proofs.\nThis can be controlled with the `maxDepth` configuration option,\nwith `generalize_proofs (config := { maxDepth := 0 })` turning this feature off.\n\nFor example:\n```lean\ndef List.nthLe {α} (l : List α) (n : ℕ) (_h : n &lt; l.length) : α := sorry\nexample : List.nthLe [1, 2] 1 (by simp) = 2 := by\n  -- ⊢ [1, 2].nthLe 1 ⋯ = 2\n  generalize_proofs h\n  -- h : 1 &lt; [1, 2].length\n  -- ⊢ [1, 2].nthLe 1 h = 2\n```\n</code>",
+ "406": "<code>z ∈ K</code>",
+ "405": "<code>∀ z ∈ K, ∃ U ∈ 𝓝 z, TendstoUniformlyOn F f atTop U</code>",
+ "404": "<code>IsCompact K</code>",
+ "403":
+ "<code>HasSubset.Subset.{u} {α : Type u} [self : HasSubset α] : α → α → Prop</code><span class=\"sep\"></span><code class=\"docstring\">Subset relation: `a ⊆ b`  \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `⊆` in identifiers is `subset`.</code>",
+ "402": "<code>K ⊆ D</code>",
+ "401": "<code>LocallyUniformConvergence F f D</code>",
+ "400":
+ "<code>IsConnected.{u} {α : Type u} [TopologicalSpace α] (s : Set α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A connected set is one that is nonempty and where there is no non-trivial open partition. </code>",
  "40": "<code>z1 * z2 = 0</code>",
  "4": "<code>ℝ</code>",
+ "399": "<code>IsConnected D</code>",
+ "398":
+ "<code>Set.Nonempty.{u} {α : Type u} (s : Set α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">The property `s.Nonempty` expresses the fact that the set `s` is not empty. It should be used\nin theorem assumptions instead of `∃ x, x ∈ s` or `s ≠ ∅` as it gives access to a nice API thanks\nto the dot notation. </code>",
+ "397": "<code>D.Nonempty</code>",
+ "396":
+ "<code>IsOpen.{u} {X : Type u} [TopologicalSpace X] : Set X → Prop</code><span class=\"sep\"></span><code class=\"docstring\">`IsOpen s` means that `s` is open in the ambient topological space on `X` </code>",
+ "395": "<code>IsOpen D</code>",
+ "394":
+ "<code>locallyUniform_implies_compact (D : Set ℂ) (hD_open : IsOpen D) (hD_nonempty : D.Nonempty) (hD_conn : IsConnected D)\n  (F : ℕ → ℂ → ℂ) (f : ℂ → ℂ) (hloc : LocallyUniformConvergence F f D) : CompactConvergence F f D</code><span class=\"sep\"></span><code class=\"docstring\">Locally uniform convergence implies compact convergence\nfor sequences of complex functions on a\nnonempty open connected domain.\n</code>",
+ "393":
+ "<code>IsCompact.{u_1} {X : Type u_1} [TopologicalSpace X] (s : Set X) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A set `s` is compact if for every nontrivial filter `f` that contains `s`,\nthere exists `a ∈ s` such that every set of `f` meets every neighborhood of `a`. </code>",
+ "392":
+ "<code>CompactConvergence (F : ℕ → ℂ → ℂ) (f : ℂ → ℂ) (D : Set ℂ) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">Compact convergence: the sequence converges\nuniformly on every compact subset of D. </code>",
+ "391":
+ "<code>Filter.atTop.{u_3} {α : Type u_3} [Preorder α] : Filter α</code><span class=\"sep\"></span><code class=\"docstring\">`atTop` is the filter representing the limit `→ ∞` on an ordered set.\nIt is generated by the collection of up-sets `{b | a ≤ b}`.\n(The preorder need not have a top element for this to be well defined,\nand indeed is trivial when a top element `x` exists, i.e., it coincides with `pure x`.) </code>",
+ "390":
+ "<code>TendstoUniformlyOn.{u_1, u_2, u_4} {α : Type u_1} {β : Type u_2} {ι : Type u_4} [UniformSpace β] (F : ι → α → β)\n  (f : α → β) (p : Filter ι) (s : Set α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A sequence of functions `Fₙ` converges uniformly on a set `s` to a limiting function `f` with\nrespect to the filter `p` if, for any entourage of the diagonal `u`, one has `p`-eventually\n`(f x, Fₙ x) ∈ u` for all `x ∈ s`. </code>",
  "39":
  "<code class=\"docstring\">Introduces one or more hypotheses, optionally naming and/or pattern-matching them.\nFor each hypothesis to be introduced, the remaining main goal's target type must\nbe a `let` or function type.\n\n* `intro` by itself introduces one anonymous hypothesis, which can be accessed\n  by e.g. `assumption`. It is equivalent to `intro _`.\n* `intro x y` introduces two hypotheses and names them. Individual hypotheses\n  can be anonymized via `_`, given a type ascription, or matched against a pattern:\n  ```lean\n  -- ... ⊢ α × β → ...\n  intro (a, b)\n  -- ..., a : α, b : β ⊢ ...\n  ```\n* `intro rfl` is short for `intro h; subst h`, if `h` is an equality where the left-hand or right-hand side\n  is a variable.\n* Alternatively, `intro` can be combined with pattern matching much like `fun`:\n  ```lean\n  intro\n  | n + 1, 0 =&gt; tac\n  | ...\n  ```\n</code>",
+ "389": "<code>Set ℂ</code>",
+ "388": "<code>ℂ → ℂ</code>",
+ "387": "<code>ℕ → ℂ → ℂ</code>",
+ "386":
+ "<code>LocallyUniformConvergence (F : ℕ → ℂ → ℂ) (f : ℂ → ℂ) (D : Set ℂ) : Prop</code>",
  "385":
  "<code>A * (p.1 ^ 2 + p.2 ^ 2) + B * p.1 + C * p.2 + D = 0 ↔\n  have q := P r p;\n  -B * q.1 + -C * q.2.1 + (D - 4 * r ^ 2 * A) / (2 * r) * q.2.2 = D</code>",
  "384": "<code>P r p = (x, y, z)</code>",
