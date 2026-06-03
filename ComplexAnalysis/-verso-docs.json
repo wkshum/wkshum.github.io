@@ -103,294 +103,449 @@
  "4": "<code>ℝ</code>",
  "39":
  "<code class=\"docstring\">Introduces one or more hypotheses, optionally naming and/or pattern-matching them.\nFor each hypothesis to be introduced, the remaining main goal's target type must\nbe a `let` or function type.\n\n* `intro` by itself introduces one anonymous hypothesis, which can be accessed\n  by e.g. `assumption`. It is equivalent to `intro _`.\n* `intro x y` introduces two hypotheses and names them. Individual hypotheses\n  can be anonymized via `_`, given a type ascription, or matched against a pattern:\n  ```lean\n  -- ... ⊢ α × β → ...\n  intro (a, b)\n  -- ..., a : α, b : β ⊢ ...\n  ```\n* `intro rfl` is short for `intro h; subst h`, if `h` is an equality where the left-hand or right-hand side\n  is a variable.\n* Alternatively, `intro` can be combined with pattern matching much like `fun`:\n  ```lean\n  intro\n  | n + 1, 0 =&gt; tac\n  | ...\n  ```\n</code>",
+ "385":
+ "<code>A * (p.1 ^ 2 + p.2 ^ 2) + B * p.1 + C * p.2 + D = 0 ↔\n  have q := P r p;\n  -B * q.1 + -C * q.2.1 + (D - 4 * r ^ 2 * A) / (2 * r) * q.2.2 = D</code>",
+ "384": "<code>P r p = (x, y, z)</code>",
+ "383":
+ "<code>(x, y, z) ∈ (S r ∩ {p | -B * p.1 + -C * p.2.1 + (D - 4 * r ^ 2 * A) / (2 * r) * p.2.2 = D}) \\ {N r}</code>",
+ "382": "<code>0 ≤ D</code>",
+ "381": "<code>D &lt; 0</code>",
+ "380":
+ "<code>lt_or_ge.{u_1} {α : Type u_1} [LinearOrder α] (a b : α) : a &lt; b ∨ b ≤ a</code>",
  "38":
  "<code>Or (a b : Prop) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`Or a b`, or `a ∨ b`, is the disjunction of propositions. There are two\nconstructors for `Or`, called `Or.inl : a → a ∨ b` and `Or.inr : b → a ∨ b`,\nand you can use `match` or `cases` to destruct an `Or` assumption into the\ntwo cases.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∨` in identifiers is `or`.\n\n * The recommended spelling of `\\/` in identifiers is `or` (prefer `∨` over `\\/`).</code>",
+ "379": "<code>A * (p.1 ^ 2 + p.2 ^ 2) + B * p.1 + C * p.2 + D = 0</code>",
+ "378": "<code>B = 0 → C = 0 → ¬D - 4 * r ^ 2 * A = 0 ∧ ¬r = 0</code>",
+ "377": "<code>¬A = 0 ∨ ¬B = 0 ∨ ¬C = 0</code>",
+ "376": "<code>p ∈ s</code>",
+ "375":
+ "<code class=\"docstring\">Applies extensionality lemmas that are registered with the `@[ext]` attribute.\n* `ext pat*` applies extensionality theorems as much as possible,\n  using the patterns `pat*` to introduce the variables in extensionality theorems using `rintro`.\n  For example, the patterns are used to name the variables introduced by lemmas such as `funext`.\n* Without patterns,`ext` applies extensionality lemmas as much\n  as possible but introduces anonymous hypotheses whenever needed.\n* `ext pat* : n` applies ext theorems only up to depth `n`.\n\nThe `ext1 pat*` tactic is like `ext pat*` except that it only applies a single extensionality theorem.\n\nUnused patterns will generate warning.\nPatterns that don't match the variables will typically result in the introduction of anonymous hypotheses.\n</code>",
+ "374":
+ "<code>p ∈ {p | p.1 ^ 2 + p.2.1 ^ 2 + (p.2.2 - r) ^ 2 = r ^ 2} ∩ {p | p.2.2 = 3 * r}</code>",
+ "373":
+ "<code>Inter.inter.{u} {α : Type u} [self : Inter α] : α → α → α</code><span class=\"sep\"></span><code class=\"docstring\">`a ∩ b` is the intersection of `a` and `b`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∩` in identifiers is `inter`.</code>",
+ "372":
+ "<code>Exists.intro.{u} {α : Sort u} {p : α → Prop} (w : α) (h : p w) : Exists p</code><span class=\"sep\"></span><code class=\"docstring\">Existential introduction. If `a : α` and `h : p a`,\nthen `⟨a, h⟩` is a proof that `∃ x : α, p x`. </code>",
+ "371":
+ "<code class=\"docstring\">`refine' e` behaves like `refine e`, except that unsolved placeholders (`_`)\nand implicit parameters are also converted into new goals.\n</code>",
+ "370": "<code>B = 0 ∧ C = 0 ∧ D = 4 * r ^ 2 * A</code>",
  "37":
  "<code>Complex : Type</code><span class=\"sep\"></span><code class=\"docstring\">Complex numbers consist of two `Real`s: a real part `re` and an imaginary part `im`. </code>",
+ "369":
+ "<code>EmptyCollection.emptyCollection.{u} {α : Type u} [self : EmptyCollection α] : α</code><span class=\"sep\"></span><code class=\"docstring\">`∅` or `{}` is the empty set or empty collection.\nIt is supported by the `EmptyCollection` typeclass. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `{}` in identifiers is `empty`.\n\n * The recommended spelling of `∅` in identifiers is `empty`.</code>",
+ "368": "<code>s = ∅</code>",
+ "367":
+ "<code>mul_pos.{u_1} {α : Type u_1} [MulZeroClass α] {a b : α} [Preorder α] [PosMulStrictMono α] (ha : 0 &lt; a) (hb : 0 &lt; b) :\n  0 &lt; a * b</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `Left.mul_pos`.\n\n---\n\nAssumes left covariance. </code>",
+ "366":
+ "<code>sq_nonneg.{u} {R : Type u} [Semiring R] [LinearOrder R] [ExistsAddOfLE R] [PosMulMono R] [AddLeftMono R] (a : R) :\n  0 ≤ a ^ 2</code>",
+ "365": "<code>p ∈ {p | A * (p.1 ^ 2 + p.2 ^ 2) + 4 * r ^ 2 * A = 0}</code>",
+ "364":
+ "<code>Set.eq_empty_of_forall_notMem.{u} {α : Type u} {s : Set α} (h : ∀ (x : α), x ∉ s) : s = ∅</code>",
+ "363": "<code>{p | A * (p.1 ^ 2 + p.2 ^ 2) + 4 * r ^ 2 * A = 0} = ∅</code>",
+ "362": "<code>B = 0 ∧ C = 0 ∧ D - 4 * r ^ 2 * A = 0</code>",
+ "361": "<code>s = {p | A * (p.1 ^ 2 + p.2 ^ 2) + D = 0}</code>",
+ "360": "<code>¬A = 0</code>",
  "36": "<code>Complex.I_mul_I : I * I = -1</code>",
+ "359": "<code>¬(-B = 0 ∧ -C = 0 ∧ (D - 4 * r ^ 2 * A) / (2 * r) = 0)</code>",
+ "358": "<code>-B = 0 ∧ -C = 0 ∧ (D - 4 * r ^ 2 * A) / (2 * r) = 0</code>",
+ "357":
+ "<code>s = {p | A * (p.1 ^ 2 + p.2 ^ 2) + B * p.1 + C * p.2 + D = 0}</code>",
+ "356": "<code>A ≠ 0 ∨ B ≠ 0 ∨ C ≠ 0</code>",
+ "355":
+ "<code>Set.image.{u, v} {α : Type u} {β : Type v} (f : α → β) (s : Set α) : Set β</code><span class=\"sep\"></span><code class=\"docstring\">The image of `s : Set α` by `f : α → β`, written `f '' s`, is the set of `b : β` such that\n`f a = b` for some `a ∈ s`. </code>",
+ "354": "<code>IsCircleOrLine s</code>",
+ "353":
+ "<code>stereographic_preserves_circle_line (r : ℝ) (hr : r &gt; 0) (s : Set (ℝ × ℝ)) (h : IsCircleOrLine s) :\n  ∃ s', IsPlaneSection r s' ∧ P r '' s = s' \\ {N r}</code><span class=\"sep\"></span><code class=\"docstring\">The stereographic projection P maps circles and lines\nin the complex plane to plane sections of the sphere S.\n</code>",
+ "352": "<code>r ≠ 0</code>",
+ "351":
+ "<code>stereographic_equation_iff (r : ℝ) (hr : r ≠ 0) (A B C D : ℝ) :\n  have a := -B;\n  have b := -C;\n  have c := (D - 4 * r ^ 2 * A) / (2 * r);\n  have d := D;\n  ∀ (p : ℝ × ℝ),\n    A * (p.1 ^ 2 + p.2 ^ 2) + B * p.1 + C * p.2 + D = 0 ↔\n      have q := P r p;\n      a * q.1 + b * q.2.1 + c * q.2.2 = d</code>",
+ "350": "<code>Set (ℝ × ℝ × ℝ)</code>",
  "35":
  "<code class=\"docstring\">`rw` is like `rewrite`, but also tries to close the goal by \"cheap\" (reducible) `rfl` afterwards.\n</code>",
+ "349": "<code>IsPlaneSection (r : ℝ) (s : Set (ℝ × ℝ × ℝ)) : Prop</code>",
+ "348": "<code>Set (ℝ × ℝ)</code>",
+ "347": "<code>IsCircleOrLine (s : Set (ℝ × ℝ)) : Prop</code>",
+ "346":
+ "<code>True : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`True` is a proposition and has only an introduction rule, `True.intro : True`.\nIn other words, `True` is simply true, and has a canonical proof, `True.intro`\nFor more information: [Propositional Logic](https://lean-lang.org/theorem_proving_in_lean4/propositions_and_proofs.html#propositional-logic)\n</code>",
+ "345": "<code>Complex.sq_norm (z : ℂ) : ‖z‖ ^ 2 = normSq z</code>",
+ "344":
+ "<code>P_complex_eq_P (r : ℝ) (z : ℂ) : P_complex r z = P r (z.re, z.im)</code>",
+ "343": "<code>P_complex (r : ℝ) (z : ℂ) : ℝ × ℝ × ℝ</code>",
+ "342": "<code>↑p ∈ S r \\ {N r} → P r (Q r ↑p) = ↑p</code>",
+ "341": "<code>↑(S_minus_N r)</code>",
+ "340": "<code>Q r (P r q) = q</code>",
  "34":
  "<code class=\"docstring\">`ring` solves equations in *commutative* (semi)rings, allowing for variables in the\nexponent. If the goal is not appropriate for `ring` (e.g. not an equality) `ring_nf` will be\nsuggested. See also `ring1`, which fails if the goal is not an equality.\n\n* `ring!` will use a more aggressive reducibility setting to determine equality of atoms.\n\nExamples:\n```\nexample (n : ℕ) (m : ℤ) : 2^(n+1) * m = 2 * 2^n * m := by ring\nexample (a b : ℤ) (n : ℕ) : (a + b)^(n + 2) = (a^2 + b^2 + a * b + b * a) * (a + b)^n := by ring\nexample (x y : ℕ) : x + id y = y + id x := by ring!\nexample (x : ℕ) (h : x * 2 &gt; 5): x + x &gt; 5 := by ring; assumption -- suggests ring_nf\n```\n</code>",
+ "339": "<code>Q r (P r p) = p</code>",
+ "338": "<code>⟨P r p, ⋯⟩ = ⟨P r q, ⋯⟩</code>",
+ "337": "<code>P_to_S r h_r p = P_to_S r h_r q</code>",
+ "336":
+ "<code>Function.Surjective.{u_1, u_2} {α : Sort u_1} {β : Sort u_2} (f : α → β) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A function `f : α → β` is called surjective if every `b : β` is equal to `f a`\nfor some `a : α`. </code>",
+ "335":
+ "<code>Function.Injective.{u_1, u_2} {α : Sort u_1} {β : Sort u_2} (f : α → β) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A function `f : α → β` is called injective if `f x = f y` implies `x = y`. </code>",
+ "334":
+ "<code>Function.Bijective.{u₁, u₂} {α : Sort u₁} {β : Sort u₂} (f : α → β) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A function is called bijective if it is both injective and surjective. </code>",
+ "333":
+ "<code>P_bijective (r : ℝ) (h_r : r &gt; 0) : Function.Bijective (P_to_S r h_r)</code>",
+ "332":
+ "<code>Subtype.mk.{u} {α : Sort u} {p : α → Prop} (val : α) (property : p val) : Subtype p</code>",
+ "331":
+ "<code>P_to_S (r : ℝ) (h_r : r &gt; 0) (p : ℝ × ℝ) : ↑(S_minus_N r)</code>",
+ "330": "<code>S_minus_N (r : ℝ) : Set (ℝ × ℝ × ℝ)</code>",
  "33":
  "<code class=\"docstring\">Step-wise reasoning over transitive relations.\n```\ncalc\n  a = b := pab\n  b = c := pbc\n  ...\n  y = z := pyz\n```\nproves `a = z` from the given step-wise proofs. `=` can be replaced with any\nrelation implementing the typeclass `Trans`. Instead of repeating the right-\nhand sides, subsequent left-hand sides can be replaced with `_`.\n```\ncalc\n  a = b := pab\n  _ = c := pbc\n  ...\n  _ = z := pyz\n```\nIt is also possible to write the *first* relation as `&lt;lhs&gt;\\n  _ = &lt;rhs&gt; :=\n&lt;proof&gt;`. This is useful for aligning relation symbols, especially on longer\nidentifiers:\n```\ncalc abc\n  _ = bce := pabce\n  _ = cef := pbcef\n  ...\n  _ = xyz := pwxyz\n```\n\n`calc` works as a term, as a tactic or as a `conv` tactic.\n\nSee [Theorem Proving in Lean 4][tpil4] for more information.\n\n[tpil4]: https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html#calculational-proofs\n</code>",
+ "329":
+ "<code>LT.lt.ne'.{u_1} {α : Type u_1} [Preorder α] {a b : α} (h : b &lt; a) : a ≠ b</code>",
+ "328":
+ "<code>P_right_inv (r : ℝ) (h_r : r &gt; 0) (p : ℝ × ℝ) : Q r (P r p) = p</code>",
+ "327":
+ "<code>Prod.mk_inj.{u_1, u_2} {α : Type u_1} {β : Type u_2} {a₁ a₂ : α} {b₁ b₂ : β} : (a₁, b₁) = (a₂, b₂) ↔ a₁ = a₂ ∧ b₁ = b₂</code>",
+ "326":
+ "<code>False.elim.{u} {C : Sort u} (h : False) : C</code><span class=\"sep\"></span><code class=\"docstring\">`False.elim : False → C` says that from `False`, any desired proposition\n`C` holds. Also known as ex falso quodlibet (EFQ) or the principle of explosion.\n\nThe target type is actually `C : Sort u` which means it works for both\npropositions and types. When executed, this acts like an \"unreachable\"\ninstruction: it is **undefined behavior** to run, but it will probably print\n\"unreachable code\". (You would need to construct a proof of false to run it\nanyway, which you can only do using `sorry` or unsound axioms.)\n</code>",
+ "325": "<code>2 * r = p.2.2</code>",
+ "324": "<code>¬2 * r = p.2.2</code>",
+ "323": "<code>p.1 ^ 2 + p.2.1 ^ 2 + (p.2.2 - r) ^ 2 = r ^ 2 ∧ ¬p = N r</code>",
+ "322": "<code>0 &lt; r</code>",
+ "321":
+ "<code>sub_eq_iff_eq_add.{u_3} {G : Type u_3} [AddGroup G] {a b c : G} : a - b = c ↔ a = c + b</code>",
+ "320":
+ "<code>Bool</code><span class=\"sep\"></span><code class=\"docstring\">When `true` (default: `false`), rewrites a proposition `p` to `True` or `False` by inferring\na `Decidable p` instance and reducing it.\n</code>",
  "32":
  "<code>Real.sqrt (x : ℝ) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The square root of a real number. This returns 0 for negative inputs.\n\nThis has notation `√x`. Note that `√x⁻¹` is parsed as `√(x⁻¹)`. </code>",
+ "319": "<code>¬2 * r - p.2.2 = 0</code>",
+ "318": "<code>2 * r - p.2.2 = 0</code>",
+ "317":
+ "<code>p ∈ {p | p.1 ^ 2 + p.2.1 ^ 2 + (p.2.2 - r) ^ 2 = r ^ 2} \\ {N r}</code>",
+ "316": "<code>p ∈ S r \\ {N r}</code>",
+ "315":
+ "<code>P_left_inv (r : ℝ) (h_r : r &gt; 0) (p : ℝ × ℝ × ℝ) (hp : p ∈ S r \\ {N r}) : P r (Q r p) = p</code><span class=\"sep\"></span><code class=\"docstring\">The composition P ∘ Q is the identity function\non the punctured sphere S \\ {N}.\n</code>",
+ "314":
+ "<code class=\"docstring\">`aesop &lt;clause&gt;*` tries to solve the current goal by applying a set of rules\nregistered with the `@[aesop]` attribute. See [its\nREADME](https://github.com/JLimperg/aesop#readme) for a tutorial and a\nreference.\n\nThe variant `aesop?` prints the proof it found as a `Try this` suggestion.\n\nClauses can be used to customise the behaviour of an Aesop call. Available\nclauses are:\n\n- `(add &lt;phase&gt; &lt;priority&gt; &lt;builder&gt; &lt;rule&gt;)` adds a rule. `&lt;phase&gt;` is\n  `unsafe`, `safe` or `norm`. `&lt;priority&gt;` is a percentage for unsafe rules and\n  an integer for safe and norm rules. `&lt;rule&gt;` is the name of a declaration or\n  local hypothesis. `&lt;builder&gt;` is the rule builder used to turn `&lt;rule&gt;` into\n  an Aesop rule. Example: `(add unsafe 50% apply Or.inl)`.\n- `(erase &lt;rule&gt;)` disables a globally registered Aesop rule. Example: `(erase\n  Aesop.BuiltinRules.assumption)`.\n- `(rule_sets := [&lt;ruleset&gt;,*])` enables or disables named sets of rules for\n  this Aesop call. Example: `(rule_sets := [-builtin, MyRuleSet])`.\n- `(config { &lt;opt&gt; := &lt;value&gt; })` adjusts Aesop's search options. See\n  `Aesop.Options`.\n- `(simp_config { &lt;opt&gt; := &lt;value&gt; })` adjusts options for Aesop's built-in\n  `simp` rule. The given options are directly passed to `simp`. For example,\n  `(simp_config := { zeta := false })` makes Aesop use\n  `simp (config := { zeta := false })`.\n</code>",
+ "313":
+ "<code>setOf.{u} {α : Type u} (p : α → Prop) : Set α</code><span class=\"sep\"></span><code class=\"docstring\">Turn a predicate `p : α → Prop` into a set, also written as `{x | p x}` </code>",
+ "312":
+ "<code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class=\"sep\"></span><code class=\"docstring\">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `(a, b)` in identifiers is `mk`.</code>",
+ "311":
+ "<code class=\"docstring\">`grind` is a tactic inspired by modern SMT solvers. **Picture a virtual whiteboard**:\nevery time grind discovers a new equality, inequality, or logical fact,\nit writes it on the board, groups together terms known to be equal,\nand lets each reasoning engine read from and contribute to the shared workspace.\nThese engines work together to handle equality reasoning, apply known theorems,\npropagate new facts, perform case analysis, and run specialized solvers\nfor domains like linear arithmetic and commutative rings.\n\nSee [the reference manual's chapter on `grind`](https://lean-lang.org/doc/reference/4.29.0/find/?domain=Verso.Genre.Manual.section&name=grind-tactic) for more information.\n\n`grind` is *not* designed for goals whose search space explodes combinatorially,\nthink large pigeonhole instances, graph‑coloring reductions, high‑order N‑queens boards,\nor a 200‑variable Sudoku encoded as Boolean constraints.  Such encodings require\n thousands (or millions) of case‑splits that overwhelm `grind`’s branching search.\n\nFor **bit‑level or combinatorial problems**, consider using **`bv_decide`**.\n`bv_decide` calls a state‑of‑the‑art SAT solver (CaDiCaL) and then returns a\n*compact, machine‑checkable certificate*.\n\n### Equality reasoning\n\n`grind` uses **congruence closure** to track equalities between terms.\nWhen two terms are known to be equal, congruence closure automatically deduces\nequalities between more complex expressions built from them.\nFor example, if `a = b`, then congruence closure will also conclude that `f a` = `f b`\nfor any function `f`. This forms the foundation for efficient equality reasoning in `grind`.\nHere is an example:\n```\nexample (f : Nat → Nat) (h : a = b) : f (f b) = f (f a) := by\n  grind\n```\n\n### Applying theorems using E-matching\n\nTo apply existing theorems, `grind` uses a technique called **E-matching**,\nwhich finds matches for known theorem patterns while taking equalities into account.\nCombined with congruence closure, E-matching helps `grind` discover\nnon-obvious consequences of theorems and equalities automatically.\n\nConsider the following functions and theorems:\n```\ndef f (a : Nat) : Nat :=\n  a + 1\n\ndef g (a : Nat) : Nat :=\n  a - 1\n\n@[grind =]\ntheorem gf (x : Nat) : g (f x) = x := by\n  simp [f, g]\n```\nThe theorem `gf` asserts that `g (f x) = x` for all natural numbers `x`.\nThe attribute `[grind =]` instructs `grind` to use the left-hand side of the equation,\n`g (f x)`, as a pattern for E-matching.\nSuppose we now have a goal involving:\n```\nexample {a b} (h : f b = a) : g a = b := by\n  grind\n```\nAlthough `g a` is not an instance of the pattern `g (f x)`,\nit becomes one modulo the equation `f b = a`. By substituting `a`\nwith `f b` in `g a`, we obtain the term `g (f b)`,\nwhich matches the pattern `g (f x)` with the assignment `x := b`.\nThus, the theorem `gf` is instantiated with `x := b`,\nand the new equality `g (f b) = b` is asserted.\n`grind` then uses congruence closure to derive the implied equality\n`g a = g (f b)` and completes the proof.\n\nThe pattern used to instantiate theorems affects the effectiveness of `grind`.\nFor example, the pattern `g (f x)` is too restrictive in the following case:\nthe theorem `gf` will not be instantiated because the goal does not even\ncontain the function symbol `g`.\n\n```\nexample (h₁ : f b = a) (h₂ : f c = a) : b = c := by\n  grind\n```\n\nYou can use the command `grind_pattern` to manually select a pattern for a given theorem.\nIn the following example, we instruct `grind` to use `f x` as the pattern,\nallowing it to solve the goal automatically:\n```\ngrind_pattern gf =&gt; f x\n\nexample {a b c} (h₁ : f b = a) (h₂ : f c = a) : b = c := by\n  grind\n```\nYou can enable the option `trace.grind.ematch.instance` to make `grind` print a\ntrace message for each theorem instance it generates.\n\nYou can also specify a **multi-pattern** to control when `grind` should apply a theorem.\nA multi-pattern requires that all specified patterns are matched in the current context\nbefore the theorem is applied. This is useful for theorems such as transitivity rules,\nwhere multiple premises must be simultaneously present for the rule to apply.\nThe following example demonstrates this feature using a transitivity axiom for a binary relation `R`:\n```\nopaque R : Int → Int → Prop\naxiom Rtrans {x y z : Int} : R x y → R y z → R x z\n\ngrind_pattern Rtrans =&gt; R x y, R y z\n\nexample {a b c d} : R a b → R b c → R c d → R a d := by\n  grind\n```\nBy specifying the multi-pattern `R x y, R y z`, we instruct `grind` to\ninstantiate `Rtrans` only when both `R x y` and `R y z` are available in the context.\nIn the example, `grind` applies `Rtrans` to derive `R a c` from `R a b` and `R b c`,\nand can then repeat the same reasoning to deduce `R a d` from `R a c` and `R c d`.\n\nInstead of using `grind_pattern` to explicitly specify a pattern,\nyou can use the `@[grind]` attribute or one of its variants, which will use a heuristic to\ngenerate a (multi-)pattern. The complete list is available in the reference manual. The main ones are:\n\n- `@[grind →]` will select a multi-pattern from the hypotheses of the theorem (i.e. it will use the theorem for forwards reasoning).\n  In more detail, it will traverse the hypotheses of the theorem from left-to-right, and each time it encounters a minimal indexable\n  (i.e. has a constant as its head) subexpression which \"covers\" (i.e. fixes the value of) an argument which was not\n  previously covered, it will add that subexpression as a pattern, until all arguments have been covered.\n- `@[grind ←]` will select a multi-pattern from the conclusion of theorem (i.e. it will use the theorem for backwards reasoning).\n  This may fail if not all the arguments to the theorem appear in the conclusion.\n- `@[grind]` will traverse the conclusion and then the hypotheses left-to-right, adding patterns as they increase the coverage,\n  stopping when all arguments are covered.\n- `@[grind =]` checks that the conclusion of the theorem is an equality, and then uses the left-hand-side of the equality as a pattern.\n  This may fail if not all of the arguments appear in the left-hand-side.\n\nHere is the previous example again but using the attribute `[grind →]`\n```\nopaque R : Int → Int → Prop\n@[grind →] axiom Rtrans {x y z : Int} : R x y → R y z → R x z\n\nexample {a b c d} : R a b → R b c → R c d → R a d := by\n  grind\n```\n\nTo control theorem instantiation and avoid generating an unbounded number of instances,\n`grind` uses a generation counter. Terms in the original goal are assigned generation zero.\nWhen `grind` applies a theorem using terms of generation `≤ n`, any new terms it creates\nare assigned generation `n + 1`. This limits how far the tactic explores when applying\ntheorems and helps prevent an excessive number of instantiations.\n\n#### Key options:\n- `grind (ematch := &lt;num&gt;)` controls the number of E-matching rounds.\n- `grind [&lt;name&gt;, ...]` instructs `grind` to use the declaration `name` during E-matching.\n- `grind only [&lt;name&gt;, ...]` is like `grind [&lt;name&gt;, ...]` but does not use theorems tagged with `@[grind]`.\n- `grind (gen := &lt;num&gt;)` sets the maximum generation.\n\n### Linear integer arithmetic (`lia`)\n\n`grind` can solve goals that reduce to **linear integer arithmetic (LIA)** using an\nintegrated decision procedure called **`lia`**.  It understands\n\n* equalities   `p = 0`\n* inequalities  `p ≤ 0`\n* disequalities `p ≠ 0`\n* divisibility  `d ∣ p`\n\nThe solver incrementally assigns integer values to variables; when a partial\nassignment violates a constraint it adds a new, implied constraint and retries.\nThis *model-based* search is **complete for LIA**.\n\n#### Key options:\n\n* `grind -lia` disable the solver (useful for debugging)\n* `grind +qlia` accept rational models (shrinks the search space but is incomplete for ℤ)\n\n#### Examples:\n\n```\n-- Even + even is never odd.\nexample {x y : Int} : 2 * x + 4 * y ≠ 5 := by\n  grind\n\n-- Mixing equalities and inequalities.\nexample {x y : Int} :\n    2 * x + 3 * y = 0 → 1 ≤ x → y &lt; 1 := by\n  grind\n\n-- Reasoning with divisibility.\nexample (a b : Int) :\n    2 ∣ a + 1 → 2 ∣ b + a → ¬ 2 ∣ b + 2 * a := by\n  grind\n\nexample (x y : Int) :\n    27 ≤ 11*x + 13*y →\n    11*x + 13*y ≤ 45 →\n    -10 ≤ 7*x - 9*y →\n    7*x - 9*y ≤ 4 → False := by\n  grind\n\n-- Types that implement the `ToInt` type-class.\nexample (a b c : UInt64)\n    : a ≤ 2 → b ≤ 3 → c - a - b = 0 → c ≤ 5 := by\n  grind\n```\n\n### Algebraic solver (`ring`)\n\n`grind` ships with an algebraic solver nick-named **`ring`** for goals that can\nbe phrased as polynomial equations (or disequations) over commutative rings,\nsemirings, or fields.\n\n*Works out of the box*\nAll core numeric types and relevant Mathlib types already provide the required\ntype-class instances, so the solver is ready to use in most developments.\n\nWhat it can decide:\n\n* equalities of the form `p = q`\n* disequalities `p ≠ q`\n* basic reasoning under field inverses (`a / b := a * b⁻¹`)\n* goals that mix ring facts with other `grind` engines\n\n#### Key options:\n\n* `grind -ring` turn the solver off (useful when debugging)\n* `grind (ringSteps := n)` cap the number of steps performed by this procedure.\n\n#### Examples\n\n```\nopen Lean Grind\n\nexample [CommRing α] (x : α) : (x + 1) * (x - 1) = x^2 - 1 := by\n  grind\n\n-- Characteristic 256 means 16 * 16 = 0.\nexample [CommRing α] [IsCharP α 256] (x : α) :\n    (x + 16) * (x - 16) = x^2 := by\n  grind\n\n-- Works on built-in rings such as `UInt8`.\nexample (x : UInt8) : (x + 16) * (x - 16) = x^2 := by\n  grind\n\nexample [CommRing α] (a b c : α) :\n    a + b + c = 3 →\n    a^2 + b^2 + c^2 = 5 →\n    a^3 + b^3 + c^3 = 7 →\n    a^4 + b^4 = 9 - c^4 := by\n  grind\n\nexample [Field α] [NoNatZeroDivisors α] (a : α) :\n    1 / a + 1 / (2 * a) = 3 / (2 * a) := by\n  grind\n```\n\n### Other options\n\n- `grind (splits := &lt;num&gt;)` caps the *depth* of the search tree.  Once a branch performs `num` splits\n  `grind` stops splitting further in that branch.\n- `grind -splitIte` disables case splitting on if-then-else expressions.\n- `grind -splitMatch` disables case splitting on `match` expressions.\n- `grind +splitImp` instructs `grind` to split on any hypothesis `A → B` whose antecedent `A` is **propositional**.\n- `grind -linarith` disables the linear arithmetic solver for (ordered) modules and rings.\n\n### Additional Examples\n\n```\nexample {a b} {as bs : List α} : (as ++ bs ++ [b]).getLastD a = b := by\n  grind\n\nexample (x : BitVec (w+1)) : (BitVec.cons x.msb (x.setWidth w)) = x := by\n  grind\n\nexample (as : Array α) (lo hi i j : Nat) :\n    lo ≤ i → i &lt; j → j ≤ hi → j &lt; as.size → min lo (as.size - 1) ≤ i := by\n  grind\n```\n</code>",
+ "310":
+ "<code>(4 * r ^ 2 * p.1 / (4 * r ^ 2 + p.1 ^ 2 + p.2 ^ 2)) ^ 2 + (4 * r ^ 2 * p.2 / (4 * r ^ 2 + p.1 ^ 2 + p.2 ^ 2)) ^ 2 +\n    (2 * r * (p.1 ^ 2 + p.2 ^ 2) / (4 * r ^ 2 + p.1 ^ 2 + p.2 ^ 2) - r) ^ 2 =\n  r ^ 2</code>",
  "31":
  "<code>pow_two.{u_2} {M : Type u_2} [Monoid M] (a : M) : a ^ 2 = a * a</code><span class=\"sep\"></span><code class=\"docstring\">Note that most of the lemmas about powers of two refer to it as `sq`. </code>",
+ "309":
+ "<code>Singleton.singleton.{u, v} {α : outParam (Type u)} {β : Type v} [self : Singleton α β] : α → β</code><span class=\"sep\"></span><code class=\"docstring\">`singleton x` is a collection with the single element `x` (notation: `{x}`). \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `{x}` in identifiers is `singleton`.</code>",
+ "308":
+ "<code>SDiff.sdiff.{u} {α : Type u} [self : SDiff α] : α → α → α</code><span class=\"sep\"></span><code class=\"docstring\">`a \\ b` is the set difference of `a` and `b`,\nconsisting of all elements in `a` that are not in `b`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `\\` in identifiers is `sdiff`.</code>",
+ "307":
+ "<code>Membership.mem.{u, v} {α : outParam (Type u)} {γ : Type v} [self : Membership α γ] : γ → α → Prop</code><span class=\"sep\"></span><code class=\"docstring\">The membership relation `a ∈ s : Prop` where `a : α`, `s : γ`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∈` in identifiers is `mem`.</code>",
+ "306":
+ "<code>Prod.{u, v} (α : Type u) (β : Type v) : Type (max u v)</code><span class=\"sep\"></span><code class=\"docstring\">The product type, usually written `α × β`. Product types are also called pair or tuple types.\nElements of this type are pairs in which the first element is an `α` and the second element is a\n`β`.\n\nProducts nest to the right, so `(x, y, z) : α × β × γ` is equivalent to `(x, (y, z)) : α × (β × γ)`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `×` in identifiers is `Prod`.</code>",
+ "305":
+ "<code>GT.gt.{u} {α : Type u} [LT α] (a b : α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`a &gt; b` is an abbreviation for `b &lt; a`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `&gt;` in identifiers is `gt`.</code>",
+ "304": "<code>r &gt; 0</code>",
+ "303":
+ "<code>P_range (r : ℝ) (h_r : r &gt; 0) (p : ℝ × ℝ) : P r p ∈ S r \\ {N r}</code><span class=\"sep\"></span><code class=\"docstring\">The image of the stereographic projection `P`\nlies in the punctured sphere S \\ {N}.\n</code>",
+ "302": "<code>Q (r : ℝ) (p : ℝ × ℝ × ℝ) : ℝ × ℝ</code>",
+ "301":
+ "<code class=\"docstring\">`let` is used to declare a local definition. Example:\n```\nlet x := 1\nlet y := x + 1\nx + y\n```\nSince functions are first class citizens in Lean, you can use `let` to declare\nlocal functions too.\n```\nlet double := fun x =&gt; 2*x\ndouble (double 3)\n```\nFor recursive definitions, you should use `let rec`.\nYou can also perform pattern matching using `let`. For example,\nassume `p` has type `Nat × Nat`, then you can write\n```\nlet (x, y) := p\nx + y\n```\n\nThe *anaphoric let* `let := v` defines a variable called `this`.\n</code>",
+ "300": "<code>ℝ × ℝ</code>",
  "30": "<code>({ re := a, im := a } ^ 2).re = a * a - a * a</code>",
  "3": "<code>Complex.mk (re im : ℝ) : ℂ</code>",
+ "299": "<code>P (r : ℝ) (p : ℝ × ℝ) : ℝ × ℝ × ℝ</code>",
+ "298": "<code>N (r : ℝ) : ℝ × ℝ × ℝ</code>",
+ "297": "<code>ℝ × ℝ × ℝ</code>",
+ "296":
+ "<code>Set.{u} (α : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">A set is a collection of elements of some type `α`.\n\nAlthough `Set` is defined as `α → Prop`, this is an implementation detail which should not be\nrelied on. Instead, `setOf` and membership of a set (`∈`) should be used to convert between sets\nand predicates.\n</code>",
+ "295": "<code>S (r : ℝ) : Set (ℝ × ℝ × ℝ)</code>",
+ "294":
+ "<code class=\"docstring\">Declares one or more typed variables, or modifies whether already-declared variables are\n  implicit.\n\nIntroduces variables that can be used in definitions within the same `namespace` or `section` block.\nWhen a definition mentions a variable, Lean will add it as an argument of the definition. This is\nuseful in particular when writing many definitions that have parameters in common (see below for an\nexample).\n\nVariable declarations have the same flexibility as regular function parameters. In particular they\ncan be [explicit, implicit][binder docs], or [instance implicit][tpil classes] (in which case they\ncan be anonymous). This can be changed, for instance one can turn explicit variable `x` into an\nimplicit one with `variable {x}`. Note that currently, you should avoid changing how variables are\nbound and declare new variables at the same time; see [issue 2789] for more on this topic.\n\nIn *theorem bodies* (i.e. proofs), variables are not included based on usage in order to ensure that\nchanges to the proof cannot change the statement of the overall theorem. Instead, variables are only\navailable to the proof if they have been mentioned in the theorem header or in an `include` command\nor are instance implicit and depend only on such variables.\n\nSee [*Variables and Sections* from Theorem Proving in Lean][tpil vars] for a more detailed\ndiscussion.\n\n[tpil vars]:\nhttps://lean-lang.org/theorem_proving_in_lean4/dependent_type_theory.html#variables-and-sections\n(Variables and Sections on Theorem Proving in Lean) [tpil classes]:\nhttps://lean-lang.org/theorem_proving_in_lean4/type_classes.html (Type classes on Theorem Proving in\nLean) [binder docs]:\nhttps://leanprover-community.github.io/mathlib4_docs/Lean/Expr.html#Lean.BinderInfo (Documentation\nfor the BinderInfo type) [issue 2789]: https://github.com/leanprover/lean4/issues/2789 (Issue 2789\non github)\n\n## Examples\n\n```lean\nsection\n  variable\n    {α : Type u}      -- implicit\n    (a : α)           -- explicit\n    [instBEq : BEq α] -- instance implicit, named\n    [Hashable α]      -- instance implicit, anonymous\n\n  def isEqual (b : α) : Bool :=\n    a == b\n\n  #check isEqual\n  -- isEqual.{u} {α : Type u} (a : α) [instBEq : BEq α] (b : α) : Bool\n\n  variable\n    {a} -- `a` is implicit now\n\n  def eqComm {b : α} := a == b ↔ b == a\n\n  #check eqComm\n  -- eqComm.{u} {α : Type u} {a : α} [instBEq : BEq α] {b : α} : Prop\nend\n```\n\nThe following shows a typical use of `variable` to factor out definition arguments:\n\n```lean\nvariable (Src : Type)\n\nstructure Logger where\n  trace : List (Src × String)\n#check Logger\n-- Logger (Src : Type) : Type\n\nnamespace Logger\n  -- switch `Src : Type` to be implicit until the `end Logger`\n  variable {Src}\n\n  def empty : Logger Src where\n    trace := []\n  #check empty\n  -- Logger.empty {Src : Type} : Logger Src\n\n  variable (log : Logger Src)\n\n  def len :=\n    log.trace.length\n  #check len\n  -- Logger.len {Src : Type} (log : Logger Src) : Nat\n\n  variable (src : Src) [BEq Src]\n\n  -- at this point all of `log`, `src`, `Src` and the `BEq` instance can all become arguments\n\n  def filterSrc :=\n    log.trace.filterMap\n      fun (src', str') =&gt; if src' == src then some str' else none\n  #check filterSrc\n  -- Logger.filterSrc {Src : Type} (log : Logger Src) (src : Src) [inst✝ : BEq Src] : List String\n\n  def lenSrc :=\n    log.filterSrc src |&gt;.length\n  #check lenSrc\n  -- Logger.lenSrc {Src : Type} (log : Logger Src) (src : Src) [inst✝ : BEq Src] : Nat\nend Logger\n```\n\nThe following example demonstrates availability of variables in proofs:\n```lean\nvariable\n  {α : Type}    -- available in the proof as indirectly mentioned through `a`\n  [ToString α]  -- available in the proof as `α` is included\n  (a : α)       -- available in the proof as mentioned in the header\n  {β : Type}    -- not available in the proof\n  [ToString β]  -- not available in the proof\n\ntheorem ex : a = a := rfl\n```\nAfter elaboration of the proof, the following warning will be generated to highlight the unused\nhypothesis:\n```\nincluded section variable '[ToString α]' is not used in 'ex', consider excluding it\n```\nIn such cases, the offending variable declaration should be moved down or into a section so that\nonly theorems that do depend on it follow it until the end of the section.\n</code>",
+ "293":
+ "<code>inv_eq_one_div.{u_1} {G : Type u_1} [DivInvMonoid G] (x : G) : x⁻¹ = 1 / x</code>",
+ "292":
+ "<code>Int.cast_neg.{u} {R : Type u} [AddGroupWithOne R] (n : ℤ) : ↑(-n) = -↑n</code>",
+ "291":
+ "<code>zpow_neg.{u_1} {α : Type u_1} [DivisionMonoid α] (a : α) (n : ℤ) : a ^ (-n) = (a ^ n)⁻¹</code>",
+ "290": "<code>Int.negSucc_eq (n : ℕ) : Int.negSucc n = -(↑n + 1)</code>",
  "29":
  "<code class=\"docstring\">The `have` tactic is for adding opaque definitions and hypotheses to the local context of the main goal.\nThe definitions forget their associated value and cannot be unfolded, unlike definitions added by the `let` tactic.\n\n* `have h : t := e` adds the hypothesis `h : t` if `e` is a term of type `t`.\n* `have h := e` uses the type of `e` for `t`.\n* `have : t := e` and `have := e` use `this` for the name of the hypothesis.\n* `have pat := e` for a pattern `pat` is equivalent to `match e with | pat =&gt; _`,\n  where `_` stands for the tactics that follow this one.\n  It is convenient for types that have only one applicable constructor.\n  For example, given `h : p ∧ q ∧ r`, `have ⟨h₁, h₂, h₃⟩ := h` produces the\n  hypotheses `h₁ : p`, `h₂ : q`, and `h₃ : r`.\n* The syntax `have (eq := h) pat := e` is equivalent to `match h : e with | pat =&gt; _`,\n  which adds the equation `h : e = pat` to the local context.\n\nThe tactic supports all the same syntax variants and options as the `have` term.\n\n## Properties and relations\n\n* It is not possible to unfold a variable introduced using `have`, since the definition's value is forgotten.\n  The `let` tactic introduces definitions that can be unfolded.\n* The `have h : t := e` is like doing `let h : t := e; clear_value h`.\n* The `have` tactic is preferred for propositions, and `let` is preferred for non-propositions.\n* Sometimes `have` is used for non-propositions to ensure that the variable is never unfolded,\n  which may be important for performance reasons.\n    Consider using the equivalent `let +nondep` to indicate the intent.\n\n</code>",
+ "289":
+ "<code>Int.negSucc : ℕ → ℤ</code><span class=\"sep\"></span><code class=\"docstring\">The negation of the successor of a natural number is an integer.\n\nThis constructor covers the negative integers (from `-1` to `-∞`).\n</code>",
+ "288":
+ "<code>Int.ofNat : ℕ → ℤ</code><span class=\"sep\"></span><code class=\"docstring\">A natural number is an integer.\n\nThis constructor covers the non-negative integers (from `0` to `∞`).\n</code>",
+ "287":
+ "<code class=\"docstring\">Assuming `x` is a variable in the local context with an inductive type,\n`cases x` splits the main goal, producing one goal for each constructor of the\ninductive type, in which the target is replaced by a general instance of that constructor.\nIf the type of an element in the local context depends on `x`,\nthat element is reverted and reintroduced afterward,\nso that the case split affects that hypothesis as well.\n`cases` detects unreachable cases and closes them automatically.\n\nFor example, given `n : Nat` and a goal with a hypothesis `h : P n` and target `Q n`,\n`cases n` produces one goal with hypothesis `h : P 0` and target `Q 0`,\nand one goal with hypothesis `h : P (Nat.succ a)` and target `Q (Nat.succ a)`.\nHere the name `a` is chosen automatically and is not accessible.\nYou can use `with` to provide the variables names for each constructor.\n- `cases e`, where `e` is an expression instead of a variable, generalizes `e` in the goal,\n  and then cases on the resulting variable.\n- Given `as : List α`, `cases as with | nil =&gt; tac₁ | cons a as' =&gt; tac₂`,\n  uses tactic `tac₁` for the `nil` case, and `tac₂` for the `cons` case,\n  and `a` and `as'` are used as names for the new variables introduced.\n- `cases h : e`, where `e` is a variable or an expression,\n  performs cases on `e` as above, but also adds a hypothesis `h : e = ...` to each goal,\n  where `...` is the constructor instance for that particular case.\n</code>",
+ "286":
+ "<code>Int : Type</code><span class=\"sep\"></span><code class=\"docstring\">The integers.\n\nThis type is special-cased by the compiler and overridden with an efficient implementation. The\nruntime has a special representation for `Int` that stores “small” signed numbers directly, while\nlarger numbers use a fast arbitrary-precision arithmetic library (usually\n[GMP](https://gmplib.org/)). A “small number” is an integer that can be encoded with one fewer bits\nthan the platform's pointer size (i.e. 63 bits on 64-bit architectures and 31 bits on 32-bit\narchitectures).\n</code>",
+ "285": "<code>ℤ</code>",
+ "284":
+ "<code>DeMoivre_formula (θ : ℝ) (n : ℤ) :\n  (↑(Real.cos θ) + ↑(Real.sin θ) * I) ^ n = ↑(Real.cos (↑n * θ)) + ↑(Real.sin (↑n * θ)) * I</code><span class=\"sep\"></span><code class=\"docstring\">DeMoivre formula for all integers\n</code>",
+ "283":
+ "<code>one_div_pow.{u_1} {α : Type u_1} [DivisionMonoid α] (a : α) (n : ℕ) : (1 / a) ^ n = 1 / a ^ n</code>",
+ "282":
+ "<code>1 / (↑(Real.cos x) + ↑(Real.sin x) * I) ^ n = ↑(Real.cos (↑n * -x)) + ↑(Real.sin (↑n * -x)) * I</code>",
+ "281":
+ "<code>DeMoivre_neg_exp (x : ℝ) (n : ℕ) :\n  1 / (↑(Real.cos x) + ↑(Real.sin x) * I) ^ n = ↑(Real.cos (-↑n * x)) + ↑(Real.sin (-↑n * x)) * I</code><span class=\"sep\"></span><code class=\"docstring\">DeMoivre formula for negative integer\n</code>",
  "280":
- "<code>inv_eq_one_div.{u_1} {G : Type u_1} [DivInvMonoid G] (x : G) : x⁻¹ = 1 / x</code>",
+ "<code>Real.cos_sq_add_sin_sq (x : ℝ) : Real.cos x ^ 2 + Real.sin x ^ 2 = 1</code>",
  "28":
  "<code>HPow.hPow.{u, v, w} {α : Type u} {β : Type v} {γ : outParam (Type w)} [self : HPow α β γ] : α → β → γ</code><span class=\"sep\"></span><code class=\"docstring\">`a ^ b` computes `a` to the power of `b`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `^` in identifiers is `pow`.</code>",
  "279":
- "<code>Int.cast_neg.{u} {R : Type u} [AddGroupWithOne R] (n : ℤ) : ↑(-n) = -↑n</code>",
+ "<code>sq.{u_2} {M : Type u_2} [Monoid M] (a : M) : a ^ 2 = a * a</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `pow_two`.\n\n---\n\nNote that most of the lemmas about powers of two refer to it as `sq`. </code>",
  "278":
- "<code>zpow_neg.{u_1} {α : Type u_1} [DivisionMonoid α] (a : α) (n : ℤ) : a ^ (-n) = (a ^ n)⁻¹</code>",
- "277": "<code>Int.negSucc_eq (n : ℕ) : Int.negSucc n = -(↑n + 1)</code>",
+ "<code>And.intro {a b : Prop} (left : a) (right : b) : a ∧ b</code><span class=\"sep\"></span><code class=\"docstring\">`And.intro : a → b → a ∧ b` is the constructor for the And operation. </code>",
+ "277":
+ "<code>Complex.exp_im (x : ℂ) : (cexp x).im = Real.exp x.re * Real.sin x.im</code>",
  "276":
- "<code>Int.negSucc : ℕ → ℤ</code><span class=\"sep\"></span><code class=\"docstring\">The negation of the successor of a natural number is an integer.\n\nThis constructor covers the negative integers (from `-1` to `-∞`).\n</code>",
+ "<code>Complex.exp_re (x : ℂ) : (cexp x).re = Real.exp x.re * Real.cos x.im</code>",
  "275":
- "<code>Int.ofNat : ℕ → ℤ</code><span class=\"sep\"></span><code class=\"docstring\">A natural number is an integer.\n\nThis constructor covers the non-negative integers (from `0` to `∞`).\n</code>",
+ "<code class=\"docstring\">`convert e`, where the term `e` is inferred to have type `t`, replaces the main goal `⊢ t'` with new\ngoals for proving the equality `t' = t` using congruence. The goals are created like `congr!` would.\nLike `refine e`, any holes (`?_` or `?x`) in `e` that are not solved by unification are converted\ninto new goals, using the hole's name, if any, as the goal case name.\nLike `congr!`, `convert` introduces variables while applying congruence rules. These can be\npattern-matched, like `rintro` would, using the `with` keyword.\n\nSee also `convert_to t`, where `t` specifies the expected type, instead of a proof term of type `t`.\nIn other words, `convert_to t` works like `convert (?_ : t)`. Both tactics use the same options.\n\n* `convert ← e` creates equality goals in the opposite direction (with the goal type on the right).\n* `convert e using n`, where `n` is a positive numeral, controls the depth with which congruence is\n  applied. For example, if the main goal is `⊢ Prime (n + n + 1)` and `e : Prime (2 * n + 1)`, then\n  `convert e using 2` results in one goal, `⊢ n + n = 2 * n`, and `convert e using 3` (or more)\n  results in two (impossible) goals `⊢ HAdd.hAdd = HMul.hMul` and `⊢ n = 2`.\n  By default, the depth is unlimited.\n* `convert e with x ⟨y₁, y₂⟩ (z₁ | z₂)` names or pattern-matches the variables introduced by\n  congruence rules, like `rintro x ⟨y₁, y₂⟩ (z₁ | z₂)` would.\n* `convert (config := cfg) e` uses the configuration options in `cfg` to control the congruence\n  rules (see `Congr!.Config`).\n\nExamples:\n\n```lean\n-- `convert using` controls the depth of congruence.\nexample {n : ℕ} (e : Prime (2 * n + 1)) :\n    Prime (n + n + 1) := by\n  convert e using 2\n  -- One goal: ⊢ n + n = 2 * n\n  ring\n\n-- `convert` can fail where `exact` succeeds.\nexample (h : p 0) : p 1 := by\n  fail_if_success\n    convert h -- fails, left-over goal 1 = 0\n    done\n  exact h -- succeeds\n\n-- `convert with` names introduced variables.\nexample (p q : Nat → Prop) (h : ∀ ε &gt; 0, p ε) :\n    ∀ ε &gt; 0, q ε := by\n  convert h using 2 with ε hε\n  -- Goal now looks like:\n  -- hε : ε &gt; 0\n  -- ⊢ q ε ↔ p ε\n  sorry\n```\n</code>",
  "274":
- "<code class=\"docstring\">Assuming `x` is a variable in the local context with an inductive type,\n`cases x` splits the main goal, producing one goal for each constructor of the\ninductive type, in which the target is replaced by a general instance of that constructor.\nIf the type of an element in the local context depends on `x`,\nthat element is reverted and reintroduced afterward,\nso that the case split affects that hypothesis as well.\n`cases` detects unreachable cases and closes them automatically.\n\nFor example, given `n : Nat` and a goal with a hypothesis `h : P n` and target `Q n`,\n`cases n` produces one goal with hypothesis `h : P 0` and target `Q 0`,\nand one goal with hypothesis `h : P (Nat.succ a)` and target `Q (Nat.succ a)`.\nHere the name `a` is chosen automatically and is not accessible.\nYou can use `with` to provide the variables names for each constructor.\n- `cases e`, where `e` is an expression instead of a variable, generalizes `e` in the goal,\n  and then cases on the resulting variable.\n- Given `as : List α`, `cases as with | nil =&gt; tac₁ | cons a as' =&gt; tac₂`,\n  uses tactic `tac₁` for the `nil` case, and `tac₂` for the `cons` case,\n  and `a` and `as'` are used as names for the new variables introduced.\n- `cases h : e`, where `e` is a variable or an expression,\n  performs cases on `e` as above, but also adds a hypothesis `h : e = ...` to each goal,\n  where `...` is the constructor instance for that particular case.\n</code>",
+ "<code>DeMoivre_helper (x : ℝ) : 1 / (↑(Real.cos x) + ↑(Real.sin x) * I) = ↑(Real.cos (-x)) + ↑(Real.sin (-x)) * I</code><span class=\"sep\"></span><code class=\"docstring\">Helper lemma 2\nThe inverse of (cos (x) + sin (x) *I)\nequals cos (-x) + sin (-x) *I\n</code>",
  "273":
- "<code>Int : Type</code><span class=\"sep\"></span><code class=\"docstring\">The integers.\n\nThis type is special-cased by the compiler and overridden with an efficient implementation. The\nruntime has a special representation for `Int` that stores “small” signed numbers directly, while\nlarger numbers use a fast arbitrary-precision arithmetic library (usually\n[GMP](https://gmplib.org/)). A “small number” is an integer that can be encoded with one fewer bits\nthan the platform's pointer size (i.e. 63 bits on 64-bit architectures and 31 bits on 32-bit\narchitectures).\n</code>",
- "272": "<code>ℤ</code>",
- "271":
- "<code>DeMoivre_formula (θ : ℝ) (n : ℤ) :\n  (↑(Real.cos θ) + ↑(Real.sin θ) * I) ^ n = ↑(Real.cos (↑n * θ)) + ↑(Real.sin (↑n * θ)) * I</code><span class=\"sep\"></span><code class=\"docstring\">DeMoivre formula for all integers\n</code>",
- "270":
- "<code>one_div_pow.{u_1} {α : Type u_1} [DivisionMonoid α] (a : α) (n : ℕ) : (1 / a) ^ n = 1 / a ^ n</code>",
+ "<code>Real.sin_sq_add_cos_sq (x : ℝ) : Real.sin x ^ 2 + Real.cos x ^ 2 = 1</code>",
+ "272":
+ "<code class=\"docstring\">An extension of `linarith` with some preprocessing to allow it to solve some nonlinear arithmetic\nproblems. (Based on Coq's `nra` tactic.) See `linarith` for the available syntax of options,\nwhich are inherited by `nlinarith`; that is, `nlinarith!` and `nlinarith only [h1, h2]` all work as\nin `linarith`. The preprocessing is as follows:\n\n* For every subterm `a ^ 2` or `a * a` in a hypothesis or the goal,\n  the assumption `0 ≤ a ^ 2` or `0 ≤ a * a` is added to the context.\n* For every pair of hypotheses `a1 R1 b1`, `a2 R2 b2` in the context, `R1, R2 ∈ {&lt;, ≤, =}`,\n  the assumption `0 R' (b1 - a1) * (b2 - a2)` is added to the context (non-recursively),\n  where `R ∈ {&lt;, ≤, =}` is the appropriate comparison derived from `R1, R2`.\n</code>",
+ "271": "<code>Real.sin x = 0</code>",
+ "270": "<code>Real.cos x = 0</code>",
  "27": "<code>ℕ</code>",
  "269":
- "<code>1 / (↑(Real.cos x) + ↑(Real.sin x) * I) ^ n = ↑(Real.cos (↑n * -x)) + ↑(Real.sin (↑n * -x)) * I</code>",
+ "<code>cos_add_sin_mul_I_ne_zero (x : ℝ) : ↑(Real.cos x) + ↑(Real.sin x) * I ≠ 0</code><span class=\"sep\"></span><code class=\"docstring\">Helper lemma 1\ncos x + (sin x)*I ≠ 0\n</code>",
  "268":
- "<code>DeMoivre_neg_exp (x : ℝ) (n : ℕ) :\n  1 / (↑(Real.cos x) + ↑(Real.sin x) * I) ^ n = ↑(Real.cos (-↑n * x)) + ↑(Real.sin (-↑n * x)) * I</code><span class=\"sep\"></span><code class=\"docstring\">DeMoivre formula for negative integer\n</code>",
+ "<code>one_mul.{u} {M : Type u} [MulOneClass M] (a : M) : 1 * a = a</code>",
  "267":
- "<code>Real.cos_sq_add_sin_sq (x : ℝ) : Real.cos x ^ 2 + Real.sin x ^ 2 = 1</code>",
+ "<code>add_mul.{v} {R : Type v} [Mul R] [Add R] [RightDistribClass R] (a b c : R) : (a + b) * c = a * c + b * c</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `right_distrib`.</code>",
  "266":
- "<code>sq.{u_2} {M : Type u_2} [Monoid M] (a : M) : a ^ 2 = a * a</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `pow_two`.\n\n---\n\nNote that most of the lemmas about powers of two refer to it as `sq`. </code>",
+ "<code>Nat.cast_succ.{u_1} {R : Type u_1} [AddMonoidWithOne R] (n : ℕ) : ↑n.succ = ↑n + 1</code>",
  "265":
- "<code>And.intro {a b : Prop} (left : a) (right : b) : a ∧ b</code><span class=\"sep\"></span><code class=\"docstring\">`And.intro : a → b → a ∧ b` is the constructor for the And operation. </code>",
+ "<code>(↑(Real.cos θ) + ↑(Real.sin θ) * I) ^ n = ↑(Real.cos (↑n * θ)) + ↑(Real.sin (↑n * θ)) * I</code>",
  "264":
- "<code>Complex.exp_im (x : ℂ) : (cexp x).im = Real.exp x.re * Real.sin x.im</code>",
+ "<code>DeMoivre (θ : ℝ) (n : ℕ) : (↑(Real.cos θ) + ↑(Real.sin θ) * I) ^ n = ↑(Real.cos (↑n * θ)) + ↑(Real.sin (↑n * θ)) * I</code><span class=\"sep\"></span><code class=\"docstring\">Prove by using the tactic `induction` </code>",
  "263":
- "<code>Complex.exp_re (x : ℂ) : (cexp x).re = Real.exp x.re * Real.cos x.im</code>",
+ "<code>polar_mul' (θ₁ θ₂ : ℝ) :\n  (↑(Real.cos θ₁) + ↑(Real.sin θ₁) * I) * (↑(Real.cos θ₂) + ↑(Real.sin θ₂) * I) =\n    ↑(Real.cos (θ₁ + θ₂)) + ↑(Real.sin (θ₁ + θ₂)) * I</code>",
  "262":
- "<code class=\"docstring\">`convert e`, where the term `e` is inferred to have type `t`, replaces the main goal `⊢ t'` with new\ngoals for proving the equality `t' = t` using congruence. The goals are created like `congr!` would.\nLike `refine e`, any holes (`?_` or `?x`) in `e` that are not solved by unification are converted\ninto new goals, using the hole's name, if any, as the goal case name.\nLike `congr!`, `convert` introduces variables while applying congruence rules. These can be\npattern-matched, like `rintro` would, using the `with` keyword.\n\nSee also `convert_to t`, where `t` specifies the expected type, instead of a proof term of type `t`.\nIn other words, `convert_to t` works like `convert (?_ : t)`. Both tactics use the same options.\n\n* `convert ← e` creates equality goals in the opposite direction (with the goal type on the right).\n* `convert e using n`, where `n` is a positive numeral, controls the depth with which congruence is\n  applied. For example, if the main goal is `⊢ Prime (n + n + 1)` and `e : Prime (2 * n + 1)`, then\n  `convert e using 2` results in one goal, `⊢ n + n = 2 * n`, and `convert e using 3` (or more)\n  results in two (impossible) goals `⊢ HAdd.hAdd = HMul.hMul` and `⊢ n = 2`.\n  By default, the depth is unlimited.\n* `convert e with x ⟨y₁, y₂⟩ (z₁ | z₂)` names or pattern-matches the variables introduced by\n  congruence rules, like `rintro x ⟨y₁, y₂⟩ (z₁ | z₂)` would.\n* `convert (config := cfg) e` uses the configuration options in `cfg` to control the congruence\n  rules (see `Congr!.Config`).\n\nExamples:\n\n```lean\n-- `convert using` controls the depth of congruence.\nexample {n : ℕ} (e : Prime (2 * n + 1)) :\n    Prime (n + n + 1) := by\n  convert e using 2\n  -- One goal: ⊢ n + n = 2 * n\n  ring\n\n-- `convert` can fail where `exact` succeeds.\nexample (h : p 0) : p 1 := by\n  fail_if_success\n    convert h -- fails, left-over goal 1 = 0\n    done\n  exact h -- succeeds\n\n-- `convert with` names introduced variables.\nexample (p q : Nat → Prop) (h : ∀ ε &gt; 0, p ε) :\n    ∀ ε &gt; 0, q ε := by\n  convert h using 2 with ε hε\n  -- Goal now looks like:\n  -- hε : ε &gt; 0\n  -- ⊢ q ε ↔ p ε\n  sorry\n```\n</code>",
+ "<code>Complex.sin (z : ℂ) : ℂ</code><span class=\"sep\"></span><code class=\"docstring\">The complex sine function, defined via `exp` </code>",
  "261":
- "<code>DeMoivre_helper (x : ℝ) : 1 / (↑(Real.cos x) + ↑(Real.sin x) * I) = ↑(Real.cos (-x)) + ↑(Real.sin (-x)) * I</code><span class=\"sep\"></span><code class=\"docstring\">Helper lemma 2\nThe inverse of (cos (x) + sin (x) *I)\nequals cos (-x) + sin (-x) *I\n</code>",
+ "<code>Complex.cos (z : ℂ) : ℂ</code><span class=\"sep\"></span><code class=\"docstring\">The complex cosine function, defined via `exp` </code>",
  "260":
- "<code>Real.sin_sq_add_cos_sq (x : ℝ) : Real.sin x ^ 2 + Real.cos x ^ 2 = 1</code>",
+ "<code>Real.sin_add (x y : ℝ) : Real.sin (x + y) = Real.sin x * Real.cos y + Real.cos x * Real.sin y</code>",
  "26":
  "<code class=\"docstring\">* `unfold id` unfolds all occurrences of definition `id` in the target.\n* `unfold id1 id2 ...` is equivalent to `unfold id1; unfold id2; ...`.\n* `unfold id at h` unfolds at the hypothesis `h`.\n\nDefinitions can be either global or local definitions.\n\nFor non-recursive global definitions, this tactic is identical to `delta`.\nFor recursive global definitions, it uses the \"unfolding lemma\" `id.eq_def`,\nwhich is generated for each recursive definition, to unfold according to the recursive definition given by the user.\nOnly one level of unfolding is performed, in contrast to `simp only [id]`, which unfolds definition `id` recursively.\n</code>",
  "259":
- "<code class=\"docstring\">An extension of `linarith` with some preprocessing to allow it to solve some nonlinear arithmetic\nproblems. (Based on Coq's `nra` tactic.) See `linarith` for the available syntax of options,\nwhich are inherited by `nlinarith`; that is, `nlinarith!` and `nlinarith only [h1, h2]` all work as\nin `linarith`. The preprocessing is as follows:\n\n* For every subterm `a ^ 2` or `a * a` in a hypothesis or the goal,\n  the assumption `0 ≤ a ^ 2` or `0 ≤ a * a` is added to the context.\n* For every pair of hypotheses `a1 R1 b1`, `a2 R2 b2` in the context, `R1, R2 ∈ {&lt;, ≤, =}`,\n  the assumption `0 R' (b1 - a1) * (b2 - a2)` is added to the context (non-recursively),\n  where `R ∈ {&lt;, ≤, =}` is the appropriate comparison derived from `R1, R2`.\n</code>",
- "258": "<code>Real.sin x = 0</code>",
- "257": "<code>Real.cos x = 0</code>",
+ "<code>Real.cos_add (x y : ℝ) : Real.cos (x + y) = Real.cos x * Real.cos y - Real.sin x * Real.sin y</code>",
+ "258": "<code>Complex.add_im (z w : ℂ) : (z + w).im = z.im + w.im</code>",
+ "257":
+ "<code>Complex.mul_im (z w : ℂ) : (z * w).im = z.re * w.im + z.im * w.re</code>",
  "256":
- "<code>cos_add_sin_mul_I_ne_zero (x : ℝ) : ↑(Real.cos x) + ↑(Real.sin x) * I ≠ 0</code><span class=\"sep\"></span><code class=\"docstring\">Helper lemma 1\ncos x + (sin x)*I ≠ 0\n</code>",
- "255":
- "<code>one_mul.{u} {M : Type u} [MulOneClass M] (a : M) : 1 * a = a</code>",
- "254":
- "<code>add_mul.{v} {R : Type v} [Mul R] [Add R] [RightDistribClass R] (a b c : R) : (a + b) * c = a * c + b * c</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `right_distrib`.</code>",
+ "<code>Complex.mul_re (z w : ℂ) : (z * w).re = z.re * w.re - z.im * w.im</code>",
+ "255": "<code>Complex.I_im : I.im = 1</code>",
+ "254": "<code>Complex.I_re : I.re = 0</code>",
  "253":
- "<code>Nat.cast_succ.{u_1} {R : Type u_1} [AddMonoidWithOne R] (n : ℕ) : ↑n.succ = ↑n + 1</code>",
+ "<code>Real.sin (x : ℝ) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The real sine function, defined as the real part of the complex sine </code>",
  "252":
- "<code>pow_succ.{u_2} {M : Type u_2} [Monoid M] (a : M) (n : ℕ) : a ^ (n + 1) = a ^ n * a</code>",
+ "<code>Real.cos (x : ℝ) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The real cosine function, defined as the real part of the complex cosine </code>",
  "251":
- "<code>(↑(Real.cos θ) + ↑(Real.sin θ) * I) ^ n = ↑(Real.cos (↑n * θ)) + ↑(Real.sin (↑n * θ)) * I</code>",
+ "<code>polar_mul (r₁ r₂ θ₁ θ₂ : ℝ) :\n  ↑r₁ * (↑(Real.cos θ₁) + ↑(Real.sin θ₁) * I) * (↑r₂ * (↑(Real.cos θ₂) + ↑(Real.sin θ₂) * I)) =\n    ↑r₁ * ↑r₂ * (↑(Real.cos (θ₁ + θ₂)) + ↑(Real.sin (θ₁ + θ₂)) * I)</code>",
  "250":
- "<code>Nat.succ (n : ℕ) : ℕ</code><span class=\"sep\"></span><code class=\"docstring\">The successor of a natural number `n`.\n\nUsing `Nat.succ n` should usually be avoided in favor of `n + 1`, which is the [simp normal\nform](https://lean-lang.org/doc/reference/4.29.0/find/?domain=Verso.Genre.Manual.section&name=simp-normal-forms).\n</code>",
+ "<code>pow_succ.{u_2} {M : Type u_2} [Monoid M] (a : M) (n : ℕ) : a ^ (n + 1) = a ^ n * a</code>",
  "25":
  "<code class=\"docstring\">The universe of propositions. `Prop ≡ Sort 0`.\n\nEvery proposition is propositionally equal to either `True` or `False`. </code>",
- "249":
- "<code>Nat.zero : ℕ</code><span class=\"sep\"></span><code class=\"docstring\">Zero, the smallest natural number.\n\nUsing `Nat.zero` explicitly should usually be avoided in favor of the literal `0`, which is the\n[simp normal form](https://lean-lang.org/doc/reference/4.29.0/find/?domain=Verso.Genre.Manual.section&name=simp-normal-forms).\n</code>",
+ "249": "<code>‖z ^ n‖ = ‖z‖ ^ n</code>",
  "248":
- "<code class=\"docstring\">After `with`, there is an optional tactic that runs on all branches, and\nthen a list of alternatives.\n</code>",
+ "<code>Nat.succ (n : ℕ) : ℕ</code><span class=\"sep\"></span><code class=\"docstring\">The successor of a natural number `n`.\n\nUsing `Nat.succ n` should usually be avoided in favor of `n + 1`, which is the [simp normal\nform](https://lean-lang.org/doc/reference/4.29.0/find/?domain=Verso.Genre.Manual.section&name=simp-normal-forms).\n</code>",
  "247":
- "<code class=\"docstring\">Assuming `x` is a variable in the local context with an inductive type,\n`induction x` applies induction on `x` to the main goal,\nproducing one goal for each constructor of the inductive type,\nin which the target is replaced by a general instance of that constructor\nand an inductive hypothesis is added for each recursive argument to the constructor.\nIf the type of an element in the local context depends on `x`,\nthat element is reverted and reintroduced afterward,\nso that the inductive hypothesis incorporates that hypothesis as well.\n\nFor example, given `n : Nat` and a goal with a hypothesis `h : P n` and target `Q n`,\n`induction n` produces one goal with hypothesis `h : P 0` and target `Q 0`,\nand one goal with hypotheses `h : P (Nat.succ a)` and `ih₁ : P a → Q a` and target `Q (Nat.succ a)`.\nHere the names `a` and `ih₁` are chosen automatically and are not accessible.\nYou can use `with` to provide the variables names for each constructor.\n- `induction e`, where `e` is an expression instead of a variable,\n  generalizes `e` in the goal, and then performs induction on the resulting variable.\n- `induction e using r` allows the user to specify the principle of induction that should be used.\n  Here `r` should be a term whose result type must be of the form `C t`,\n  where `C` is a bound variable and `t` is a (possibly empty) sequence of bound variables\n- `induction e generalizing z₁ ... zₙ`, where `z₁ ... zₙ` are variables in the local context,\n  generalizes over `z₁ ... zₙ` before applying the induction but then introduces them in each goal.\n  In other words, the net effect is that each inductive hypothesis is generalized.\n- Given `x : Nat`, `induction x with | zero =&gt; tac₁ | succ x' ih =&gt; tac₂`\n  uses tactic `tac₁` for the `zero` case, and `tac₂` for the `succ` case.\n</code>",
+ "<code>Nat.zero : ℕ</code><span class=\"sep\"></span><code class=\"docstring\">Zero, the smallest natural number.\n\nUsing `Nat.zero` explicitly should usually be avoided in favor of the literal `0`, which is the\n[simp normal form](https://lean-lang.org/doc/reference/4.29.0/find/?domain=Verso.Genre.Manual.section&name=simp-normal-forms).\n</code>",
  "246":
- "<code>DeMoivre (θ : ℝ) (n : ℕ) : (↑(Real.cos θ) + ↑(Real.sin θ) * I) ^ n = ↑(Real.cos (↑n * θ)) + ↑(Real.sin (↑n * θ)) * I</code><span class=\"sep\"></span><code class=\"docstring\">Prove by using the tactic `induction` </code>",
+ "<code class=\"docstring\">After `with`, there is an optional tactic that runs on all branches, and\nthen a list of alternatives.\n</code>",
  "245":
- "<code>polar_mul' (θ₁ θ₂ : ℝ) :\n  (↑(Real.cos θ₁) + ↑(Real.sin θ₁) * I) * (↑(Real.cos θ₂) + ↑(Real.sin θ₂) * I) =\n    ↑(Real.cos (θ₁ + θ₂)) + ↑(Real.sin (θ₁ + θ₂)) * I</code>",
+ "<code class=\"docstring\">Assuming `x` is a variable in the local context with an inductive type,\n`induction x` applies induction on `x` to the main goal,\nproducing one goal for each constructor of the inductive type,\nin which the target is replaced by a general instance of that constructor\nand an inductive hypothesis is added for each recursive argument to the constructor.\nIf the type of an element in the local context depends on `x`,\nthat element is reverted and reintroduced afterward,\nso that the inductive hypothesis incorporates that hypothesis as well.\n\nFor example, given `n : Nat` and a goal with a hypothesis `h : P n` and target `Q n`,\n`induction n` produces one goal with hypothesis `h : P 0` and target `Q 0`,\nand one goal with hypotheses `h : P (Nat.succ a)` and `ih₁ : P a → Q a` and target `Q (Nat.succ a)`.\nHere the names `a` and `ih₁` are chosen automatically and are not accessible.\nYou can use `with` to provide the variables names for each constructor.\n- `induction e`, where `e` is an expression instead of a variable,\n  generalizes `e` in the goal, and then performs induction on the resulting variable.\n- `induction e using r` allows the user to specify the principle of induction that should be used.\n  Here `r` should be a term whose result type must be of the form `C t`,\n  where `C` is a bound variable and `t` is a (possibly empty) sequence of bound variables\n- `induction e generalizing z₁ ... zₙ`, where `z₁ ... zₙ` are variables in the local context,\n  generalizes over `z₁ ... zₙ` before applying the induction but then introduces them in each goal.\n  In other words, the net effect is that each inductive hypothesis is generalized.\n- Given `x : Nat`, `induction x with | zero =&gt; tac₁ | succ x' ih =&gt; tac₂`\n  uses tactic `tac₁` for the `zero` case, and `tac₂` for the `succ` case.\n</code>",
  "244":
- "<code>Complex.sin (z : ℂ) : ℂ</code><span class=\"sep\"></span><code class=\"docstring\">The complex sine function, defined via `exp` </code>",
- "243":
- "<code>Complex.cos (z : ℂ) : ℂ</code><span class=\"sep\"></span><code class=\"docstring\">The complex cosine function, defined via `exp` </code>",
- "242":
- "<code>Real.sin_add (x y : ℝ) : Real.sin (x + y) = Real.sin x * Real.cos y + Real.cos x * Real.sin y</code>",
- "241":
- "<code>Real.cos_add (x y : ℝ) : Real.cos (x + y) = Real.cos x * Real.cos y - Real.sin x * Real.sin y</code>",
- "240": "<code>Complex.add_im (z w : ℂ) : (z + w).im = z.im + w.im</code>",
- "24": "<code>ℂ</code>",
- "239":
- "<code>Complex.mul_im (z w : ℂ) : (z * w).im = z.re * w.im + z.im * w.re</code>",
- "238":
- "<code>Complex.mul_re (z w : ℂ) : (z * w).re = z.re * w.re - z.im * w.im</code>",
- "237": "<code>Complex.I_im : I.im = 1</code>",
- "236": "<code>Complex.I_re : I.re = 0</code>",
- "235":
- "<code>Real.sin (x : ℝ) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The real sine function, defined as the real part of the complex sine </code>",
- "234":
- "<code>Real.cos (x : ℝ) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The real cosine function, defined as the real part of the complex cosine </code>",
- "233":
- "<code>polar_mul (r₁ r₂ θ₁ θ₂ : ℝ) :\n  ↑r₁ * (↑(Real.cos θ₁) + ↑(Real.sin θ₁) * I) * (↑r₂ * (↑(Real.cos θ₂) + ↑(Real.sin θ₂) * I)) =\n    ↑r₁ * ↑r₂ * (↑(Real.cos (θ₁ + θ₂)) + ↑(Real.sin (θ₁ + θ₂)) * I)</code>",
- "232":
  "<code>norm_add_le.{u_5} {E : Type u_5} [SeminormedAddGroup E] (a b : E) : ‖a + b‖ ≤ ‖a‖ + ‖b‖</code><span class=\"sep\"></span><code class=\"docstring\">**Triangle inequality** for the norm. </code>",
- "231": "<code>Complex.norm_conj (z : ℂ) : ‖(starRingEnd ℂ) z‖ = ‖z‖</code>",
- "230": "<code>Complex.re_le_norm (z : ℂ) : z.re ≤ ‖z‖</code>",
+ "243": "<code>Complex.norm_conj (z : ℂ) : ‖(starRingEnd ℂ) z‖ = ‖z‖</code>",
+ "242": "<code>Complex.re_le_norm (z : ℂ) : z.re ≤ ‖z‖</code>",
+ "241":
+ "<code class=\"docstring\">`gcongr` applies \"generalized congruence\" rules to recursively reduce a goal of form\n`⊢ R (f a₁ ... aₙ) (f b₁ ... bₙ)` to (possibly multiple) goal(s) `⊢ Rᵢ aᵢ bᵢ`, keeping only the\ndistinct pairs `aᵢ ≠ bᵢ`, where `Rᵢ` is a possibly different relation (depending on the\nprecise rule). The relations `R`, `Rᵢ` can be any two-argument relation, including `· → ·`.\n\nThis tactic is extensible: to add a \"generalized congruence\" rule, tag a theorem with the attribute\n`@[gcongr]`.\n\nIf a \"generalized congruence\" lemma has a side goal, `gcongr` will try to discharge it using\n`gcongr_discharger`, which is an extensible tactic based on `positivity`. Side goals not discharged\nin this way are left for the user.\n\n* `gcongr with x y ... z` names the variables that are introduced by descending into binders (for\n  example sums or suprema).\n* `gcongr n`, where `n` is a natural number literal, limits the depth of the recursive applications.\n  This is useful if `gcongr` is too aggressive in breaking down the goal.\n* `gcongr t`, where `t` is a term with `?_` holes, performs congruence up to the holes in `t`.\n  In other words, `gcongr f ?_` turns a goal `⊢ R (f x) (f y)` into `⊢ R x y` (but no further).\n  This is useful if `gcongr` is too aggressive in breaking down the goal.\n\nExamples:\n```\nexample {a b x c d : ℝ} (h1 : a + 1 ≤ b + 1) (h2 : c + 2 ≤ d + 2) :\n    x ^ 2 * a + c ≤ x ^ 2 * b + d := by\n  -- LHS and RHS both have the form x ^ 2 * ?_ + ?_\n  gcongr\n  · -- New goal: ⊢ a ≤ b\n    linarith\n  · -- ⊢ New goal: c ≤ d\n    linarith\n-- Resulting proof term is:\n--   add_le_add (mul_le_mul_of_nonneg_left ?_ (Even.pow_nonneg (even_two_mul 1) x)) ?_\n-- where `add_le_add` and `mul_le_mul_of_nonneg_left` are generalized congruence lemmas\n-- and the side goal `0 ≤ x ^ 2` is discharged by `gcongr_discharger`.\n```\n\n```\nexample {a b c d x : ℝ} (h : a + c + 1 ≤ b + d + 1) :\n    x ^ 2 * (a + c) + 5 ≤ x ^ 2 * (b + d) + 5 := by\n  -- Using a pattern to limit the depth.\n  gcongr x ^ 2 * ?_ + 5 -- or `gcongr 2`\n  -- New goal: ⊢ a + c ≤ b + d\n  linarith\n```\n\n```\n-- Descending into binders (here: ⨆).\nexample {f g : ℕ → ℝ≥0∞} (h : ∀ n, f n ≤ g n) : ⨆ n, f n ≤ ⨆ n, g n := by\n  gcongr with i\n  exact h i\n```\n</code>",
+ "240": "<code>Complex.conj_re (z : ℂ) : ((starRingEnd ℂ) z).re = z.re</code>",
+ "24": "<code>ℂ</code>",
+ "239": "<code>Complex.add_re (z w : ℂ) : (z + w).re = z.re + w.re</code>",
+ "238":
+ "<code>‖z₁ + z₂‖ ^ 2 = ‖z₁‖ ^ 2 + ‖z₂‖ ^ 2 + 2 * (z₁ * (starRingEnd ℂ) z₂).re</code>",
+ "237":
+ "<code>sq_le_sq.{u_1} {α : Type u_1} [Ring α] [LinearOrder α] [IsStrictOrderedRing α] {a b : α} : a ^ 2 ≤ b ^ 2 ↔ |a| ≤ |b|</code>",
+ "236":
+ "<code>add_nonneg.{u_1} {α : Type u_1} [AddZeroClass α] [Preorder α] [AddLeftMono α] {a b : α} (ha : 0 ≤ a) (hb : 0 ≤ b) :\n  0 ≤ a + b</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `Left.add_nonneg`. </code>",
+ "235":
+ "<code>norm_mul.{u_2} {α : Type u_2} [Norm α] [Mul α] [NormMulClass α] (a b : α) : ‖a * b‖ = ‖a‖ * ‖b‖</code>",
+ "234":
+ "<code>Complex.mul_conj' (z : ℂ) : z * (starRingEnd ℂ) z = ↑‖z‖ ^ 2</code>",
+ "233":
+ "<code class=\"docstring\">`push_cast` rewrites the goal to move certain coercions (*casts*) inward, toward the leaf nodes.\nThis uses `norm_cast` lemmas in the forward direction.\nFor example, `↑(a + b)` will be written to `↑a + ↑b`.\n- `push_cast` moves casts inward in the goal.\n- `push_cast at h` moves casts inward in the hypothesis `h`.\nIt can be used with extra simp lemmas with, for example, `push_cast [Int.add_zero]`.\n\nExample:\n```lean\nexample (a b : Nat)\n    (h1 : ((a + b : Nat) : Int) = 10)\n    (h2 : ((a + b + 0 : Nat) : Int) = 10) :\n    ((a + b : Nat) : Int) = 10 := by\n  /-\n  h1 : ↑(a + b) = 10\n  h2 : ↑(a + b + 0) = 10\n  ⊢ ↑(a + b) = 10\n  -/\n  push_cast\n  /- Now\n  ⊢ ↑a + ↑b = 10\n  -/\n  push_cast at h1\n  push_cast [Int.add_zero] at h2\n  /- Now\n  h1 h2 : ↑a + ↑b = 10\n  -/\n  exact h1\n```\n\nSee also `norm_cast`.\n</code>",
+ "232": "<code>Complex.ofReal_inj {z w : ℝ} : ↑z = ↑w ↔ z = w</code>",
+ "231":
+ "<code>sq_eq_sq_iff_abs_eq_abs.{u_1} {α : Type u_1} [Ring α] [LinearOrder α] [IsStrictOrderedRing α] (a b : α) :\n  a ^ 2 = b ^ 2 ↔ |a| = |b|</code>",
+ "230":
+ "<code>mul_nonneg.{u_1} {α : Type u_1} [MulZeroClass α] {a b : α} [Preorder α] [PosMulMono α] (ha : 0 ≤ a) (hb : 0 ≤ b) :\n  0 ≤ a * b</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `Left.mul_nonneg`.\n\n---\n\nAssumes left covariance. </code>",
  "23": "<code>is_purely_imaginary (z : ℂ) : Prop</code>",
  "229":
- "<code class=\"docstring\">`gcongr` applies \"generalized congruence\" rules to recursively reduce a goal of form\n`⊢ R (f a₁ ... aₙ) (f b₁ ... bₙ)` to (possibly multiple) goal(s) `⊢ Rᵢ aᵢ bᵢ`, keeping only the\ndistinct pairs `aᵢ ≠ bᵢ`, where `Rᵢ` is a possibly different relation (depending on the\nprecise rule). The relations `R`, `Rᵢ` can be any two-argument relation, including `· → ·`.\n\nThis tactic is extensible: to add a \"generalized congruence\" rule, tag a theorem with the attribute\n`@[gcongr]`.\n\nIf a \"generalized congruence\" lemma has a side goal, `gcongr` will try to discharge it using\n`gcongr_discharger`, which is an extensible tactic based on `positivity`. Side goals not discharged\nin this way are left for the user.\n\n* `gcongr with x y ... z` names the variables that are introduced by descending into binders (for\n  example sums or suprema).\n* `gcongr n`, where `n` is a natural number literal, limits the depth of the recursive applications.\n  This is useful if `gcongr` is too aggressive in breaking down the goal.\n* `gcongr t`, where `t` is a term with `?_` holes, performs congruence up to the holes in `t`.\n  In other words, `gcongr f ?_` turns a goal `⊢ R (f x) (f y)` into `⊢ R x y` (but no further).\n  This is useful if `gcongr` is too aggressive in breaking down the goal.\n\nExamples:\n```\nexample {a b x c d : ℝ} (h1 : a + 1 ≤ b + 1) (h2 : c + 2 ≤ d + 2) :\n    x ^ 2 * a + c ≤ x ^ 2 * b + d := by\n  -- LHS and RHS both have the form x ^ 2 * ?_ + ?_\n  gcongr\n  · -- New goal: ⊢ a ≤ b\n    linarith\n  · -- ⊢ New goal: c ≤ d\n    linarith\n-- Resulting proof term is:\n--   add_le_add (mul_le_mul_of_nonneg_left ?_ (Even.pow_nonneg (even_two_mul 1) x)) ?_\n-- where `add_le_add` and `mul_le_mul_of_nonneg_left` are generalized congruence lemmas\n-- and the side goal `0 ≤ x ^ 2` is discharged by `gcongr_discharger`.\n```\n\n```\nexample {a b c d x : ℝ} (h : a + c + 1 ≤ b + d + 1) :\n    x ^ 2 * (a + c) + 5 ≤ x ^ 2 * (b + d) + 5 := by\n  -- Using a pattern to limit the depth.\n  gcongr x ^ 2 * ?_ + 5 -- or `gcongr 2`\n  -- New goal: ⊢ a + c ≤ b + d\n  linarith\n```\n\n```\n-- Descending into binders (here: ⨆).\nexample {f g : ℕ → ℝ≥0∞} (h : ∀ n, f n ≤ g n) : ⨆ n, f n ≤ ⨆ n, g n := by\n  gcongr with i\n  exact h i\n```\n</code>",
- "228": "<code>Complex.conj_re (z : ℂ) : ((starRingEnd ℂ) z).re = z.re</code>",
- "227": "<code>Complex.add_re (z w : ℂ) : (z + w).re = z.re + w.re</code>",
- "226":
- "<code>‖z₁ + z₂‖ ^ 2 = ‖z₁‖ ^ 2 + ‖z₂‖ ^ 2 + 2 * (z₁ * (starRingEnd ℂ) z₂).re</code>",
+ "<code>norm_nonneg.{u_5} {E : Type u_5} [SeminormedAddGroup E] (a : E) : 0 ≤ ‖a‖</code>",
+ "228":
+ "<code class=\"docstring\">The `norm_cast` family of tactics is used to normalize certain coercions (*casts*) in expressions.\n- `norm_cast` normalizes casts in the target.\n- `norm_cast at h` normalizes casts in hypothesis `h`.\n\nThe tactic is basically a version of `simp` with a specific set of lemmas to move casts\nupwards in the expression.\nTherefore even in situations where non-terminal `simp` calls are discouraged (because of fragility),\n`norm_cast` is considered to be safe.\nIt also has special handling of numerals.\n\nFor instance, given an assumption\n```lean\na b : ℤ\nh : ↑a + ↑b &lt; (10 : ℚ)\n```\nwriting `norm_cast at h` will turn `h` into\n```lean\nh : a + b &lt; 10\n```\n\nThere are also variants of basic tactics that use `norm_cast` to normalize expressions during\ntheir operation, to make them more flexible about the expressions they accept\n(we say that it is a tactic *modulo* the effects of `norm_cast`):\n- `exact_mod_cast` for `exact` and `apply_mod_cast` for `apply`.\n  Writing `exact_mod_cast h` and `apply_mod_cast h` will normalize casts\n  in the goal and `h` before using `exact h` or `apply h`.\n- `rw_mod_cast` for `rw`. It applies `norm_cast` between rewrites.\n- `assumption_mod_cast` for `assumption`.\n  This is effectively `norm_cast at *; assumption`, but more efficient.\n  It normalizes casts in the goal and, for every hypothesis `h` in the context,\n  it will try to normalize casts in `h` and use `exact h`.\n\nSee also `push_cast`, which moves casts inwards rather than lifting them outwards.\n</code>",
+ "227":
+ "<code>abs.{u_1} {α : Type u_1} [Lattice α] [AddGroup α] (a : α) : α</code><span class=\"sep\"></span><code class=\"docstring\">`abs a`, denoted `|a|`, is the absolute value of `a` </code>",
+ "226": "<code>0 ≤ a</code>",
  "225":
- "<code>sq_le_sq.{u_1} {α : Type u_1} [Ring α] [LinearOrder α] [IsStrictOrderedRing α] {a b : α} : a ^ 2 ≤ b ^ 2 ↔ |a| ≤ |b|</code>",
- "224":
- "<code>add_nonneg.{u_1} {α : Type u_1} [AddZeroClass α] [Preorder α] [AddLeftMono α] {a b : α} (ha : 0 ≤ a) (hb : 0 ≤ b) :\n  0 ≤ a + b</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `Left.add_nonneg`. </code>",
+ "<code>AddLeftMono.{u_1} (M : Type u_1) [Add M] [LE M] : Prop</code><span class=\"sep\"></span><code class=\"docstring\">Typeclass for monotonicity of addition on the left,\nnamely `b₁ ≤ b₂ → a + b₁ ≤ a + b₂`.\n\nYou should usually not use this very granular typeclass directly, but rather a typeclass like\n`OrderedAddCommMonoid`. </code>",
+ "224": "<code>α</code>",
  "223":
- "<code>norm_mul.{u_2} {α : Type u_2} [Norm α] [Mul α] [NormMulClass α] (a b : α) : ‖a * b‖ = ‖a‖ * ‖b‖</code>",
+ "<code>AddGroup.{u} (A : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">An `AddGroup` is an `AddMonoid` with a unary `-` satisfying `-a + a = 0`.\n\nThere is also a binary operation `-` such that `a - b = a + -b`,\nwith a default so that `a - b = a + -b` holds by definition.\n\nUse `AddGroup.ofLeftAxioms` or `AddGroup.ofRightAxioms` to define an\nadditive group structure on a type with the minimum proof obligations.\n</code>",
  "222":
- "<code>Complex.mul_conj' (z : ℂ) : z * (starRingEnd ℂ) z = ↑‖z‖ ^ 2</code>",
+ "<code>Lattice.{u} (α : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">A lattice is a join-semilattice which is also a meet-semilattice. </code>",
  "221":
- "<code class=\"docstring\">`push_cast` rewrites the goal to move certain coercions (*casts*) inward, toward the leaf nodes.\nThis uses `norm_cast` lemmas in the forward direction.\nFor example, `↑(a + b)` will be written to `↑a + ↑b`.\n- `push_cast` moves casts inward in the goal.\n- `push_cast at h` moves casts inward in the hypothesis `h`.\nIt can be used with extra simp lemmas with, for example, `push_cast [Int.add_zero]`.\n\nExample:\n```lean\nexample (a b : Nat)\n    (h1 : ((a + b : Nat) : Int) = 10)\n    (h2 : ((a + b + 0 : Nat) : Int) = 10) :\n    ((a + b : Nat) : Int) = 10 := by\n  /-\n  h1 : ↑(a + b) = 10\n  h2 : ↑(a + b + 0) = 10\n  ⊢ ↑(a + b) = 10\n  -/\n  push_cast\n  /- Now\n  ⊢ ↑a + ↑b = 10\n  -/\n  push_cast at h1\n  push_cast [Int.add_zero] at h2\n  /- Now\n  h1 h2 : ↑a + ↑b = 10\n  -/\n  exact h1\n```\n\nSee also `norm_cast`.\n</code>",
- "220": "<code>Complex.ofReal_inj {z w : ℝ} : ↑z = ↑w ↔ z = w</code>",
+ "<code>abs_of_nonneg.{u_1} {α : Type u_1} [Lattice α] [AddGroup α] {a : α} [AddLeftMono α] (h : 0 ≤ a) : |a| = a</code>",
+ "220": "<code>Complex.normSq_eq_norm_sq (z : ℂ) : normSq z = ‖z‖ ^ 2</code>",
  "22":
  "<code>Complex.I : ℂ</code><span class=\"sep\"></span><code class=\"docstring\">The imaginary unit. </code>",
  "219":
- "<code>sq_eq_sq_iff_abs_eq_abs.{u_1} {α : Type u_1} [Ring α] [LinearOrder α] [IsStrictOrderedRing α] (a b : α) :\n  a ^ 2 = b ^ 2 ↔ |a| = |b|</code>",
+ "<code>Norm.norm.{u_8} {E : Type u_8} [self : Norm E] : E → ℝ</code><span class=\"sep\"></span><code class=\"docstring\">the `ℝ`-valued norm function. </code>",
  "218":
- "<code>mul_nonneg.{u_1} {α : Type u_1} [MulZeroClass α] {a b : α} [Preorder α] [PosMulMono α] (ha : 0 ≤ a) (hb : 0 ≤ b) :\n  0 ≤ a * b</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `Left.mul_nonneg`.\n\n---\n\nAssumes left covariance. </code>",
+ "<code>Complex.im_eq_sub_conj (z : ℂ) : ↑z.im = (z - (starRingEnd ℂ) z) / (2 * I)</code><span class=\"sep\"></span><code class=\"docstring\">A complex number `z` minus its conjugate `conj z` is `2i` times its imaginary part. </code>",
  "217":
- "<code>norm_nonneg.{u_5} {E : Type u_5} [SeminormedAddGroup E] (a : E) : 0 ≤ ‖a‖</code>",
- "216":
- "<code class=\"docstring\">The `norm_cast` family of tactics is used to normalize certain coercions (*casts*) in expressions.\n- `norm_cast` normalizes casts in the target.\n- `norm_cast at h` normalizes casts in hypothesis `h`.\n\nThe tactic is basically a version of `simp` with a specific set of lemmas to move casts\nupwards in the expression.\nTherefore even in situations where non-terminal `simp` calls are discouraged (because of fragility),\n`norm_cast` is considered to be safe.\nIt also has special handling of numerals.\n\nFor instance, given an assumption\n```lean\na b : ℤ\nh : ↑a + ↑b &lt; (10 : ℚ)\n```\nwriting `norm_cast at h` will turn `h` into\n```lean\nh : a + b &lt; 10\n```\n\nThere are also variants of basic tactics that use `norm_cast` to normalize expressions during\ntheir operation, to make them more flexible about the expressions they accept\n(we say that it is a tactic *modulo* the effects of `norm_cast`):\n- `exact_mod_cast` for `exact` and `apply_mod_cast` for `apply`.\n  Writing `exact_mod_cast h` and `apply_mod_cast h` will normalize casts\n  in the goal and `h` before using `exact h` or `apply h`.\n- `rw_mod_cast` for `rw`. It applies `norm_cast` between rewrites.\n- `assumption_mod_cast` for `assumption`.\n  This is effectively `norm_cast at *; assumption`, but more efficient.\n  It normalizes casts in the goal and, for every hypothesis `h` in the context,\n  it will try to normalize casts in `h` and use `exact h`.\n\nSee also `push_cast`, which moves casts inwards rather than lifting them outwards.\n</code>",
+ "<code>Complex.re_eq_add_conj (z : ℂ) : ↑z.re = (z + (starRingEnd ℂ) z) / 2</code><span class=\"sep\"></span><code class=\"docstring\">A complex number `z` plus its conjugate `conj z` is `2` times its real part. </code>",
+ "216": "<code>Complex.I_ne_zero : I ≠ 0</code>",
  "215":
- "<code>abs.{u_1} {α : Type u_1} [Lattice α] [AddGroup α] (a : α) : α</code><span class=\"sep\"></span><code class=\"docstring\">`abs a`, denoted `|a|`, is the absolute value of `a` </code>",
- "214": "<code>0 ≤ a</code>",
- "213":
- "<code>AddLeftMono.{u_1} (M : Type u_1) [Add M] [LE M] : Prop</code><span class=\"sep\"></span><code class=\"docstring\">Typeclass for monotonicity of addition on the left,\nnamely `b₁ ≤ b₂ → a + b₁ ≤ a + b₂`.\n\nYou should usually not use this very granular typeclass directly, but rather a typeclass like\n`OrderedAddCommMonoid`. </code>",
- "212": "<code>α</code>",
- "211":
- "<code>AddGroup.{u} (A : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">An `AddGroup` is an `AddMonoid` with a unary `-` satisfying `-a + a = 0`.\n\nThere is also a binary operation `-` such that `a - b = a + -b`,\nwith a default so that `a - b = a + -b` holds by definition.\n\nUse `AddGroup.ofLeftAxioms` or `AddGroup.ofRightAxioms` to define an\nadditive group structure on a type with the minimum proof obligations.\n</code>",
+ "<code>div_eq_iff.{u_3} {G₀ : Type u_3} [GroupWithZero G₀] {a b c : G₀} (hb : b ≠ 0) : a / b = c ↔ a = c * b</code>",
+ "214":
+ "<code>∀ (z w : ℂ),\n  (z * w).re * (z * w).re + (z * w).im * (z * w).im = (z.re * z.re + z.im * z.im) * (w.re * w.re + w.im * w.im)</code><span class=\"sep\"></span><code class=\"docstring\">The proposition that the function preserves multiplication </code>",
+ "213": "<code>Complex.normSq._proof_2 : re 1 * re 1 + im 1 * im 1 = 1</code>",
+ "212":
+ "<code>re 1 * re 1 + im 1 * im 1 = 1</code><span class=\"sep\"></span><code class=\"docstring\">The proposition that the function preserves 1 </code>",
+ "211": "<code>Complex.normSq._proof_1 : re 0 * re 0 + im 0 * im 0 = 0</code>",
  "210":
- "<code>Lattice.{u} (α : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">A lattice is a join-semilattice which is also a meet-semilattice. </code>",
+ "<code>re 0 * re 0 + im 0 * im 0 = 0</code><span class=\"sep\"></span><code class=\"docstring\">The proposition that the function preserves 0 </code>",
  "21":
  "<code class=\"docstring\">The `simp` tactic uses lemmas and hypotheses to simplify the main goal target or\nnon-dependent hypotheses. It has many variants:\n- `simp` simplifies the main goal target using lemmas tagged with the attribute `[simp]`.\n- `simp [h₁, h₂, ..., hₙ]` simplifies the main goal target using the lemmas tagged\n  with the attribute `[simp]` and the given `hᵢ`'s, where the `hᵢ`'s are expressions.-\n- If an `hᵢ` is a defined constant `f`, then `f` is unfolded. If `f` has equational lemmas associated\n  with it (and is not a projection or a `reducible` definition), these are used to rewrite with `f`.\n- `simp [*]` simplifies the main goal target using the lemmas tagged with the\n  attribute `[simp]` and all hypotheses.\n- `simp only [h₁, h₂, ..., hₙ]` is like `simp [h₁, h₂, ..., hₙ]` but does not use `[simp]` lemmas.\n- `simp [-id₁, ..., -idₙ]` simplifies the main goal target using the lemmas tagged\n  with the attribute `[simp]`, but removes the ones named `idᵢ`.\n- `simp at h₁ h₂ ... hₙ` simplifies the hypotheses `h₁ : T₁` ... `hₙ : Tₙ`. If\n  the target or another hypothesis depends on `hᵢ`, a new simplified hypothesis\n  `hᵢ` is introduced, but the old one remains in the local context.\n- `simp at *` simplifies all the hypotheses and the target.\n- `simp [*] at *` simplifies target and all (propositional) hypotheses using the\n  other hypotheses.\n</code>",
  "209":
- "<code>abs_of_nonneg.{u_1} {α : Type u_1} [Lattice α] [AddGroup α] {a : α} [AddLeftMono α] (h : 0 ≤ a) : |a| = a</code>",
- "208": "<code>Complex.normSq_eq_norm_sq (z : ℂ) : normSq z = ‖z‖ ^ 2</code>",
+ "<code>ℂ → ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The underlying function </code>",
+ "208":
+ "<code>MonoidWithZeroHom.mk.{u_7, u_8} {α : Type u_7} {β : Type u_8} [MulZeroOneClass α] [MulZeroOneClass β]\n  (toZeroHom : ZeroHom α β) (map_one' : toZeroHom.toFun 1 = 1)\n  (map_mul' : ∀ (x y : α), toZeroHom.toFun (x * y) = toZeroHom.toFun x * toZeroHom.toFun y) : α →*₀ β</code>",
  "207":
- "<code>Norm.norm.{u_8} {E : Type u_8} [self : Norm E] : E → ℝ</code><span class=\"sep\"></span><code class=\"docstring\">the `ℝ`-valued norm function. </code>",
+ "<code>Complex.normSq : ℂ →*₀ ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The norm squared function. </code>",
  "206":
- "<code>Complex.im_eq_sub_conj (z : ℂ) : ↑z.im = (z - (starRingEnd ℂ) z) / (2 * I)</code><span class=\"sep\"></span><code class=\"docstring\">A complex number `z` minus its conjugate `conj z` is `2i` times its imaginary part. </code>",
- "205":
- "<code>Complex.re_eq_add_conj (z : ℂ) : ↑z.re = (z + (starRingEnd ℂ) z) / 2</code><span class=\"sep\"></span><code class=\"docstring\">A complex number `z` plus its conjugate `conj z` is `2` times its real part. </code>",
- "204": "<code>Complex.I_ne_zero : I ≠ 0</code>",
- "203":
- "<code>div_eq_iff.{u_3} {G₀ : Type u_3} [GroupWithZero G₀] {a b c : G₀} (hb : b ≠ 0) : a / b = c ↔ a = c * b</code>",
+ "<code>Complex.mul_conj (z : ℂ) : z * (starRingEnd ℂ) z = ↑(normSq z)</code>",
+ "205": "<code>Complex.ofReal_im (r : ℝ) : (↑r).im = 0</code>",
+ "204": "<code>Complex.ofReal_re (r : ℝ) : (↑r).re = r</code>",
+ "203": "<code>Complex.ofReal_pow (r : ℝ) (n : ℕ) : ↑(r ^ n) = ↑r ^ n</code>",
  "202":
- "<code>∀ (z w : ℂ),\n  (z * w).re * (z * w).re + (z * w).im * (z * w).im = (z.re * z.re + z.im * z.im) * (w.re * w.re + w.im * w.im)</code><span class=\"sep\"></span><code class=\"docstring\">The proposition that the function preserves multiplication </code>",
- "201": "<code>Complex.normSq._proof_2 : re 1 * re 1 + im 1 * im 1 = 1</code>",
+ "<code>Complex.conj_inv (x : ℂ) : (starRingEnd ℂ) x⁻¹ = ((starRingEnd ℂ) x)⁻¹</code>",
+ "201":
+ "<code>RingHom.map_mul.{u_2, u_3} {α : Type u_2} {β : Type u_3} {x✝ : NonAssocSemiring α} {x✝¹ : NonAssocSemiring β}\n  (f : α →+* β) (a b : α) : f (a * b) = f a * f b</code><span class=\"sep\"></span><code class=\"docstring\">Ring homomorphisms preserve multiplication. </code>",
  "200":
- "<code>re 1 * re 1 + im 1 * im 1 = 1</code><span class=\"sep\"></span><code class=\"docstring\">The proposition that the function preserves 1 </code>",
+ "<code>RingHom.map_add.{u_2, u_3} {α : Type u_2} {β : Type u_3} {x✝ : NonAssocSemiring α} {x✝¹ : NonAssocSemiring β}\n  (f : α →+* β) (a b : α) : f (a + b) = f a + f b</code><span class=\"sep\"></span><code class=\"docstring\">Ring homomorphisms preserve addition. </code>",
  "20": "<code>Complex.ext {z w : ℂ} : z.re = w.re → z.im = w.im → z = w</code>",
  "2": "<code>z1 : ℂ</code>",
- "199": "<code>Complex.normSq._proof_1 : re 0 * re 0 + im 0 * im 0 = 0</code>",
+ "199":
+ "<code>map_one.{u_4, u_5, u_9} {M : Type u_4} {N : Type u_5} {F : Type u_9} [One M] [One N] [FunLike F M N] [OneHomClass F M N]\n  (f : F) : f 1 = 1</code><span class=\"sep\"></span><code class=\"docstring\">See note [hom simp lemma priority] </code>",
  "198":
- "<code>re 0 * re 0 + im 0 * im 0 = 0</code><span class=\"sep\"></span><code class=\"docstring\">The proposition that the function preserves 0 </code>",
+ "<code>map_mul.{u_4, u_5, u_9} {M : Type u_4} {N : Type u_5} {F : Type u_9} [Mul M] [Mul N] [FunLike F M N] [MulHomClass F M N]\n  (f : F) (x y : M) : f (x * y) = f x * f y</code><span class=\"sep\"></span><code class=\"docstring\">See note [hom simp lemma priority] </code>",
  "197":
- "<code>ℂ → ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The underlying function </code>",
+ "<code>inv_eq_of_mul_eq_one_right.{u_1} {G : Type u_1} [DivisionMonoid G] {a b : G} : a * b = 1 → a⁻¹ = b</code>",
  "196":
- "<code>MonoidWithZeroHom.mk.{u_7, u_8} {α : Type u_7} {β : Type u_8} [MulZeroOneClass α] [MulZeroOneClass β]\n  (toZeroHom : ZeroHom α β) (map_one' : toZeroHom.toFun 1 = 1)\n  (map_mul' : ∀ (x y : α), toZeroHom.toFun (x * y) = toZeroHom.toFun x * toZeroHom.toFun y) : α →*₀ β</code>",
- "195":
- "<code>Complex.normSq : ℂ →*₀ ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The norm squared function. </code>",
+ "<code class=\"docstring\">* `symm` applies to a goal whose target has the form `t ~ u` where `~` is a symmetric relation,\n  that is, a relation which has a symmetry lemma tagged with the attribute [symm].\n  It replaces the target with `u ~ t`.\n* `symm at h` will rewrite a hypothesis `h : t ~ u` to `h : u ~ t`.\n</code>",
+ "195": "<code>z ≠ 0</code>",
  "194":
- "<code>Complex.mul_conj (z : ℂ) : z * (starRingEnd ℂ) z = ↑(normSq z)</code>",
- "193": "<code>Complex.ofReal_im (r : ℝ) : (↑r).im = 0</code>",
- "192": "<code>Complex.ofReal_re (r : ℝ) : (↑r).re = r</code>",
- "191": "<code>Complex.ofReal_pow (r : ℝ) (n : ℕ) : ↑(r ^ n) = ↑r ^ n</code>",
- "190":
- "<code>Complex.conj_inv (x : ℂ) : (starRingEnd ℂ) x⁻¹ = ((starRingEnd ℂ) x)⁻¹</code>",
+ "<code>conj_mul_conj (z₁ z₂ : ℂ) : (starRingEnd ℂ) z₁ * (starRingEnd ℂ) z₂ = (starRingEnd ℂ) (z₁ * z₂)</code><span class=\"sep\"></span><code class=\"docstring\">Theorem 1.3.3 part (b)\n(z_1 z_2)^* = z_1^* z_2^*\n</code>",
+ "193":
+ "<code class=\"docstring\">The `let` tactic is for adding definitions to the local context of the main goal.\nThe definition can be unfolded, unlike definitions introduced by `have`.\n\n* `let x : t := e` adds the definition `x : t := e` if `e` is a term of type `t`.\n* `let x := e` uses the type of `e` for `t`.\n* `let : t := e` and `let := e` use `this` for the name of the hypothesis.\n* `let pat := e` for a pattern `pat` is equivalent to `match e with | pat =&gt; _`,\n  where `_` stands for the tactics that follow this one.\n  It is convenient for types that let only one applicable constructor.\n  For example, given `p : α × β × γ`, `let ⟨x, y, z⟩ := p` produces the\n  local variables `x : α`, `y : β`, and `z : γ`.\n* The syntax `let (eq := h) pat := e` is equivalent to `match h : e with | pat =&gt; _`,\n  which adds the equation `h : e = pat` to the local context.\n\nThe tactic supports all the same syntax variants and options as the `let` term.\n\n## Properties and relations\n\n* Unlike `have`, it is possible to unfold definitions introduced using `let`, using tactics\n  such as `simp`, `dsimp`, `unfold`, and `subst`.\n* The `clear_value` tactic turns a `let` definition into a `have` definition after the fact.\n  The tactic might fail if the local context depends on the value of the variable.\n* The `let` tactic is preferred for data (non-propositions).\n* Sometimes `have` is used for non-propositions to ensure that the variable is never unfolded,\n  which may be important for performance reasons.\n</code>",
+ "192":
+ "<code>conj_add_conj (z₁ z₂ : ℂ) : (starRingEnd ℂ) z₁ + (starRingEnd ℂ) z₂ = (starRingEnd ℂ) (z₁ + z₂)</code><span class=\"sep\"></span><code class=\"docstring\">Theorem 1.3.3 part (a)\n(z_1 + z_2)^* = z_1^* + z_2^*\n</code>",
+ "191": "<code>z.re = 0</code>",
+ "190": "<code>z.re = -z.re</code>",
  "19":
  "<code class=\"docstring\">`apply e` tries to match the current goal against the conclusion of `e`'s type.\nIf it succeeds, then the tactic returns as many subgoals as the number of premises that\nhave not been fixed by type inference or type class resolution.\nNon-dependent premises are added before dependent ones.\n\nThe `apply` tactic uses higher-order pattern matching, type class resolution,\nand first-order unification with dependent types.\n\n\nExtensions:\n\n * * `apply (config := cfg) e` allows for additional configuration (see `Lean.Meta.ApplyConfig`):\n     * `newGoals` controls which new goals are added by `apply`, in which order.\n     * `-synthAssignedInstances` will not synthesize instance implicit arguments if they have been\n       assigned by `isDefEq`.\n     * `+allowSynthFailures` will create new goals when instance synthesis fails, rather than erroring.\n     * `+approx` enables `isDefEq` approximations (see `Lean.Meta.approxDefEq`).</code>",
- "189":
- "<code>RingHom.map_mul.{u_2, u_3} {α : Type u_2} {β : Type u_3} {x✝ : NonAssocSemiring α} {x✝¹ : NonAssocSemiring β}\n  (f : α →+* β) (a b : α) : f (a * b) = f a * f b</code><span class=\"sep\"></span><code class=\"docstring\">Ring homomorphisms preserve multiplication. </code>",
- "188":
- "<code>RingHom.map_add.{u_2, u_3} {α : Type u_2} {β : Type u_3} {x✝ : NonAssocSemiring α} {x✝¹ : NonAssocSemiring β}\n  (f : α →+* β) (a b : α) : f (a + b) = f a + f b</code><span class=\"sep\"></span><code class=\"docstring\">Ring homomorphisms preserve addition. </code>",
+ "189": "<code>((starRingEnd ℂ) z).im = (-z).im</code>",
+ "188": "<code>((starRingEnd ℂ) z).re = (-z).re</code>",
  "187":
- "<code>map_one.{u_4, u_5, u_9} {M : Type u_4} {N : Type u_5} {F : Type u_9} [One M] [One N] [FunLike F M N] [OneHomClass F M N]\n  (f : F) : f 1 = 1</code><span class=\"sep\"></span><code class=\"docstring\">See note [hom simp lemma priority] </code>",
- "186":
- "<code>map_mul.{u_4, u_5, u_9} {M : Type u_4} {N : Type u_5} {F : Type u_9} [Mul M] [Mul N] [FunLike F M N] [MulHomClass F M N]\n  (f : F) (x y : M) : f (x * y) = f x * f y</code><span class=\"sep\"></span><code class=\"docstring\">See note [hom simp lemma priority] </code>",
+ "<code>((starRingEnd ℂ) z).re = (-z).re ∧ ((starRingEnd ℂ) z).im = (-z).im</code>",
+ "186": "<code>(starRingEnd ℂ) z = -z</code>",
  "185":
- "<code>inv_eq_of_mul_eq_one_right.{u_1} {G : Type u_1} [DivisionMonoid G] {a b : G} : a * b = 1 → a⁻¹ = b</code>",
- "184":
- "<code class=\"docstring\">* `symm` applies to a goal whose target has the form `t ~ u` where `~` is a symmetric relation,\n  that is, a relation which has a symmetry lemma tagged with the attribute [symm].\n  It replaces the target with `u ~ t`.\n* `symm at h` will rewrite a hypothesis `h : t ~ u` to `h : u ~ t`.\n</code>",
- "183": "<code>z ≠ 0</code>",
- "182":
- "<code>conj_mul_conj (z₁ z₂ : ℂ) : (starRingEnd ℂ) z₁ * (starRingEnd ℂ) z₂ = (starRingEnd ℂ) (z₁ * z₂)</code><span class=\"sep\"></span><code class=\"docstring\">Theorem 1.3.3 part (b)\n(z_1 z_2)^* = z_1^* z_2^*\n</code>",
- "181":
- "<code class=\"docstring\">The `let` tactic is for adding definitions to the local context of the main goal.\nThe definition can be unfolded, unlike definitions introduced by `have`.\n\n* `let x : t := e` adds the definition `x : t := e` if `e` is a term of type `t`.\n* `let x := e` uses the type of `e` for `t`.\n* `let : t := e` and `let := e` use `this` for the name of the hypothesis.\n* `let pat := e` for a pattern `pat` is equivalent to `match e with | pat =&gt; _`,\n  where `_` stands for the tactics that follow this one.\n  It is convenient for types that let only one applicable constructor.\n  For example, given `p : α × β × γ`, `let ⟨x, y, z⟩ := p` produces the\n  local variables `x : α`, `y : β`, and `z : γ`.\n* The syntax `let (eq := h) pat := e` is equivalent to `match h : e with | pat =&gt; _`,\n  which adds the equation `h : e = pat` to the local context.\n\nThe tactic supports all the same syntax variants and options as the `let` term.\n\n## Properties and relations\n\n* Unlike `have`, it is possible to unfold definitions introduced using `let`, using tactics\n  such as `simp`, `dsimp`, `unfold`, and `subst`.\n* The `clear_value` tactic turns a `let` definition into a `have` definition after the fact.\n  The tactic might fail if the local context depends on the value of the variable.\n* The `let` tactic is preferred for data (non-propositions).\n* Sometimes `have` is used for non-propositions to ensure that the variable is never unfolded,\n  which may be important for performance reasons.\n</code>",
- "180":
- "<code>conj_add_conj (z₁ z₂ : ℂ) : (starRingEnd ℂ) z₁ + (starRingEnd ℂ) z₂ = (starRingEnd ℂ) (z₁ + z₂)</code><span class=\"sep\"></span><code class=\"docstring\">Theorem 1.3.3 part (a)\n(z_1 + z_2)^* = z_1^* + z_2^*\n</code>",
+ "<code>Complex.conj_eq_iff_im {z : ℂ} : (starRingEnd ℂ) z = z ↔ z.im = 0</code>",
+ "184": "<code>z.im = 0</code>",
+ "183":
+ "<code class=\"docstring\">`linarith` attempts to find a contradiction between hypotheses that are linear (in)equalities.\nEquivalently, it can prove a linear inequality by assuming its negation and proving `False`.\n\nIn theory, `linarith` should prove any goal that is true in the theory of linear arithmetic over\nthe rationals. While there is some special handling for non-dense orders like `Nat` and `Int`,\nthis tactic is not complete for these theories and will not prove every true goal. It will solve\ngoals over arbitrary types that instantiate `CommRing`, `LinearOrder` and `IsStrictOrderedRing`.\n\nAn example:\n```lean\nexample (x y z : ℚ) (h1 : 2*x &lt; 3*y) (h2 : -4*x + 2*z &lt; 0)\n        (h3 : 12*y - 4* z &lt; 0) : False := by\n  linarith\n```\n\n`linarith` will use all appropriate hypotheses and the negation of the goal, if applicable.\nDisequality hypotheses require case splitting and are not normally considered\n(see the `splitNe` option below).\n\n`linarith [t1, t2, t3]` will additionally use proof terms `t1, t2, t3`.\n\n`linarith only [h1, h2, h3, t1, t2, t3]` will use only the goal (if relevant), local hypotheses\n`h1`, `h2`, `h3`, and proofs `t1`, `t2`, `t3`. It will ignore the rest of the local context.\n\n`linarith!` will use a stronger reducibility setting to try to identify atoms. For example,\n```lean\nexample (x : ℚ) : id x ≥ x := by\n  linarith\n```\nwill fail, because `linarith` will not identify `x` and `id x`. `linarith!` will.\nThis can sometimes be expensive.\n\n`linarith (config := { .. })` takes a config object with five\noptional arguments:\n* `discharger` specifies a tactic to be used for reducing an algebraic equation in the\n  proof stage. The default is `ring`. Other options include `simp` for basic\n  problems.\n* `transparency` controls how hard `linarith` will try to match atoms to each other. By default\n  it will only unfold `reducible` definitions.\n* If `splitHypotheses` is true, `linarith` will split conjunctions in the context into separate\n  hypotheses.\n* If `splitNe` is `true`, `linarith` will case split on disequality hypotheses.\n  For a given `x ≠ y` hypothesis, `linarith` is run with both `x &lt; y` and `x &gt; y`,\n  and so this runs linarith exponentially many times with respect to the number of\n  disequality hypotheses. (`false` by default.)\n* If `exfalso` is `false`, `linarith` will fail when the goal is neither an inequality nor `False`.\n  (`true` by default.)\n* If `minimize` is `false`, `linarith?` will report all hypotheses appearing in its initial\n  proof without attempting to drop redundancies. (`true` by default.)\n* `restrict_type` (not yet implemented in mathlib4)\n  will only use hypotheses that are inequalities over `tp`. This is useful\n  if you have e.g. both integer- and rational-valued inequalities in the local context, which can\n  sometimes confuse the tactic.\n\nA variant, `nlinarith`, does some basic preprocessing to handle some nonlinear goals.\n\nThe option `set_option trace.linarith true` will trace certain intermediate stages of the `linarith`\nroutine.\n</code>",
+ "182": "<code>-z.im = z.im</code>",
+ "181": "<code>((starRingEnd ℂ) z).im = z.im</code>",
+ "180": "<code>((starRingEnd ℂ) z).re = z.re</code>",
  "18":
  "<code>HSub.hSub.{u, v, w} {α : Type u} {β : Type v} {γ : outParam (Type w)} [self : HSub α β γ] : α → β → γ</code><span class=\"sep\"></span><code class=\"docstring\">`a - b` computes the difference of `a` and `b`.\nThe meaning of this notation is type-dependent.\n* For natural numbers, this operator saturates at 0: `a - b = 0` when `a ≤ b`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `-` in identifiers is `sub` (when used as a binary operator).</code>",
- "179": "<code>z.re = 0</code>",
- "178": "<code>z.re = -z.re</code>",
- "177": "<code>((starRingEnd ℂ) z).im = (-z).im</code>",
- "176": "<code>((starRingEnd ℂ) z).re = (-z).re</code>",
+ "179":
+ "<code>((starRingEnd ℂ) z).re = z.re ∧ ((starRingEnd ℂ) z).im = z.im</code>",
+ "178":
+ "<code>Complex.ext_iff {z w : ℂ} : z = w ↔ z.re = w.re ∧ z.im = w.im</code>",
+ "177": "<code>(starRingEnd ℂ) z = z</code>",
+ "176":
+ "<code>Complex.conj_conj.{u} {R : Type u} [CommSemiring R] [StarRing R] (x : R) : (starRingEnd R) ((starRingEnd R) x) = x</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `starRingEnd_self_apply`.</code>",
  "175":
- "<code>((starRingEnd ℂ) z).re = (-z).re ∧ ((starRingEnd ℂ) z).im = (-z).im</code>",
- "174": "<code>(starRingEnd ℂ) z = -z</code>",
+ "<code>starRingEnd.{u} (R : Type u) [CommSemiring R] [StarRing R] : R →+* R</code><span class=\"sep\"></span><code class=\"docstring\">`star` as a ring endomorphism, for commutative `R`. This is used to denote complex\nconjugation, and is available under the notation `conj` in the scope `ComplexConjugate`.\n\nNote that this is the preferred form (over `starRingAut`, available under the same hypotheses)\nbecause the notation `E →ₗ⋆[R] F` for an `R`-conjugate-linear map (short for\n`E →ₛₗ[starRingEnd R] F`) does not pretty-print if there is a coercion involved, as would be the\ncase for `(↑starRingAut : R →* R)`. </code>",
+ "174": "<code><span class=\"literal string\">\"conj\"</span> : String</code>",
  "173":
- "<code>Complex.conj_eq_iff_im {z : ℂ} : (starRingEnd ℂ) z = z ↔ z.im = 0</code>",
- "172": "<code>z.im = 0</code>",
- "171":
- "<code class=\"docstring\">`linarith` attempts to find a contradiction between hypotheses that are linear (in)equalities.\nEquivalently, it can prove a linear inequality by assuming its negation and proving `False`.\n\nIn theory, `linarith` should prove any goal that is true in the theory of linear arithmetic over\nthe rationals. While there is some special handling for non-dense orders like `Nat` and `Int`,\nthis tactic is not complete for these theories and will not prove every true goal. It will solve\ngoals over arbitrary types that instantiate `CommRing`, `LinearOrder` and `IsStrictOrderedRing`.\n\nAn example:\n```lean\nexample (x y z : ℚ) (h1 : 2*x &lt; 3*y) (h2 : -4*x + 2*z &lt; 0)\n        (h3 : 12*y - 4* z &lt; 0) : False := by\n  linarith\n```\n\n`linarith` will use all appropriate hypotheses and the negation of the goal, if applicable.\nDisequality hypotheses require case splitting and are not normally considered\n(see the `splitNe` option below).\n\n`linarith [t1, t2, t3]` will additionally use proof terms `t1, t2, t3`.\n\n`linarith only [h1, h2, h3, t1, t2, t3]` will use only the goal (if relevant), local hypotheses\n`h1`, `h2`, `h3`, and proofs `t1`, `t2`, `t3`. It will ignore the rest of the local context.\n\n`linarith!` will use a stronger reducibility setting to try to identify atoms. For example,\n```lean\nexample (x : ℚ) : id x ≥ x := by\n  linarith\n```\nwill fail, because `linarith` will not identify `x` and `id x`. `linarith!` will.\nThis can sometimes be expensive.\n\n`linarith (config := { .. })` takes a config object with five\noptional arguments:\n* `discharger` specifies a tactic to be used for reducing an algebraic equation in the\n  proof stage. The default is `ring`. Other options include `simp` for basic\n  problems.\n* `transparency` controls how hard `linarith` will try to match atoms to each other. By default\n  it will only unfold `reducible` definitions.\n* If `splitHypotheses` is true, `linarith` will split conjunctions in the context into separate\n  hypotheses.\n* If `splitNe` is `true`, `linarith` will case split on disequality hypotheses.\n  For a given `x ≠ y` hypothesis, `linarith` is run with both `x &lt; y` and `x &gt; y`,\n  and so this runs linarith exponentially many times with respect to the number of\n  disequality hypotheses. (`false` by default.)\n* If `exfalso` is `false`, `linarith` will fail when the goal is neither an inequality nor `False`.\n  (`true` by default.)\n* If `minimize` is `false`, `linarith?` will report all hypotheses appearing in its initial\n  proof without attempting to drop redundancies. (`true` by default.)\n* `restrict_type` (not yet implemented in mathlib4)\n  will only use hypotheses that are inequalities over `tp`. This is useful\n  if you have e.g. both integer- and rational-valued inequalities in the local context, which can\n  sometimes confuse the tactic.\n\nA variant, `nlinarith`, does some basic preprocessing to handle some nonlinear goals.\n\nThe option `set_option trace.linarith true` will trace certain intermediate stages of the `linarith`\nroutine.\n</code>",
- "170": "<code>-z.im = z.im</code>",
+ "<code>div_self.{u_3} {G₀ : Type u_3} [GroupWithZero G₀] {a : G₀} (h : a ≠ 0) : a / a = 1</code>",
+ "172":
+ "<code>div_pow.{u_1} {α : Type u_1} [DivisionCommMonoid α] (a b : α) (n : ℕ) : (a / b) ^ n = a ^ n / b ^ n</code>",
+ "171": "<code>not_true_eq_false : (¬True) = False</code>",
+ "170": "<code>0 = z₀ ^ n</code>",
  "17":
  "<code>HMul.hMul.{u, v, w} {α : Type u} {β : Type v} {γ : outParam (Type w)} [self : HMul α β γ] : α → β → γ</code><span class=\"sep\"></span><code class=\"docstring\">`a * b` computes the product of `a` and `b`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `*` in identifiers is `mul`.</code>",
- "169": "<code>((starRingEnd ℂ) z).im = z.im</code>",
- "168": "<code>((starRingEnd ℂ) z).re = z.re</code>",
+ "169": "<code>z₀ ^ n ≠ 0</code>",
+ "168": "<code>0 = ζ</code>",
  "167":
- "<code>((starRingEnd ℂ) z).re = z.re ∧ ((starRingEnd ℂ) z).im = z.im</code>",
+ "<code class=\"docstring\">Tactic solving goals of the form `0 ≤ x`, `0 &lt; x` and `x ≠ 0`.  The tactic works recursively\naccording to the syntax of the expression `x`, if the atoms composing the expression all have\nnumeric lower bounds which can be proved positive/nonnegative/nonzero by `norm_num`.  This tactic\neither closes the goal or fails.\n\n`positivity [t₁, …, tₙ]` first executes `have := t₁; …; have := tₙ` in the current goal,\nthen runs `positivity`. This is useful when `positivity` needs derived premises such as `0 &lt; y`\nfor division/reciprocal, or `0 ≤ x` for real powers.\n\nExamples:\n```\nexample {a : ℤ} (ha : 3 &lt; a) : 0 ≤ a ^ 3 + a := by positivity\n\nexample {a : ℤ} (ha : 1 &lt; a) : 0 &lt; |(3:ℤ) + a| := by positivity\n\nexample {b : ℤ} : 0 ≤ max (-3) (b ^ 2) := by positivity\n\nexample {a b c d : ℝ} (hab : 0 &lt; a * b) (hb : 0 ≤ b) (hcd : c &lt; d) :\n    0 &lt; a ^ c + 1 / (d - c) := by\n  positivity [sub_pos_of_lt hcd, pos_of_mul_pos_left hab hb]\n```\n</code>",
  "166":
- "<code>Complex.ext_iff {z w : ℂ} : z = w ↔ z.re = w.re ∧ z.im = w.im</code>",
- "165": "<code>(starRingEnd ℂ) z = z</code>",
- "164":
- "<code>Complex.conj_conj.{u} {R : Type u} [CommSemiring R] [StarRing R] (x : R) : (starRingEnd R) ((starRingEnd R) x) = x</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `starRingEnd_self_apply`.</code>",
+ "<code>zero_pow.{u_1} {M₀ : Type u_1} [MonoidWithZero M₀] {n : ℕ} : n ≠ 0 → 0 ^ n = 0</code>",
+ "165": "<code>0 ^ n = ζ</code>",
+ "164": "<code>z₁ = 0</code>",
  "163":
- "<code>starRingEnd.{u} (R : Type u) [CommSemiring R] [StarRing R] : R →+* R</code><span class=\"sep\"></span><code class=\"docstring\">`star` as a ring endomorphism, for commutative `R`. This is used to denote complex\nconjugation, and is available under the notation `conj` in the scope `ComplexConjugate`.\n\nNote that this is the preferred form (over `starRingAut`, available under the same hypotheses)\nbecause the notation `E →ₗ⋆[R] F` for an `R`-conjugate-linear map (short for\n`E →ₛₗ[starRingEnd R] F`) does not pretty-print if there is a coercion involved, as would be the\ncase for `(↑starRingAut : R →* R)`. </code>",
- "162": "<code><span class=\"literal string\">\"conj\"</span> : String</code>",
+ "<code class=\"docstring\">The `rintro` tactic is a combination of the `intros` tactic with `rcases` to\nallow for destructuring patterns while introducing variables. See `rcases` for\na description of supported patterns. For example, `rintro (a | ⟨b, c⟩) ⟨d, e⟩`\nwill introduce two variables, and then do case splits on both of them producing\ntwo subgoals, one with variables `a d e` and the other with `b c d e`.\n\n`rintro`, unlike `rcases`, also supports the form `(x y : ty)` for introducing\nand type-ascripting multiple variables at once, similar to binders.\n</code>",
+ "162":
+ "<code>mul_div_cancel₀.{u_3} {G₀ : Type u_3} [CommGroupWithZero G₀] {b : G₀} (a : G₀) (hb : b ≠ 0) : b * (a / b) = a</code>",
  "161":
- "<code>div_self.{u_3} {G₀ : Type u_3} [GroupWithZero G₀] {a : G₀} (h : a ≠ 0) : a / a = 1</code>",
- "160":
- "<code>div_pow.{u_1} {α : Type u_1} [DivisionCommMonoid α] (a b : α) (n : ℕ) : (a / b) ^ n = a ^ n / b ^ n</code>",
+ "<code class=\"docstring\">`use e₁, e₂, ⋯` instantiates all existential quantifiers in the main goal by using `e₁`, `e₂`, ...\nas witnesses, creates goals for all the remaining witnesses, and tries to discharge these goals\nautomatically.\n\n`use` is similar to `exists` or `existsi`, but unlike `exists` it is equivalent to applying the\ntactic `refine ⟨e₁, e₂, ⋯, ?_, ⋯, ?_⟩` with any number of placeholders (rather than just one) and\nthen trying to close goals associated to the placeholders with a configurable discharger (rather\nthan just `try trivial`).\n\n* `use! e₁, e₂, ⋯` applies constructors everywhere rather than just for goals that correspond to the\n  last argument of a constructor. This gives the effect that nested constructors are being flattened\n  out, with the supplied values being used along the leaves and nodes of the tree of constructors.\n* `use (discharger := tac) e₁, e₂, ...` calls `tac` as a discharger, on all remaining `Prop`-valued\n  goals. If this option is omitted, `use` calls `try with_reducible use_discharger` as default\n  discharger.\n  To turn off the discharger and keep all goals, use `(discharger := skip)`.\n  To allow \"heavy refls\", use `(discharger := try use_discharger)`.\n  If `tac` fails on the new goal, `use (discharger := tac)` fails (hint: you might want to use\n  `(discharger := try tac)` instead).\n\nExamples:\n\n```lean\nexample : ∃ x : Nat, x = x := by use 42\n\nexample : ∃ x : Nat, ∃ y : Nat, x = y := by use 42, 42\n\nexample : Nonempty Nat := by use 5\n\nexample : Nonempty (PNat ≃ Nat) := by\n  use PNat.natPred, Nat.succPNat\n  · exact PNat.succPNat_natPred\n  · intro; rfl\n\n-- With `use!` one can feed in each `42` one at a time:\nexample : ∃ n : {n : Nat // n % 2 = 0}, n.val &gt; 10 := by use! 20; simp\n\nexample : ∃ p : Nat × Nat, p.1 = p.2 := by use! (42, 42)\n/-\nThe second line makes use of the fact that `use!` tries refining with the argument before\napplying a constructor. Also note that `use`/`use!` by default uses a tactic\ncalled `use_discharger` to discharge goals, so `use! 42` will close the goal in this example since\n`use_discharger` applies `rfl`, which as a consequence solves for the other `Nat` metavariable.\n-/\n```\n</code>",
+ "160": "<code>z₁ ^ n = ζ</code>",
  "16":
  "<code>HAdd.hAdd.{u, v, w} {α : Type u} {β : Type v} {γ : outParam (Type w)} [self : HAdd α β γ] : α → β → γ</code><span class=\"sep\"></span><code class=\"docstring\">`a + b` computes the sum of `a` and `b`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `+` in identifiers is `add`.</code>",
- "159": "<code>not_true_eq_false : (¬True) = False</code>",
- "158": "<code>ne_eq.{u_1} {α : Sort u_1} (a b : α) : (a ≠ b) = ¬a = b</code>",
+ "159": "<code>z₀ ^ n = ζ</code>",
+ "158":
+ "<code>And (a b : Prop) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`And a b`, or `a ∧ b`, is the conjunction of propositions. It can be\nconstructed and destructed like a pair: if `ha : a` and `hb : b` then\n`⟨ha, hb⟩ : a ∧ b`, and if `h : a ∧ b` then `h.left : a` and `h.right : b`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∧` in identifiers is `and`.\n\n * The recommended spelling of `/\\` in identifiers is `and` (prefer `∧` over `/\\`).</code>",
  "157":
- "<code>ge_iff_le.{u_1} {α : Type u_1} [LE α] {x y : α} : x ≥ y ↔ y ≤ x</code>",
+ "<code>one_ne_zero.{u_2} {α : Type u_2} [Zero α] [One α] [NeZero 1] : 1 ≠ 0</code>",
  "156":
- "<code class=\"docstring\">`simp_all` is a stronger version of `simp [*] at *` where the hypotheses and target\nare simplified multiple times until no simplification is applicable.\nOnly non-dependent propositional hypotheses are considered.\n</code>",
- "155": "<code>0 = z₀ ^ n</code>",
- "154": "<code>z₀ ^ n ≠ 0</code>",
- "153":
- "<code class=\"docstring\">`subst x...` substitutes each hypothesis `x` with a definition found in the local context,\nthen eliminates the hypothesis.\n- If `x` is a local definition, then its definition is used.\n- Otherwise, if there is a hypothesis of the form `x = e` or `e = x`,\n  then `e` is used for the definition of `x`.\n\nIf `h : a = b`, then `subst h` may be used if either `a` or `b` unfolds to a local hypothesis.\nThis is similar to the `cases h` tactic.\n\nSee also: `subst_vars` for substituting all local hypotheses that have a defining equation.\n</code>",
- "152": "<code>0 = ζ</code>",
- "151":
- "<code class=\"docstring\">Tactic solving goals of the form `0 ≤ x`, `0 &lt; x` and `x ≠ 0`.  The tactic works recursively\naccording to the syntax of the expression `x`, if the atoms composing the expression all have\nnumeric lower bounds which can be proved positive/nonnegative/nonzero by `norm_num`.  This tactic\neither closes the goal or fails.\n\n`positivity [t₁, …, tₙ]` first executes `have := t₁; …; have := tₙ` in the current goal,\nthen runs `positivity`. This is useful when `positivity` needs derived premises such as `0 &lt; y`\nfor division/reciprocal, or `0 ≤ x` for real powers.\n\nExamples:\n```\nexample {a : ℤ} (ha : 3 &lt; a) : 0 ≤ a ^ 3 + a := by positivity\n\nexample {a : ℤ} (ha : 1 &lt; a) : 0 &lt; |(3:ℤ) + a| := by positivity\n\nexample {b : ℤ} : 0 ≤ max (-3) (b ^ 2) := by positivity\n\nexample {a b c d : ℝ} (hab : 0 &lt; a * b) (hb : 0 ≤ b) (hcd : c &lt; d) :\n    0 &lt; a ^ c + 1 / (d - c) := by\n  positivity [sub_pos_of_lt hcd, pos_of_mul_pos_left hab hb]\n```\n</code>",
- "150":
- "<code>zero_pow.{u_1} {M₀ : Type u_1} [MonoidWithZero M₀] {n : ℕ} : n ≠ 0 → 0 ^ n = 0</code>",
+ "<code>nonpos_iff_eq_zero.{u} {α : Type u} [AddZeroClass α] [PartialOrder α] [CanonicallyOrderedAdd α] {a : α} : a ≤ 0 ↔ a = 0</code>",
+ "155": "<code>0 = 0 → n = 0</code>",
+ "154": "<code>z = 0</code>",
+ "153": "<code>z = 0 → n = 0</code>",
+ "152": "<code>1 ≤ n</code>",
+ "151": "<code>Decidable.not_not {p : Prop} [Decidable p] : ¬¬p ↔ p</code>",
+ "150": "<code>not_and {a b : Prop} : ¬(a ∧ b) ↔ a → ¬b</code>",
  "15":
  "<code>Real : Type</code><span class=\"sep\"></span><code class=\"docstring\">The type `ℝ` of real numbers constructed as equivalence classes of Cauchy sequences of rational\nnumbers. </code>",
- "149": "<code>0 ^ n = ζ</code>",
- "148": "<code>z₁ = 0</code>",
+ "149":
+ "<code>pow_eq_zero_iff'.{u_1} {M₀ : Type u_1} [MonoidWithZero M₀] {a : M₀} {n : ℕ} [IsReduced M₀] [Nontrivial M₀] :\n  a ^ n = 0 ↔ a = 0 ∧ n ≠ 0</code><span class=\"sep\"></span><code class=\"docstring\">A variant of `pow_eq_zero_iff` assuming `M₀` is not trivial. </code>",
+ "148": "<code>ne_eq.{u_1} {α : Sort u_1} (a b : α) : (a ≠ b) = ¬a = b</code>",
  "147":
- "<code class=\"docstring\">The `rintro` tactic is a combination of the `intros` tactic with `rcases` to\nallow for destructuring patterns while introducing variables. See `rcases` for\na description of supported patterns. For example, `rintro (a | ⟨b, c⟩) ⟨d, e⟩`\nwill introduce two variables, and then do case splits on both of them producing\ntwo subgoals, one with variables `a d e` and the other with `b c d e`.\n\n`rintro`, unlike `rcases`, also supports the form `(x y : ty)` for introducing\nand type-ascripting multiple variables at once, similar to binders.\n</code>",
+ "<code>ge_iff_le.{u_1} {α : Type u_1} [LE α] {x y : α} : x ≥ y ↔ y ≤ x</code>",
  "146":
- "<code>mul_div_cancel₀.{u_3} {G₀ : Type u_3} [CommGroupWithZero G₀] {b : G₀} (a : G₀) (hb : b ≠ 0) : b * (a / b) = a</code>",
- "145":
- "<code class=\"docstring\">`use e₁, e₂, ⋯` instantiates all existential quantifiers in the main goal by using `e₁`, `e₂`, ...\nas witnesses, creates goals for all the remaining witnesses, and tries to discharge these goals\nautomatically.\n\n`use` is similar to `exists` or `existsi`, but unlike `exists` it is equivalent to applying the\ntactic `refine ⟨e₁, e₂, ⋯, ?_, ⋯, ?_⟩` with any number of placeholders (rather than just one) and\nthen trying to close goals associated to the placeholders with a configurable discharger (rather\nthan just `try trivial`).\n\n* `use! e₁, e₂, ⋯` applies constructors everywhere rather than just for goals that correspond to the\n  last argument of a constructor. This gives the effect that nested constructors are being flattened\n  out, with the supplied values being used along the leaves and nodes of the tree of constructors.\n* `use (discharger := tac) e₁, e₂, ...` calls `tac` as a discharger, on all remaining `Prop`-valued\n  goals. If this option is omitted, `use` calls `try with_reducible use_discharger` as default\n  discharger.\n  To turn off the discharger and keep all goals, use `(discharger := skip)`.\n  To allow \"heavy refls\", use `(discharger := try use_discharger)`.\n  If `tac` fails on the new goal, `use (discharger := tac)` fails (hint: you might want to use\n  `(discharger := try tac)` instead).\n\nExamples:\n\n```lean\nexample : ∃ x : Nat, x = x := by use 42\n\nexample : ∃ x : Nat, ∃ y : Nat, x = y := by use 42, 42\n\nexample : Nonempty Nat := by use 5\n\nexample : Nonempty (PNat ≃ Nat) := by\n  use PNat.natPred, Nat.succPNat\n  · exact PNat.succPNat_natPred\n  · intro; rfl\n\n-- With `use!` one can feed in each `42` one at a time:\nexample : ∃ n : {n : Nat // n % 2 = 0}, n.val &gt; 10 := by use! 20; simp\n\nexample : ∃ p : Nat × Nat, p.1 = p.2 := by use! (42, 42)\n/-\nThe second line makes use of the fact that `use!` tries refining with the argument before\napplying a constructor. Also note that `use`/`use!` by default uses a tactic\ncalled `use_discharger` to discharge goals, so `use! 42` will close the goal in this example since\n`use_discharger` applies `rfl`, which as a consequence solves for the other `Nat` metavariable.\n-/\n```\n</code>",
- "144": "<code>z₁ ^ n = ζ</code>",
- "143": "<code>z₀ ^ n = ζ</code>",
- "142": "<code>ζ ≠ 0</code>",
- "141": "<code>n ≥ 1</code>",
- "140":
- "<code>And (a b : Prop) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`And a b`, or `a ∧ b`, is the conjunction of propositions. It can be\nconstructed and destructed like a pair: if `ha : a` and `hb : b` then\n`⟨ha, hb⟩ : a ∧ b`, and if `h : a ∧ b` then `h.left : a` and `h.right : b`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∧` in identifiers is `and`.\n\n * The recommended spelling of `/\\` in identifiers is `and` (prefer `∧` over `/\\`).</code>",
+ "<code class=\"docstring\">`simp_all` is a stronger version of `simp [*] at *` where the hypotheses and target\nare simplified multiple times until no simplification is applicable.\nOnly non-dependent propositional hypotheses are considered.\n</code>",
+ "145": "<code>z ^ n ≠ 0</code>",
+ "144":
+ "<code class=\"docstring\">`subst x...` substitutes each hypothesis `x` with a definition found in the local context,\nthen eliminates the hypothesis.\n- If `x` is a local definition, then its definition is used.\n- Otherwise, if there is a hypothesis of the form `x = e` or `e = x`,\n  then `e` is used for the definition of `x`.\n\nIf `h : a = b`, then `subst h` may be used if either `a` or `b` unfolds to a local hypothesis.\nThis is similar to the `cases h` tactic.\n\nSee also: `subst_vars` for substituting all local hypotheses that have a defining equation.\n</code>",
+ "143":
+ "<code>GE.ge.{u} {α : Type u} [LE α] (a b : α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`a ≥ b` is an abbreviation for `b ≤ a`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `≥` in identifiers is `ge`.\n\n * The recommended spelling of `&gt;=` in identifiers is `ge` (prefer `≥` over `&gt;=`).</code>",
+ "142":
+ "<code>Nat : Type</code><span class=\"sep\"></span><code class=\"docstring\">The natural numbers, starting at zero.\n\nThis type is special-cased by both the kernel and the compiler, and overridden with an efficient\nimplementation. Both use a fast arbitrary-precision arithmetic library (usually\n[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.\n</code>",
+ "141": "<code>z ^ n = ζ</code>",
+ "140": "<code>n ≥ 1</code>",
  "14":
  "<code class=\"docstring\">`norm_num` normalizes numerical expressions in the goal. By default, it supports the operations\n`+` `-` `*` `/` `⁻¹` `^` and `%` over types with (at least) an `AddMonoidWithOne` instance, such as\n`ℕ`, `ℤ`, `ℚ`, `ℝ`, `ℂ`. In addition to evaluating numerical expressions, `norm_num` will use `simp`\nto simplify the goal. If the goal has the form `A = B`, `A ≠ B`, `A &lt; B` or `A ≤ B`, where `A` and\n`B` are numerical expressions, `norm_num` will try to close it. It also has a relatively simple\nprimality prover.\n\nThis tactic is extensible. Extensions can allow `norm_num` to evaluate more kinds of expressions, or\nto prove more kinds of propositions. See the `@[norm_num]` attribute for further information on\nextending `norm_num`.\n\n* `norm_num at l` normalizes at location(s) `l`.\n* `norm_num [h1, ...]` adds the arguments `h1, ...` to the `simp` set in addition to the default\n  `simp` set. All options for `simp` arguments are supported, in particular `←`, `↑` and `↓`.\n* `norm_num only` does not use the default `simp` set for simplification. `norm_num only [h1, ...]`\n  uses only the arguments `h1, ...` in addition to the routines tagged `@[norm_num]`.\n  `norm_num only` still performs post-processing steps, like `simp only`, use `norm_num1` if you\n  exclusively want to normalize numerical expressions.\n* `norm_num (config := cfg)` uses `cfg` as configuration for `simp` calls (see the `simp` tactic for\n  further details).\n\nExamples:\n```lean\nexample : 43 ≤ 74 + (33 : ℤ) := by norm_num\nexample : ¬ (7-2)/(2*3) ≥ (1:ℝ) + 2/(3^2) := by norm_num\n```\n</code>",
- "139":
- "<code>GE.ge.{u} {α : Type u} [LE α] (a b : α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`a ≥ b` is an abbreviation for `b ≤ a`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `≥` in identifiers is `ge`.\n\n * The recommended spelling of `&gt;=` in identifiers is `ge` (prefer `≥` over `&gt;=`).</code>",
+ "139": "<code>ζ ≠ 0</code>",
  "138":
- "<code>Nat : Type</code><span class=\"sep\"></span><code class=\"docstring\">The natural numbers, starting at zero.\n\nThis type is special-cased by both the kernel and the compiler, and overridden with an efficient\nimplementation. Both use a fast arbitrary-precision arithmetic library (usually\n[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.\n</code>",
+ "<code>ne_zero_of_pow_eq_ne_zero (n : ℕ) (z ζ : ℂ) (hζ : ζ ≠ 0) (hn : n ≥ 1) (h : z ^ n = ζ) : z ≠ 0</code><span class=\"sep\"></span><code class=\"docstring\">Helper: if `z ^ n = ζ` and `ζ ≠ 0` and `n ≥ 1`,\nthen `z ≠ 0`.\n</code>",
  "137":
  "<code>lt_irrefl.{u_1} {α : Type u_1} [Preorder α] (a : α) : ¬a &lt; a</code>",
  "136": "<code>1 &lt; 1</code>",

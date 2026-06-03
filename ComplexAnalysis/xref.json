@@ -2,7 +2,21 @@
  {"title": "Sections or chapters of the manual",
   "description": null,
   "contents":
-  {"MAT3253-Complex-Variables--Chapter-1___4-Polar-form-and-DeMoivre-theorem--Polar-form":
+  {"MAT3253-Complex-Variables--Chapter-2___7-Stereographic-projection":
+   [{"id": "MAT3253-Complex-Variables--Chapter-2___7-Stereographic-projection",
+     "data":
+     {"title": "Chapter 2.7 Stereographic projection",
+      "shortTitle": null,
+      "sectionNum": "4.",
+      "context":
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
+       {"title": "Chapter 2.7 Stereographic projection",
+        "shortTitle": null,
+        "number": "4"}]},
+     "address": "/Chapter-2___7-Stereographic-projection/"}],
+   "MAT3253-Complex-Variables--Chapter-1___4-Polar-form-and-DeMoivre-theorem--Polar-form":
    [{"id":
      "MAT3253-Complex-Variables--Chapter-1___4-Polar-form-and-DeMoivre-theorem--Polar-form",
      "data":
@@ -244,6 +258,22 @@
         "Data structure for complex numbers"]}},
      "address":
      "/Chapter-1___1-Arithemtic-of-complex-numbers/Data-structure-for-complex-numbers/"}],
+   "stereographic_preserves_circle_line":
+   [{"id": "stereographic_preserves_circle_line",
+     "data":
+     {"/Chapter-2___7-Stereographic-projection/#stereographic_preserves_circle_line":
+      {"display": "stereographic_preserves_circle_line",
+       "context":
+       ["MAT3253 Complex Variables", "Chapter 2.7 Stereographic projection"]}},
+     "address": "/Chapter-2___7-Stereographic-projection/"}],
+   "stereographic_equation_iff":
+   [{"id": "stereographic_equation_iff",
+     "data":
+     {"/Chapter-2___7-Stereographic-projection/#stereographic_equation_iff":
+      {"display": "stereographic_equation_iff",
+       "context":
+       ["MAT3253 Complex Variables", "Chapter 2.7 Stereographic projection"]}},
+     "address": "/Chapter-2___7-Stereographic-projection/"}],
    "polar_mul'":
    [{"id": "polar_mul___",
      "data":
@@ -275,6 +305,17 @@
         "Complex numbers have no ordering"]}},
      "address":
      "/Chapter-1___1-Arithemtic-of-complex-numbers/Complex-numbers-have-no-ordering/"}],
+   "ne_zero_of_pow_eq_ne_zero":
+   [{"id": "ne_zero_of_pow_eq_ne_zero",
+     "data":
+     {"/Chapter-1___1-Arithemtic-of-complex-numbers/n-th-root-of-unity/#ne_zero_of_pow_eq_ne_zero":
+      {"display": "ne_zero_of_pow_eq_ne_zero",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 1.1 Arithemtic of complex numbers",
+        "n-th root of unity"]}},
+     "address":
+     "/Chapter-1___1-Arithemtic-of-complex-numbers/n-th-root-of-unity/"}],
    "is_purely_imaginary":
    [{"id": "is_purely_imaginary",
      "data":
@@ -352,6 +393,118 @@
         "Cardano equation"]}},
      "address":
      "/Chapter-1___1-Arithemtic-of-complex-numbers/Cardano-equation/"}],
+   "S_minus_N":
+   [{"id": "S_minus_N",
+     "data":
+     {"/Chapter-2___7-Stereographic-projection/#S_minus_N":
+      {"display": "S_minus_N",
+       "context":
+       ["MAT3253 Complex Variables", "Chapter 2.7 Stereographic projection"]}},
+     "address": "/Chapter-2___7-Stereographic-projection/"}],
+   "S":
+   [{"id": "S",
+     "data":
+     {"/Chapter-2___7-Stereographic-projection/#S":
+      {"display": "S",
+       "context":
+       ["MAT3253 Complex Variables", "Chapter 2.7 Stereographic projection"]}},
+     "address": "/Chapter-2___7-Stereographic-projection/"}],
+   "Q":
+   [{"id": "Q",
+     "data":
+     {"/Chapter-2___7-Stereographic-projection/#Q":
+      {"display": "Q",
+       "context":
+       ["MAT3253 Complex Variables", "Chapter 2.7 Stereographic projection"]}},
+     "address": "/Chapter-2___7-Stereographic-projection/"}],
+   "P_to_S":
+   [{"id": "P_to_S",
+     "data":
+     {"/Chapter-2___7-Stereographic-projection/#P_to_S":
+      {"display": "P_to_S",
+       "context":
+       ["MAT3253 Complex Variables", "Chapter 2.7 Stereographic projection"]}},
+     "address": "/Chapter-2___7-Stereographic-projection/"}],
+   "P_right_inv":
+   [{"id": "P_right_inv",
+     "data":
+     {"/Chapter-2___7-Stereographic-projection/#P_right_inv":
+      {"display": "P_right_inv",
+       "context":
+       ["MAT3253 Complex Variables", "Chapter 2.7 Stereographic projection"]}},
+     "address": "/Chapter-2___7-Stereographic-projection/"}],
+   "P_range":
+   [{"id": "P_range",
+     "data":
+     {"/Chapter-2___7-Stereographic-projection/#P_range":
+      {"display": "P_range",
+       "context":
+       ["MAT3253 Complex Variables", "Chapter 2.7 Stereographic projection"]}},
+     "address": "/Chapter-2___7-Stereographic-projection/"}],
+   "P_left_inv":
+   [{"id": "P_left_inv",
+     "data":
+     {"/Chapter-2___7-Stereographic-projection/#P_left_inv":
+      {"display": "P_left_inv",
+       "context":
+       ["MAT3253 Complex Variables", "Chapter 2.7 Stereographic projection"]}},
+     "address": "/Chapter-2___7-Stereographic-projection/"}],
+   "P_complex_eq_P":
+   [{"id": "P_complex_eq_P",
+     "data":
+     {"/Chapter-2___7-Stereographic-projection/#P_complex_eq_P":
+      {"display": "P_complex_eq_P",
+       "context":
+       ["MAT3253 Complex Variables", "Chapter 2.7 Stereographic projection"]}},
+     "address": "/Chapter-2___7-Stereographic-projection/"}],
+   "P_complex":
+   [{"id": "P_complex",
+     "data":
+     {"/Chapter-2___7-Stereographic-projection/#P_complex":
+      {"display": "P_complex",
+       "context":
+       ["MAT3253 Complex Variables", "Chapter 2.7 Stereographic projection"]}},
+     "address": "/Chapter-2___7-Stereographic-projection/"}],
+   "P_bijective":
+   [{"id": "P_bijective",
+     "data":
+     {"/Chapter-2___7-Stereographic-projection/#P_bijective":
+      {"display": "P_bijective",
+       "context":
+       ["MAT3253 Complex Variables", "Chapter 2.7 Stereographic projection"]}},
+     "address": "/Chapter-2___7-Stereographic-projection/"}],
+   "P":
+   [{"id": "P",
+     "data":
+     {"/Chapter-2___7-Stereographic-projection/#P":
+      {"display": "P",
+       "context":
+       ["MAT3253 Complex Variables", "Chapter 2.7 Stereographic projection"]}},
+     "address": "/Chapter-2___7-Stereographic-projection/"}],
+   "N":
+   [{"id": "N",
+     "data":
+     {"/Chapter-2___7-Stereographic-projection/#N":
+      {"display": "N",
+       "context":
+       ["MAT3253 Complex Variables", "Chapter 2.7 Stereographic projection"]}},
+     "address": "/Chapter-2___7-Stereographic-projection/"}],
+   "IsPlaneSection":
+   [{"id": "IsPlaneSection",
+     "data":
+     {"/Chapter-2___7-Stereographic-projection/#IsPlaneSection":
+      {"display": "IsPlaneSection",
+       "context":
+       ["MAT3253 Complex Variables", "Chapter 2.7 Stereographic projection"]}},
+     "address": "/Chapter-2___7-Stereographic-projection/"}],
+   "IsCircleOrLine":
+   [{"id": "IsCircleOrLine",
+     "data":
+     {"/Chapter-2___7-Stereographic-projection/#IsCircleOrLine":
+      {"display": "IsCircleOrLine",
+       "context":
+       ["MAT3253 Complex Variables", "Chapter 2.7 Stereographic projection"]}},
+     "address": "/Chapter-2___7-Stereographic-projection/"}],
    "DeMoivre_neg_exp":
    [{"id": "DeMoivre_neg_exp",
      "data":
