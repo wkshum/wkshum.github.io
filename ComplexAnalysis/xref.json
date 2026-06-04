@@ -9,7 +9,7 @@
      {"title":
       "Chapter 7.3 Differentiation rules and differentiation at the point at infinity",
       "shortTitle": null,
-      "sectionNum": "6.",
+      "sectionNum": "7.",
       "context":
       [{"title": "MAT3253 Complex Variables",
         "shortTitle": null,
@@ -17,9 +17,27 @@
        {"title":
         "Chapter 7.3 Differentiation rules and differentiation at the point at infinity",
         "shortTitle": null,
-        "number": "6"}]},
+        "number": "7"}]},
      "address":
      "/Chapter-7___3-Differentiation-rules-and-differentiation-at-the-point-at-infinity/"}],
+   "MAT3253-Complex-Variables--Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition":
+   [{"id":
+     "MAT3253-Complex-Variables--Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition",
+     "data":
+     {"title":
+      "Chapter 6.2 Complex differentiability and Cauchy-Riemann condition",
+      "shortTitle": null,
+      "sectionNum": "6.",
+      "context":
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
+       {"title":
+        "Chapter 6.2 Complex differentiability and Cauchy-Riemann condition",
+        "shortTitle": null,
+        "number": "6"}]},
+     "address":
+     "/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/"}],
    "MAT3253-Complex-Variables--Chapter-2___7-Stereographic-projection":
    [{"id": "MAT3253-Complex-Variables--Chapter-2___7-Stereographic-projection",
      "data":
@@ -262,14 +280,14 @@
      "data":
      {"title": "Chapter 12.3 Sequence of holomorphic functions",
       "shortTitle": null,
-      "sectionNum": "7.",
+      "sectionNum": "8.",
       "context":
       [{"title": "MAT3253 Complex Variables",
         "shortTitle": null,
         "number": null},
        {"title": "Chapter 12.3 Sequence of holomorphic functions",
         "shortTitle": null,
-        "number": "7"}]},
+        "number": "8"}]},
      "address": "/Chapter-12___3-Sequence-of-holomorphic-functions/"}],
    "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Scalar-multiplication":
    [{"id":
@@ -625,6 +643,36 @@
         "Data structure for complex numbers"]}},
      "address":
      "/Chapter-1___1-Arithemtic-of-complex-numbers/Data-structure-for-complex-numbers/"}],
+   "isComplexDiffAt_iff_limit":
+   [{"id": "isComplexDiffAt_iff_limit",
+     "data":
+     {"/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/#isComplexDiffAt_iff_limit":
+      {"display": "isComplexDiffAt_iff_limit",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 6.2 Complex differentiability and Cauchy-Riemann condition"]}},
+     "address":
+     "/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/"}],
+   "hasFDerivAt_real_of_complex":
+   [{"id": "hasFDerivAt_real_of_complex",
+     "data":
+     {"/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/#hasFDerivAt_real_of_complex":
+      {"display": "hasFDerivAt_real_of_complex",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 6.2 Complex differentiability and Cauchy-Riemann condition"]}},
+     "address":
+     "/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/"}],
+   "hasFDerivAt_complex_of_real":
+   [{"id": "hasFDerivAt_complex_of_real",
+     "data":
+     {"/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/#hasFDerivAt_complex_of_real":
+      {"display": "hasFDerivAt_complex_of_real",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 6.2 Complex differentiability and Cauchy-Riemann condition"]}},
+     "address":
+     "/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/"}],
    "cos_add_sin_mul_I_ne_zero":
    [{"id": "cos_add_sin_mul_I_ne_zero",
      "data":
@@ -2348,6 +2396,26 @@
         "Chapter 7.3 Differentiation rules and differentiation at the point at infinity"]}},
      "address":
      "/Chapter-7___3-Differentiation-rules-and-differentiation-at-the-point-at-infinity/"}],
+   "complex_differentiableAt_iff_limit_exists":
+   [{"id": "complex_differentiableAt_iff_limit_exists",
+     "data":
+     {"/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/#complex_differentiableAt_iff_limit_exists":
+      {"display": "complex_differentiableAt_iff_limit_exists",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 6.2 Complex differentiability and Cauchy-Riemann condition"]}},
+     "address":
+     "/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/"}],
+   "complex_diff_iff_real_diff_and_CR":
+   [{"id": "complex_diff_iff_real_diff_and_CR",
+     "data":
+     {"/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/#complex_diff_iff_real_diff_and_CR":
+      {"display": "complex_diff_iff_real_diff_and_CR",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 6.2 Complex differentiability and Cauchy-Riemann condition"]}},
+     "address":
+     "/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/"}],
    "compact_implies_locallyUniform":
    [{"id": "compact_implies_locallyUniform",
      "data":
@@ -2357,6 +2425,26 @@
        ["MAT3253 Complex Variables",
         "Chapter 12.3 Sequence of holomorphic functions"]}},
      "address": "/Chapter-12___3-Sequence-of-holomorphic-functions/"}],
+   "clm_real_is_mul_of_CR":
+   [{"id": "clm_real_is_mul_of_CR",
+     "data":
+     {"/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/#clm_real_is_mul_of_CR":
+      {"display": "clm_real_is_mul_of_CR",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 6.2 Complex differentiability and Cauchy-Riemann condition"]}},
+     "address":
+     "/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/"}],
+   "clm_real_apply_eq":
+   [{"id": "clm_real_apply_eq",
+     "data":
+     {"/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/#clm_real_apply_eq":
+      {"display": "clm_real_apply_eq",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 6.2 Complex differentiability and Cauchy-Riemann condition"]}},
+     "address":
+     "/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/"}],
    "cardano2":
    [{"id": "cardano2",
      "data":
@@ -2503,6 +2591,16 @@
        "context":
        ["MAT3253 Complex Variables", "Chapter 2.7 Stereographic projection"]}},
      "address": "/Chapter-2___7-Stereographic-projection/"}],
+   "IsComplexDiffAt":
+   [{"id": "IsComplexDiffAt",
+     "data":
+     {"/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/#IsComplexDiffAt":
+      {"display": "IsComplexDiffAt",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 6.2 Complex differentiability and Cauchy-Riemann condition"]}},
+     "address":
+     "/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/"}],
    "IsCircleOrLine":
    [{"id": "IsCircleOrLine",
      "data":
@@ -2575,6 +2673,56 @@
         "DeMoivre formula"]}},
      "address":
      "/Chapter-1___4-Polar-form-and-DeMoivre-theorem/DeMoivre-formula/"}],
+   "ContLinearMap.mulLeftReal_apply":
+   [{"id": "ContLinearMap___mulLeftReal_apply",
+     "data":
+     {"/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/#ContLinearMap___mulLeftReal_apply":
+      {"display": "ContLinearMap.mulLeftReal_apply",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 6.2 Complex differentiability and Cauchy-Riemann condition"]}},
+     "address":
+     "/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/"}],
+   "ContLinearMap.mulLeftReal":
+   [{"id": "ContLinearMap___mulLeftReal",
+     "data":
+     {"/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/#ContLinearMap___mulLeftReal":
+      {"display": "ContLinearMap.mulLeftReal",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 6.2 Complex differentiability and Cauchy-Riemann condition"]}},
+     "address":
+     "/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/"}],
+   "ContLinearMap.mulLeftComplex_apply":
+   [{"id": "ContLinearMap___mulLeftComplex_apply",
+     "data":
+     {"/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/#ContLinearMap___mulLeftComplex_apply":
+      {"display": "ContLinearMap.mulLeftComplex_apply",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 6.2 Complex differentiability and Cauchy-Riemann condition"]}},
+     "address":
+     "/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/"}],
+   "ContLinearMap.mulLeftComplex":
+   [{"id": "ContLinearMap___mulLeftComplex",
+     "data":
+     {"/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/#ContLinearMap___mulLeftComplex":
+      {"display": "ContLinearMap.mulLeftComplex",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 6.2 Complex differentiability and Cauchy-Riemann condition"]}},
+     "address":
+     "/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/"}],
+   "ContLinearMap.complex_apply_eq_mul":
+   [{"id": "ContLinearMap___complex_apply_eq_mul",
+     "data":
+     {"/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/#ContLinearMap___complex_apply_eq_mul":
+      {"display": "ContLinearMap.complex_apply_eq_mul",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 6.2 Complex differentiability and Cauchy-Riemann condition"]}},
+     "address":
+     "/Chapter-6___2-Complex-differentiability-and-Cauchy-Riemann-condition/"}],
    "CompactConvergence":
    [{"id": "CompactConvergence",
      "data":

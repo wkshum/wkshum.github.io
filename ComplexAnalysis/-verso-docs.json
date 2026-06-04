@@ -1,472 +1,622 @@
-{"99": "<code>complex_number_game.sample6 : ℚ[i]</code>",
+{"999": "<code>ℂ → ℕ</code>",
+ "998": "<code>0 &lt; ε</code>",
+ "997":
+ "<code>∀ z ∈ K, U z ∈ 𝓝 z ∧ ∀ (ε : ℝ), 0 &lt; ε → ∃ a, ∀ (b : ℕ), a ≤ b → ∀ x ∈ U z, dist (f x) (F b x) &lt; ε</code>",
+ "996":
+ "<code>Metric.tendstoUniformlyOn_iff.{u, v, u_1} {α : Type u} {β : Type v} {ι : Type u_1} [PseudoMetricSpace α] {F : ι → β → α}\n  {f : β → α} {p : Filter ι} {s : Set β} :\n  TendstoUniformlyOn F f p s ↔ ∀ ε &gt; 0, ∀ᶠ (n : ι) in p, ∀ x ∈ s, dist (f x) (F n x) &lt; ε</code><span class=\"sep\"></span><code class=\"docstring\">Expressing uniform convergence on a set using `dist`. </code>",
+ "995": "<code>∃ t, (∀ x ∈ t, x ∈ K) ∧ K ⊆ ⋃ x ∈ t, U x</code>",
+ "994":
+ "<code>IsCompact.elim_nhds_subcover.{u} {X : Type u} [TopologicalSpace X] {s : Set X} (hs : IsCompact s) (U : X → Set X)\n  (hU : ∀ x ∈ s, U x ∈ 𝓝 x) : ∃ t, (∀ x ∈ t, x ∈ s) ∧ s ⊆ ⋃ x ∈ t, U x</code>",
+ "993":
+ "<code>Finset.{u_4} (α : Type u_4) : Type u_4</code><span class=\"sep\"></span><code class=\"docstring\">`Finset α` is the type of finite sets of elements of `α`. It is implemented\nas a multiset (a list up to permutation) which has no duplicate elements. </code>",
+ "992": "<code>(∀ z ∈ z_fin, z ∈ K) ∧ K ⊆ ⋃ z ∈ z_fin, U z</code>",
+ "991": "<code>Finset ℂ</code>",
+ "990": "<code>∀ z ∈ K, U z ∈ 𝓝 z ∧ TendstoUniformlyOn F f atTop (U z)</code>",
+ "99": "<code>complex_number_game.sample6 : ℚ[i]</code>",
+ "989": "<code>ℂ → Set ℂ</code>",
+ "988":
+ "<code class=\"docstring\">* `choose a b h h' using hyp` takes a hypothesis `hyp` of the form\n  `∀ (x : X) (y : Y), ∃ (a : A) (b : B), P x y a b ∧ Q x y a b`\n  for some `P Q : X → Y → A → B → Prop` and outputs\n  into context a function `a : X → Y → A`, `b : X → Y → B` and two assumptions:\n  `h : ∀ (x : X) (y : Y), P x y (a x y) (b x y)` and\n  `h' : ∀ (x : X) (y : Y), Q x y (a x y) (b x y)`. It also works with dependent versions.\n\n* `choose! a b h h' using hyp` does the same, except that it will remove dependency of\n  the functions on propositional arguments if possible. For example if `Y` is a proposition\n  and `A` and `B` are nonempty in the above example then we will instead get\n  `a : X → A`, `b : X → B`, and the assumptions\n  `h : ∀ (x : X) (y : Y), P x y (a x) (b x)` and\n  `h' : ∀ (x : X) (y : Y), Q x y (a x) (b x)`.\n\nThe `using hyp` part can be omitted,\nwhich will effectively cause `choose` to start with an `intro hyp`.\n\nLike `intro`, the `choose` tactic supports type annotations to specify the expected type\nof the introduced variables. This is useful for documentation and for catching mistakes early:\n```\nexample (h : ∃ n : ℕ, n &gt; 0) : True := by\n  choose (n : ℕ) (hn : n &gt; 0) using h\n  trivial\n```\nIf the provided type does not match the actual type, an error is raised.\n\nExamples:\n\n```\nexample (h : ∀ n m : ℕ, ∃ i j, m = n + i ∨ m + j = n) : True := by\n  choose i j h using h\n  guard_hyp i : ℕ → ℕ → ℕ\n  guard_hyp j : ℕ → ℕ → ℕ\n  guard_hyp h : ∀ (n m : ℕ), m = n + i n m ∨ m + j n m = n\n  trivial\n```\n\n```\nexample (h : ∀ i : ℕ, i &lt; 7 → ∃ j, i &lt; j ∧ j &lt; i+i) : True := by\n  choose! f h h' using h\n  guard_hyp f : ℕ → ℕ\n  guard_hyp h : ∀ (i : ℕ), i &lt; 7 → i &lt; f i\n  guard_hyp h' : ∀ (i : ℕ), i &lt; 7 → f i &lt; i + i\n  trivial\n```\n</code>",
+ "987":
+ "<code class=\"docstring\">`generalize_proofs ids* [at locs]?` generalizes proofs in the current goal,\nturning them into new local hypotheses.\n\n- `generalize_proofs` generalizes proofs in the target.\n- `generalize_proofs at h₁ h₂` generalized proofs in hypotheses `h₁` and `h₂`.\n- `generalize_proofs at *` generalizes proofs in the entire local context.\n- `generalize_proofs pf₁ pf₂ pf₃` uses names `pf₁`, `pf₂`, and `pf₃` for the generalized proofs.\n  These can be `_` to not name proofs.\n\nIf a proof is already present in the local context, it will use that rather than create a new\nlocal hypothesis.\n\nWhen doing `generalize_proofs at h`, if `h` is a let binding, its value is cleared,\nand furthermore if `h` duplicates a preceding local hypothesis then it is eliminated.\n\nThe tactic is able to abstract proofs from under binders, creating universally quantified\nproofs in the local context.\nTo disable this, use `generalize_proofs -abstract`.\nThe tactic is also set to recursively abstract proofs from the types of the generalized proofs.\nThis can be controlled with the `maxDepth` configuration option,\nwith `generalize_proofs (config := { maxDepth := 0 })` turning this feature off.\n\nFor example:\n```lean\ndef List.nthLe {α} (l : List α) (n : ℕ) (_h : n &lt; l.length) : α := sorry\nexample : List.nthLe [1, 2] 1 (by simp) = 2 := by\n  -- ⊢ [1, 2].nthLe 1 ⋯ = 2\n  generalize_proofs h\n  -- h : 1 &lt; [1, 2].length\n  -- ⊢ [1, 2].nthLe 1 h = 2\n```\n</code>",
+ "986": "<code>z ∈ K</code>",
+ "985": "<code>∀ z ∈ K, ∃ U ∈ 𝓝 z, TendstoUniformlyOn F f atTop U</code>",
+ "984": "<code>IsCompact K</code>",
+ "983": "<code>K ⊆ D</code>",
+ "982": "<code>LocallyUniformConvergence F f D</code>",
+ "981":
+ "<code>locallyUniform_implies_compact (D : Set ℂ) (F : ℕ → ℂ → ℂ) (f : ℂ → ℂ) (hloc : LocallyUniformConvergence F f D) :\n  CompactConvergence F f D</code><span class=\"sep\"></span><code class=\"docstring\">Locally uniform convergence implies compact convergence\nfor sequences of complex functions on a\nnonempty open connected domain.\n</code>",
+ "980":
+ "<code>IsCompact.{u_1} {X : Type u_1} [TopologicalSpace X] (s : Set X) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A set `s` is compact if for every nontrivial filter `f` that contains `s`,\nthere exists `a ∈ s` such that every set of `f` meets every neighborhood of `a`. </code>",
  "98":
  "<code>Coe.mk.{u, v} {α : semiOutParam (Sort u)} {β : Sort v} (coe : α → β) : Coe α β</code>",
+ "979":
+ "<code>CompactConvergence (F : ℕ → ℂ → ℂ) (f : ℂ → ℂ) (D : Set ℂ) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">Compact convergence: the sequence converges\nuniformly on every compact subset of D. </code>",
+ "978":
+ "<code>Filter.atTop.{u_3} {α : Type u_3} [Preorder α] : Filter α</code><span class=\"sep\"></span><code class=\"docstring\">`atTop` is the filter representing the limit `→ ∞` on an ordered set.\nIt is generated by the collection of up-sets `{b | a ≤ b}`.\n(The preorder need not have a top element for this to be well defined,\nand indeed is trivial when a top element `x` exists, i.e., it coincides with `pure x`.) </code>",
+ "977":
+ "<code>TendstoUniformlyOn.{u_1, u_2, u_4} {α : Type u_1} {β : Type u_2} {ι : Type u_4} [UniformSpace β] (F : ι → α → β)\n  (f : α → β) (p : Filter ι) (s : Set α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A sequence of functions `Fₙ` converges uniformly on a set `s` to a limiting function `f` with\nrespect to the filter `p` if, for any entourage of the diagonal `u`, one has `p`-eventually\n`(f x, Fₙ x) ∈ u` for all `x ∈ s`. </code>",
+ "976": "<code>Set ℂ</code>",
+ "975": "<code>ℕ → ℂ → ℂ</code>",
+ "974":
+ "<code>LocallyUniformConvergence (F : ℕ → ℂ → ℂ) (f : ℂ → ℂ) (D : Set ℂ) : Prop</code>",
+ "973": "<code>Tendsto (fun z =&gt; z * g z) (cocompact ℂ) (𝓝 g')</code>",
+ "972": "<code>Tendsto (fun z =&gt; z * f z) (cocompact ℂ) (𝓝 f')</code>",
+ "971":
+ "<code>Tendsto (fun z =&gt; z * f z) (cocompact ℂ) (𝓝 f') ∧ Tendsto (fun z =&gt; z * g z) (cocompact ℂ) (𝓝 g')</code>",
+ "970":
+ "<code>mul_div_mul_left.{u_3} {G₀ : Type u_3} [CommGroupWithZero G₀] {c : G₀} (a b : G₀) (hc : c ≠ 0) : c * a / (c * b) = a / b</code>",
  "97":
  "<code>Coe.{u, v} (α : semiOutParam (Sort u)) (β : Sort v) : Sort (max (max 1 u) v)</code><span class=\"sep\"></span><code class=\"docstring\">`Coe α β` is the typeclass for coercions from `α` to `β`. It can be transitively\nchained with other `Coe` instances, and coercion is automatically used when\n`x` has type `α` but it is used in a context where `β` is expected.\nYou can use the `↑x` operator to explicitly trigger coercion.\n</code>",
+ "969": "<code>¬x = 0</code>",
+ "968": "<code>x = 0</code>",
+ "967": "<code>x ∈ (Metric.closedBall 0 1)ᶜ</code>",
+ "966":
+ "<code class=\"docstring\">A thin wrapper for `aesop` which adds the `CategoryTheory` rule set and\nallows `aesop` to look through semireducible definitions when calling `intros`.\nThis tactic fails when it is unable to solve the goal, making it suitable for\nuse in auto-params.\n</code>",
+ "965":
+ "<code>HasSubset.Subset.{u} {α : Type u} [self : HasSubset α] : α → α → Prop</code><span class=\"sep\"></span><code class=\"docstring\">Subset relation: `a ⊆ b`  \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `⊆` in identifiers is `subset`.</code>",
+ "964":
+ "<code>ProperSpace.isCompact_closedBall.{u} {α : Type u} {inst✝ : PseudoMetricSpace α} [self : ProperSpace α] (x : α) (r : ℝ) :\n  IsCompact (Metric.closedBall x r)</code>",
+ "963":
+ "<code>Metric.closedBall.{u} {α : Type u} [PseudoMetricSpace α] (x : α) (ε : ℝ) : Set α</code><span class=\"sep\"></span><code class=\"docstring\">`closedBall x ε` is the set of all points `y` with `dist y x ≤ ε` </code>",
+ "962":
+ "<code>Filter.mem_cocompact.{u} {X : Type u} [TopologicalSpace X] {s : Set X} : s ∈ cocompact X ↔ ∃ t, IsCompact t ∧ tᶜ ⊆ s</code>",
+ "961":
+ "<code>Tendsto (fun z =&gt; z * f z / (z * g z)) (cocompact ℂ) (𝓝 (f' / g'))</code>",
+ "960":
+ "<code class=\"docstring\">Given a main goal `ctx ⊢ t`, `suffices h : t' from e` replaces the main goal with `ctx ⊢ t'`,\n`e` must have type `t` in the context `ctx, h : t'`.\n\nThe variant `suffices h : t' by tac` is a shorthand for `suffices h : t' from by tac`.\nIf `h :` is omitted, the name `this` is used.\n </code>",
  "96": "<code>complex_number_game.ofRational (r : ℚ) : ℚ[i]</code>",
+ "959": "<code>HasDerivAtInfinity g g'</code>",
+ "958": "<code>HasDerivAtInfinity f f'</code>",
+ "957":
+ "<code>complex_lhopital_infinity_infinity {f g : ℂ → ℂ} {f' g' : ℂ} (hf : HasDerivAtInfinity f f')\n  (hg : HasDerivAtInfinity g g') (hg_ne : g' ≠ 0) : Tendsto (fun z =&gt; f z / g z) (cocompact ℂ) (𝓝 (f' / g'))</code><span class=\"sep\"></span><code class=\"docstring\">L'Hopital's rule for the form 0/0 at infinity.\nIf f and g behave like f'/z and g'/z at infinity,\nthen f/g tends to f'/g'.\n</code>",
+ "956":
+ "<code>Filter.cocompact.{u_1} (X : Type u_1) [TopologicalSpace X] : Filter X</code><span class=\"sep\"></span><code class=\"docstring\">`Filter.cocompact` is the filter generated by complements to compact sets. </code>",
+ "955": "<code>HasDerivAtInfinity (f : ℂ → ℂ) (f' : ℂ) : Prop</code>",
+ "954":
+ "<code>dist_eq_norm.{u_5} {E : Type u_5} [SeminormedAddCommGroup E] (a b : E) : dist a b = ‖a - b‖</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `dist_eq_norm_sub`.</code>",
+ "953": "<code>dist x z₀ &lt; δ</code>",
+ "952": "<code>x ∈ {z₀}ᶜ</code>",
+ "951":
+ "<code>∀ ⦃x : ℂ⦄, x ∈ {0}ᶜ → dist x 0 &lt; δ → dist ((f (z₀ + x) - f z₀) / (g (z₀ + x) - g z₀)) (f' / g') &lt; ε</code>",
+ "950": "<code>δ &gt; 0</code>",
  "95":
  "<code class=\"docstring\">The `@[coe]` attribute on a function (which should also appear in a\n`instance : Coe A B := ⟨myFn⟩` declaration) allows the delaborator to show\napplications of this function as `↑` when printing expressions.\n</code>",
+ "949": "<code>ε &gt; 0</code>",
+ "948":
+ "<code>∀ ε &gt; 0, ∃ δ &gt; 0, ∀ ⦃x : ℂ⦄, x ∈ {0}ᶜ → dist x 0 &lt; δ → dist ((f (z₀ + x) - f z₀) / (g (z₀ + x) - g z₀)) (f' / g') &lt; ε</code>",
+ "947":
+ "<code>∀ ε &gt; 0, ∃ δ &gt; 0, ∀ ⦃x : ℂ⦄, x ∈ {0}ᶜ → dist x 0 &lt; δ → dist (x⁻¹ • (g (z₀ + x) - g z₀)) g' &lt; ε</code>",
+ "946":
+ "<code>Dist.dist.{u_3} {α : Type u_3} [self : Dist α] : α → α → ℝ</code><span class=\"sep\"></span><code class=\"docstring\">Distance between two points </code>",
+ "945":
+ "<code>∀ ε &gt; 0, ∃ δ &gt; 0, ∀ ⦃x : ℂ⦄, x ∈ {0}ᶜ → dist x 0 &lt; δ → dist (x⁻¹ • (f (z₀ + x) - f z₀)) f' &lt; ε</code>",
+ "944":
+ "<code>Metric.tendsto_nhdsWithin_nhds.{u, v} {α : Type u} {β : Type v} [PseudoMetricSpace α] {s : Set α} [PseudoMetricSpace β]\n  {f : α → β} {a : α} {b : β} :\n  Tendsto f (𝓝[s] a) (𝓝 b) ↔ ∀ ε &gt; 0, ∃ δ &gt; 0, ∀ ⦃x : α⦄, x ∈ s → dist x a &lt; δ → dist (f x) b &lt; ε</code>",
+ "943":
+ "<code>div_div_div_cancel_right₀.{u_3} {G₀ : Type u_3} [GroupWithZero G₀] {c : G₀} (hc : c ≠ 0) (a b : G₀) :\n  a / c / (b / c) = a / b</code>",
+ "942": "<code>t ∈ {0}ᶜ</code>",
+ "941":
+ "<code>HasDerivAt.deriv.{u, v} {𝕜 : Type u} [NontriviallyNormedField 𝕜] {F : Type v} [NormedAddCommGroup F] [NormedSpace 𝕜 F]\n  {f : 𝕜 → F} {f' : F} {x : 𝕜} (h : HasDerivAt f f' x) : deriv f x = f'</code>",
+ "940": "<code>g' = 0</code>",
  "94":
  "<code>complex_number_game.complexQ.ext {x y : ℚ[i]} (re : x.re = y.re) (im : x.im = y.im) : x = y</code>",
+ "939":
+ "<code class=\"docstring\">`contrapose` transforms the main goal into its contrapositive. If the goal has the form `⊢ P → Q`,\nthen `contrapose` turns it into `⊢ ¬ Q → ¬ P`. If the goal has the form `⊢ P ↔ Q`, then `contrapose`\nturns it into `⊢ ¬ P ↔ ¬ Q`.\n\n* `contrapose h` on a goal of the form `h : P ⊢ Q` turns the goal into `h : ¬ Q ⊢ ¬ P`. This is\n  equivalent to `revert h; contrapose; intro h`.\n* `contrapose h with new_h` uses the name `new_h` for the introduced hypothesis. This is equivalent\n  to `revert h; contrapose; intro new_h`.\n* `contrapose!`, `contrapose! h` and `contrapose! h with new_h` push negation deeper into the goal\n  after contraposing (but before introducing the new hypothesis). See the `push Not` tactic for more\n  details on the pushing algorithm.\n* `contrapose! (config := cfg)` controls the options for negation pushing. All options for\n  `Mathlib.Tactic.Push.Config` are supported:\n  * `contrapose! +distrib` rewrites `¬ (p ∧ q)` into `¬ p ∨ ¬ q` instead of `p → ¬ q`.\n\nExamples:\n```lean4\nvariables (P Q R : Prop)\n\nexample (H : ¬ Q → ¬ P) : P → Q := by\n  contrapose\n  exact H\n\nexample (H : ¬ P ↔ ¬ Q) : P ↔ Q := by\n  contrapose\n  exact H\n\nexample (H : ¬ Q → ¬ P) (h : P) : Q := by\n  contrapose h\n  exact H h\n\nexample (H : ¬ R → P → ¬ Q) : (P ∧ Q) → R := by\n  contrapose!\n  exact H\n\nexample (H : ¬ R → ¬ P ∨ ¬ Q) : (P ∧ Q) → R := by\n  contrapose! +distrib\n  exact H\n```\n</code>",
+ "938": "<code>¬deriv g z₀ = 0</code>",
+ "937": "<code>Tendsto (fun t =&gt; t⁻¹ * g (z₀ + t)) (𝓝[≠] 0) (𝓝 g')</code>",
+ "936": "<code>Tendsto (fun t =&gt; t⁻¹ * f (z₀ + t)) (𝓝[≠] 0) (𝓝 f')</code>",
+ "935":
+ "<code>Tendsto (fun t =&gt; (f (z₀ + t) - f z₀) / t / ((g (z₀ + t) - g z₀) / t)) (𝓝[≠] 0) (𝓝 (f' / g'))</code>",
+ "934":
+ "<code>Tendsto (fun t =&gt; (f (z₀ + t) - f z₀) / (g (z₀ + t) - g z₀)) (𝓝[≠] 0) (𝓝 (f' / g'))</code>",
+ "933":
+ "<code>Tendsto (fun t =&gt; t⁻¹ • (g (z₀ + t) - g z₀)) (𝓝[≠] 0) (𝓝 g')</code>",
+ "932":
+ "<code>Tendsto (fun t =&gt; t⁻¹ • (f (z₀ + t) - f z₀)) (𝓝[≠] 0) (𝓝 f')</code>",
+ "931":
+ "<code>hasDerivAt_iff_tendsto_slope_zero.{u, v} {𝕜 : Type u} [NontriviallyNormedField 𝕜] {F : Type v} [NormedAddCommGroup F]\n  [NormedSpace 𝕜 F] {f : 𝕜 → F} {f' : F} {x : 𝕜} :\n  HasDerivAt f f' x ↔ Tendsto (fun t =&gt; t⁻¹ • (f (x + t) - f x)) (𝓝[≠] 0) (𝓝 f')</code>",
+ "930": "<code>HasZeroOrder g z₀ m</code>",
  "93":
  "<code>complex_number_game.ext {z w : ℚ[i]} : z.re = w.re → z.im = w.im → z = w</code>",
+ "929": "<code>m = 1</code>",
+ "928":
+ "<code>complex_lhopital_zero_zero' {f g : ℂ → ℂ} {z₀ f' g' : ℂ} (hf : HasDerivAt f f' z₀) (hg : HasDerivAt g g' z₀)\n  (hf0 : f z₀ = 0) (hg0 : g z₀ = 0) (m : ℕ) (hm : m = 1) (hg_zero_order : HasZeroOrder g z₀ m) :\n  Tendsto (fun z =&gt; f z / g z) (𝓝[≠] z₀) (𝓝 (f' / g'))</code><span class=\"sep\"></span><code class=\"docstring\">L'Hopital's rule for complex functions at a point where\nthe denominator has a simple zero (order 1).\nThe formula f'/g' is valid whe g has zero order m=1.\n</code>",
+ "927": "<code>HasZeroOrder (g : ℂ → ℂ) (z₀ : ℂ) (m : ℕ) : Prop</code>",
+ "926":
+ "<code>NormedSpace.{u_6, u_7} (𝕜 : Type u_6) (E : Type u_7) [NormedField 𝕜] [SeminormedAddCommGroup E] : Type (max u_6 u_7)</code><span class=\"sep\"></span><code class=\"docstring\">A normed space over a normed field is a vector space endowed with a norm which satisfies the\nequality `‖c • x‖ = ‖c‖ ‖x‖`. We require only `‖c • x‖ ≤ ‖c‖ ‖x‖` in the definition, then prove\n`‖c • x‖ = ‖c‖ ‖x‖` in `norm_smul`.\n\nNote that since this requires `SeminormedAddCommGroup` and not `NormedAddCommGroup`, this\ntypeclass can be used for \"seminormed spaces\" too, just as `Module` can be used for\n\"semimodules\". </code>",
+ "925":
+ "<code>NormedAddCommGroup.{u_8} (E : Type u_8) : Type u_8</code><span class=\"sep\"></span><code class=\"docstring\">A normed group is an additive group endowed with a norm for which `dist x y = ‖-x + y‖` defines\na metric space structure. </code>",
+ "924":
+ "<code>iteratedDeriv.{u_1, u_2} {𝕜 : Type u_1} [NontriviallyNormedField 𝕜] {F : Type u_2} [NormedAddCommGroup F]\n  [NormedSpace 𝕜 F] (n : ℕ) (f : 𝕜 → F) (x : 𝕜) : F</code><span class=\"sep\"></span><code class=\"docstring\">The `n`-th iterated derivative of a function from `𝕜` to `F`, as a function from `𝕜` to `F`. </code>",
+ "923": "<code>z - z₀ ≠ 0</code>",
+ "922": "<code>z ∈ {z₀}ᶜ</code>",
+ "921":
+ "<code>self_mem_nhdsWithin.{u_1} {α : Type u_1} [TopologicalSpace α] {a : α} {s : Set α} : s ∈ 𝓝[s] a</code>",
+ "920":
+ "<code class=\"docstring\">`filter_upwards [h₁, ⋯, hₙ]` replaces a goal of the form `s ∈ f` and terms\n`h₁ : t₁ ∈ f, ⋯, hₙ : tₙ ∈ f` with `∀ x, x ∈ t₁ → ⋯ → x ∈ tₙ → x ∈ s`.\nThe list is an optional parameter, `[]` being its default value.\n\n`filter_upwards [h₁, ⋯, hₙ] with a₁ a₂ ⋯ aₖ` is a short form for\n`{ filter_upwards [h₁, ⋯, hₙ], intro a₁ a₂ ⋯ aₖ }`.\n\n`filter_upwards [h₁, ⋯, hₙ] using e` is a short form for\n`{ filter_upwards [h1, ⋯, hn], exact e }`.\n\nCombining both shortcuts is done by writing `filter_upwards [h₁, ⋯, hₙ] with a₁ a₂ ⋯ aₖ using e`.\nNote that in this case, the `aᵢ` terms can be used in `e`.\n</code>",
  "92":
  "<code>∀ (x : ℚ × ℚ), (fun z =&gt; (z.re, z.im)) ((fun p =&gt; { re := p.1, im := p.2 }) x) = x</code>",
+ "919":
+ "<code>Filter.EventuallyEq.{u_1, u_2} {α : Type u_1} {β : Type u_2} (l : Filter α) (f g : α → β) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">Two functions `f` and `g` are *eventually equal* along a filter `l` if the set of `x` such that\n`f x = g x` belongs to `l`. </code>",
+ "918":
+ "<code>Filter.Tendsto.congr'.{u_1, u_2} {α : Type u_1} {β : Type u_2} {f₁ f₂ : α → β} {l₁ : Filter α} {l₂ : Filter β}\n  (hl : f₁ =ᶠ[l₁] f₂) (h : Tendsto f₁ l₁ l₂) : Tendsto f₂ l₁ l₂</code>",
+ "917":
+ "<code>Filter.Tendsto.div.{u_1, u_3} {α : Type u_1} {G₀ : Type u_3} [GroupWithZero G₀] [TopologicalSpace G₀]\n  [ContinuousInv₀ G₀] [ContinuousMul G₀] {f g : α → G₀} {l : Filter α} {a b : G₀} (hf : Tendsto f l (𝓝 a))\n  (hg : Tendsto g l (𝓝 b)) (hy : b ≠ 0) : Tendsto (f / g) l (𝓝 (a / b))</code>",
+ "916":
+ "<code>Tendsto (fun z =&gt; (f z - f z₀) / (z - z₀) / ((g z - g z₀) / (z - z₀))) (𝓝[≠] z₀) (𝓝 (f' / g'))</code>",
+ "915": "<code>Tendsto (slope g z₀) (𝓝[≠] z₀) (𝓝 g')</code>",
  "914":
- "<code>locallyUniform_iff_compact (D : Set ℂ) (hD_open : IsOpen D) (F : ℕ → ℂ → ℂ) (f : ℂ → ℂ) :\n  LocallyUniformConvergence F f D ↔ CompactConvergence F f D</code><span class=\"sep\"></span><code class=\"docstring\">Locally uniform convergence and\ncompact convergence are equivalent for sequences\nof complex functions on a nonempty open connected\ndomain D ⊆ ℂ.\n</code>",
+ "<code>Tendsto (fun z =&gt; (g z - g z₀) / (z - z₀)) (𝓝[≠] z₀) (𝓝 g')</code>",
  "913":
- "<code>Metric.closedBall_mem_nhds.{u} {α : Type u} [PseudoMetricSpace α] (x : α) {ε : ℝ} (ε0 : 0 &lt; ε) :\n  Metric.closedBall x ε ∈ 𝓝 x</code>",
- "912":
- "<code>IsOpen.mem_nhds.{u} {X : Type u} [TopologicalSpace X] {x : X} {s : Set X} (hs : IsOpen s) (hx : x ∈ s) : s ∈ 𝓝 x</code>",
+ "<code>slope.{u_1, u_2, u_3} {k : Type u_1} {E : Type u_2} {PE : Type u_3} [Field k] [AddCommGroup E] [Module k E]\n  [AddTorsor E PE] (f : k → PE) (a b : k) : E</code><span class=\"sep\"></span><code class=\"docstring\">`slope f a b = (b - a)⁻¹ • (f b -ᵥ f a)` is the slope of a function `f` on the interval\n`[a, b]`. Note that `slope f a a = 0`, not the derivative of `f` at `a`. </code>",
+ "912": "<code>Tendsto (slope f z₀) (𝓝[≠] z₀) (𝓝 f')</code>",
  "911":
- "<code>Filter.HasBasis.mem_iff.{u_1, u_4} {α : Type u_1} {ι : Sort u_4} {l : Filter α} {p : ι → Prop} {s : ι → Set α}\n  {t : Set α} (hl : l.HasBasis p s) : t ∈ l ↔ ∃ i, p i ∧ s i ⊆ t</code><span class=\"sep\"></span><code class=\"docstring\">Definition of `HasBasis` unfolded with implicit set argument. </code>",
+ "<code>hasDerivAt_iff_tendsto_slope.{u, v} {𝕜 : Type u} [NontriviallyNormedField 𝕜] {F : Type v} [NormedAddCommGroup F]\n  [NormedSpace 𝕜 F] {f : 𝕜 → F} {f' : F} {x : 𝕜} : HasDerivAt f f' x ↔ Tendsto (slope f x) (𝓝[≠] x) (𝓝 f')</code>",
  "910":
- "<code>Metric.nhds_basis_closedBall.{u} {α : Type u} [PseudoMetricSpace α] {x : α} :\n  (𝓝 x).HasBasis (fun ε =&gt; 0 &lt; ε) (Metric.closedBall x)</code>",
+ "<code>Tendsto (fun z =&gt; (f z - f z₀) / (z - z₀)) (𝓝[≠] z₀) (𝓝 f')</code>",
  "91":
  "<code>∀ (x : ℚ[i]), (fun p =&gt; { re := p.1, im := p.2 }) ((fun z =&gt; (z.re, z.im)) x) = x</code>",
- "909": "<code>Metric.closedBall z₀ r ⊆ D</code>",
- "908": "<code>z₀ ∈ D</code>",
- "907": "<code>CompactConvergence F f D</code>",
- "906":
- "<code>IsOpen.{u} {X : Type u} [TopologicalSpace X] : Set X → Prop</code><span class=\"sep\"></span><code class=\"docstring\">`IsOpen s` means that `s` is open in the ambient topological space on `X` </code>",
- "905": "<code>IsOpen D</code>",
- "904":
- "<code>compact_implies_locallyUniform (D : Set ℂ) (hD_open : IsOpen D) (F : ℕ → ℂ → ℂ) (f : ℂ → ℂ)\n  (hcpt : CompactConvergence F f D) : LocallyUniformConvergence F f D</code><span class=\"sep\"></span><code class=\"docstring\">Compact convergence implies locally uniform\nconvergence for sequences of complex functions\non a nonempty open connected domain.\n</code>",
+ "909":
+ "<code>Tendsto (fun z =&gt; (f z - f z₀) / (z - z₀)) (𝓝[≠] z₀) (𝓝 f') ∧\n  Tendsto (fun z =&gt; (g z - g z₀) / (z - z₀)) (𝓝[≠] z₀) (𝓝 g')</code>",
+ "908": "<code>g' ≠ 0</code>",
+ "907": "<code>g z₀ = 0</code>",
+ "906": "<code>f z₀ = 0</code>",
+ "905": "<code>HasDerivAt g g' z₀</code>",
+ "904": "<code>HasDerivAt f f' z₀</code>",
  "903":
- "<code>Finset.le_sup.{u_2, u_3} {α : Type u_2} {β : Type u_3} [SemilatticeSup α] [OrderBot α] {s : Finset β} {f : β → α}\n  {b : β} (hb : b ∈ s) : f b ≤ s.sup f</code>",
- "902":
- "<code>le_trans.{u_1} {α : Type u_1} [Preorder α] {a b c : α} : a ≤ b → b ≤ c → a ≤ c</code><span class=\"sep\"></span><code class=\"docstring\">The relation `≤` on a preorder is transitive. </code>",
- "901": "<code>x ∈ U z</code>",
- "900":
- "<code>Set.mem_iUnion₂.{u_3, u_5, u_8} {γ : Type u_3} {ι : Sort u_5} {κ : ι → Sort u_8} {x : γ} {s : (i : ι) → κ i → Set γ} :\n  x ∈ ⋃ i, ⋃ j, s i j ↔ ∃ i j, x ∈ s i j</code>",
+ "<code>complex_lhopital_zero_zero {f g : ℂ → ℂ} {z₀ f' g' : ℂ} (hf : HasDerivAt f f' z₀) (hg : HasDerivAt g g' z₀)\n  (hf0 : f z₀ = 0) (hg0 : g z₀ = 0) (hg_ne : g' ≠ 0) : Tendsto (fun z =&gt; f z / g z) (𝓝[≠] z₀) (𝓝 (f' / g'))</code><span class=\"sep\"></span><code class=\"docstring\">L'Hôpital's Rule for complex differentiable functions at\na point where both vanish.\n\nIf f(z₀) = 0, g(z₀) = 0, and g'(z₀) ≠ 0,\nthen lim (f(z)/g(z)) = f'(z₀)/g'(z₀).\n</code>",
+ "902": "<code>𝕜</code>",
+ "901": "<code>F</code>",
+ "900": "<code>𝕜 → F</code>",
  "90": "<code>ℚ × ℚ</code>",
  "9": "<code>ℚ[i]</code>",
- "899": "<code>x ∈ K</code>",
- "898": "<code>z_fin.sup a ≤ n</code>",
+ "899":
+ "<code>ContinuousSMul.{u_1, u_2} (M : Type u_1) (X : Type u_2) [SMul M X] [TopologicalSpace M] [TopologicalSpace X] : Prop</code><span class=\"sep\"></span><code class=\"docstring\">Class `ContinuousSMul M X` says that the scalar multiplication `(•) : M → X → X`\nis continuous in both arguments. We use the same class for all kinds of multiplicative actions,\nincluding (semi)modules and algebras. </code>",
+ "898":
+ "<code>TopologicalSpace.{u} (X : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">A topology on `X`. </code>",
  "897":
- "<code>Finset.sup.{u_2, u_3} {α : Type u_2} {β : Type u_3} [SemilatticeSup α] [OrderBot α] (s : Finset β) (f : β → α) : α</code><span class=\"sep\"></span><code class=\"docstring\">Supremum of a finite set: `sup {a, b, c} f = f a ⊔ f b ⊔ f c` </code>",
- "896": "<code>z ∈ z_fin</code>",
+ "<code>Module.{u, v} (R : Type u) (M : Type v) [Semiring R] [AddCommMonoid M] : Type (max u v)</code><span class=\"sep\"></span><code class=\"docstring\">A module is a generalization of vector spaces to a scalar semiring.\nIt consists of a scalar semiring `R` and an additive monoid of \"vectors\" `M`,\nconnected by a \"scalar multiplication\" operation `r • x : M`\n(where `r : R` and `x : M`) with some natural associativity and\ndistributivity axioms similar to those on a ring. </code>",
+ "896": "<code>Type v</code>",
  "895":
- "<code>∀ z ∈ z_fin, ∀ (b : ℕ), a z ≤ b → ∀ x ∈ U z, dist (f x) (F b x) &lt; ε</code>",
- "894": "<code>ℂ → ℕ</code>",
- "893": "<code>0 &lt; ε</code>",
+ "<code>NontriviallyNormedField.{u_5} (α : Type u_5) : Type u_5</code><span class=\"sep\"></span><code class=\"docstring\">A nontrivially normed field is a normed field in which there is an element of norm different\nfrom `0` and `1`. This makes it possible to bring any element arbitrarily close to `0` by\nmultiplication by the powers of any element, and thus to relate algebra and topology. </code>",
+ "894": "<code>Type u</code>",
+ "893":
+ "<code>DifferentiableAt.hasFDerivAt.{u_1, u_2, u_3} {𝕜 : Type u_1} [NontriviallyNormedField 𝕜] {E : Type u_2} [AddCommGroup E]\n  [Module 𝕜 E] [TopologicalSpace E] {F : Type u_3} [AddCommGroup F] [Module 𝕜 F] [TopologicalSpace F] {f : E → F}\n  {x : E} (h : DifferentiableAt 𝕜 f x) : HasFDerivAt f (fderiv 𝕜 f x) x</code>",
  "892":
- "<code>∀ z ∈ K, U z ∈ 𝓝 z ∧ ∀ (ε : ℝ), 0 &lt; ε → ∃ a, ∀ (b : ℕ), a ≤ b → ∀ x ∈ U z, dist (f x) (F b x) &lt; ε</code>",
- "891":
- "<code>Metric.tendstoUniformlyOn_iff.{u, v, u_1} {α : Type u} {β : Type v} {ι : Type u_1} [PseudoMetricSpace α] {F : ι → β → α}\n  {f : β → α} {p : Filter ι} {s : Set β} :\n  TendstoUniformlyOn F f p s ↔ ∀ ε &gt; 0, ∀ᶠ (n : ι) in p, ∀ x ∈ s, dist (f x) (F n x) &lt; ε</code><span class=\"sep\"></span><code class=\"docstring\">Expressing uniform convergence on a set using `dist`. </code>",
- "890": "<code>∃ t, (∀ x ∈ t, x ∈ K) ∧ K ⊆ ⋃ x ∈ t, U x</code>",
+ "<code>HasFDerivAt f (ContLinearMap.mulLeftComplex ((fderiv ℝ f z₀) 1)) z₀</code>",
+ "891": "<code>∀ (z : ℂ), (fderiv ℝ f z₀) z = (fderiv ℝ f z₀) 1 * z</code>",
+ "890": "<code>((fderiv ℝ f z₀) I).re = -((fderiv ℝ f z₀) 1).im</code>",
  "89":
  "<code>ℚ × ℚ → ℚ[i]</code><span class=\"sep\"></span><code class=\"docstring\">The backward map of an equivalence.\n\nDo NOT use `e.invFun` directly. Use the coercion of `e.symm` instead. </code>",
- "889":
- "<code>IsCompact.elim_nhds_subcover.{u} {X : Type u} [TopologicalSpace X] {s : Set X} (hs : IsCompact s) (U : X → Set X)\n  (hU : ∀ x ∈ s, U x ∈ 𝓝 x) : ∃ t, (∀ x ∈ t, x ∈ s) ∧ s ⊆ ⋃ x ∈ t, U x</code>",
- "888":
- "<code>Finset.{u_4} (α : Type u_4) : Type u_4</code><span class=\"sep\"></span><code class=\"docstring\">`Finset α` is the type of finite sets of elements of `α`. It is implemented\nas a multiset (a list up to permutation) which has no duplicate elements. </code>",
- "887": "<code>(∀ z ∈ z_fin, z ∈ K) ∧ K ⊆ ⋃ z ∈ z_fin, U z</code>",
- "886": "<code>Finset ℂ</code>",
- "885": "<code>∀ z ∈ K, U z ∈ 𝓝 z ∧ TendstoUniformlyOn F f atTop (U z)</code>",
- "884": "<code>ℂ → Set ℂ</code>",
+ "889": "<code>((fderiv ℝ f z₀) 1).re = ((fderiv ℝ f z₀) I).im</code>",
+ "888": "<code>DifferentiableAt ℝ f z₀</code>",
+ "887":
+ "<code>ContLinearMap.mulLeftReal_apply (c z : ℂ) : (ContLinearMap.mulLeftReal c) z = c * z</code>",
+ "886":
+ "<code>HasFDerivAt.fderiv.{u_1, u_2, u_3} {𝕜 : Type u_1} [NontriviallyNormedField 𝕜] {E : Type u_2} [AddCommGroup E]\n  [Module 𝕜 E] [TopologicalSpace E] {F : Type u_3} [AddCommGroup F] [Module 𝕜 F] [TopologicalSpace F] {f : E → F}\n  {f' : E →L[𝕜] F} {x : E} [ContinuousAdd E] [ContinuousSMul 𝕜 E] [ContinuousAdd F] [ContinuousSMul 𝕜 F] [T2Space F]\n  (h : HasFDerivAt f f' x) : fderiv 𝕜 f x = f'</code>",
+ "885": "<code>fderiv ℝ f z₀ = ContLinearMap.mulLeftReal c</code>",
+ "884":
+ "<code>HasFDerivAt.differentiableAt.{u_1, u_2, u_3} {𝕜 : Type u_1} [NontriviallyNormedField 𝕜] {E : Type u_2} [AddCommGroup E]\n  [Module 𝕜 E] [TopologicalSpace E] {F : Type u_3} [AddCommGroup F] [Module 𝕜 F] [TopologicalSpace F] {f : E → F}\n  {f' : E →L[𝕜] F} {x : E} (h : HasFDerivAt f f' x) : DifferentiableAt 𝕜 f x</code>",
  "883":
- "<code class=\"docstring\">* `choose a b h h' using hyp` takes a hypothesis `hyp` of the form\n  `∀ (x : X) (y : Y), ∃ (a : A) (b : B), P x y a b ∧ Q x y a b`\n  for some `P Q : X → Y → A → B → Prop` and outputs\n  into context a function `a : X → Y → A`, `b : X → Y → B` and two assumptions:\n  `h : ∀ (x : X) (y : Y), P x y (a x y) (b x y)` and\n  `h' : ∀ (x : X) (y : Y), Q x y (a x y) (b x y)`. It also works with dependent versions.\n\n* `choose! a b h h' using hyp` does the same, except that it will remove dependency of\n  the functions on propositional arguments if possible. For example if `Y` is a proposition\n  and `A` and `B` are nonempty in the above example then we will instead get\n  `a : X → A`, `b : X → B`, and the assumptions\n  `h : ∀ (x : X) (y : Y), P x y (a x) (b x)` and\n  `h' : ∀ (x : X) (y : Y), Q x y (a x) (b x)`.\n\nThe `using hyp` part can be omitted,\nwhich will effectively cause `choose` to start with an `intro hyp`.\n\nLike `intro`, the `choose` tactic supports type annotations to specify the expected type\nof the introduced variables. This is useful for documentation and for catching mistakes early:\n```\nexample (h : ∃ n : ℕ, n &gt; 0) : True := by\n  choose (n : ℕ) (hn : n &gt; 0) using h\n  trivial\n```\nIf the provided type does not match the actual type, an error is raised.\n\nExamples:\n\n```\nexample (h : ∀ n m : ℕ, ∃ i j, m = n + i ∨ m + j = n) : True := by\n  choose i j h using h\n  guard_hyp i : ℕ → ℕ → ℕ\n  guard_hyp j : ℕ → ℕ → ℕ\n  guard_hyp h : ∀ (n m : ℕ), m = n + i n m ∨ m + j n m = n\n  trivial\n```\n\n```\nexample (h : ∀ i : ℕ, i &lt; 7 → ∃ j, i &lt; j ∧ j &lt; i+i) : True := by\n  choose! f h h' using h\n  guard_hyp f : ℕ → ℕ\n  guard_hyp h : ∀ (i : ℕ), i &lt; 7 → i &lt; f i\n  guard_hyp h' : ∀ (i : ℕ), i &lt; 7 → f i &lt; i + i\n  trivial\n```\n</code>",
- "882":
- "<code class=\"docstring\">`generalize_proofs ids* [at locs]?` generalizes proofs in the current goal,\nturning them into new local hypotheses.\n\n- `generalize_proofs` generalizes proofs in the target.\n- `generalize_proofs at h₁ h₂` generalized proofs in hypotheses `h₁` and `h₂`.\n- `generalize_proofs at *` generalizes proofs in the entire local context.\n- `generalize_proofs pf₁ pf₂ pf₃` uses names `pf₁`, `pf₂`, and `pf₃` for the generalized proofs.\n  These can be `_` to not name proofs.\n\nIf a proof is already present in the local context, it will use that rather than create a new\nlocal hypothesis.\n\nWhen doing `generalize_proofs at h`, if `h` is a let binding, its value is cleared,\nand furthermore if `h` duplicates a preceding local hypothesis then it is eliminated.\n\nThe tactic is able to abstract proofs from under binders, creating universally quantified\nproofs in the local context.\nTo disable this, use `generalize_proofs -abstract`.\nThe tactic is also set to recursively abstract proofs from the types of the generalized proofs.\nThis can be controlled with the `maxDepth` configuration option,\nwith `generalize_proofs (config := { maxDepth := 0 })` turning this feature off.\n\nFor example:\n```lean\ndef List.nthLe {α} (l : List α) (n : ℕ) (_h : n &lt; l.length) : α := sorry\nexample : List.nthLe [1, 2] 1 (by simp) = 2 := by\n  -- ⊢ [1, 2].nthLe 1 ⋯ = 2\n  generalize_proofs h\n  -- h : 1 &lt; [1, 2].length\n  -- ⊢ [1, 2].nthLe 1 h = 2\n```\n</code>",
- "881": "<code>z ∈ K</code>",
- "880": "<code>∀ z ∈ K, ∃ U ∈ 𝓝 z, TendstoUniformlyOn F f atTop U</code>",
+ "<code class=\"docstring\">`show t` finds the first goal whose target unifies with `t`. It makes that the main goal,\nperforms the unification, and replaces the target with the unified version of `t`.\n</code>",
+ "882": "<code>HasFDerivAt f (ContLinearMap.mulLeftReal c) z₀</code>",
+ "881": "<code>HasFDerivAt f L z₀</code>",
+ "880":
+ "<code>fderiv.{u_4, u_5, u_6} (𝕜 : Type u_4) [NontriviallyNormedField 𝕜] {E : Type u_5} [AddCommGroup E] [Module 𝕜 E]\n  [TopologicalSpace E] {F : Type u_6} [AddCommGroup F] [Module 𝕜 F] [TopologicalSpace F] (f : E → F) (x : E) : E →L[𝕜] F</code><span class=\"sep\"></span><code class=\"docstring\">If `f` has a derivative at `x`, then `fderiv 𝕜 f x` is such a derivative. Otherwise, it is\nset to `0`. </code>",
  "88":
  "<code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class=\"sep\"></span><code class=\"docstring\">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `(a, b)` in identifiers is `mk`.</code>",
- "879": "<code>IsCompact K</code>",
- "878": "<code>K ⊆ D</code>",
- "877": "<code>LocallyUniformConvergence F f D</code>",
+ "879":
+ "<code>complex_diff_iff_real_diff_and_CR (f : ℂ → ℂ) (z₀ : ℂ) :\n  DifferentiableAt ℂ f z₀ ↔\n    DifferentiableAt ℝ f z₀ ∧\n      have u_x := ((fderiv ℝ f z₀) 1).re;\n      have v_x := ((fderiv ℝ f z₀) 1).im;\n      have u_y := ((fderiv ℝ f z₀) I).re;\n      have v_y := ((fderiv ℝ f z₀) I).im;\n      u_x = v_y ∧ u_y = -v_x</code><span class=\"sep\"></span><code class=\"docstring\">Theorem 6.2.4 </code>",
+ "878": "<code>(L I).re = -(L 1).im</code>",
+ "877": "<code>(L 1).re = (L I).im</code>",
  "876":
- "<code>locallyUniform_implies_compact (D : Set ℂ) (F : ℕ → ℂ → ℂ) (f : ℂ → ℂ) (hloc : LocallyUniformConvergence F f D) :\n  CompactConvergence F f D</code><span class=\"sep\"></span><code class=\"docstring\">Locally uniform convergence implies compact convergence\nfor sequences of complex functions on a\nnonempty open connected domain.\n</code>",
+ "<code>clm_real_is_mul_of_CR (L : ℂ →L[ℝ] ℂ) (h1 : (L 1).re = (L I).im) (h2 : (L I).re = -(L 1).im) (z : ℂ) : L z = L 1 * z</code><span class=\"sep\"></span><code class=\"docstring\">Real continuous linear map is complex linear if CR </code>",
  "875":
- "<code>IsCompact.{u_1} {X : Type u_1} [TopologicalSpace X] (s : Set X) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A set `s` is compact if for every nontrivial filter `f` that contains `s`,\nthere exists `a ∈ s` such that every set of `f` meets every neighborhood of `a`. </code>",
+ "<code>map_smul.{u_8, u_9, u_10, u_11} {F : Type u_8} {M : Type u_9} {X : Type u_10} {Y : Type u_11} [SMul M X] [SMul M Y]\n  [FunLike F X Y] [MulActionHomClass F M X Y] (f : F) (c : M) (x : X) : f (c • x) = c • f x</code>",
  "874":
- "<code>CompactConvergence (F : ℕ → ℂ → ℂ) (f : ℂ → ℂ) (D : Set ℂ) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">Compact convergence: the sequence converges\nuniformly on every compact subset of D. </code>",
+ "<code>ContinuousLinearMap.map_add.{u_1, u_2, u_4, u_6} {R₁ : Type u_1} {R₂ : Type u_2} [Semiring R₁] [Semiring R₂]\n  {σ₁₂ : R₁ →+* R₂} {M₁ : Type u_4} [TopologicalSpace M₁] [AddCommMonoid M₁] {M₂ : Type u_6} [TopologicalSpace M₂]\n  [AddCommMonoid M₂] [Module R₁ M₁] [Module R₂ M₂] (f : M₁ →SL[σ₁₂] M₂) (x y : M₁) : f (x + y) = f x + f y</code>",
  "873":
- "<code>Filter.atTop.{u_3} {α : Type u_3} [Preorder α] : Filter α</code><span class=\"sep\"></span><code class=\"docstring\">`atTop` is the filter representing the limit `→ ∞` on an ordered set.\nIt is generated by the collection of up-sets `{b | a ≤ b}`.\n(The preorder need not have a top element for this to be well defined,\nand indeed is trivial when a top element `x` exists, i.e., it coincides with `pure x`.) </code>",
+ "<code>clm_real_apply_eq (L : ℂ →L[ℝ] ℂ) (z : ℂ) : L z = z.re • L 1 + z.im • L I</code><span class=\"sep\"></span><code class=\"docstring\">Helper lemmas for ℝ-linear maps on ℂ </code>",
  "872":
- "<code>TendstoUniformlyOn.{u_1, u_2, u_4} {α : Type u_1} {β : Type u_2} {ι : Type u_4} [UniformSpace β] (F : ι → α → β)\n  (f : α → β) (p : Filter ι) (s : Set α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A sequence of functions `Fₙ` converges uniformly on a set `s` to a limiting function `f` with\nrespect to the filter `p` if, for any entourage of the diagonal `u`, one has `p`-eventually\n`(f x, Fₙ x) ∈ u` for all `x ∈ s`. </code>",
- "871": "<code>Set ℂ</code>",
- "870": "<code>ℕ → ℂ → ℂ</code>",
+ "<code>Asymptotics.IsLittleO.{u_18, u_19, u_20} {α : Type u_18} {E : Type u_19} {F : Type u_20} [Norm E] [Norm F]\n  (l : Filter α) (f : α → E) (g : α → F) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">The Landau notation `f =o[l] g` where `f` and `g` are two functions on a type `α` and `l` is\na filter on `α`, means that eventually for `l`, `‖f‖` is bounded by an arbitrarily small constant\nmultiple of `‖g‖`. In other words, `‖f‖ / ‖g‖` tends to `0` along `l`, modulo division by zero\nissues that are avoided by this definition. </code>",
+ "871":
+ "<code>(fun h =&gt; f (z₀ + h) - f z₀ - L₁ h) =o[nhds 0] fun h =&gt; h</code>",
+ "870":
+ "<code>hasFDerivAt_complex_of_real {f : ℂ → ℂ} {L₁ : ℂ →L[ℝ] ℂ} {L₂ : ℂ →L[ℂ] ℂ} {z₀ : ℂ} (h : HasFDerivAt f L₁ z₀)\n  (heq : ∀ (z : ℂ), L₁ z = L₂ z) : HasFDerivAt f L₂ z₀</code>",
  "87":
  "<code>ℚ[i] → ℚ × ℚ</code><span class=\"sep\"></span><code class=\"docstring\">The forward map of an equivalence.\n\nDo NOT use directly. Use the coercion instead. </code>",
  "869":
- "<code>LocallyUniformConvergence (F : ℕ → ℂ → ℂ) (f : ℂ → ℂ) (D : Set ℂ) : Prop</code>",
- "868": "<code>Tendsto (fun z =&gt; z * g z) (cocompact ℂ) (𝓝 g')</code>",
- "867": "<code>Tendsto (fun z =&gt; z * f z) (cocompact ℂ) (𝓝 f')</code>",
- "866":
- "<code>Tendsto (fun z =&gt; z * f z) (cocompact ℂ) (𝓝 f') ∧ Tendsto (fun z =&gt; z * g z) (cocompact ℂ) (𝓝 g')</code>",
- "865":
- "<code>mul_div_mul_left.{u_3} {G₀ : Type u_3} [CommGroupWithZero G₀] {c : G₀} (a b : G₀) (hc : c ≠ 0) : c * a / (c * b) = a / b</code>",
- "864": "<code>¬x = 0</code>",
- "863": "<code>x = 0</code>",
- "862": "<code>x ∈ (Metric.closedBall 0 1)ᶜ</code>",
- "861":
- "<code class=\"docstring\">A thin wrapper for `aesop` which adds the `CategoryTheory` rule set and\nallows `aesop` to look through semireducible definitions when calling `intros`.\nThis tactic fails when it is unable to solve the goal, making it suitable for\nuse in auto-params.\n</code>",
+ "<code>hasFDerivAt_iff_isLittleO_nhds_zero.{u_1, u_2, u_3} {𝕜 : Type u_1} [NontriviallyNormedField 𝕜] {E : Type u_2}\n  [NormedAddCommGroup E] [NormedSpace 𝕜 E] {F : Type u_3} [NormedAddCommGroup F] [NormedSpace 𝕜 F] {f : E → F}\n  {f' : E →L[𝕜] F} {x : E} : HasFDerivAt f f' x ↔ (fun h =&gt; f (x + h) - f x - f' h) =o[nhds 0] fun h =&gt; h</code>",
+ "868": "<code>∀ (z : ℂ), L₁ z = L₂ z</code>",
+ "867":
+ "<code>HasFDerivAt.{u_1, u_2, u_3} {𝕜 : Type u_1} [NontriviallyNormedField 𝕜] {E : Type u_2} [AddCommGroup E] [Module 𝕜 E]\n  [TopologicalSpace E] {F : Type u_3} [AddCommGroup F] [Module 𝕜 F] [TopologicalSpace F] (f : E → F) (f' : E →L[𝕜] F)\n  (x : E) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A function `f` has the continuous linear map `f'` as derivative at `x` if\n`f x' = f x + f' (x' - x) + o (x' - x)` when `x'` tends to `x`. </code>",
+ "866": "<code>HasFDerivAt f L₁ z₀</code>",
+ "865": "<code>ℂ →L[ℝ] ℂ</code>",
+ "864":
+ "<code>hasFDerivAt_real_of_complex {f : ℂ → ℂ} {L₁ : ℂ →L[ℂ] ℂ} {L₂ : ℂ →L[ℝ] ℂ} {z₀ : ℂ} (h : HasFDerivAt f L₁ z₀)\n  (heq : ∀ (z : ℂ), L₁ z = L₂ z) : HasFDerivAt f L₂ z₀</code><span class=\"sep\"></span><code class=\"docstring\">Transferring HasFDerivAt between scalar fields </code>",
+ "863":
+ "<code>ContinuousLinearMap.map_smul.{u_1, u_4, u_6} {R₁ : Type u_1} [Semiring R₁] {M₁ : Type u_4} [TopologicalSpace M₁]\n  [AddCommMonoid M₁] {M₂ : Type u_6} [TopologicalSpace M₂] [AddCommMonoid M₂] [Module R₁ M₁] [Module R₁ M₂]\n  (f : M₁ →L[R₁] M₂) (c : R₁) (x : M₁) : f (c • x) = c • f x</code>",
+ "862":
+ "<code>ContinuousLinearMap.{u_1, u_2, u_3, u_4} {R : Type u_1} {S : Type u_2} [Semiring R] [Semiring S] (σ : R →+* S)\n  (M : Type u_3) [TopologicalSpace M] [AddCommMonoid M] (M₂ : Type u_4) [TopologicalSpace M₂] [AddCommMonoid M₂]\n  [Module R M] [Module S M₂] : Type (max u_3 u_4)</code><span class=\"sep\"></span><code class=\"docstring\">Continuous linear maps between modules. We only put the type classes that are necessary for the\ndefinition, although in applications `M` and `M₂` will be topological modules over the topological\nring `R`. </code>",
+ "861": "<code>ℂ →L[ℂ] ℂ</code>",
  "860":
- "<code>HasSubset.Subset.{u} {α : Type u} [self : HasSubset α] : α → α → Prop</code><span class=\"sep\"></span><code class=\"docstring\">Subset relation: `a ⊆ b`  \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `⊆` in identifiers is `subset`.</code>",
+ "<code>ContLinearMap.complex_apply_eq_mul (L : ℂ →L[ℂ] ℂ) (z : ℂ) : L z = L 1 * z</code><span class=\"sep\"></span><code class=\"docstring\">Every ℂ-linear map ℂ → ℂ is multiplication\nby a constant </code>",
  "86": "<code>complex_number_game.equivRationalProd : ℚ[i] ≃ ℚ × ℚ</code>",
  "859":
- "<code>ProperSpace.isCompact_closedBall.{u} {α : Type u} {inst✝ : PseudoMetricSpace α} [self : ProperSpace α] (x : α) (r : ℝ) :\n  IsCompact (Metric.closedBall x r)</code>",
+ "<code>ContLinearMap.mulLeftComplex_apply (c z : ℂ) : (mulLeftComplex c) z = c * z</code>",
  "858":
- "<code>Metric.closedBall.{u} {α : Type u} [PseudoMetricSpace α] (x : α) (ε : ℝ) : Set α</code><span class=\"sep\"></span><code class=\"docstring\">`closedBall x ε` is the set of all points `y` with `dist y x ≤ ε` </code>",
+ "<code>ContLinearMap.mulLeftReal_apply (c z : ℂ) : (mulLeftReal c) z = c * z</code>",
  "857":
- "<code>Filter.mem_cocompact.{u} {X : Type u} [TopologicalSpace X] {s : Set X} : s ∈ cocompact X ↔ ∃ t, IsCompact t ∧ tᶜ ⊆ s</code>",
+ "<code>∀ (r x : ℂ), c * r • x = (RingHom.id ℂ) r • (c * x)</code><span class=\"sep\"></span><code class=\"docstring\">The proposition that the function commutes with the actions. </code>",
  "856":
- "<code>Tendsto (fun z =&gt; z * f z / (z * g z)) (cocompact ℂ) (𝓝 (f' / g'))</code>",
+ "<code>ContLinearMap.mulLeftComplex (c : ℂ) : ℂ →L[ℂ] ℂ</code><span class=\"sep\"></span><code class=\"docstring\">Multiplication by `c` is a ℂ-linear continuous map\n`ℂ →L[ℂ] ℂ`. </code>",
  "855":
- "<code class=\"docstring\">Given a main goal `ctx ⊢ t`, `suffices h : t' from e` replaces the main goal with `ctx ⊢ t'`,\n`e` must have type `t` in the context `ctx, h : t'`.\n\nThe variant `suffices h : t' by tac` is a shorthand for `suffices h : t' from by tac`.\nIf `h :` is omitted, the name `this` is used.\n </code>",
- "854": "<code>HasDerivAtInfinity g g'</code>",
- "853": "<code>HasDerivAtInfinity f f'</code>",
+ "<code>continuous_id.{u_1} {X : Type u_1} [TopologicalSpace X] : Continuous id</code>",
+ "854":
+ "<code>Continuous.mul.{u_1, u_2} {M : Type u_1} [TopologicalSpace M] [Mul M] [ContinuousMul M] {X : Type u_2}\n  [TopologicalSpace X] {f g : X → M} (hf : Continuous f) (hg : Continuous g) : Continuous (f * g)</code>",
+ "853":
+ "<code>continuous_const.{u_1, u_2} {X : Type u_1} {Y : Type u_2} [TopologicalSpace X] [TopologicalSpace Y] {y : Y} :\n  Continuous fun x =&gt; y</code>",
  "852":
- "<code>complex_lhopital_infinity_infinity {f g : ℂ → ℂ} {f' g' : ℂ} (hf : HasDerivAtInfinity f f')\n  (hg : HasDerivAtInfinity g g') (hg_ne : g' ≠ 0) : Tendsto (fun z =&gt; f z / g z) (cocompact ℂ) (𝓝 (f' / g'))</code><span class=\"sep\"></span><code class=\"docstring\">L'Hopital's rule for the form 0/0 at infinity.\nIf f and g behave like f'/z and g'/z at infinity,\nthen f/g tends to f'/g'.\n</code>",
+ "<code>Continuous ((fun x =&gt; c) * fun z =&gt; z)</code><span class=\"sep\"></span><code class=\"docstring\">Continuous linear maps between modules. We only put the type classes that are necessary for the\ndefinition, although in applications `M` and `M₂` will be topological modules over the topological\nring `R`. </code>",
  "851":
- "<code>Filter.cocompact.{u_1} (X : Type u_1) [TopologicalSpace X] : Filter X</code><span class=\"sep\"></span><code class=\"docstring\">`Filter.cocompact` is the filter generated by complements to compact sets. </code>",
- "850": "<code>HasDerivAtInfinity (f : ℂ → ℂ) (f' : ℂ) : Prop</code>",
+ "<code>mul_smul_comm.{u_5, u_6} {α : Type u_5} {β : Type u_6} [Mul β] [SMul α β] [SMulCommClass α β β] (s : α) (x y : β) :\n  x * s • y = s • (x * y)</code><span class=\"sep\"></span><code class=\"docstring\">Note that the `SMulCommClass α β β` typeclass argument is usually satisfied by `Algebra α β`. </code>",
+ "850":
+ "<code>RingHom.id.{u_5} (α : Type u_5) [NonAssocSemiring α] : α →+* α</code><span class=\"sep\"></span><code class=\"docstring\">The identity ring homomorphism from a semiring to itself. </code>",
  "85":
  "<code>complex_number_game.equivRationalProd_apply (z : ℚ[i]) : equivRationalProd z = (z.re, z.im)</code>",
  "849":
- "<code>dist_eq_norm.{u_5} {E : Type u_5} [SeminormedAddCommGroup E] (a b : E) : dist a b = ‖a - b‖</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `dist_eq_norm_sub`.</code>",
+ "<code>∀ (r : ℝ) (x : ℂ), c * r • x = (RingHom.id ℝ) r • (c * x)</code><span class=\"sep\"></span><code class=\"docstring\">The proposition that the function commutes with the actions. </code>",
  "848":
- "<code>sub_ne_zero_of_ne.{u_1} {α : Type u_1} [SubtractionMonoid α] {a b : α} : a ≠ b → a - b ≠ 0</code>",
- "847": "<code>dist x z₀ &lt; δ</code>",
- "846": "<code>x ∈ {z₀}ᶜ</code>",
+ "<code>∀ (x y : ℂ), c * (x + y) = c * x + c * y</code><span class=\"sep\"></span><code class=\"docstring\">The proposition that the function preserves addition </code>",
+ "847":
+ "<code>ℂ → ℂ</code><span class=\"sep\"></span><code class=\"docstring\">The underlying function </code>",
+ "846":
+ "<code>ContLinearMap.mulLeftReal (c : ℂ) : ℂ →L[ℝ] ℂ</code><span class=\"sep\"></span><code class=\"docstring\">Multiplication by `c` is an ℝ-linear continuous map\n`ℂ →L[ℝ] ℂ`. </code>",
  "845":
- "<code>∀ ⦃x : ℂ⦄, x ∈ {0}ᶜ → dist x 0 &lt; δ → dist ((f (z₀ + x) - f z₀) / (g (z₀ + x) - g z₀)) (f' / g') &lt; ε</code>",
- "844": "<code>δ &gt; 0</code>",
+ "<code class=\"docstring\">Like `exact`, but takes a list of terms and checks that all goals are discharged after the tactic.\n</code>",
+ "844":
+ "<code>Tendsto (fun h =&gt; h⁻¹ * (f (z₀ + h) - f z₀)) (nhdsWithin 0 {0}ᶜ) (nhds w₀)</code>",
  "843":
- "<code class=\"docstring\">`rcases` is a tactic that will perform `cases` recursively, according to a pattern. It is used to\ndestructure hypotheses or expressions composed of inductive types like `h1 : a ∧ b ∧ c ∨ d` or\n`h2 : ∃ x y, trans_rel R x y`. Usual usage might be `rcases h1 with ⟨ha, hb, hc⟩ | hd` or\n`rcases h2 with ⟨x, y, _ | ⟨z, hxz, hzy⟩⟩` for these examples.\n\nEach element of an `rcases` pattern is matched against a particular local hypothesis (most of which\nare generated during the execution of `rcases` and represent individual elements destructured from\nthe input expression). An `rcases` pattern has the following grammar:\n\n* A name like `x`, which names the active hypothesis as `x`.\n* A blank `_`, which does nothing (letting the automatic naming system used by `cases` name the\n  hypothesis).\n* A hyphen `-`, which clears the active hypothesis and any dependents.\n* The keyword `rfl`, which expects the hypothesis to be `h : a = b`, and calls `subst` on the\n  hypothesis (which has the effect of replacing `b` with `a` everywhere or vice versa).\n* A type ascription `p : ty`, which sets the type of the hypothesis to `ty` and then matches it\n  against `p`. (Of course, `ty` must unify with the actual type of `h` for this to work.)\n* A tuple pattern `⟨p1, p2, p3⟩`, which matches a constructor with many arguments, or a series\n  of nested conjunctions or existentials. For example if the active hypothesis is `a ∧ b ∧ c`,\n  then the conjunction will be destructured, and `p1` will be matched against `a`, `p2` against `b`\n  and so on.\n* A `@` before a tuple pattern as in `@⟨p1, p2, p3⟩` will bind all arguments in the constructor,\n  while leaving the `@` off will only use the patterns on the explicit arguments.\n* An alternation pattern `p1 | p2 | p3`, which matches an inductive type with multiple constructors,\n  or a nested disjunction like `a ∨ b ∨ c`.\n\nA pattern like `⟨a, b, c⟩ | ⟨d, e⟩` will do a split over the inductive datatype,\nnaming the first three parameters of the first constructor as `a,b,c` and the\nfirst two of the second constructor `d,e`. If the list is not as long as the\nnumber of arguments to the constructor or the number of constructors, the\nremaining variables will be automatically named. If there are nested brackets\nsuch as `⟨⟨a⟩, b | c⟩ | d` then these will cause more case splits as necessary.\nIf there are too many arguments, such as `⟨a, b, c⟩` for splitting on\n`∃ x, ∃ y, p x`, then it will be treated as `⟨a, ⟨b, c⟩⟩`, splitting the last\nparameter as necessary.\n\n`rcases` also has special support for quotient types: quotient induction into Prop works like\nmatching on the constructor `quot.mk`.\n\n`rcases h : e with PAT` will do the same as `rcases e with PAT` with the exception that an\nassumption `h : e = PAT` will be added to the context.\n</code>",
- "842": "<code>ε &gt; 0</code>",
+ "<code class=\"docstring\">The tactic `specialize h a₁ ... aₙ` works on local hypothesis `h`.\nThe premises of this hypothesis, either universal quantifications or\nnon-dependent implications, are instantiated by concrete terms coming\nfrom arguments `a₁` ... `aₙ`.\nThe tactic adds a new hypothesis with the same name `h := h a₁ ... aₙ`\nand tries to clear the previous one.\n</code>",
+ "842":
+ "<code>Tendsto (fun h =&gt; (f (z₀ + h) - f z₀) / h) (nhdsWithin 0 {0}ᶜ) (nhds w₀)</code>",
  "841":
- "<code>∀ ε &gt; 0, ∃ δ &gt; 0, ∀ ⦃x : ℂ⦄, x ∈ {0}ᶜ → dist x 0 &lt; δ → dist ((f (z₀ + x) - f z₀) / (g (z₀ + x) - g z₀)) (f' / g') &lt; ε</code>",
+ "<code>Tendsto (fun h =&gt; (f (z₀ + h) - f z₀) / h) (nhdsWithin 0 {0}ᶜ) (nhds (deriv f z₀))</code>",
  "840":
- "<code>∀ ε &gt; 0, ∃ δ &gt; 0, ∀ ⦃x : ℂ⦄, x ∈ {0}ᶜ → dist x 0 &lt; δ → dist (x⁻¹ • (g (z₀ + x) - g z₀)) g' &lt; ε</code>",
+ "<code>Filter.Tendsto.congr.{u_1, u_2} {α : Type u_1} {β : Type u_2} {f₁ f₂ : α → β} {l₁ : Filter α} {l₂ : Filter β}\n  (h : ∀ (x : α), f₁ x = f₂ x) : Tendsto f₁ l₁ l₂ → Tendsto f₂ l₁ l₂</code>",
  "84":
  "<code class=\"docstring\">The `@[simps]` attribute automatically derives lemmas specifying the projections of this\ndeclaration.\n\nExample:\n```lean\n@[simps] def foo : ℕ × ℤ := (1, 2)\n```\nderives two `simp` lemmas:\n```lean\n@[simp] lemma foo_fst : foo.fst = 1\n@[simp] lemma foo_snd : foo.snd = 2\n```\n\n* It does not derive `simp` lemmas for the prop-valued projections.\n* It will automatically reduce newly created beta-redexes, but will not unfold any definitions.\n* If the structure has a coercion to either sorts or functions, and this is defined to be one\n  of the projections, then this coercion will be used instead of the projection.\n* If the structure is a class that has an instance to a notation class, like `Neg` or `Mul`,\n  then this notation is used instead of the corresponding projection.\n* You can specify custom projections, by giving a declaration with name\n  `{StructureName}.Simps.{projectionName}`. See Note [custom simps projection].\n\n  Example:\n  ```lean\n  def Equiv.Simps.invFun (e : α ≃ β) : β → α := e.symm\n  @[simps] def Equiv.trans (e₁ : α ≃ β) (e₂ : β ≃ γ) : α ≃ γ :=\n  ⟨e₂ ∘ e₁, e₁.symm ∘ e₂.symm⟩\n  ```\n  generates\n  ```\n  @[simp] lemma Equiv.trans_toFun : ∀ {α β γ} (e₁ e₂) (a : α), ⇑(e₁.trans e₂) a = (⇑e₂ ∘ ⇑e₁) a\n  @[simp] lemma Equiv.trans_invFun : ∀ {α β γ} (e₁ e₂) (a : γ),\n    ⇑((e₁.trans e₂).symm) a = (⇑(e₁.symm) ∘ ⇑(e₂.symm)) a\n  ```\n\n* You can specify custom projection names, by specifying the new projection names using\n  `initialize_simps_projections`.\n  Example: `initialize_simps_projections Equiv (toFun → apply, invFun → symm_apply)`.\n  See `initialize_simps_projections` for more information.\n\n* If one of the fields itself is a structure, this command will recursively create\n  `simp` lemmas for all fields in that structure.\n  * Exception: by default it will not recursively create `simp` lemmas for fields in the structures\n    `Prod`, `PProd`, and `Opposite`. You can give explicit projection names or change the value of\n    `Simps.Config.notRecursive` to override this behavior.\n\n  Example:\n  ```lean\n  structure MyProd (α β : Type*) := (fst : α) (snd : β)\n  @[simps] def foo : Prod ℕ ℕ × MyProd ℕ ℕ := ⟨⟨1, 2⟩, 3, 4⟩\n  ```\n  generates\n  ```lean\n  @[simp] lemma foo_fst : foo.fst = (1, 2)\n  @[simp] lemma foo_snd_fst : foo.snd.fst = 3\n  @[simp] lemma foo_snd_snd : foo.snd.snd = 4\n  ```\n\n* You can use `@[simps proj1 proj2 ...]` to only generate the projection lemmas for the specified\n  projections.\n* Recursive projection names can be specified using `proj1_proj2_proj3`.\n  This will create a lemma of the form `foo.proj1.proj2.proj3 = ...`.\n\n  Example:\n  ```lean\n  structure MyProd (α β : Type*) := (fst : α) (snd : β)\n  @[simps fst fst_fst snd] def foo : Prod ℕ ℕ × MyProd ℕ ℕ := ⟨⟨1, 2⟩, 3, 4⟩\n  ```\n  generates\n  ```lean\n  @[simp] lemma foo_fst : foo.fst = (1, 2)\n  @[simp] lemma foo_fst_fst : foo.fst.fst = 1\n  @[simp] lemma foo_snd : foo.snd = {fst := 3, snd := 4}\n  ```\n* If one of the values is an eta-expanded structure, we will eta-reduce this structure.\n\n  Example:\n  ```lean\n  structure EquivPlusData (α β) extends α ≃ β where\n    data : Bool\n  @[simps] def EquivPlusData.rfl {α} : EquivPlusData α α := { Equiv.refl α with data := true }\n  ```\n  generates the following:\n  ```lean\n  @[simp] lemma bar_toEquiv : ∀ {α : Sort*}, bar.toEquiv = Equiv.refl α\n  @[simp] lemma bar_data : ∀ {α : Sort*}, bar.data = true\n  ```\n  This is true, even though Lean inserts an eta-expanded version of `Equiv.refl α` in the\n  definition of `bar`.\n* You can add additional attributes to all lemmas generated by `simps` using e.g.\n  `@[simps (attr := grind =)]`.\n* For configuration options, see the doc string of `Simps.Config`.\n* The precise syntax is `simps (attr := a) config ident*`, where `a` is a list of attributes,\n  `config` declares configuration options and `ident*` is a list of desired projection names.\n* Configuration options can be given using `(config := e)` where `e : Simps.Config`,\n  or by specifying options directly, like `-fullyApplied` or `(notRecursive := [])`.\n* `@[simps]` reduces let-expressions where necessary.\n* When option `trace.simps.verbose` is true, `simps` will print the projections it finds and the\n  lemmas it generates. The same can be achieved by using `@[simps?]`.\n* Use `@[to_additive (attr := simps)]` to apply both `to_additive` and `simps` to a definition\n  This will also generate the additive versions of all `simp` lemmas.\n</code>",
  "839":
- "<code>Dist.dist.{u_3} {α : Type u_3} [self : Dist α] : α → α → ℝ</code><span class=\"sep\"></span><code class=\"docstring\">Distance between two points </code>",
+ "<code>Tendsto (fun t =&gt; t⁻¹ • (f (z₀ + t) - f z₀)) (nhdsWithin 0 {0}ᶜ) (nhds (deriv f z₀))</code>",
  "838":
- "<code>∀ ε &gt; 0, ∃ δ &gt; 0, ∀ ⦃x : ℂ⦄, x ∈ {0}ᶜ → dist x 0 &lt; δ → dist (x⁻¹ • (f (z₀ + x) - f z₀)) f' &lt; ε</code>",
+ "<code>DifferentiableAt.hasDerivAt.{u, v} {𝕜 : Type u} [NontriviallyNormedField 𝕜] {F : Type v} [NormedAddCommGroup F]\n  [NormedSpace 𝕜 F] {f : 𝕜 → F} {x : 𝕜} (h : DifferentiableAt 𝕜 f x) : HasDerivAt f (deriv f x) x</code>",
  "837":
- "<code>Metric.tendsto_nhdsWithin_nhds.{u, v} {α : Type u} {β : Type v} [PseudoMetricSpace α] {s : Set α} [PseudoMetricSpace β]\n  {f : α → β} {a : α} {b : β} :\n  Tendsto f (𝓝[s] a) (𝓝 b) ↔ ∀ ε &gt; 0, ∃ δ &gt; 0, ∀ ⦃x : α⦄, x ∈ s → dist x a &lt; δ → dist (f x) b &lt; ε</code>",
+ "<code>deriv.{u, v} {𝕜 : Type u} [NontriviallyNormedField 𝕜] {F : Type v} [AddCommGroup F] [Module 𝕜 F] [TopologicalSpace F]\n  (f : 𝕜 → F) (x : 𝕜) : F</code><span class=\"sep\"></span><code class=\"docstring\">Derivative of `f` at the point `x`, if it exists.  Zero otherwise.\n\nIf the derivative exists (i.e., `∃ f', HasDerivAt f f' x`), then\n`f x' = f x + (x' - x) • deriv f x + o(x' - x)` where `x'` converges to `x`.\n</code>",
  "836":
- "<code>div_div_div_cancel_right₀.{u_3} {G₀ : Type u_3} [GroupWithZero G₀] {c : G₀} (hc : c ≠ 0) (a b : G₀) :\n  a / c / (b / c) = a / b</code>",
- "835": "<code>t ∈ {0}ᶜ</code>",
+ "<code>∃ w₀, Tendsto (fun h =&gt; (f (z₀ + h) - f z₀) / h) (nhdsWithin 0 {0}ᶜ) (nhds w₀)</code>",
+ "835": "<code>DifferentiableAt ℂ f z₀</code>",
  "834":
- "<code>HasDerivAt.deriv.{u, v} {𝕜 : Type u} [NontriviallyNormedField 𝕜] {F : Type v} [NormedAddCommGroup F] [NormedSpace 𝕜 F]\n  {f : 𝕜 → F} {f' : F} {x : 𝕜} (h : HasDerivAt f f' x) : deriv f x = f'</code>",
- "833": "<code>g' = 0</code>",
+ "<code>DifferentiableAt.{u_1, u_2, u_3} (𝕜 : Type u_1) [NontriviallyNormedField 𝕜] {E : Type u_2} [AddCommGroup E] [Module 𝕜 E]\n  [TopologicalSpace E] {F : Type u_3} [AddCommGroup F] [Module 𝕜 F] [TopologicalSpace F] (f : E → F) (x : E) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A function `f` is differentiable at a point `x` if it admits a derivative there (possibly\nnon-unique). </code>",
+ "833":
+ "<code>complex_differentiableAt_iff_limit_exists (f : ℂ → ℂ) (z₀ : ℂ) :\n  DifferentiableAt ℂ f z₀ ↔ ∃ w₀, Tendsto (fun h =&gt; (f (z₀ + h) - f z₀) / h) (nhdsWithin 0 {0}ᶜ) (nhds w₀)</code><span class=\"sep\"></span><code class=\"docstring\">Theorem 6.2.2\nA complex function `f` is complex differentiable at `z₀`\nif and only if the limit\n`lim_{h → 0} (f(z₀ + h) - f(z₀)) / h` exists\n</code>",
  "832":
- "<code class=\"docstring\">`contrapose` transforms the main goal into its contrapositive. If the goal has the form `⊢ P → Q`,\nthen `contrapose` turns it into `⊢ ¬ Q → ¬ P`. If the goal has the form `⊢ P ↔ Q`, then `contrapose`\nturns it into `⊢ ¬ P ↔ ¬ Q`.\n\n* `contrapose h` on a goal of the form `h : P ⊢ Q` turns the goal into `h : ¬ Q ⊢ ¬ P`. This is\n  equivalent to `revert h; contrapose; intro h`.\n* `contrapose h with new_h` uses the name `new_h` for the introduced hypothesis. This is equivalent\n  to `revert h; contrapose; intro new_h`.\n* `contrapose!`, `contrapose! h` and `contrapose! h with new_h` push negation deeper into the goal\n  after contraposing (but before introducing the new hypothesis). See the `push Not` tactic for more\n  details on the pushing algorithm.\n* `contrapose! (config := cfg)` controls the options for negation pushing. All options for\n  `Mathlib.Tactic.Push.Config` are supported:\n  * `contrapose! +distrib` rewrites `¬ (p ∧ q)` into `¬ p ∨ ¬ q` instead of `p → ¬ q`.\n\nExamples:\n```lean4\nvariables (P Q R : Prop)\n\nexample (H : ¬ Q → ¬ P) : P → Q := by\n  contrapose\n  exact H\n\nexample (H : ¬ P ↔ ¬ Q) : P ↔ Q := by\n  contrapose\n  exact H\n\nexample (H : ¬ Q → ¬ P) (h : P) : Q := by\n  contrapose h\n  exact H h\n\nexample (H : ¬ R → P → ¬ Q) : (P ∧ Q) → R := by\n  contrapose!\n  exact H\n\nexample (H : ¬ R → ¬ P ∨ ¬ Q) : (P ∧ Q) → R := by\n  contrapose! +distrib\n  exact H\n```\n</code>",
- "831": "<code>¬deriv g z₀ = 0</code>",
- "830": "<code>Tendsto (fun t =&gt; t⁻¹ * g (z₀ + t)) (𝓝[≠] 0) (𝓝 g')</code>",
+ "<code>hasDerivAt_iff_tendsto_slope_zero.{u, v} {𝕜 : Type u} [NontriviallyNormedField 𝕜] {F : Type v} [NormedAddCommGroup F]\n  [NormedSpace 𝕜 F] {f : 𝕜 → F} {f' : F} {x : 𝕜} :\n  HasDerivAt f f' x ↔ Tendsto (fun t =&gt; t⁻¹ • (f (x + t) - f x)) (nhdsWithin 0 {0}ᶜ) (nhds f')</code>",
+ "831":
+ "<code>Compl.compl.{u_1} {α : Type u_1} [self : Compl α] : α → α</code><span class=\"sep\"></span><code class=\"docstring\">Set / lattice complement \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `ᶜ` in identifiers is `compl`.</code>",
+ "830":
+ "<code>nhds.{u_3} {X : Type u_3} [TopologicalSpace X] (x : X) : Filter X</code><span class=\"sep\"></span><code class=\"docstring\">A set is called a neighborhood of `x` if it contains an open set around `x`. The set of all\nneighborhoods of `x` forms a filter, the neighborhood filter at `x`, is here defined as the\ninfimum over the principal filters of all open sets containing `x`. </code>",
  "83":
  "<code class=\"docstring\">The `dsimp` tactic is the definitional simplifier. It is similar to `simp` but only\napplies theorems that hold by reflexivity. Thus, the result is guaranteed to be\ndefinitionally equal to the input.\n</code>",
- "829": "<code>Tendsto (fun t =&gt; t⁻¹ * f (z₀ + t)) (𝓝[≠] 0) (𝓝 f')</code>",
+ "829":
+ "<code>nhdsWithin.{u_1} {X : Type u_1} [TopologicalSpace X] (x : X) (s : Set X) : Filter X</code><span class=\"sep\"></span><code class=\"docstring\">The \"neighborhood within\" filter. Elements of `𝓝[s] x` are sets containing the\nintersection of `s` and a neighborhood of `x`. </code>",
  "828":
- "<code>Tendsto (fun t =&gt; (f (z₀ + t) - f z₀) / t / ((g (z₀ + t) - g z₀) / t)) (𝓝[≠] 0) (𝓝 (f' / g'))</code>",
+ "<code>Filter.Tendsto.{u_1, u_2} {α : Type u_1} {β : Type u_2} (f : α → β) (l₁ : Filter α) (l₂ : Filter β) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`Filter.Tendsto` is the generic \"limit of a function\" predicate.\n`Tendsto f l₁ l₂` asserts that for every `l₂` neighborhood `a`,\nthe `f`-preimage of `a` is an `l₁` neighborhood. </code>",
  "827":
- "<code>Tendsto (fun t =&gt; (f (z₀ + t) - f z₀) / (g (z₀ + t) - g z₀)) (𝓝[≠] 0) (𝓝 (f' / g'))</code>",
+ "<code>isComplexDiffAt_iff_limit (f : ℂ → ℂ) (w₀ z₀ : ℂ) :\n  IsComplexDiffAt f w₀ z₀ ↔ Tendsto (fun h =&gt; (f (z₀ + h) - f z₀) / h) (nhdsWithin 0 {0}ᶜ) (nhds w₀)</code>",
  "826":
- "<code>Tendsto (fun t =&gt; t⁻¹ • (g (z₀ + t) - g z₀)) (𝓝[≠] 0) (𝓝 g')</code>",
- "825":
- "<code>Tendsto (fun t =&gt; t⁻¹ • (f (z₀ + t) - f z₀)) (𝓝[≠] 0) (𝓝 f')</code>",
- "824":
- "<code>hasDerivAt_iff_tendsto_slope_zero.{u, v} {𝕜 : Type u} [NontriviallyNormedField 𝕜] {F : Type v} [NormedAddCommGroup F]\n  [NormedSpace 𝕜 F] {f : 𝕜 → F} {f' : F} {x : 𝕜} :\n  HasDerivAt f f' x ↔ Tendsto (fun t =&gt; t⁻¹ • (f (x + t) - f x)) (𝓝[≠] 0) (𝓝 f')</code>",
- "823": "<code>HasZeroOrder g z₀ m</code>",
- "822": "<code>m = 1</code>",
+ "<code>HasDerivAt.{u, v} {𝕜 : Type u} [NontriviallyNormedField 𝕜] {F : Type v} [AddCommGroup F] [Module 𝕜 F]\n  [TopologicalSpace F] [ContinuousSMul 𝕜 F] (f : 𝕜 → F) (f' : F) (x : 𝕜) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`f` has the derivative `f'` at the point `x`.\n\nThat is, `f x' = f x + (x' - x) • f' + o(x' - x)` where `x'` converges to `x`.\n</code>",
+ "825": "<code>ℂ → ℂ</code>",
+ "824": "<code>IsComplexDiffAt (f : ℂ → ℂ) (w₀ z₀ : ℂ) : Prop</code>",
+ "823":
+ "<code>A * (p.1 ^ 2 + p.2 ^ 2) + B * p.1 + C * p.2 + D = 0 ↔\n  have q := P r p;\n  -B * q.1 + -C * q.2.1 + (D - 4 * r ^ 2 * A) / (2 * r) * q.2.2 = D</code>",
+ "822": "<code>P r p = (x, y, z)</code>",
  "821":
- "<code>complex_lhopital_zero_zero' {f g : ℂ → ℂ} {z₀ f' g' : ℂ} (hf : HasDerivAt f f' z₀) (hg : HasDerivAt g g' z₀)\n  (hf0 : f z₀ = 0) (hg0 : g z₀ = 0) (m : ℕ) (hm : m = 1) (hg_zero_order : HasZeroOrder g z₀ m) :\n  Tendsto (fun z =&gt; f z / g z) (𝓝[≠] z₀) (𝓝 (f' / g'))</code><span class=\"sep\"></span><code class=\"docstring\">L'Hopital's rule for complex functions at a point where\nthe denominator has a simple zero (order 1).\nThe formula f'/g' is valid whe g has zero order m=1.\n</code>",
- "820": "<code>HasZeroOrder (g : ℂ → ℂ) (z₀ : ℂ) (m : ℕ) : Prop</code>",
+ "<code>(x, y, z) ∈ (S r ∩ {p | -B * p.1 + -C * p.2.1 + (D - 4 * r ^ 2 * A) / (2 * r) * p.2.2 = D}) \\ {N r}</code>",
+ "820": "<code>0 ≤ D</code>",
  "82":
  "<code>Rat : Type</code><span class=\"sep\"></span><code class=\"docstring\">Rational numbers, implemented as a pair of integers `num / den` such that the\ndenominator is positive and the numerator and denominator are coprime.\n</code>",
- "819":
- "<code>NormedSpace.{u_6, u_7} (𝕜 : Type u_6) (E : Type u_7) [NormedField 𝕜] [SeminormedAddCommGroup E] : Type (max u_6 u_7)</code><span class=\"sep\"></span><code class=\"docstring\">A normed space over a normed field is a vector space endowed with a norm which satisfies the\nequality `‖c • x‖ = ‖c‖ ‖x‖`. We require only `‖c • x‖ ≤ ‖c‖ ‖x‖` in the definition, then prove\n`‖c • x‖ = ‖c‖ ‖x‖` in `norm_smul`.\n\nNote that since this requires `SeminormedAddCommGroup` and not `NormedAddCommGroup`, this\ntypeclass can be used for \"seminormed spaces\" too, just as `Module` can be used for\n\"semimodules\". </code>",
+ "819": "<code>D &lt; 0</code>",
  "818":
- "<code>NormedAddCommGroup.{u_8} (E : Type u_8) : Type u_8</code><span class=\"sep\"></span><code class=\"docstring\">A normed group is an additive group endowed with a norm for which `dist x y = ‖-x + y‖` defines\na metric space structure. </code>",
- "817":
- "<code>iteratedDeriv.{u_1, u_2} {𝕜 : Type u_1} [NontriviallyNormedField 𝕜] {F : Type u_2} [NormedAddCommGroup F]\n  [NormedSpace 𝕜 F] (n : ℕ) (f : 𝕜 → F) (x : 𝕜) : F</code><span class=\"sep\"></span><code class=\"docstring\">The `n`-th iterated derivative of a function from `𝕜` to `F`, as a function from `𝕜` to `F`. </code>",
- "816":
- "<code>deriv.{u, v} {𝕜 : Type u} [NontriviallyNormedField 𝕜] {F : Type v} [AddCommGroup F] [Module 𝕜 F] [TopologicalSpace F]\n  (f : 𝕜 → F) (x : 𝕜) : F</code><span class=\"sep\"></span><code class=\"docstring\">Derivative of `f` at the point `x`, if it exists.  Zero otherwise.\n\nIf the derivative exists (i.e., `∃ f', HasDerivAt f f' x`), then\n`f x' = f x + (x' - x) • deriv f x + o(x' - x)` where `x'` converges to `x`.\n</code>",
- "815":
- "<code>sub_ne_zero.{u_3} {G : Type u_3} [AddGroup G] {a b : G} : a - b ≠ 0 ↔ a ≠ b</code>",
- "814": "<code>z - z₀ ≠ 0</code>",
+ "<code>lt_or_ge.{u_1} {α : Type u_1} [LinearOrder α] (a b : α) : a &lt; b ∨ b ≤ a</code>",
+ "817": "<code>A * (p.1 ^ 2 + p.2 ^ 2) + B * p.1 + C * p.2 + D = 0</code>",
+ "816": "<code>B = 0 → C = 0 → ¬D - 4 * r ^ 2 * A = 0 ∧ ¬r = 0</code>",
+ "815": "<code>¬A = 0 ∨ ¬B = 0 ∨ ¬C = 0</code>",
+ "814": "<code>p ∈ s</code>",
  "813":
- "<code>Compl.compl.{u_1} {α : Type u_1} [self : Compl α] : α → α</code><span class=\"sep\"></span><code class=\"docstring\">Set / lattice complement \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `ᶜ` in identifiers is `compl`.</code>",
- "812": "<code>z ∈ {z₀}ᶜ</code>",
+ "<code>p ∈ {p | p.1 ^ 2 + p.2.1 ^ 2 + (p.2.2 - r) ^ 2 = r ^ 2} ∩ {p | p.2.2 = 3 * r}</code>",
+ "812":
+ "<code>Inter.inter.{u} {α : Type u} [self : Inter α] : α → α → α</code><span class=\"sep\"></span><code class=\"docstring\">`a ∩ b` is the intersection of `a` and `b`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∩` in identifiers is `inter`.</code>",
  "811":
- "<code>self_mem_nhdsWithin.{u_1} {α : Type u_1} [TopologicalSpace α] {a : α} {s : Set α} : s ∈ 𝓝[s] a</code>",
- "810":
- "<code class=\"docstring\">`filter_upwards [h₁, ⋯, hₙ]` replaces a goal of the form `s ∈ f` and terms\n`h₁ : t₁ ∈ f, ⋯, hₙ : tₙ ∈ f` with `∀ x, x ∈ t₁ → ⋯ → x ∈ tₙ → x ∈ s`.\nThe list is an optional parameter, `[]` being its default value.\n\n`filter_upwards [h₁, ⋯, hₙ] with a₁ a₂ ⋯ aₖ` is a short form for\n`{ filter_upwards [h₁, ⋯, hₙ], intro a₁ a₂ ⋯ aₖ }`.\n\n`filter_upwards [h₁, ⋯, hₙ] using e` is a short form for\n`{ filter_upwards [h1, ⋯, hn], exact e }`.\n\nCombining both shortcuts is done by writing `filter_upwards [h₁, ⋯, hₙ] with a₁ a₂ ⋯ aₖ using e`.\nNote that in this case, the `aᵢ` terms can be used in `e`.\n</code>",
+ "<code class=\"docstring\">`refine' e` behaves like `refine e`, except that unsolved placeholders (`_`)\nand implicit parameters are also converted into new goals.\n</code>",
+ "810": "<code>B = 0 ∧ C = 0 ∧ D = 4 * r ^ 2 * A</code>",
  "81":
  "<code class=\"docstring\">`cases' x`, where the variable `x` has inductive type `t`, splits the main goal,\nproducing one goal for each constructor of `t`, in which `x` is replaced by that constructor\napplied to newly introduced variables. This is a backwards-compatible variant of the\n`cases` tactic in Lean 4 core.\n\nPrefer `cases`, `rcases`, or `obtain` when possible, because these tactics promote\nstructured proofs.\n\n* `cases' x with n1 n2 ...` names the arguments to the constructors. This is the main difference\n  with `cases` in core Lean.\n* `cases' e`, where `e` is an expression instead of a variable, generalizes `e` in the goal,\n  and then performs induction on the resulting variable.\n* `cases' h : e`, where `e` is an expression instead of a variable, generalizes `e` in the goal,\n  and then splits by cases on the resulting variable, adding to each goal the hypothesis\n  `h : e = _` where `_` is the constructor instance.\n* `cases' x using r` uses `r` as the case matching rule. Here `r` should be a term whose result type\n  is of the form `C t1 t2 ...`, where `C` is a bound variable and `t1`, `t2`, ... (if present) are\n  bound variables.\n\nExample:\n```\nexample (h : p ∨ q) : q ∨ p := by\n  cases' h with hp hq\n  · exact Or.inr hp\n  · exact Or.inl hq\n\n-- Though the following equivalent spellings should be preferred\nexample (h : p ∨ q) : q ∨ p := by\n  cases h with\n  | inl hp =&gt; exact Or.inr hp\n  | inr hq =&gt; exact Or.inl hq\n\nexample (h : p ∨ q) : q ∨ p := by\n  rcases h with hp | hq\n  · exact Or.inr hp\n  · exact Or.inl hq\n```\n</code>",
  "809":
- "<code>Filter.EventuallyEq.{u_1, u_2} {α : Type u_1} {β : Type u_2} (l : Filter α) (f g : α → β) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">Two functions `f` and `g` are *eventually equal* along a filter `l` if the set of `x` such that\n`f x = g x` belongs to `l`. </code>",
- "808":
- "<code>Filter.Tendsto.congr'.{u_1, u_2} {α : Type u_1} {β : Type u_2} {f₁ f₂ : α → β} {l₁ : Filter α} {l₂ : Filter β}\n  (hl : f₁ =ᶠ[l₁] f₂) (h : Tendsto f₁ l₁ l₂) : Tendsto f₂ l₁ l₂</code>",
+ "<code>EmptyCollection.emptyCollection.{u} {α : Type u} [self : EmptyCollection α] : α</code><span class=\"sep\"></span><code class=\"docstring\">`∅` or `{}` is the empty set or empty collection.\nIt is supported by the `EmptyCollection` typeclass. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `{}` in identifiers is `empty`.\n\n * The recommended spelling of `∅` in identifiers is `empty`.</code>",
+ "808": "<code>s = ∅</code>",
  "807":
- "<code>Filter.Tendsto.div.{u_1, u_3} {α : Type u_1} {G₀ : Type u_3} [GroupWithZero G₀] [TopologicalSpace G₀]\n  [ContinuousInv₀ G₀] [ContinuousMul G₀] {f g : α → G₀} {l : Filter α} {a b : G₀} (hf : Tendsto f l (𝓝 a))\n  (hg : Tendsto g l (𝓝 b)) (hy : b ≠ 0) : Tendsto (f / g) l (𝓝 (a / b))</code>",
+ "<code>mul_pos.{u_1} {α : Type u_1} [MulZeroClass α] {a b : α} [Preorder α] [PosMulStrictMono α] (ha : 0 &lt; a) (hb : 0 &lt; b) :\n  0 &lt; a * b</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `Left.mul_pos`.\n\n---\n\nAssumes left covariance. </code>",
  "806":
- "<code>Tendsto (fun z =&gt; (f z - f z₀) / (z - z₀) / ((g z - g z₀) / (z - z₀))) (𝓝[≠] z₀) (𝓝 (f' / g'))</code>",
- "805": "<code>Tendsto (slope g z₀) (𝓝[≠] z₀) (𝓝 g')</code>",
+ "<code>sq_nonneg.{u} {R : Type u} [Semiring R] [LinearOrder R] [ExistsAddOfLE R] [PosMulMono R] [AddLeftMono R] (a : R) :\n  0 ≤ a ^ 2</code>",
+ "805": "<code>p ∈ {p | A * (p.1 ^ 2 + p.2 ^ 2) + 4 * r ^ 2 * A = 0}</code>",
  "804":
- "<code>Tendsto (fun z =&gt; (g z - g z₀) / (z - z₀)) (𝓝[≠] z₀) (𝓝 g')</code>",
- "803":
- "<code>slope.{u_1, u_2, u_3} {k : Type u_1} {E : Type u_2} {PE : Type u_3} [Field k] [AddCommGroup E] [Module k E]\n  [AddTorsor E PE] (f : k → PE) (a b : k) : E</code><span class=\"sep\"></span><code class=\"docstring\">`slope f a b = (b - a)⁻¹ • (f b -ᵥ f a)` is the slope of a function `f` on the interval\n`[a, b]`. Note that `slope f a a = 0`, not the derivative of `f` at `a`. </code>",
- "802": "<code>Tendsto (slope f z₀) (𝓝[≠] z₀) (𝓝 f')</code>",
- "801":
- "<code>hasDerivAt_iff_tendsto_slope.{u, v} {𝕜 : Type u} [NontriviallyNormedField 𝕜] {F : Type v} [NormedAddCommGroup F]\n  [NormedSpace 𝕜 F] {f : 𝕜 → F} {f' : F} {x : 𝕜} : HasDerivAt f f' x ↔ Tendsto (slope f x) (𝓝[≠] x) (𝓝 f')</code>",
- "800":
- "<code>Tendsto (fun z =&gt; (f z - f z₀) / (z - z₀)) (𝓝[≠] z₀) (𝓝 f')</code>",
+ "<code>Set.eq_empty_of_forall_notMem.{u} {α : Type u} {s : Set α} (h : ∀ (x : α), x ∉ s) : s = ∅</code>",
+ "803": "<code>{p | A * (p.1 ^ 2 + p.2 ^ 2) + 4 * r ^ 2 * A = 0} = ∅</code>",
+ "802": "<code>B = 0 ∧ C = 0 ∧ D - 4 * r ^ 2 * A = 0</code>",
+ "801": "<code>s = {p | A * (p.1 ^ 2 + p.2 ^ 2) + D = 0}</code>",
+ "800": "<code>¬A = 0</code>",
  "80":
  "<code>complex_number_game.eta (z : ℚ[i]) : { re := z.re, im := z.im } = z</code>",
  "8":
  "<code>ℚ[i] → ℕ → Std.Format</code><span class=\"sep\"></span><code class=\"docstring\">Turn a value of type `α` into a `Format` at a given precedence. The precedence value can be used\nto avoid parentheses if they are not necessary.\n</code>",
- "799":
- "<code>Tendsto (fun z =&gt; (f z - f z₀) / (z - z₀)) (𝓝[≠] z₀) (𝓝 f') ∧\n  Tendsto (fun z =&gt; (g z - g z₀) / (z - z₀)) (𝓝[≠] z₀) (𝓝 g')</code>",
- "798":
- "<code>nhds.{u_3} {X : Type u_3} [TopologicalSpace X] (x : X) : Filter X</code><span class=\"sep\"></span><code class=\"docstring\">A set is called a neighborhood of `x` if it contains an open set around `x`. The set of all\nneighborhoods of `x` forms a filter, the neighborhood filter at `x`, is here defined as the\ninfimum over the principal filters of all open sets containing `x`. </code>",
+ "799": "<code>¬(-B = 0 ∧ -C = 0 ∧ (D - 4 * r ^ 2 * A) / (2 * r) = 0)</code>",
+ "798": "<code>-B = 0 ∧ -C = 0 ∧ (D - 4 * r ^ 2 * A) / (2 * r) = 0</code>",
  "797":
- "<code>nhdsWithin.{u_1} {X : Type u_1} [TopologicalSpace X] (x : X) (s : Set X) : Filter X</code><span class=\"sep\"></span><code class=\"docstring\">The \"neighborhood within\" filter. Elements of `𝓝[s] x` are sets containing the\nintersection of `s` and a neighborhood of `x`. </code>",
- "796":
- "<code>Filter.Tendsto.{u_1, u_2} {α : Type u_1} {β : Type u_2} (f : α → β) (l₁ : Filter α) (l₂ : Filter β) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`Filter.Tendsto` is the generic \"limit of a function\" predicate.\n`Tendsto f l₁ l₂` asserts that for every `l₂` neighborhood `a`,\nthe `f`-preimage of `a` is an `l₁` neighborhood. </code>",
- "795": "<code>g' ≠ 0</code>",
- "794": "<code>g z₀ = 0</code>",
- "793": "<code>f z₀ = 0</code>",
- "792": "<code>HasDerivAt g g' z₀</code>",
- "791": "<code>HasDerivAt f f' z₀</code>",
- "790": "<code>ℂ → ℂ</code>",
+ "<code>s = {p | A * (p.1 ^ 2 + p.2 ^ 2) + B * p.1 + C * p.2 + D = 0}</code>",
+ "796": "<code>A ≠ 0 ∨ B ≠ 0 ∨ C ≠ 0</code>",
+ "795":
+ "<code>Set.image.{u, v} {α : Type u} {β : Type v} (f : α → β) (s : Set α) : Set β</code><span class=\"sep\"></span><code class=\"docstring\">The image of `s : Set α` by `f : α → β`, written `f '' s`, is the set of `b : β` such that\n`f a = b` for some `a ∈ s`. </code>",
+ "794": "<code>IsCircleOrLine s</code>",
+ "793":
+ "<code>stereographic_preserves_circle_line (r : ℝ) (hr : r &gt; 0) (s : Set (ℝ × ℝ)) (h : IsCircleOrLine s) :\n  ∃ s', IsPlaneSection r s' ∧ P r '' s = s' \\ {N r}</code><span class=\"sep\"></span><code class=\"docstring\">The stereographic projection P maps circles and lines\nin the complex plane to plane sections of the sphere S.\n</code>",
+ "792": "<code>r ≠ 0</code>",
+ "791":
+ "<code>stereographic_equation_iff (r : ℝ) (hr : r ≠ 0) (A B C D : ℝ) :\n  have a := -B;\n  have b := -C;\n  have c := (D - 4 * r ^ 2 * A) / (2 * r);\n  have d := D;\n  ∀ (p : ℝ × ℝ),\n    A * (p.1 ^ 2 + p.2 ^ 2) + B * p.1 + C * p.2 + D = 0 ↔\n      have q := P r p;\n      a * q.1 + b * q.2.1 + c * q.2.2 = d</code>",
+ "790": "<code>Set (ℝ × ℝ × ℝ)</code>",
  "79": "<code>Ne.symm.{u} {α : Sort u} {a b : α} (h : a ≠ b) : b ≠ a</code>",
- "789":
- "<code>complex_lhopital_zero_zero {f g : ℂ → ℂ} {z₀ f' g' : ℂ} (hf : HasDerivAt f f' z₀) (hg : HasDerivAt g g' z₀)\n  (hf0 : f z₀ = 0) (hg0 : g z₀ = 0) (hg_ne : g' ≠ 0) : Tendsto (fun z =&gt; f z / g z) (𝓝[≠] z₀) (𝓝 (f' / g'))</code><span class=\"sep\"></span><code class=\"docstring\">L'Hôpital's Rule for complex differentiable functions at\na point where both vanish.\n\nIf f(z₀) = 0, g(z₀) = 0, and g'(z₀) ≠ 0,\nthen lim (f(z)/g(z)) = f'(z₀)/g'(z₀).\n</code>",
- "788": "<code>𝕜</code>",
- "787": "<code>F</code>",
- "786": "<code>𝕜 → F</code>",
+ "789": "<code>IsPlaneSection (r : ℝ) (s : Set (ℝ × ℝ × ℝ)) : Prop</code>",
+ "788": "<code>Set (ℝ × ℝ)</code>",
+ "787": "<code>IsCircleOrLine (s : Set (ℝ × ℝ)) : Prop</code>",
+ "786":
+ "<code>True : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`True` is a proposition and has only an introduction rule, `True.intro : True`.\nIn other words, `True` is simply true, and has a canonical proof, `True.intro`\nFor more information: [Propositional Logic](https://lean-lang.org/theorem_proving_in_lean4/propositions_and_proofs.html#propositional-logic)\n</code>",
  "785":
- "<code>ContinuousSMul.{u_1, u_2} (M : Type u_1) (X : Type u_2) [SMul M X] [TopologicalSpace M] [TopologicalSpace X] : Prop</code><span class=\"sep\"></span><code class=\"docstring\">Class `ContinuousSMul M X` says that the scalar multiplication `(•) : M → X → X`\nis continuous in both arguments. We use the same class for all kinds of multiplicative actions,\nincluding (semi)modules and algebras. </code>",
- "784":
- "<code>TopologicalSpace.{u} (X : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">A topology on `X`. </code>",
- "783":
- "<code>Module.{u, v} (R : Type u) (M : Type v) [Semiring R] [AddCommMonoid M] : Type (max u v)</code><span class=\"sep\"></span><code class=\"docstring\">A module is a generalization of vector spaces to a scalar semiring.\nIt consists of a scalar semiring `R` and an additive monoid of \"vectors\" `M`,\nconnected by a \"scalar multiplication\" operation `r • x : M`\n(where `r : R` and `x : M`) with some natural associativity and\ndistributivity axioms similar to those on a ring. </code>",
- "782": "<code>Type v</code>",
- "781":
- "<code>NontriviallyNormedField.{u_5} (α : Type u_5) : Type u_5</code><span class=\"sep\"></span><code class=\"docstring\">A nontrivially normed field is a normed field in which there is an element of norm different\nfrom `0` and `1`. This makes it possible to bring any element arbitrarily close to `0` by\nmultiplication by the powers of any element, and thus to relate algebra and topology. </code>",
- "780": "<code>Type u</code>",
+ "<code>P_complex_eq_P (r : ℝ) (z : ℂ) : P_complex r z = P r (z.re, z.im)</code>",
+ "784": "<code>P_complex (r : ℝ) (z : ℂ) : ℝ × ℝ × ℝ</code>",
+ "783": "<code>↑p ∈ S r \\ {N r} → P r (Q r ↑p) = ↑p</code>",
+ "782": "<code>↑(S_minus_N r)</code>",
+ "781": "<code>Q r (P r q) = q</code>",
+ "780": "<code>Q r (P r p) = p</code>",
  "78":
  "<code>zero_ne_one.{u_2} {α : Type u_2} [Zero α] [One α] [NeZero 1] : 0 ≠ 1</code>",
- "779":
- "<code>HasDerivAt.{u, v} {𝕜 : Type u} [NontriviallyNormedField 𝕜] {F : Type v} [AddCommGroup F] [Module 𝕜 F]\n  [TopologicalSpace F] [ContinuousSMul 𝕜 F] (f : 𝕜 → F) (f' : F) (x : 𝕜) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`f` has the derivative `f'` at the point `x`.\n\nThat is, `f x' = f x + (x' - x) • f' + o(x' - x)` where `x'` converges to `x`.\n</code>",
- "778":
- "<code>A * (p.1 ^ 2 + p.2 ^ 2) + B * p.1 + C * p.2 + D = 0 ↔\n  have q := P r p;\n  -B * q.1 + -C * q.2.1 + (D - 4 * r ^ 2 * A) / (2 * r) * q.2.2 = D</code>",
- "777": "<code>P r p = (x, y, z)</code>",
+ "779": "<code>⟨P r p, ⋯⟩ = ⟨P r q, ⋯⟩</code>",
+ "778": "<code>P_to_S r h_r p = P_to_S r h_r q</code>",
+ "777":
+ "<code>Function.Surjective.{u_1, u_2} {α : Sort u_1} {β : Sort u_2} (f : α → β) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A function `f : α → β` is called surjective if every `b : β` is equal to `f a`\nfor some `a : α`. </code>",
  "776":
- "<code>(x, y, z) ∈ (S r ∩ {p | -B * p.1 + -C * p.2.1 + (D - 4 * r ^ 2 * A) / (2 * r) * p.2.2 = D}) \\ {N r}</code>",
- "775": "<code>0 ≤ D</code>",
- "774": "<code>D &lt; 0</code>",
+ "<code>Function.Injective.{u_1, u_2} {α : Sort u_1} {β : Sort u_2} (f : α → β) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A function `f : α → β` is called injective if `f x = f y` implies `x = y`. </code>",
+ "775":
+ "<code>Function.Bijective.{u₁, u₂} {α : Sort u₁} {β : Sort u₂} (f : α → β) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A function is called bijective if it is both injective and surjective. </code>",
+ "774":
+ "<code>P_bijective (r : ℝ) (h_r : r &gt; 0) : Function.Bijective (P_to_S r h_r)</code>",
  "773":
- "<code>lt_or_ge.{u_1} {α : Type u_1} [LinearOrder α] (a b : α) : a &lt; b ∨ b ≤ a</code>",
- "772": "<code>A * (p.1 ^ 2 + p.2 ^ 2) + B * p.1 + C * p.2 + D = 0</code>",
- "771": "<code>B = 0 → C = 0 → ¬D - 4 * r ^ 2 * A = 0 ∧ ¬r = 0</code>",
- "770": "<code>¬A = 0 ∨ ¬B = 0 ∨ ¬C = 0</code>",
+ "<code>Subtype.mk.{u} {α : Sort u} {p : α → Prop} (val : α) (property : p val) : Subtype p</code>",
+ "772":
+ "<code>P_to_S (r : ℝ) (h_r : r &gt; 0) (p : ℝ × ℝ) : ↑(S_minus_N r)</code>",
+ "771": "<code>S_minus_N (r : ℝ) : Set (ℝ × ℝ × ℝ)</code>",
+ "770":
+ "<code>LT.lt.ne'.{u_1} {α : Type u_1} [Preorder α] {a b : α} (h : b &lt; a) : a ≠ b</code>",
  "77":
  "<code>congr_arg.{u, v} {α : Sort u} {β : Sort v} {a₁ a₂ : α} (f : α → β) (h : a₁ = a₂) : f a₁ = f a₂</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `congrArg`.</code>",
- "769": "<code>p ∈ s</code>",
+ "769":
+ "<code>P_right_inv (r : ℝ) (h_r : r &gt; 0) (p : ℝ × ℝ) : Q r (P r p) = p</code>",
  "768":
- "<code>p ∈ {p | p.1 ^ 2 + p.2.1 ^ 2 + (p.2.2 - r) ^ 2 = r ^ 2} ∩ {p | p.2.2 = 3 * r}</code>",
+ "<code>Prod.mk_inj.{u_1, u_2} {α : Type u_1} {β : Type u_2} {a₁ a₂ : α} {b₁ b₂ : β} : (a₁, b₁) = (a₂, b₂) ↔ a₁ = a₂ ∧ b₁ = b₂</code>",
  "767":
- "<code>Inter.inter.{u} {α : Type u} [self : Inter α] : α → α → α</code><span class=\"sep\"></span><code class=\"docstring\">`a ∩ b` is the intersection of `a` and `b`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∩` in identifiers is `inter`.</code>",
- "766":
- "<code class=\"docstring\">`refine' e` behaves like `refine e`, except that unsolved placeholders (`_`)\nand implicit parameters are also converted into new goals.\n</code>",
- "765": "<code>B = 0 ∧ C = 0 ∧ D = 4 * r ^ 2 * A</code>",
- "764":
- "<code>EmptyCollection.emptyCollection.{u} {α : Type u} [self : EmptyCollection α] : α</code><span class=\"sep\"></span><code class=\"docstring\">`∅` or `{}` is the empty set or empty collection.\nIt is supported by the `EmptyCollection` typeclass. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `{}` in identifiers is `empty`.\n\n * The recommended spelling of `∅` in identifiers is `empty`.</code>",
- "763": "<code>s = ∅</code>",
+ "<code>False.elim.{u} {C : Sort u} (h : False) : C</code><span class=\"sep\"></span><code class=\"docstring\">`False.elim : False → C` says that from `False`, any desired proposition\n`C` holds. Also known as ex falso quodlibet (EFQ) or the principle of explosion.\n\nThe target type is actually `C : Sort u` which means it works for both\npropositions and types. When executed, this acts like an \"unreachable\"\ninstruction: it is **undefined behavior** to run, but it will probably print\n\"unreachable code\". (You would need to construct a proof of false to run it\nanyway, which you can only do using `sorry` or unsound axioms.)\n</code>",
+ "766": "<code>2 * r = p.2.2</code>",
+ "765": "<code>¬2 * r = p.2.2</code>",
+ "764": "<code>p.1 ^ 2 + p.2.1 ^ 2 + (p.2.2 - r) ^ 2 = r ^ 2 ∧ ¬p = N r</code>",
+ "763": "<code>0 &lt; r</code>",
  "762":
- "<code>mul_pos.{u_1} {α : Type u_1} [MulZeroClass α] {a b : α} [Preorder α] [PosMulStrictMono α] (ha : 0 &lt; a) (hb : 0 &lt; b) :\n  0 &lt; a * b</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `Left.mul_pos`.\n\n---\n\nAssumes left covariance. </code>",
- "761":
- "<code>sq_nonneg.{u} {R : Type u} [Semiring R] [LinearOrder R] [ExistsAddOfLE R] [PosMulMono R] [AddLeftMono R] (a : R) :\n  0 ≤ a ^ 2</code>",
- "760": "<code>p ∈ {p | A * (p.1 ^ 2 + p.2 ^ 2) + 4 * r ^ 2 * A = 0}</code>",
+ "<code>Bool</code><span class=\"sep\"></span><code class=\"docstring\">When `true` (default: `false`), rewrites a proposition `p` to `True` or `False` by inferring\na `Decidable p` instance and reducing it.\n</code>",
+ "761": "<code>¬2 * r - p.2.2 = 0</code>",
+ "760": "<code>2 * r - p.2.2 = 0</code>",
  "76": "<code>mt {a b : Prop} (h₁ : a → b) (h₂ : ¬b) : ¬a</code>",
  "759":
- "<code>Set.eq_empty_of_forall_notMem.{u} {α : Type u} {s : Set α} (h : ∀ (x : α), x ∉ s) : s = ∅</code>",
- "758": "<code>{p | A * (p.1 ^ 2 + p.2 ^ 2) + 4 * r ^ 2 * A = 0} = ∅</code>",
- "757": "<code>B = 0 ∧ C = 0 ∧ D - 4 * r ^ 2 * A = 0</code>",
- "756": "<code>s = {p | A * (p.1 ^ 2 + p.2 ^ 2) + D = 0}</code>",
- "755": "<code>¬A = 0</code>",
- "754": "<code>¬(-B = 0 ∧ -C = 0 ∧ (D - 4 * r ^ 2 * A) / (2 * r) = 0)</code>",
- "753": "<code>-B = 0 ∧ -C = 0 ∧ (D - 4 * r ^ 2 * A) / (2 * r) = 0</code>",
+ "<code>p ∈ {p | p.1 ^ 2 + p.2.1 ^ 2 + (p.2.2 - r) ^ 2 = r ^ 2} \\ {N r}</code>",
+ "758": "<code>p ∈ S r \\ {N r}</code>",
+ "757":
+ "<code>P_left_inv (r : ℝ) (h_r : r &gt; 0) (p : ℝ × ℝ × ℝ) (hp : p ∈ S r \\ {N r}) : P r (Q r p) = p</code><span class=\"sep\"></span><code class=\"docstring\">The composition P ∘ Q is the identity function\non the punctured sphere S \\ {N}.\n</code>",
+ "756":
+ "<code class=\"docstring\">`aesop &lt;clause&gt;*` tries to solve the current goal by applying a set of rules\nregistered with the `@[aesop]` attribute. See [its\nREADME](https://github.com/JLimperg/aesop#readme) for a tutorial and a\nreference.\n\nThe variant `aesop?` prints the proof it found as a `Try this` suggestion.\n\nClauses can be used to customise the behaviour of an Aesop call. Available\nclauses are:\n\n- `(add &lt;phase&gt; &lt;priority&gt; &lt;builder&gt; &lt;rule&gt;)` adds a rule. `&lt;phase&gt;` is\n  `unsafe`, `safe` or `norm`. `&lt;priority&gt;` is a percentage for unsafe rules and\n  an integer for safe and norm rules. `&lt;rule&gt;` is the name of a declaration or\n  local hypothesis. `&lt;builder&gt;` is the rule builder used to turn `&lt;rule&gt;` into\n  an Aesop rule. Example: `(add unsafe 50% apply Or.inl)`.\n- `(erase &lt;rule&gt;)` disables a globally registered Aesop rule. Example: `(erase\n  Aesop.BuiltinRules.assumption)`.\n- `(rule_sets := [&lt;ruleset&gt;,*])` enables or disables named sets of rules for\n  this Aesop call. Example: `(rule_sets := [-builtin, MyRuleSet])`.\n- `(config { &lt;opt&gt; := &lt;value&gt; })` adjusts Aesop's search options. See\n  `Aesop.Options`.\n- `(simp_config { &lt;opt&gt; := &lt;value&gt; })` adjusts options for Aesop's built-in\n  `simp` rule. The given options are directly passed to `simp`. For example,\n  `(simp_config := { zeta := false })` makes Aesop use\n  `simp (config := { zeta := false })`.\n</code>",
+ "755":
+ "<code>setOf.{u} {α : Type u} (p : α → Prop) : Set α</code><span class=\"sep\"></span><code class=\"docstring\">Turn a predicate `p : α → Prop` into a set, also written as `{x | p x}` </code>",
+ "754":
+ "<code>(4 * r ^ 2 * p.1 / (4 * r ^ 2 + p.1 ^ 2 + p.2 ^ 2)) ^ 2 + (4 * r ^ 2 * p.2 / (4 * r ^ 2 + p.1 ^ 2 + p.2 ^ 2)) ^ 2 +\n    (2 * r * (p.1 ^ 2 + p.2 ^ 2) / (4 * r ^ 2 + p.1 ^ 2 + p.2 ^ 2) - r) ^ 2 =\n  r ^ 2</code>",
+ "753":
+ "<code>Singleton.singleton.{u, v} {α : outParam (Type u)} {β : Type v} [self : Singleton α β] : α → β</code><span class=\"sep\"></span><code class=\"docstring\">`singleton x` is a collection with the single element `x` (notation: `{x}`). \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `{x}` in identifiers is `singleton`.</code>",
  "752":
- "<code>s = {p | A * (p.1 ^ 2 + p.2 ^ 2) + B * p.1 + C * p.2 + D = 0}</code>",
- "751": "<code>A ≠ 0 ∨ B ≠ 0 ∨ C ≠ 0</code>",
+ "<code>SDiff.sdiff.{u} {α : Type u} [self : SDiff α] : α → α → α</code><span class=\"sep\"></span><code class=\"docstring\">`a \\ b` is the set difference of `a` and `b`,\nconsisting of all elements in `a` that are not in `b`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `\\` in identifiers is `sdiff`.</code>",
+ "751":
+ "<code>Membership.mem.{u, v} {α : outParam (Type u)} {γ : Type v} [self : Membership α γ] : γ → α → Prop</code><span class=\"sep\"></span><code class=\"docstring\">The membership relation `a ∈ s : Prop` where `a : α`, `s : γ`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∈` in identifiers is `mem`.</code>",
  "750":
- "<code>Set.image.{u, v} {α : Type u} {β : Type v} (f : α → β) (s : Set α) : Set β</code><span class=\"sep\"></span><code class=\"docstring\">The image of `s : Set α` by `f : α → β`, written `f '' s`, is the set of `b : β` such that\n`f a = b` for some `a ∈ s`. </code>",
+ "<code>Prod.{u, v} (α : Type u) (β : Type v) : Type (max u v)</code><span class=\"sep\"></span><code class=\"docstring\">The product type, usually written `α × β`. Product types are also called pair or tuple types.\nElements of this type are pairs in which the first element is an `α` and the second element is a\n`β`.\n\nProducts nest to the right, so `(x, y, z) : α × β × γ` is equivalent to `(x, (y, z)) : α × (β × γ)`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `×` in identifiers is `Prod`.</code>",
  "75": "<code>complex_number_game.I_ne_zero : I ≠ 0</code>",
- "749": "<code>IsCircleOrLine s</code>",
- "748":
- "<code>stereographic_preserves_circle_line (r : ℝ) (hr : r &gt; 0) (s : Set (ℝ × ℝ)) (h : IsCircleOrLine s) :\n  ∃ s', IsPlaneSection r s' ∧ P r '' s = s' \\ {N r}</code><span class=\"sep\"></span><code class=\"docstring\">The stereographic projection P maps circles and lines\nin the complex plane to plane sections of the sphere S.\n</code>",
- "747": "<code>r ≠ 0</code>",
- "746":
- "<code>stereographic_equation_iff (r : ℝ) (hr : r ≠ 0) (A B C D : ℝ) :\n  have a := -B;\n  have b := -C;\n  have c := (D - 4 * r ^ 2 * A) / (2 * r);\n  have d := D;\n  ∀ (p : ℝ × ℝ),\n    A * (p.1 ^ 2 + p.2 ^ 2) + B * p.1 + C * p.2 + D = 0 ↔\n      have q := P r p;\n      a * q.1 + b * q.2.1 + c * q.2.2 = d</code>",
- "745": "<code>Set (ℝ × ℝ × ℝ)</code>",
- "744": "<code>IsPlaneSection (r : ℝ) (s : Set (ℝ × ℝ × ℝ)) : Prop</code>",
- "743": "<code>Set (ℝ × ℝ)</code>",
- "742": "<code>IsCircleOrLine (s : Set (ℝ × ℝ)) : Prop</code>",
- "741":
- "<code>True : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`True` is a proposition and has only an introduction rule, `True.intro : True`.\nIn other words, `True` is simply true, and has a canonical proof, `True.intro`\nFor more information: [Propositional Logic](https://lean-lang.org/theorem_proving_in_lean4/propositions_and_proofs.html#propositional-logic)\n</code>",
- "740": "<code>Complex.sq_norm (z : ℂ) : ‖z‖ ^ 2 = normSq z</code>",
+ "749":
+ "<code>GT.gt.{u} {α : Type u} [LT α] (a b : α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`a &gt; b` is an abbreviation for `b &lt; a`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `&gt;` in identifiers is `gt`.</code>",
+ "748": "<code>r &gt; 0</code>",
+ "747":
+ "<code>P_range (r : ℝ) (h_r : r &gt; 0) (p : ℝ × ℝ) : P r p ∈ S r \\ {N r}</code>",
+ "746": "<code>Q (r : ℝ) (p : ℝ × ℝ × ℝ) : ℝ × ℝ</code>",
+ "745":
+ "<code class=\"docstring\">`let` is used to declare a local definition. Example:\n```\nlet x := 1\nlet y := x + 1\nx + y\n```\nSince functions are first class citizens in Lean, you can use `let` to declare\nlocal functions too.\n```\nlet double := fun x =&gt; 2*x\ndouble (double 3)\n```\nFor recursive definitions, you should use `let rec`.\nYou can also perform pattern matching using `let`. For example,\nassume `p` has type `Nat × Nat`, then you can write\n```\nlet (x, y) := p\nx + y\n```\n\nThe *anaphoric let* `let := v` defines a variable called `this`.\n</code>",
+ "744": "<code>ℝ × ℝ</code>",
+ "743": "<code>P (r : ℝ) (p : ℝ × ℝ) : ℝ × ℝ × ℝ</code>",
+ "742": "<code>N (r : ℝ) : ℝ × ℝ × ℝ</code>",
+ "741": "<code>ℝ × ℝ × ℝ</code>",
+ "740":
+ "<code>Set.{u} (α : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">A set is a collection of elements of some type `α`.\n\nAlthough `Set` is defined as `α → Prop`, this is an implementation detail which should not be\nrelied on. Instead, `setOf` and membership of a set (`∈`) should be used to convert between sets\nand predicates.\n</code>",
  "74":
  "<code>Neg.neg.{u} {α : Type u} [self : Neg α] : α → α</code><span class=\"sep\"></span><code class=\"docstring\">`-a` computes the negative or opposite of `a`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `-` in identifiers is `neg` (when used as a unary operator).</code>",
- "739":
- "<code>P_complex_eq_P (r : ℝ) (z : ℂ) : P_complex r z = P r (z.re, z.im)</code>",
- "738": "<code>P_complex (r : ℝ) (z : ℂ) : ℝ × ℝ × ℝ</code>",
- "737": "<code>↑p ∈ S r \\ {N r} → P r (Q r ↑p) = ↑p</code>",
- "736": "<code>↑(S_minus_N r)</code>",
- "735": "<code>Q r (P r q) = q</code>",
- "734": "<code>Q r (P r p) = p</code>",
- "733": "<code>⟨P r p, ⋯⟩ = ⟨P r q, ⋯⟩</code>",
- "732": "<code>P_to_S r h_r p = P_to_S r h_r q</code>",
+ "739": "<code>S (r : ℝ) : Set (ℝ × ℝ × ℝ)</code>",
+ "738":
+ "<code>Int.cast_neg.{u} {R : Type u} [AddGroupWithOne R] (n : ℤ) : ↑(-n) = -↑n</code>",
+ "737":
+ "<code>zpow_neg.{u_1} {α : Type u_1} [DivisionMonoid α] (a : α) (n : ℤ) : a ^ (-n) = (a ^ n)⁻¹</code>",
+ "736": "<code>Int.negSucc_eq (n : ℕ) : Int.negSucc n = -(↑n + 1)</code>",
+ "735":
+ "<code>Int.ofNat : ℕ → ℤ</code><span class=\"sep\"></span><code class=\"docstring\">A natural number is an integer.\n\nThis constructor covers the non-negative integers (from `0` to `∞`).\n</code>",
+ "734":
+ "<code class=\"docstring\">Assuming `x` is a variable in the local context with an inductive type,\n`cases x` splits the main goal, producing one goal for each constructor of the\ninductive type, in which the target is replaced by a general instance of that constructor.\nIf the type of an element in the local context depends on `x`,\nthat element is reverted and reintroduced afterward,\nso that the case split affects that hypothesis as well.\n`cases` detects unreachable cases and closes them automatically.\n\nFor example, given `n : Nat` and a goal with a hypothesis `h : P n` and target `Q n`,\n`cases n` produces one goal with hypothesis `h : P 0` and target `Q 0`,\nand one goal with hypothesis `h : P (Nat.succ a)` and target `Q (Nat.succ a)`.\nHere the name `a` is chosen automatically and is not accessible.\nYou can use `with` to provide the variables names for each constructor.\n- `cases e`, where `e` is an expression instead of a variable, generalizes `e` in the goal,\n  and then cases on the resulting variable.\n- Given `as : List α`, `cases as with | nil =&gt; tac₁ | cons a as' =&gt; tac₂`,\n  uses tactic `tac₁` for the `nil` case, and `tac₂` for the `cons` case,\n  and `a` and `as'` are used as names for the new variables introduced.\n- `cases h : e`, where `e` is a variable or an expression,\n  performs cases on `e` as above, but also adds a hypothesis `h : e = ...` to each goal,\n  where `...` is the constructor instance for that particular case.\n</code>",
+ "733":
+ "<code>DeMoivre_formula (θ : ℝ) (n : ℤ) :\n  (↑(Real.cos θ) + ↑(Real.sin θ) * I) ^ n = ↑(Real.cos (↑n * θ)) + ↑(Real.sin (↑n * θ)) * I</code><span class=\"sep\"></span><code class=\"docstring\">DeMoivre formula for all integers\n</code>",
+ "732":
+ "<code>one_div_pow.{u_1} {α : Type u_1} [DivisionMonoid α] (a : α) (n : ℕ) : (1 / a) ^ n = 1 / a ^ n</code>",
  "731":
- "<code>Function.Surjective.{u_1, u_2} {α : Sort u_1} {β : Sort u_2} (f : α → β) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A function `f : α → β` is called surjective if every `b : β` is equal to `f a`\nfor some `a : α`. </code>",
+ "<code>1 / (↑(Real.cos x) + ↑(Real.sin x) * I) ^ n = ↑(Real.cos (↑n * -x)) + ↑(Real.sin (↑n * -x)) * I</code>",
  "730":
- "<code>Function.Injective.{u_1, u_2} {α : Sort u_1} {β : Sort u_2} (f : α → β) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A function `f : α → β` is called injective if `f x = f y` implies `x = y`. </code>",
+ "<code>DeMoivre_neg_exp (x : ℝ) (n : ℕ) :\n  1 / (↑(Real.cos x) + ↑(Real.sin x) * I) ^ n = ↑(Real.cos (-↑n * x)) + ↑(Real.sin (-↑n * x)) * I</code><span class=\"sep\"></span><code class=\"docstring\">DeMoivre formula for negative integer\n</code>",
  "73":
  "<code>complex_number_game.I_mul (z : ℚ[i]) : I * z = { re := -z.im, im := z.re }</code>",
  "729":
- "<code>Function.Bijective.{u₁, u₂} {α : Sort u₁} {β : Sort u₂} (f : α → β) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A function is called bijective if it is both injective and surjective. </code>",
+ "<code>Real.cos_sq_add_sin_sq (x : ℝ) : Real.cos x ^ 2 + Real.sin x ^ 2 = 1</code>",
  "728":
- "<code>P_bijective (r : ℝ) (h_r : r &gt; 0) : Function.Bijective (P_to_S r h_r)</code>",
+ "<code>And.intro {a b : Prop} (left : a) (right : b) : a ∧ b</code><span class=\"sep\"></span><code class=\"docstring\">`And.intro : a → b → a ∧ b` is the constructor for the And operation. </code>",
  "727":
- "<code>Subtype.mk.{u} {α : Sort u} {p : α → Prop} (val : α) (property : p val) : Subtype p</code>",
+ "<code>Complex.exp_im (x : ℂ) : (cexp x).im = Real.exp x.re * Real.sin x.im</code>",
  "726":
- "<code>P_to_S (r : ℝ) (h_r : r &gt; 0) (p : ℝ × ℝ) : ↑(S_minus_N r)</code>",
- "725": "<code>S_minus_N (r : ℝ) : Set (ℝ × ℝ × ℝ)</code>",
+ "<code>Complex.exp_re (x : ℂ) : (cexp x).re = Real.exp x.re * Real.cos x.im</code>",
+ "725":
+ "<code class=\"docstring\">`convert e`, where the term `e` is inferred to have type `t`, replaces the main goal `⊢ t'` with new\ngoals for proving the equality `t' = t` using congruence. The goals are created like `congr!` would.\nLike `refine e`, any holes (`?_` or `?x`) in `e` that are not solved by unification are converted\ninto new goals, using the hole's name, if any, as the goal case name.\nLike `congr!`, `convert` introduces variables while applying congruence rules. These can be\npattern-matched, like `rintro` would, using the `with` keyword.\n\nSee also `convert_to t`, where `t` specifies the expected type, instead of a proof term of type `t`.\nIn other words, `convert_to t` works like `convert (?_ : t)`. Both tactics use the same options.\n\n* `convert ← e` creates equality goals in the opposite direction (with the goal type on the right).\n* `convert e using n`, where `n` is a positive numeral, controls the depth with which congruence is\n  applied. For example, if the main goal is `⊢ Prime (n + n + 1)` and `e : Prime (2 * n + 1)`, then\n  `convert e using 2` results in one goal, `⊢ n + n = 2 * n`, and `convert e using 3` (or more)\n  results in two (impossible) goals `⊢ HAdd.hAdd = HMul.hMul` and `⊢ n = 2`.\n  By default, the depth is unlimited.\n* `convert e with x ⟨y₁, y₂⟩ (z₁ | z₂)` names or pattern-matches the variables introduced by\n  congruence rules, like `rintro x ⟨y₁, y₂⟩ (z₁ | z₂)` would.\n* `convert (config := cfg) e` uses the configuration options in `cfg` to control the congruence\n  rules (see `Congr!.Config`).\n\nExamples:\n\n```lean\n-- `convert using` controls the depth of congruence.\nexample {n : ℕ} (e : Prime (2 * n + 1)) :\n    Prime (n + n + 1) := by\n  convert e using 2\n  -- One goal: ⊢ n + n = 2 * n\n  ring\n\n-- `convert` can fail where `exact` succeeds.\nexample (h : p 0) : p 1 := by\n  fail_if_success\n    convert h -- fails, left-over goal 1 = 0\n    done\n  exact h -- succeeds\n\n-- `convert with` names introduced variables.\nexample (p q : Nat → Prop) (h : ∀ ε &gt; 0, p ε) :\n    ∀ ε &gt; 0, q ε := by\n  convert h using 2 with ε hε\n  -- Goal now looks like:\n  -- hε : ε &gt; 0\n  -- ⊢ q ε ↔ p ε\n  sorry\n```\n</code>",
  "724":
- "<code>LT.lt.ne'.{u_1} {α : Type u_1} [Preorder α] {a b : α} (h : b &lt; a) : a ≠ b</code>",
+ "<code>DeMoivre_helper (x : ℝ) : 1 / (↑(Real.cos x) + ↑(Real.sin x) * I) = ↑(Real.cos (-x)) + ↑(Real.sin (-x)) * I</code><span class=\"sep\"></span><code class=\"docstring\">Helper lemma 2\nThe inverse of (cos (x) + sin (x) *I)\nequals cos (-x) + sin (-x) *I\n</code>",
  "723":
- "<code>P_right_inv (r : ℝ) (h_r : r &gt; 0) (p : ℝ × ℝ) : Q r (P r p) = p</code>",
- "722":
- "<code>Prod.mk_inj.{u_1, u_2} {α : Type u_1} {β : Type u_2} {a₁ a₂ : α} {b₁ b₂ : β} : (a₁, b₁) = (a₂, b₂) ↔ a₁ = a₂ ∧ b₁ = b₂</code>",
- "721":
- "<code>False.elim.{u} {C : Sort u} (h : False) : C</code><span class=\"sep\"></span><code class=\"docstring\">`False.elim : False → C` says that from `False`, any desired proposition\n`C` holds. Also known as ex falso quodlibet (EFQ) or the principle of explosion.\n\nThe target type is actually `C : Sort u` which means it works for both\npropositions and types. When executed, this acts like an \"unreachable\"\ninstruction: it is **undefined behavior** to run, but it will probably print\n\"unreachable code\". (You would need to construct a proof of false to run it\nanyway, which you can only do using `sorry` or unsound axioms.)\n</code>",
- "720": "<code>2 * r = p.2.2</code>",
+ "<code>Real.sin_sq_add_cos_sq (x : ℝ) : Real.sin x ^ 2 + Real.cos x ^ 2 = 1</code>",
+ "722": "<code>Real.sin x = 0</code>",
+ "721": "<code>Real.cos x = 0</code>",
+ "720":
+ "<code>cos_add_sin_mul_I_ne_zero (x : ℝ) : ↑(Real.cos x) + ↑(Real.sin x) * I ≠ 0</code><span class=\"sep\"></span><code class=\"docstring\">Helper lemma 1\ncos x + (sin x)*I ≠ 0\n</code>",
  "72":
  "<code>HMul.hMul.{u, v, w} {α : Type u} {β : Type v} {γ : outParam (Type w)} [self : HMul α β γ] : α → β → γ</code><span class=\"sep\"></span><code class=\"docstring\">`a * b` computes the product of `a` and `b`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `*` in identifiers is `mul`.</code>",
- "719": "<code>¬2 * r = p.2.2</code>",
- "718": "<code>p.1 ^ 2 + p.2.1 ^ 2 + (p.2.2 - r) ^ 2 = r ^ 2 ∧ ¬p = N r</code>",
- "717": "<code>0 &lt; r</code>",
+ "719":
+ "<code>Nat.cast_succ.{u_1} {R : Type u_1} [AddMonoidWithOne R] (n : ℕ) : ↑n.succ = ↑n + 1</code>",
+ "718":
+ "<code>(↑(Real.cos θ) + ↑(Real.sin θ) * I) ^ n = ↑(Real.cos (↑n * θ)) + ↑(Real.sin (↑n * θ)) * I</code>",
+ "717":
+ "<code>DeMoivre (θ : ℝ) (n : ℕ) : (↑(Real.cos θ) + ↑(Real.sin θ) * I) ^ n = ↑(Real.cos (↑n * θ)) + ↑(Real.sin (↑n * θ)) * I</code><span class=\"sep\"></span><code class=\"docstring\">Prove by using the tactic `induction` </code>",
  "716":
- "<code>sub_eq_iff_eq_add.{u_3} {G : Type u_3} [AddGroup G] {a b c : G} : a - b = c ↔ a = c + b</code>",
+ "<code>polar_mul' (θ₁ θ₂ : ℝ) :\n  (↑(Real.cos θ₁) + ↑(Real.sin θ₁) * I) * (↑(Real.cos θ₂) + ↑(Real.sin θ₂) * I) =\n    ↑(Real.cos (θ₁ + θ₂)) + ↑(Real.sin (θ₁ + θ₂)) * I</code>",
  "715":
- "<code>Bool</code><span class=\"sep\"></span><code class=\"docstring\">When `true` (default: `false`), rewrites a proposition `p` to `True` or `False` by inferring\na `Decidable p` instance and reducing it.\n</code>",
- "714": "<code>¬2 * r - p.2.2 = 0</code>",
- "713": "<code>2 * r - p.2.2 = 0</code>",
+ "<code>Complex.sin (z : ℂ) : ℂ</code><span class=\"sep\"></span><code class=\"docstring\">The complex sine function, defined via `exp` </code>",
+ "714":
+ "<code>Complex.cos (z : ℂ) : ℂ</code><span class=\"sep\"></span><code class=\"docstring\">The complex cosine function, defined via `exp` </code>",
+ "713":
+ "<code>Real.sin_add (x y : ℝ) : Real.sin (x + y) = Real.sin x * Real.cos y + Real.cos x * Real.sin y</code>",
  "712":
- "<code>p ∈ {p | p.1 ^ 2 + p.2.1 ^ 2 + (p.2.2 - r) ^ 2 = r ^ 2} \\ {N r}</code>",
- "711": "<code>p ∈ S r \\ {N r}</code>",
+ "<code>Real.cos_add (x y : ℝ) : Real.cos (x + y) = Real.cos x * Real.cos y - Real.sin x * Real.sin y</code>",
+ "711": "<code>Complex.add_im (z w : ℂ) : (z + w).im = z.im + w.im</code>",
  "710":
- "<code>P_left_inv (r : ℝ) (h_r : r &gt; 0) (p : ℝ × ℝ × ℝ) (hp : p ∈ S r \\ {N r}) : P r (Q r p) = p</code><span class=\"sep\"></span><code class=\"docstring\">The composition P ∘ Q is the identity function\non the punctured sphere S \\ {N}.\n</code>",
+ "<code>Complex.mul_im (z w : ℂ) : (z * w).im = z.re * w.im + z.im * w.re</code>",
  "71":
  "<code>Iff.mpr {a b : Prop} (self : a ↔ b) : b → a</code><span class=\"sep\"></span><code class=\"docstring\">Modus ponens for if and only if, reversed. If `a ↔ b` and `b`, then `a`. </code>",
  "709":
- "<code class=\"docstring\">`aesop &lt;clause&gt;*` tries to solve the current goal by applying a set of rules\nregistered with the `@[aesop]` attribute. See [its\nREADME](https://github.com/JLimperg/aesop#readme) for a tutorial and a\nreference.\n\nThe variant `aesop?` prints the proof it found as a `Try this` suggestion.\n\nClauses can be used to customise the behaviour of an Aesop call. Available\nclauses are:\n\n- `(add &lt;phase&gt; &lt;priority&gt; &lt;builder&gt; &lt;rule&gt;)` adds a rule. `&lt;phase&gt;` is\n  `unsafe`, `safe` or `norm`. `&lt;priority&gt;` is a percentage for unsafe rules and\n  an integer for safe and norm rules. `&lt;rule&gt;` is the name of a declaration or\n  local hypothesis. `&lt;builder&gt;` is the rule builder used to turn `&lt;rule&gt;` into\n  an Aesop rule. Example: `(add unsafe 50% apply Or.inl)`.\n- `(erase &lt;rule&gt;)` disables a globally registered Aesop rule. Example: `(erase\n  Aesop.BuiltinRules.assumption)`.\n- `(rule_sets := [&lt;ruleset&gt;,*])` enables or disables named sets of rules for\n  this Aesop call. Example: `(rule_sets := [-builtin, MyRuleSet])`.\n- `(config { &lt;opt&gt; := &lt;value&gt; })` adjusts Aesop's search options. See\n  `Aesop.Options`.\n- `(simp_config { &lt;opt&gt; := &lt;value&gt; })` adjusts options for Aesop's built-in\n  `simp` rule. The given options are directly passed to `simp`. For example,\n  `(simp_config := { zeta := false })` makes Aesop use\n  `simp (config := { zeta := false })`.\n</code>",
- "708":
- "<code>setOf.{u} {α : Type u} (p : α → Prop) : Set α</code><span class=\"sep\"></span><code class=\"docstring\">Turn a predicate `p : α → Prop` into a set, also written as `{x | p x}` </code>",
- "707":
- "<code>(4 * r ^ 2 * p.1 / (4 * r ^ 2 + p.1 ^ 2 + p.2 ^ 2)) ^ 2 + (4 * r ^ 2 * p.2 / (4 * r ^ 2 + p.1 ^ 2 + p.2 ^ 2)) ^ 2 +\n    (2 * r * (p.1 ^ 2 + p.2 ^ 2) / (4 * r ^ 2 + p.1 ^ 2 + p.2 ^ 2) - r) ^ 2 =\n  r ^ 2</code>",
+ "<code>Complex.mul_re (z w : ℂ) : (z * w).re = z.re * w.re - z.im * w.im</code>",
+ "708": "<code>Complex.I_im : I.im = 1</code>",
+ "707": "<code>Complex.I_re : I.re = 0</code>",
  "706":
- "<code>Singleton.singleton.{u, v} {α : outParam (Type u)} {β : Type v} [self : Singleton α β] : α → β</code><span class=\"sep\"></span><code class=\"docstring\">`singleton x` is a collection with the single element `x` (notation: `{x}`). \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `{x}` in identifiers is `singleton`.</code>",
+ "<code>Real.sin (x : ℝ) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The real sine function, defined as the real part of the complex sine </code>",
  "705":
- "<code>SDiff.sdiff.{u} {α : Type u} [self : SDiff α] : α → α → α</code><span class=\"sep\"></span><code class=\"docstring\">`a \\ b` is the set difference of `a` and `b`,\nconsisting of all elements in `a` that are not in `b`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `\\` in identifiers is `sdiff`.</code>",
+ "<code>Real.cos (x : ℝ) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The real cosine function, defined as the real part of the complex cosine </code>",
  "704":
- "<code>Membership.mem.{u, v} {α : outParam (Type u)} {γ : Type v} [self : Membership α γ] : γ → α → Prop</code><span class=\"sep\"></span><code class=\"docstring\">The membership relation `a ∈ s : Prop` where `a : α`, `s : γ`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∈` in identifiers is `mem`.</code>",
+ "<code>polar_mul (r₁ r₂ θ₁ θ₂ : ℝ) :\n  ↑r₁ * (↑(Real.cos θ₁) + ↑(Real.sin θ₁) * I) * (↑r₂ * (↑(Real.cos θ₂) + ↑(Real.sin θ₂) * I)) =\n    ↑r₁ * ↑r₂ * (↑(Real.cos (θ₁ + θ₂)) + ↑(Real.sin (θ₁ + θ₂)) * I)</code>",
  "703":
- "<code>Prod.{u, v} (α : Type u) (β : Type v) : Type (max u v)</code><span class=\"sep\"></span><code class=\"docstring\">The product type, usually written `α × β`. Product types are also called pair or tuple types.\nElements of this type are pairs in which the first element is an `α` and the second element is a\n`β`.\n\nProducts nest to the right, so `(x, y, z) : α × β × γ` is equivalent to `(x, (y, z)) : α × (β × γ)`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `×` in identifiers is `Prod`.</code>",
+ "<code class=\"docstring\">`all_goals tac` runs `tac` on each goal, concatenating the resulting goals.\nIf the tactic fails on any goal, the entire `all_goals` tactic fails.\n\nSee also `any_goals tac`.\n</code>",
  "702":
- "<code>GT.gt.{u} {α : Type u} [LT α] (a b : α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`a &gt; b` is an abbreviation for `b &lt; a`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `&gt;` in identifiers is `gt`.</code>",
- "701": "<code>r &gt; 0</code>",
- "700":
- "<code>P_range (r : ℝ) (h_r : r &gt; 0) (p : ℝ × ℝ) : P r p ∈ S r \\ {N r}</code>",
+ "<code>z₂ * z₃ * (1 / 2) + z₂ * z₃ * ↑√3 ^ 2 * (1 / 2) + z₂ ^ 2 * (5 / 4) + -(z₂ ^ 2 * I * ↑√3 * (1 / 2)) +\n          -(z₂ ^ 2 * ↑√3 ^ 2 * (1 / 4)) +\n        z₃ ^ 2 * (5 / 4) +\n      z₃ ^ 2 * I * ↑√3 * (1 / 2) +\n    -(z₃ ^ 2 * ↑√3 ^ 2 * (1 / 4)) =\n  z₂ * z₃ * 2 + z₂ ^ 2 * (1 / 2) + -(z₂ ^ 2 * I * ↑√3 * (1 / 2)) + z₃ ^ 2 * (1 / 2) + z₃ ^ 2 * I * ↑√3 * (1 / 2)</code>",
+ "701":
+ "<code>-(z₂ * z₃ * 3) + z₂ * z₃ * ↑√3 ^ 2 + z₂ ^ 2 * (3 / 2) + -(z₂ ^ 2 * ↑√3 ^ 2 * (1 / 2)) + z₃ ^ 2 * (3 / 2) +\n    -(z₃ ^ 2 * ↑√3 ^ 2 * (1 / 2)) =\n  0</code>",
+ "700": "<code>Complex.sq_norm (z : ℂ) : ‖z‖ ^ 2 = normSq z</code>",
  "70": "<code>complex_number_game.I_mul_I : I * I = -1</code>",
  "7": "<code>complex_number_game.instRepr : Repr ℚ[i]</code>",
- "699": "<code>Q (r : ℝ) (p : ℝ × ℝ × ℝ) : ℝ × ℝ</code>",
+ "699":
+ "<code>z₂ * z₃ * (1 / 2) + z₂ * z₃ * I ^ 2 * ↑√3 ^ 2 * (-1 / 2) + z₂ ^ 2 * (5 / 4) + z₂ ^ 2 * I * ↑√3 * (1 / 2) +\n          z₂ ^ 2 * I ^ 2 * ↑√3 ^ 2 * (1 / 4) +\n        z₃ ^ 2 * (5 / 4) +\n      z₃ ^ 2 * I * ↑√3 * (-1 / 2) +\n    z₃ ^ 2 * I ^ 2 * ↑√3 ^ 2 * (1 / 4) =\n  z₂ * z₃ * 2 + z₂ ^ 2 * (1 / 2) + z₂ ^ 2 * I * ↑√3 * (1 / 2) + z₃ ^ 2 * (1 / 2) + z₃ ^ 2 * I * ↑√3 * (-1 / 2)</code>",
  "698":
- "<code class=\"docstring\">`let` is used to declare a local definition. Example:\n```\nlet x := 1\nlet y := x + 1\nx + y\n```\nSince functions are first class citizens in Lean, you can use `let` to declare\nlocal functions too.\n```\nlet double := fun x =&gt; 2*x\ndouble (double 3)\n```\nFor recursive definitions, you should use `let rec`.\nYou can also perform pattern matching using `let`. For example,\nassume `p` has type `Nat × Nat`, then you can write\n```\nlet (x, y) := p\nx + y\n```\n\nThe *anaphoric let* `let := v` defines a variable called `this`.\n</code>",
- "697": "<code>ℝ × ℝ</code>",
- "696": "<code>P (r : ℝ) (p : ℝ × ℝ) : ℝ × ℝ × ℝ</code>",
- "695": "<code>N (r : ℝ) : ℝ × ℝ × ℝ</code>",
- "694": "<code>ℝ × ℝ × ℝ</code>",
+ "<code>z₂ * z₃ * (1 / 2) + z₂ * z₃ * I ^ 2 * ↑√3 ^ 2 * (-1 / 2) + z₂ ^ 2 * (5 / 4) + z₂ ^ 2 * I * ↑√3 * (-1 / 2) +\n          z₂ ^ 2 * I ^ 2 * ↑√3 ^ 2 * (1 / 4) +\n        z₃ ^ 2 * (5 / 4) +\n      z₃ ^ 2 * I * ↑√3 * (1 / 2) +\n    z₃ ^ 2 * I ^ 2 * ↑√3 ^ 2 * (1 / 4) =\n  z₂ * z₃ * 2 + z₂ ^ 2 * (1 / 2) + z₂ ^ 2 * I * ↑√3 * (-1 / 2) + z₃ ^ 2 * (1 / 2) + z₃ ^ 2 * I * ↑√3 * (1 / 2)</code>",
+ "697":
+ "<code>-(z₂ * z₃ * 3) - z₂ * z₃ * I ^ 2 * ↑√3 ^ 2 + z₂ ^ 2 * (3 / 2) + z₂ ^ 2 * I ^ 2 * ↑√3 ^ 2 * (1 / 2) + z₃ ^ 2 * (3 / 2) +\n    z₃ ^ 2 * I ^ 2 * ↑√3 ^ 2 * (1 / 2) =\n  0</code>",
+ "696":
+ "<code>((z₂ - z₃) * (-1 / 2 + I * (↑√3 / 2)) + z₂ - z₂) ^ 2 + (z₂ - z₃) ^ 2 +\n    (z₃ - ((z₂ - z₃) * (-1 / 2 + I * (↑√3 / 2)) + z₂)) ^ 2 =\n  0</code>",
+ "695":
+ "<code>((z₂ - z₃) * (-1 / 2 + I * (↑√3 / 2)) + z₂) ^ 2 + z₂ ^ 2 + z₃ ^ 2 =\n  ((z₂ - z₃) * (-1 / 2 + I * (↑√3 / 2)) + z₂) * z₂ + z₂ * z₃ + z₃ * ((z₂ - z₃) * (-1 / 2 + I * (↑√3 / 2)) + z₂)</code>",
+ "694":
+ "<code>((z₂ - z₃) * (-1 / 2 - I * (↑√3 / 2)) + z₂ - z₂) ^ 2 + (z₂ - z₃) ^ 2 +\n    (z₃ - ((z₂ - z₃) * (-1 / 2 - I * (↑√3 / 2)) + z₂)) ^ 2 =\n  0</code>",
  "693":
- "<code>Set.{u} (α : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">A set is a collection of elements of some type `α`.\n\nAlthough `Set` is defined as `α → Prop`, this is an implementation detail which should not be\nrelied on. Instead, `setOf` and membership of a set (`∈`) should be used to convert between sets\nand predicates.\n</code>",
- "692": "<code>S (r : ℝ) : Set (ℝ × ℝ × ℝ)</code>",
- "691":
- "<code>Int.cast_neg.{u} {R : Type u} [AddGroupWithOne R] (n : ℤ) : ↑(-n) = -↑n</code>",
- "690":
- "<code>zpow_neg.{u_1} {α : Type u_1} [DivisionMonoid α] (a : α) (n : ℤ) : a ^ (-n) = (a ^ n)⁻¹</code>",
+ "<code>((z₂ - z₃) * (-1 / 2 - I * (↑√3 / 2)) + z₂) ^ 2 + z₂ ^ 2 + z₃ ^ 2 =\n  ((z₂ - z₃) * (-1 / 2 - I * (↑√3 / 2)) + z₂) * z₂ + z₂ * z₃ + z₃ * ((z₂ - z₃) * (-1 / 2 - I * (↑√3 / 2)) + z₂)</code>",
+ "692":
+ "<code class=\"docstring\">Applies `subst` to all hypotheses of the form `h : x = t` or `h : t = x`.\n</code>",
+ "691": "<code>z₁ = (z₂ - z₃) * (-1 / 2 + I * (↑√3 / 2)) + z₂</code>",
+ "690": "<code>z₁ = (z₂ - z₃) * (-1 / 2 - I * (↑√3 / 2)) + z₂</code>",
  "69": "<code>complex_number_game.I_im : I.im = 1</code>",
- "689": "<code>Int.negSucc_eq (n : ℕ) : Int.negSucc n = -(↑n + 1)</code>",
- "688":
- "<code>Int.ofNat : ℕ → ℤ</code><span class=\"sep\"></span><code class=\"docstring\">A natural number is an integer.\n\nThis constructor covers the non-negative integers (from `0` to `∞`).\n</code>",
+ "689": "<code>z₁ - z₂ = (z₂ - z₃) * (-1 / 2 - I * (↑√3 / 2))</code>",
+ "688": "<code>z₁ - z₂ = (z₂ - z₃) * (-1 / 2 + I * (↑√3 / 2))</code>",
  "687":
- "<code class=\"docstring\">Assuming `x` is a variable in the local context with an inductive type,\n`cases x` splits the main goal, producing one goal for each constructor of the\ninductive type, in which the target is replaced by a general instance of that constructor.\nIf the type of an element in the local context depends on `x`,\nthat element is reverted and reintroduced afterward,\nso that the case split affects that hypothesis as well.\n`cases` detects unreachable cases and closes them automatically.\n\nFor example, given `n : Nat` and a goal with a hypothesis `h : P n` and target `Q n`,\n`cases n` produces one goal with hypothesis `h : P 0` and target `Q 0`,\nand one goal with hypothesis `h : P (Nat.succ a)` and target `Q (Nat.succ a)`.\nHere the name `a` is chosen automatically and is not accessible.\nYou can use `with` to provide the variables names for each constructor.\n- `cases e`, where `e` is an expression instead of a variable, generalizes `e` in the goal,\n  and then cases on the resulting variable.\n- Given `as : List α`, `cases as with | nil =&gt; tac₁ | cons a as' =&gt; tac₂`,\n  uses tactic `tac₁` for the `nil` case, and `tac₂` for the `cons` case,\n  and `a` and `as'` are used as names for the new variables introduced.\n- `cases h : e`, where `e` is a variable or an expression,\n  performs cases on `e` as above, but also adds a hypothesis `h : e = ...` to each goal,\n  where `...` is the constructor instance for that particular case.\n</code>",
+ "<code class=\"docstring\">`rcases` is a tactic that will perform `cases` recursively, according to a pattern. It is used to\ndestructure hypotheses or expressions composed of inductive types like `h1 : a ∧ b ∧ c ∨ d` or\n`h2 : ∃ x y, trans_rel R x y`. Usual usage might be `rcases h1 with ⟨ha, hb, hc⟩ | hd` or\n`rcases h2 with ⟨x, y, _ | ⟨z, hxz, hzy⟩⟩` for these examples.\n\nEach element of an `rcases` pattern is matched against a particular local hypothesis (most of which\nare generated during the execution of `rcases` and represent individual elements destructured from\nthe input expression). An `rcases` pattern has the following grammar:\n\n* A name like `x`, which names the active hypothesis as `x`.\n* A blank `_`, which does nothing (letting the automatic naming system used by `cases` name the\n  hypothesis).\n* A hyphen `-`, which clears the active hypothesis and any dependents.\n* The keyword `rfl`, which expects the hypothesis to be `h : a = b`, and calls `subst` on the\n  hypothesis (which has the effect of replacing `b` with `a` everywhere or vice versa).\n* A type ascription `p : ty`, which sets the type of the hypothesis to `ty` and then matches it\n  against `p`. (Of course, `ty` must unify with the actual type of `h` for this to work.)\n* A tuple pattern `⟨p1, p2, p3⟩`, which matches a constructor with many arguments, or a series\n  of nested conjunctions or existentials. For example if the active hypothesis is `a ∧ b ∧ c`,\n  then the conjunction will be destructured, and `p1` will be matched against `a`, `p2` against `b`\n  and so on.\n* A `@` before a tuple pattern as in `@⟨p1, p2, p3⟩` will bind all arguments in the constructor,\n  while leaving the `@` off will only use the patterns on the explicit arguments.\n* An alternation pattern `p1 | p2 | p3`, which matches an inductive type with multiple constructors,\n  or a nested disjunction like `a ∨ b ∨ c`.\n\nA pattern like `⟨a, b, c⟩ | ⟨d, e⟩` will do a split over the inductive datatype,\nnaming the first three parameters of the first constructor as `a,b,c` and the\nfirst two of the second constructor `d,e`. If the list is not as long as the\nnumber of arguments to the constructor or the number of constructors, the\nremaining variables will be automatically named. If there are nested brackets\nsuch as `⟨⟨a⟩, b | c⟩ | d` then these will cause more case splits as necessary.\nIf there are too many arguments, such as `⟨a, b, c⟩` for splitting on\n`∃ x, ∃ y, p x`, then it will be treated as `⟨a, ⟨b, c⟩⟩`, splitting the last\nparameter as necessary.\n\n`rcases` also has special support for quotient types: quotient induction into Prop works like\nmatching on the constructor `quot.mk`.\n\n`rcases h : e with PAT` will do the same as `rcases e with PAT` with the exception that an\nassumption `h : e = PAT` will be added to the context.\n</code>",
  "686":
- "<code>DeMoivre_formula (θ : ℝ) (n : ℤ) :\n  (↑(Real.cos θ) + ↑(Real.sin θ) * I) ^ n = ↑(Real.cos (↑n * θ)) + ↑(Real.sin (↑n * θ)) * I</code><span class=\"sep\"></span><code class=\"docstring\">DeMoivre formula for all integers\n</code>",
+ "<code class=\"docstring\">The `linear_combination` tactic attempts to prove an (in)equality goal by exhibiting it as a\nspecified linear combination of (in)equality hypotheses, or other (in)equality proof terms, modulo\n(A) moving terms between the LHS and RHS of the (in)equalities, and (B) a normalization tactic\nwhich by default is ring-normalization.\n\nExample usage:\n```\nexample {a b : ℚ} (h1 : a = 1) (h2 : b = 3) : (a + b) / 2 = 2 := by\n  linear_combination (h1 + h2) / 2\n\nexample {a b : ℚ} (h1 : a ≤ 1) (h2 : b ≤ 3) : (a + b) / 2 ≤ 2 := by\n  linear_combination (h1 + h2) / 2\n\nexample {a b : ℚ} : 2 * a * b ≤ a ^ 2 + b ^ 2 := by\n  linear_combination sq_nonneg (a - b)\n\nexample {x y z w : ℤ} (h₁ : x * z = y ^ 2) (h₂ : y * w = z ^ 2) :\n    z * (x * w - y * z) = 0 := by\n  linear_combination w * h₁ + y * h₂\n\nexample {x : ℚ} (h : x ≥ 5) : x ^ 2 &gt; 2 * x + 11 := by\n  linear_combination (x + 3) * h\n\nexample {R : Type*} [CommRing R] {a b : R} (h : a = b) : a ^ 2 = b ^ 2 := by\n  linear_combination (a + b) * h\n\nexample {A : Type*} [AddCommGroup A]\n    {x y z : A} (h1 : x + y = 10 • z) (h2 : x - y = 6 • z) :\n    2 • x = 2 • (8 • z) := by\n  linear_combination (norm := abel) h1 + h2\n\nexample (x y : ℤ) (h1 : x * y + 2 * x = 1) (h2 : x = y) :\n    x * y = -2 * y + 1 := by\n  linear_combination (norm := ring_nf) -2 * h2\n  -- leaves goal `⊢ x * y + x * 2 - 1 = 0`\n```\n\nThe input `e` in `linear_combination e` is a linear combination of proofs of (in)equalities,\ngiven as a sum/difference of coefficients multiplied by expressions.\nThe coefficients may be arbitrary expressions (with nonnegativity constraints in the case of\ninequalities).\nThe expressions can be arbitrary proof terms proving (in)equalities;\nmost commonly they are hypothesis names `h1`, `h2`, ....\n\nThe left and right sides of all the (in)equalities should have the same type `α`, and the\ncoefficients should also have type `α`.  For full functionality `α` should be a commutative ring --\nstrictly speaking, a commutative semiring with \"cancellative\" addition (in the semiring case,\nnegation and subtraction will be handled \"formally\" as if operating in the enveloping ring). If a\nnonstandard normalization is used (for example `abel` or `skip`), the tactic will work over types\n`α` with less algebraic structure: for equalities, the minimum is instances of\n`[Add α] [IsRightCancelAdd α]` together with instances of whatever operations are used in the tactic\ncall.\n\nThe variant `linear_combination (norm := tac) e` specifies explicitly the \"normalization tactic\"\n`tac` to be run on the subgoal(s) after constructing the linear combination.\n* The default normalization tactic is `ring1` (for equalities) or `Mathlib.Tactic.Ring.prove{LE,LT}`\n  (for inequalities). These are finishing tactics: they close the goal or fail.\n* When working in algebraic categories other than commutative rings -- for example fields, abelian\n  groups, modules -- it is sometimes useful to use normalization tactics adapted to those categories\n  (`field_simp`, `abel`, `module`).\n* To skip normalization entirely, use `skip` as the normalization tactic.\n* The `linear_combination` tactic creates a linear combination by adding the provided (in)equalities\n  together from left to right, so if `tac` is not invariant under commutation of additive\n  expressions, then the order of the input hypotheses can matter.\n\nThe variant `linear_combination (exp := n) e` will take the goal to the `n`th power before\nsubtracting the combination `e`. In other words, if the goal is `t1 = t2`,\n`linear_combination (exp := n) e` will change the goal to `(t1 - t2)^n = 0` before proceeding as\nabove.  This variant is implemented only for linear combinations of equalities (i.e., not for\ninequalities).\n</code>",
  "685":
- "<code>one_div_pow.{u_1} {α : Type u_1} [DivisionMonoid α] (a : α) (n : ℕ) : (1 / a) ^ n = 1 / a ^ n</code>",
+ "<code>sub_ne_zero_of_ne.{u_1} {α : Type u_1} [SubtractionMonoid α] {a b : α} : a ≠ b → a - b ≠ 0</code>",
  "684":
- "<code>1 / (↑(Real.cos x) + ↑(Real.sin x) * I) ^ n = ↑(Real.cos (↑n * -x)) + ↑(Real.sin (↑n * -x)) * I</code>",
- "683":
- "<code>DeMoivre_neg_exp (x : ℝ) (n : ℕ) :\n  1 / (↑(Real.cos x) + ↑(Real.sin x) * I) ^ n = ↑(Real.cos (-↑n * x)) + ↑(Real.sin (-↑n * x)) * I</code><span class=\"sep\"></span><code class=\"docstring\">DeMoivre formula for negative integer\n</code>",
+ "<code>mul_left_cancel₀.{u_1} {M₀ : Type u_1} [Mul M₀] [Zero M₀] [IsLeftCancelMulZero M₀] {a b c : M₀} (ha : a ≠ 0)\n  (h : a * b = a * c) : b = c</code>",
+ "683": "<code>¬z₁ - z₂ = (z₂ - z₃) * (-1 / 2 + I * (↑√3 / 2))</code>",
  "682":
- "<code>Real.cos_sq_add_sin_sq (x : ℝ) : Real.cos x ^ 2 + Real.sin x ^ 2 = 1</code>",
+ "<code>Classical.or_iff_not_imp_left {a b : Prop} : a ∨ b ↔ ¬a → b</code>",
  "681":
- "<code>And.intro {a b : Prop} (left : a) (right : b) : a ∧ b</code><span class=\"sep\"></span><code class=\"docstring\">`And.intro : a → b → a ∧ b` is the constructor for the And operation. </code>",
+ "<code>z₁ - z₂ = (z₂ - z₃) * (-1 / 2 + I * (↑√3 / 2)) ∨ z₁ - z₂ = (z₂ - z₃) * (-1 / 2 - I * (↑√3 / 2))</code>",
  "680":
- "<code>Complex.exp_im (x : ℂ) : (cexp x).im = Real.exp x.re * Real.sin x.im</code>",
+ "<code class=\"docstring\">`linear_combination'` attempts to simplify the target by creating a linear combination\n  of a list of equalities and subtracting it from the target.\n  The tactic will create a linear\n  combination by adding the equalities together from left to right, so the order\n  of the input hypotheses does matter.  If the `norm` field of the\n  tactic is set to `skip`, then the tactic will simply set the user up to\n  prove their target using the linear combination instead of normalizing the subtraction.\n\nNote: There is also a similar tactic `linear_combination` (no prime); this version is\nprovided for backward compatibility.  Compared to this tactic, `linear_combination`:\n* drops the `←` syntax for reversing an equation, instead offering this operation using the `-`\n  syntax\n* does not support multiplication of two hypotheses (`h1 * h2`), division by a hypothesis (`3 / h`),\n  or inversion of a hypothesis (`h⁻¹`)\n* produces noisy output when the user adds or subtracts a constant to a hypothesis (`h + 3`)\n\nNote: The left and right sides of all the equalities should have the same\n  type, and the coefficients should also have this type.  There must be\n  instances of `Mul` and `AddGroup` for this type.\n\n* The input `e` in `linear_combination' e` is a linear combination of proofs of equalities,\n  given as a sum/difference of coefficients multiplied by expressions.\n  The coefficients may be arbitrary expressions.\n  The expressions can be arbitrary proof terms proving equalities.\n  Most commonly they are hypothesis names `h1, h2, ...`.\n* `linear_combination' (norm := tac) e` runs the \"normalization tactic\" `tac`\n  on the subgoal(s) after constructing the linear combination.\n  * The default normalization tactic is `ring1`, which closes the goal or fails.\n  * To get a subgoal in the case that it is not immediately provable, use\n    `ring_nf` as the normalization tactic.\n  * To avoid normalization entirely, use `skip` as the normalization tactic.\n* `linear_combination' (exp := n) e` will take the goal to the `n`th power before subtracting the\n  combination `e`. In other words, if the goal is `t1 = t2`, `linear_combination' (exp := n) e`\n  will change the goal to `(t1 - t2)^n = 0` before proceeding as above.\n  This feature is not supported for `linear_combination2`.\n* `linear_combination2 e` is the same as `linear_combination' e` but it produces two\n  subgoals instead of one: rather than proving that `(a - b) - (a' - b') = 0` where\n  `a' = b'` is the linear combination from `e` and `a = b` is the goal,\n  it instead attempts to prove `a = a'` and `b = b'`.\n  Because it does not use subtraction, this form is applicable also to semirings.\n  * Note that a goal which is provable by `linear_combination' e` may not be provable\n    by `linear_combination2 e`; in general you may need to add a coefficient to `e`\n    to make both sides match, as in `linear_combination2 e + c`.\n  * You can also reverse equalities using `← h`, so for example if `h₁ : a = b`\n    then `2 * (← h)` is a proof of `2 * b = 2 * a`.\n\nExample Usage:\n```\nexample (x y : ℤ) (h1 : x*y + 2*x = 1) (h2 : x = y) : x*y = -2*y + 1 := by\n  linear_combination' 1*h1 - 2*h2\n\nexample (x y : ℤ) (h1 : x*y + 2*x = 1) (h2 : x = y) : x*y = -2*y + 1 := by\n  linear_combination' h1 - 2*h2\n\nexample (x y : ℤ) (h1 : x*y + 2*x = 1) (h2 : x = y) : x*y = -2*y + 1 := by\n  linear_combination' (norm := ring_nf) -2*h2\n  /- Goal: x * y + x * 2 - 1 = 0 -/\n\nexample (x y z : ℝ) (ha : x + 2*y - z = 4) (hb : 2*x + y + z = -2)\n    (hc : x + 2*y + z = 2) :\n    -3*x - 3*y - 4*z = 2 := by\n  linear_combination' ha - hb - 2*hc\n\nexample (x y : ℚ) (h1 : x + y = 3) (h2 : 3*x = 7) :\n    x*x*y + y*x*y + 6*x = 3*x*y + 14 := by\n  linear_combination' x*y*h1 + 2*h2\n\nexample (x y : ℤ) (h1 : x = -3) (h2 : y = 10) : 2*x = -6 := by\n  linear_combination' (norm := skip) 2*h1\n  simp\n\naxiom qc : ℚ\naxiom hqc : qc = 2*qc\n\nexample (a b : ℚ) (h : ∀ p q : ℚ, p = q) : 3*a + qc = 3*b + 2*qc := by\n  linear_combination' 3 * h a b + hqc\n```\n</code>",
  "68": "<code>complex_number_game.I_re : I.re = 0</code>",
- "679":
- "<code>Complex.exp_re (x : ℂ) : (cexp x).re = Real.exp x.re * Real.cos x.im</code>",
- "678":
- "<code class=\"docstring\">`convert e`, where the term `e` is inferred to have type `t`, replaces the main goal `⊢ t'` with new\ngoals for proving the equality `t' = t` using congruence. The goals are created like `congr!` would.\nLike `refine e`, any holes (`?_` or `?x`) in `e` that are not solved by unification are converted\ninto new goals, using the hole's name, if any, as the goal case name.\nLike `congr!`, `convert` introduces variables while applying congruence rules. These can be\npattern-matched, like `rintro` would, using the `with` keyword.\n\nSee also `convert_to t`, where `t` specifies the expected type, instead of a proof term of type `t`.\nIn other words, `convert_to t` works like `convert (?_ : t)`. Both tactics use the same options.\n\n* `convert ← e` creates equality goals in the opposite direction (with the goal type on the right).\n* `convert e using n`, where `n` is a positive numeral, controls the depth with which congruence is\n  applied. For example, if the main goal is `⊢ Prime (n + n + 1)` and `e : Prime (2 * n + 1)`, then\n  `convert e using 2` results in one goal, `⊢ n + n = 2 * n`, and `convert e using 3` (or more)\n  results in two (impossible) goals `⊢ HAdd.hAdd = HMul.hMul` and `⊢ n = 2`.\n  By default, the depth is unlimited.\n* `convert e with x ⟨y₁, y₂⟩ (z₁ | z₂)` names or pattern-matches the variables introduced by\n  congruence rules, like `rintro x ⟨y₁, y₂⟩ (z₁ | z₂)` would.\n* `convert (config := cfg) e` uses the configuration options in `cfg` to control the congruence\n  rules (see `Congr!.Config`).\n\nExamples:\n\n```lean\n-- `convert using` controls the depth of congruence.\nexample {n : ℕ} (e : Prime (2 * n + 1)) :\n    Prime (n + n + 1) := by\n  convert e using 2\n  -- One goal: ⊢ n + n = 2 * n\n  ring\n\n-- `convert` can fail where `exact` succeeds.\nexample (h : p 0) : p 1 := by\n  fail_if_success\n    convert h -- fails, left-over goal 1 = 0\n    done\n  exact h -- succeeds\n\n-- `convert with` names introduced variables.\nexample (p q : Nat → Prop) (h : ∀ ε &gt; 0, p ε) :\n    ∀ ε &gt; 0, q ε := by\n  convert h using 2 with ε hε\n  -- Goal now looks like:\n  -- hε : ε &gt; 0\n  -- ⊢ q ε ↔ p ε\n  sorry\n```\n</code>",
+ "679": "<code>(z₁ - z₂) ^ 2 + (z₂ - z₃) ^ 2 + (z₃ - z₁) ^ 2 = 0</code>",
+ "678": "<code>z₁ ^ 2 + z₂ ^ 2 + z₃ ^ 2 = z₁ * z₂ + z₂ * z₃ + z₃ * z₁</code>",
  "677":
- "<code>DeMoivre_helper (x : ℝ) : 1 / (↑(Real.cos x) + ↑(Real.sin x) * I) = ↑(Real.cos (-x)) + ↑(Real.sin (-x)) * I</code><span class=\"sep\"></span><code class=\"docstring\">Helper lemma 2\nThe inverse of (cos (x) + sin (x) *I)\nequals cos (-x) + sin (-x) *I\n</code>",
+ "<code>√((z₁.re - z₂.re) * (z₁.re - z₂.re) + (z₁.im - z₂.im) * (z₁.im - z₂.im)) =\n    √((z₂.re - z₃.re) * (z₂.re - z₃.re) + (z₂.im - z₃.im) * (z₂.im - z₃.im)) ∧\n  √((z₂.re - z₃.re) * (z₂.re - z₃.re) + (z₂.im - z₃.im) * (z₂.im - z₃.im)) =\n      √((z₃.re - z₁.re) * (z₃.re - z₁.re) + (z₃.im - z₁.im) * (z₃.im - z₁.im)) ∧\n    (z₁.re * z₁.re - z₁.im * z₁.im + (z₂.re * z₂.re - z₂.im * z₂.im) + (z₃.re * z₃.re - z₃.im * z₃.im) =\n        z₁.re * z₂.re - z₁.im * z₂.im + (z₂.re * z₃.re - z₂.im * z₃.im) + (z₃.re * z₁.re - z₃.im * z₁.im) →\n      ¬z₁.re * z₁.im + z₁.im * z₁.re + (z₂.re * z₂.im + z₂.im * z₂.re) + (z₃.re * z₃.im + z₃.im * z₃.re) =\n          z₁.re * z₂.im + z₁.im * z₂.re + (z₂.re * z₃.im + z₂.im * z₃.re) + (z₃.re * z₁.im + z₃.im * z₁.re))</code>",
  "676":
- "<code>Real.sin_sq_add_cos_sq (x : ℝ) : Real.sin x ^ 2 + Real.cos x ^ 2 = 1</code>",
+ "<code>w.re * w.re + w.im * w.im = 1 ∧ (w.re + 1) * (w.re + 1) + w.im * w.im = 1</code>",
  "675":
- "<code class=\"docstring\">An extension of `linarith` with some preprocessing to allow it to solve some nonlinear arithmetic\nproblems. (Based on Coq's `nra` tactic.) See `linarith` for the available syntax of options,\nwhich are inherited by `nlinarith`; that is, `nlinarith!` and `nlinarith only [h1, h2]` all work as\nin `linarith`. The preprocessing is as follows:\n\n* For every subterm `a ^ 2` or `a * a` in a hypothesis or the goal,\n  the assumption `0 ≤ a ^ 2` or `0 ≤ a * a` is added to the context.\n* For every pair of hypotheses `a1 R1 b1`, `a2 R2 b2` in the context, `R1, R2 ∈ {&lt;, ≤, =}`,\n  the assumption `0 R' (b1 - a1) * (b2 - a2)` is added to the context (non-recursively),\n  where `R ∈ {&lt;, ≤, =}` is the appropriate comparison derived from `R1, R2`.\n</code>",
- "674": "<code>Real.sin x = 0</code>",
- "673": "<code>Real.cos x = 0</code>",
+ "<code>√((z₁.re - z₂.re) * (z₁.re - z₂.re) + (z₁.im - z₂.im) * (z₁.im - z₂.im)) =\n    √((z₂.re - z₃.re) * (z₂.re - z₃.re) + (z₂.im - z₃.im) * (z₂.im - z₃.im)) ∧\n  √((z₂.re - z₃.re) * (z₂.re - z₃.re) + (z₂.im - z₃.im) * (z₂.im - z₃.im)) =\n      √((z₃.re - z₁.re) * (z₃.re - z₁.re) + (z₃.im - z₁.im) * (z₃.im - z₁.im)) ∧\n    ¬z₁ ^ 2 + z₂ ^ 2 + z₃ ^ 2 = z₁ * z₂ + z₂ * z₃ + z₃ * z₁</code>",
+ "674": "<code>Complex.norm_def (z : ℂ) : ‖z‖ = √(normSq z)</code>",
+ "673": "<code>w ^ 2 + w + 1 = 0</code>",
  "672":
- "<code>cos_add_sin_mul_I_ne_zero (x : ℝ) : ↑(Real.cos x) + ↑(Real.sin x) * I ≠ 0</code><span class=\"sep\"></span><code class=\"docstring\">Helper lemma 1\ncos x + (sin x)*I ≠ 0\n</code>",
+ "<code>‖z₁ - z₂‖ * ‖z₁ - z₂‖ = ‖z₂ - z₃‖ * ‖z₂ - z₃‖ ∧\n  ‖z₂ - z₃‖ * ‖z₂ - z₃‖ = ‖z₁ - z₃‖ * ‖z₁ - z₃‖ ∧ ¬z₁ * z₁ + z₂ * z₂ + z₃ * z₃ = z₁ * z₂ + z₂ * z₃ + z₃ * z₁</code>",
  "671":
- "<code>Nat.cast_succ.{u_1} {R : Type u_1} [AddMonoidWithOne R] (n : ℕ) : ↑n.succ = ↑n + 1</code>",
+ "<code>norm_sub_rev.{u_5} {E : Type u_5} [SeminormedAddGroup E] (a b : E) : ‖a - b‖ = ‖b - a‖</code>",
  "670":
- "<code>(↑(Real.cos θ) + ↑(Real.sin θ) * I) ^ n = ↑(Real.cos (↑n * θ)) + ↑(Real.sin (↑n * θ)) * I</code>",
+ "<code class=\"docstring\">An extension of `linarith` with some preprocessing to allow it to solve some nonlinear arithmetic\nproblems. (Based on Coq's `nra` tactic.) See `linarith` for the available syntax of options,\nwhich are inherited by `nlinarith`; that is, `nlinarith!` and `nlinarith only [h1, h2]` all work as\nin `linarith`. The preprocessing is as follows:\n\n* For every subterm `a ^ 2` or `a * a` in a hypothesis or the goal,\n  the assumption `0 ≤ a ^ 2` or `0 ≤ a * a` is added to the context.\n* For every pair of hypotheses `a1 R1 b1`, `a2 R2 b2` in the context, `R1, R2 ∈ {&lt;, ≤, =}`,\n  the assumption `0 R' (b1 - a1) * (b2 - a2)` is added to the context (non-recursively),\n  where `R ∈ {&lt;, ≤, =}` is the appropriate comparison derived from `R1, R2`.\n</code>",
  "67": "<code>complex_number_game.one_def : 1 = { re := 1, im := 0 }</code>",
  "669":
- "<code>DeMoivre (θ : ℝ) (n : ℕ) : (↑(Real.cos θ) + ↑(Real.sin θ) * I) ^ n = ↑(Real.cos (↑n * θ)) + ↑(Real.sin (↑n * θ)) * I</code><span class=\"sep\"></span><code class=\"docstring\">Prove by using the tactic `induction` </code>",
+ "<code>sub_ne_zero.{u_3} {G : Type u_3} [AddGroup G] {a b : G} : a - b ≠ 0 ↔ a ≠ b</code>",
  "668":
- "<code>polar_mul' (θ₁ θ₂ : ℝ) :\n  (↑(Real.cos θ₁) + ↑(Real.sin θ₁) * I) * (↑(Real.cos θ₂) + ↑(Real.sin θ₂) * I) =\n    ↑(Real.cos (θ₁ + θ₂)) + ↑(Real.sin (θ₁ + θ₂)) * I</code>",
- "667":
- "<code>Complex.sin (z : ℂ) : ℂ</code><span class=\"sep\"></span><code class=\"docstring\">The complex sine function, defined via `exp` </code>",
+ "<code>norm_ne_zero_iff.{u_5} {E : Type u_5} [NormedAddGroup E] {a : E} : ‖a‖ ≠ 0 ↔ a ≠ 0</code>",
+ "667": "<code>¬z₂ = z₃</code>",
  "666":
- "<code>Complex.cos (z : ℂ) : ℂ</code><span class=\"sep\"></span><code class=\"docstring\">The complex cosine function, defined via `exp` </code>",
+ "<code>sub_eq_iff_eq_add.{u_3} {G : Type u_3} [AddGroup G] {a b c : G} : a - b = c ↔ a = c + b</code>",
  "665":
- "<code>Real.sin_add (x y : ℝ) : Real.sin (x + y) = Real.sin x * Real.cos y + Real.cos x * Real.sin y</code>",
+ "<code>norm_div.{u_2} {α : Type u_2} [NormedDivisionRing α] (a b : α) : ‖a / b‖ = ‖a‖ / ‖b‖</code>",
  "664":
- "<code>Real.cos_add (x y : ℝ) : Real.cos (x + y) = Real.cos x * Real.cos y - Real.sin x * Real.sin y</code>",
- "663": "<code>Complex.add_im (z w : ℂ) : (z + w).im = z.im + w.im</code>",
+ "<code>div_add_one.{u_1} {K : Type u_1} [DivisionSemiring K] {a b : K} (h : b ≠ 0) : a / b + 1 = (a + b) / b</code>",
+ "663":
+ "<code>z₁ - z₂ = 0 ∧ z₃ - z₁ = 0 ∧ ¬z₁ * z₁ + z₂ * z₂ + z₃ * z₃ = z₁ * z₂ + z₂ * z₃ + z₃ * z₁</code>",
  "662":
- "<code>Complex.mul_im (z w : ℂ) : (z * w).im = z.re * w.im + z.im * w.re</code>",
- "661":
- "<code>Complex.mul_re (z w : ℂ) : (z * w).re = z.re * w.re - z.im * w.im</code>",
- "660": "<code>Complex.I_im : I.im = 1</code>",
+ "<code>‖z₁ - z₂‖ * ‖z₁ - z₂‖ = ‖z₂ - z₃‖ * ‖z₂ - z₃‖ ∧\n  ‖z₂ - z₃‖ * ‖z₂ - z₃‖ = ‖z₃ - z₁‖ * ‖z₃ - z₁‖ ∧ ¬z₁ * z₁ + z₂ * z₂ + z₃ * z₃ = z₁ * z₂ + z₂ * z₃ + z₃ * z₁</code>",
+ "661": "<code>¬z₂ - z₃ = 0</code>",
+ "660": "<code>z₂ - z₃ = 0</code>",
  "66": "<code>complex_number_game.zero_def : 0 = { re := 0, im := 0 }</code>",
- "659": "<code>Complex.I_re : I.re = 0</code>",
+ "659": "<code>‖w‖ = 1 ∧ ‖w + 1‖ = 1</code>",
  "658":
- "<code>Real.sin (x : ℝ) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The real sine function, defined as the real part of the complex sine </code>",
+ "<code class=\"docstring\">`set a := t with h` is a variant of `let a := t`. It adds the hypothesis `h : a = t` to\nthe local context and replaces `t` with `a` everywhere it can.\n\n`set a := t with ← h` will add `h : t = a` instead.\n\n`set! a := t with h` does not do any replacing.\n\n```lean\nexample (x : Nat) (h : x + x - x = 3) : x + x - x = 3 := by\n  set y := x with ← h2\n  sorry\n/-\nx : Nat\ny : Nat := x\nh : y + y - y = 3\nh2 : x = y\n⊢ y + y - y = 3\n-/\n```\n</code>",
  "657":
- "<code>Real.cos (x : ℝ) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The real cosine function, defined as the real part of the complex cosine </code>",
+ "<code>¬(‖z₁ - z₂‖ ^ 2 = ‖z₂ - z₃‖ ^ 2 ∧ ‖z₂ - z₃‖ ^ 2 = ‖z₃ - z₁‖ ^ 2 →\n    z₁ ^ 2 + z₂ ^ 2 + z₃ ^ 2 = z₁ * z₂ + z₂ * z₃ + z₃ * z₁)</code>",
  "656":
- "<code>polar_mul (r₁ r₂ θ₁ θ₂ : ℝ) :\n  ↑r₁ * (↑(Real.cos θ₁) + ↑(Real.sin θ₁) * I) * (↑r₂ * (↑(Real.cos θ₂) + ↑(Real.sin θ₂) * I)) =\n    ↑r₁ * ↑r₂ * (↑(Real.cos (θ₁ + θ₂)) + ↑(Real.sin (θ₁ + θ₂)) * I)</code>",
+ "<code class=\"docstring\">`by_contra h` proves `⊢ p` by contradiction,\nintroducing a hypothesis `h : ¬p` and proving `False`.\n* If `p` is a negation `¬q`, `h : q` will be introduced instead of `¬¬q`.\n* If `p` is decidable, it uses `Decidable.byContradiction` instead of `Classical.byContradiction`.\n* If `h` is omitted, the introduced variable will be called `this`.\n</code>",
  "655": "<code>‖z ^ n‖ = ‖z‖ ^ n</code>",
  "654":
  "<code>Nat.zero : ℕ</code><span class=\"sep\"></span><code class=\"docstring\">Zero, the smallest natural number.\n\nUsing `Nat.zero` explicitly should usually be avoided in favor of the literal `0`, which is the\n[simp normal form](https://lean-lang.org/doc/reference/4.29.0/find/?domain=Verso.Genre.Manual.section&name=simp-normal-forms).\n</code>",
@@ -1486,7 +1636,39 @@
  "103":
  "<code>complex_number_game.ofRational_inj {r s : ℚ} : ↑r = ↑s ↔ r = s</code>",
  "102": "<code>complex_number_game.ofRational_im (r : ℚ) : (↑r).im = 0</code>",
+ "1019":
+ "<code>locallyUniform_iff_compact (D : Set ℂ) (hD_open : IsOpen D) (F : ℕ → ℂ → ℂ) (f : ℂ → ℂ) :\n  LocallyUniformConvergence F f D ↔ CompactConvergence F f D</code><span class=\"sep\"></span><code class=\"docstring\">Locally uniform convergence and\ncompact convergence are equivalent for sequences\nof complex functions on a nonempty open connected\ndomain D ⊆ ℂ.\n</code>",
+ "1018":
+ "<code>Metric.closedBall_mem_nhds.{u} {α : Type u} [PseudoMetricSpace α] (x : α) {ε : ℝ} (ε0 : 0 &lt; ε) :\n  Metric.closedBall x ε ∈ 𝓝 x</code>",
+ "1017":
+ "<code>IsOpen.mem_nhds.{u} {X : Type u} [TopologicalSpace X] {x : X} {s : Set X} (hs : IsOpen s) (hx : x ∈ s) : s ∈ 𝓝 x</code>",
+ "1016":
+ "<code>Filter.HasBasis.mem_iff.{u_1, u_4} {α : Type u_1} {ι : Sort u_4} {l : Filter α} {p : ι → Prop} {s : ι → Set α}\n  {t : Set α} (hl : l.HasBasis p s) : t ∈ l ↔ ∃ i, p i ∧ s i ⊆ t</code><span class=\"sep\"></span><code class=\"docstring\">Definition of `HasBasis` unfolded with implicit set argument. </code>",
+ "1015":
+ "<code>Metric.nhds_basis_closedBall.{u} {α : Type u} [PseudoMetricSpace α] {x : α} :\n  (𝓝 x).HasBasis (fun ε =&gt; 0 &lt; ε) (Metric.closedBall x)</code>",
+ "1014": "<code>Metric.closedBall z₀ r ⊆ D</code>",
+ "1013": "<code>z₀ ∈ D</code>",
+ "1012": "<code>CompactConvergence F f D</code>",
+ "1011":
+ "<code>IsOpen.{u} {X : Type u} [TopologicalSpace X] : Set X → Prop</code><span class=\"sep\"></span><code class=\"docstring\">`IsOpen s` means that `s` is open in the ambient topological space on `X` </code>",
+ "1010": "<code>IsOpen D</code>",
  "101": "<code>complex_number_game.ofRational_re (r : ℚ) : (↑r).re = r</code>",
+ "1009":
+ "<code>compact_implies_locallyUniform (D : Set ℂ) (hD_open : IsOpen D) (F : ℕ → ℂ → ℂ) (f : ℂ → ℂ)\n  (hcpt : CompactConvergence F f D) : LocallyUniformConvergence F f D</code><span class=\"sep\"></span><code class=\"docstring\">Compact convergence implies locally uniform\nconvergence for sequences of complex functions\non a nonempty open connected domain.\n</code>",
+ "1008":
+ "<code>Finset.le_sup.{u_2, u_3} {α : Type u_2} {β : Type u_3} [SemilatticeSup α] [OrderBot α] {s : Finset β} {f : β → α}\n  {b : β} (hb : b ∈ s) : f b ≤ s.sup f</code>",
+ "1007":
+ "<code>le_trans.{u_1} {α : Type u_1} [Preorder α] {a b c : α} : a ≤ b → b ≤ c → a ≤ c</code><span class=\"sep\"></span><code class=\"docstring\">The relation `≤` on a preorder is transitive. </code>",
+ "1006": "<code>x ∈ U z</code>",
+ "1005":
+ "<code>Set.mem_iUnion₂.{u_3, u_5, u_8} {γ : Type u_3} {ι : Sort u_5} {κ : ι → Sort u_8} {x : γ} {s : (i : ι) → κ i → Set γ} :\n  x ∈ ⋃ i, ⋃ j, s i j ↔ ∃ i j, x ∈ s i j</code>",
+ "1004": "<code>x ∈ K</code>",
+ "1003": "<code>z_fin.sup a ≤ n</code>",
+ "1002":
+ "<code>Finset.sup.{u_2, u_3} {α : Type u_2} {β : Type u_3} [SemilatticeSup α] [OrderBot α] (s : Finset β) (f : β → α) : α</code><span class=\"sep\"></span><code class=\"docstring\">Supremum of a finite set: `sup {a, b, c} f = f a ⊔ f b ⊔ f c` </code>",
+ "1001": "<code>z ∈ z_fin</code>",
+ "1000":
+ "<code>∀ z ∈ z_fin, ∀ (b : ℕ), a z ≤ b → ∀ x ∈ U z, dist (f x) (F b x) &lt; ε</code>",
  "100":
  "<code class=\"docstring\">The `norm_cast` attribute should be given to lemmas that describe the\nbehaviour of a coercion with respect to an operator, a relation, or a particular\nfunction.\n\nIt only concerns equality or iff lemmas involving `↑`, `⇑` and `↥`, describing the behavior of\nthe coercion functions.\nIt does not apply to the explicit functions that define the coercions.\n\nExamples:\n```lean\n@[norm_cast] theorem coe_nat_inj' {m n : ℕ} : (↑m : ℤ) = ↑n ↔ m = n\n\n@[norm_cast] theorem coe_int_denom (n : ℤ) : (n : ℚ).denom = 1\n\n@[norm_cast] theorem cast_id : ∀ n : ℚ, ↑n = n\n\n@[norm_cast] theorem coe_nat_add (m n : ℕ) : (↑(m + n) : ℤ) = ↑m + ↑n\n\n@[norm_cast] theorem cast_coe_nat (n : ℕ) : ((n : ℤ) : α) = n\n\n@[norm_cast] theorem cast_one : ((1 : ℚ) : α) = 1\n```\n\nLemmas tagged with `@[norm_cast]` are classified into three categories: `move`, `elim`, and\n`squash`. They are classified roughly as follows:\n\n* elim lemma:   LHS has 0 head coes and ≥ 1 internal coe\n* move lemma:   LHS has 1 head coe and 0 internal coes,    RHS has 0 head coes and ≥ 1 internal coes\n* squash lemma: LHS has ≥ 1 head coes and 0 internal coes, RHS has fewer head coes\n\n`norm_cast` uses `move` and `elim` lemmas to factor coercions toward the root of an expression\nand to cancel them from both sides of an equation or relation. It uses `squash` lemmas to clean\nup the result.\n\nIt is typically not necessary to specify these categories, as `norm_cast` lemmas are\nautomatically classified by default. The automatic classification can be overridden by\ngiving an optional `elim`, `move`, or `squash` parameter to the attribute.\n\n```lean\n@[simp, norm_cast elim] lemma nat_cast_re (n : ℕ) : (n : ℂ).re = n := by\n  rw [← of_real_nat_cast, of_real_re]\n```\n\nDon't do this unless you understand what you are doing.\n</code>",
  "10":
