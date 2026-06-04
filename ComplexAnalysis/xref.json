@@ -9,7 +9,7 @@
      {"title":
       "Chapter 7.3 Differentiation rules and differentiation at the point at infinity",
       "shortTitle": null,
-      "sectionNum": "5.",
+      "sectionNum": "6.",
       "context":
       [{"title": "MAT3253 Complex Variables",
         "shortTitle": null,
@@ -17,7 +17,7 @@
        {"title":
         "Chapter 7.3 Differentiation rules and differentiation at the point at infinity",
         "shortTitle": null,
-        "number": "5"}]},
+        "number": "6"}]},
      "address":
      "/Chapter-7___3-Differentiation-rules-and-differentiation-at-the-point-at-infinity/"}],
    "MAT3253-Complex-Variables--Chapter-2___7-Stereographic-projection":
@@ -25,14 +25,14 @@
      "data":
      {"title": "Chapter 2.7 Stereographic projection",
       "shortTitle": null,
-      "sectionNum": "4.",
+      "sectionNum": "5.",
       "context":
       [{"title": "MAT3253 Complex Variables",
         "shortTitle": null,
         "number": null},
        {"title": "Chapter 2.7 Stereographic projection",
         "shortTitle": null,
-        "number": "4"}]},
+        "number": "5"}]},
      "address": "/Chapter-2___7-Stereographic-projection/"}],
    "MAT3253-Complex-Variables--Chapter-1___4-Polar-form-and-DeMoivre-theorem--Polar-form":
    [{"id":
@@ -40,14 +40,14 @@
      "data":
      {"title": "Polar form",
       "shortTitle": null,
-      "sectionNum": "3.1.",
+      "sectionNum": "4.1.",
       "context":
       [{"title": "MAT3253 Complex Variables",
         "shortTitle": null,
         "number": null},
        {"title": "Chapter 1.4 Polar form and DeMoivre theorem",
         "shortTitle": null,
-        "number": "3"},
+        "number": "4"},
        {"title": "Polar form", "shortTitle": null, "number": "1"}]},
      "address": "/Chapter-1___4-Polar-form-and-DeMoivre-theorem/Polar-form/"}],
    "MAT3253-Complex-Variables--Chapter-1___4-Polar-form-and-DeMoivre-theorem--DeMoivre-formula":
@@ -56,14 +56,14 @@
      "data":
      {"title": "DeMoivre formula",
       "shortTitle": null,
-      "sectionNum": "3.2.",
+      "sectionNum": "4.2.",
       "context":
       [{"title": "MAT3253 Complex Variables",
         "shortTitle": null,
         "number": null},
        {"title": "Chapter 1.4 Polar form and DeMoivre theorem",
         "shortTitle": null,
-        "number": "3"},
+        "number": "4"},
        {"title": "DeMoivre formula", "shortTitle": null, "number": "2"}]},
      "address":
      "/Chapter-1___4-Polar-form-and-DeMoivre-theorem/DeMoivre-formula/"}],
@@ -73,14 +73,14 @@
      "data":
      {"title": "Chapter 1.4 Polar form and DeMoivre theorem",
       "shortTitle": null,
-      "sectionNum": "3.",
+      "sectionNum": "4.",
       "context":
       [{"title": "MAT3253 Complex Variables",
         "shortTitle": null,
         "number": null},
        {"title": "Chapter 1.4 Polar form and DeMoivre theorem",
         "shortTitle": null,
-        "number": "3"}]},
+        "number": "4"}]},
      "address": "/Chapter-1___4-Polar-form-and-DeMoivre-theorem/"}],
    "MAT3253-Complex-Variables--Chapter-1___3-Complex-conjugate-and-modulus--Complex-conjugate":
    [{"id":
@@ -88,14 +88,14 @@
      "data":
      {"title": "Complex conjugate",
       "shortTitle": null,
-      "sectionNum": "2.1.",
+      "sectionNum": "3.1.",
       "context":
       [{"title": "MAT3253 Complex Variables",
         "shortTitle": null,
         "number": null},
        {"title": "Chapter 1.3 Complex conjugate and modulus",
         "shortTitle": null,
-        "number": "2"},
+        "number": "3"},
        {"title": "Complex conjugate", "shortTitle": null, "number": "1"}]},
      "address":
      "/Chapter-1___3-Complex-conjugate-and-modulus/Complex-conjugate/"}],
@@ -105,14 +105,14 @@
      "data":
      {"title": "Absolute value / Modulus",
       "shortTitle": null,
-      "sectionNum": "2.2.",
+      "sectionNum": "3.2.",
       "context":
       [{"title": "MAT3253 Complex Variables",
         "shortTitle": null,
         "number": null},
        {"title": "Chapter 1.3 Complex conjugate and modulus",
         "shortTitle": null,
-        "number": "2"},
+        "number": "3"},
        {"title": "Absolute value / Modulus",
         "shortTitle": null,
         "number": "2"}]},
@@ -124,14 +124,14 @@
      "data":
      {"title": "Chapter 1.3 Complex conjugate and modulus",
       "shortTitle": null,
-      "sectionNum": "2.",
+      "sectionNum": "3.",
       "context":
       [{"title": "MAT3253 Complex Variables",
         "shortTitle": null,
         "number": null},
        {"title": "Chapter 1.3 Complex conjugate and modulus",
         "shortTitle": null,
-        "number": "2"}]},
+        "number": "3"}]},
      "address": "/Chapter-1___3-Complex-conjugate-and-modulus/"}],
    "MAT3253-Complex-Variables--Chapter-1___1-Arithemtic-of-complex-numbers--n-th-root-of-unity":
    [{"id":
@@ -139,14 +139,14 @@
      "data":
      {"title": "n-th root of unity",
       "shortTitle": null,
-      "sectionNum": "1.6.",
+      "sectionNum": "2.6.",
       "context":
       [{"title": "MAT3253 Complex Variables",
         "shortTitle": null,
         "number": null},
        {"title": "Chapter 1.1 Arithemtic of complex numbers",
         "shortTitle": null,
-        "number": "1"},
+        "number": "2"},
        {"title": "n-th root of unity", "shortTitle": null, "number": "6"}]},
      "address":
      "/Chapter-1___1-Arithemtic-of-complex-numbers/n-th-root-of-unity/"}],
@@ -156,14 +156,14 @@
      "data":
      {"title": "Quadratic equation",
       "shortTitle": null,
-      "sectionNum": "1.4.",
+      "sectionNum": "2.4.",
       "context":
       [{"title": "MAT3253 Complex Variables",
         "shortTitle": null,
         "number": null},
        {"title": "Chapter 1.1 Arithemtic of complex numbers",
         "shortTitle": null,
-        "number": "1"},
+        "number": "2"},
        {"title": "Quadratic equation", "shortTitle": null, "number": "4"}]},
      "address":
      "/Chapter-1___1-Arithemtic-of-complex-numbers/Quadratic-equation/"}],
@@ -173,14 +173,14 @@
      "data":
      {"title": "Linear equation in complex numbers",
       "shortTitle": null,
-      "sectionNum": "1.2.",
+      "sectionNum": "2.2.",
       "context":
       [{"title": "MAT3253 Complex Variables",
         "shortTitle": null,
         "number": null},
        {"title": "Chapter 1.1 Arithemtic of complex numbers",
         "shortTitle": null,
-        "number": "1"},
+        "number": "2"},
        {"title": "Linear equation in complex numbers",
         "shortTitle": null,
         "number": "2"}]},
@@ -192,14 +192,14 @@
      "data":
      {"title": "Data structure for complex numbers",
       "shortTitle": null,
-      "sectionNum": "1.1.",
+      "sectionNum": "2.1.",
       "context":
       [{"title": "MAT3253 Complex Variables",
         "shortTitle": null,
         "number": null},
        {"title": "Chapter 1.1 Arithemtic of complex numbers",
         "shortTitle": null,
-        "number": "1"},
+        "number": "2"},
        {"title": "Data structure for complex numbers",
         "shortTitle": null,
         "number": "1"}]},
@@ -211,14 +211,14 @@
      "data":
      {"title": "Complex numbers have no ordering",
       "shortTitle": null,
-      "sectionNum": "1.5.",
+      "sectionNum": "2.5.",
       "context":
       [{"title": "MAT3253 Complex Variables",
         "shortTitle": null,
         "number": null},
        {"title": "Chapter 1.1 Arithemtic of complex numbers",
         "shortTitle": null,
-        "number": "1"},
+        "number": "2"},
        {"title": "Complex numbers have no ordering",
         "shortTitle": null,
         "number": "5"}]},
@@ -230,14 +230,14 @@
      "data":
      {"title": "Cardano equation",
       "shortTitle": null,
-      "sectionNum": "1.3.",
+      "sectionNum": "2.3.",
       "context":
       [{"title": "MAT3253 Complex Variables",
         "shortTitle": null,
         "number": null},
        {"title": "Chapter 1.1 Arithemtic of complex numbers",
         "shortTitle": null,
-        "number": "1"},
+        "number": "2"},
        {"title": "Cardano equation", "shortTitle": null, "number": "3"}]},
      "address":
      "/Chapter-1___1-Arithemtic-of-complex-numbers/Cardano-equation/"}],
@@ -247,14 +247,14 @@
      "data":
      {"title": "Chapter 1.1 Arithemtic of complex numbers",
       "shortTitle": null,
-      "sectionNum": "1.",
+      "sectionNum": "2.",
       "context":
       [{"title": "MAT3253 Complex Variables",
         "shortTitle": null,
         "number": null},
        {"title": "Chapter 1.1 Arithemtic of complex numbers",
         "shortTitle": null,
-        "number": "1"}]},
+        "number": "2"}]},
      "address": "/Chapter-1___1-Arithemtic-of-complex-numbers/"}],
    "MAT3253-Complex-Variables--Chapter-12___3-Sequence-of-holomorphic-functions":
    [{"id":
@@ -262,15 +262,223 @@
      "data":
      {"title": "Chapter 12.3 Sequence of holomorphic functions",
       "shortTitle": null,
-      "sectionNum": "6.",
+      "sectionNum": "7.",
       "context":
       [{"title": "MAT3253 Complex Variables",
         "shortTitle": null,
         "number": null},
        {"title": "Chapter 12.3 Sequence of holomorphic functions",
         "shortTitle": null,
-        "number": "6"}]},
+        "number": "7"}]},
      "address": "/Chapter-12___3-Sequence-of-holomorphic-functions/"}],
+   "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Scalar-multiplication":
+   [{"id":
+     "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Scalar-multiplication",
+     "data":
+     {"title": "Scalar multiplication",
+      "shortTitle": null,
+      "sectionNum": "1.4.",
+      "context":
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
+       {"title": "Chapter 0 Complex Number Game",
+        "shortTitle": null,
+        "number": "1"},
+       {"title": "Scalar multiplication", "shortTitle": null, "number": "4"}]},
+     "address": "/Chapter-0-Complex-Number-Game/Scalar-multiplication/"}],
+   "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Ring-structure":
+   [{"id":
+     "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Ring-structure",
+     "data":
+     {"title": "Ring structure",
+      "shortTitle": null,
+      "sectionNum": "1.6.",
+      "context":
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
+       {"title": "Chapter 0 Complex Number Game",
+        "shortTitle": null,
+        "number": "1"},
+       {"title": "Ring structure", "shortTitle": null, "number": "6"}]},
+     "address": "/Chapter-0-Complex-Number-Game/Ring-structure/"}],
+   "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Norm-square-function":
+   [{"id":
+     "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Norm-square-function",
+     "data":
+     {"title": "Norm square function",
+      "shortTitle": null,
+      "sectionNum": "1.8.",
+      "context":
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
+       {"title": "Chapter 0 Complex Number Game",
+        "shortTitle": null,
+        "number": "1"},
+       {"title": "Norm square function", "shortTitle": null, "number": "8"}]},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Involution":
+   [{"id":
+     "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Involution",
+     "data":
+     {"title": "Involution",
+      "shortTitle": null,
+      "sectionNum": "1.7.",
+      "context":
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
+       {"title": "Chapter 0 Complex Number Game",
+        "shortTitle": null,
+        "number": "1"},
+       {"title": "Involution", "shortTitle": null, "number": "7"}]},
+     "address": "/Chapter-0-Complex-Number-Game/Involution/"}],
+   "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Inversion":
+   [{"id":
+     "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Inversion",
+     "data":
+     {"title": "Inversion",
+      "shortTitle": null,
+      "sectionNum": "1.9.",
+      "context":
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
+       {"title": "Chapter 0 Complex Number Game",
+        "shortTitle": null,
+        "number": "1"},
+       {"title": "Inversion", "shortTitle": null, "number": "9"}]},
+     "address": "/Chapter-0-Complex-Number-Game/Inversion/"}],
+   "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Geometric-applications":
+   [{"id":
+     "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Geometric-applications",
+     "data":
+     {"title": "Geometric applications",
+      "shortTitle": null,
+      "sectionNum": "1.12.",
+      "context":
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
+       {"title": "Chapter 0 Complex Number Game",
+        "shortTitle": null,
+        "number": "1"},
+       {"title": "Geometric applications",
+        "shortTitle": null,
+        "number": "12"}]},
+     "address": "/Chapter-0-Complex-Number-Game/Geometric-applications/"}],
+   "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Field":
+   [{"id": "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Field",
+     "data":
+     {"title": "Field",
+      "shortTitle": null,
+      "sectionNum": "1.11.",
+      "context":
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
+       {"title": "Chapter 0 Complex Number Game",
+        "shortTitle": null,
+        "number": "1"},
+       {"title": "Field", "shortTitle": null, "number": "11"}]},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Construction":
+   [{"id":
+     "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Construction",
+     "data":
+     {"title": "Construction",
+      "shortTitle": null,
+      "sectionNum": "1.1.",
+      "context":
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
+       {"title": "Chapter 0 Complex Number Game",
+        "shortTitle": null,
+        "number": "1"},
+       {"title": "Construction", "shortTitle": null, "number": "1"}]},
+     "address": "/Chapter-0-Complex-Number-Game/Construction/"}],
+   "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Coercion":
+   [{"id": "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Coercion",
+     "data":
+     {"title": "Coercion",
+      "shortTitle": null,
+      "sectionNum": "1.3.",
+      "context":
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
+       {"title": "Chapter 0 Complex Number Game",
+        "shortTitle": null,
+        "number": "1"},
+       {"title": "Coercion", "shortTitle": null, "number": "3"}]},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Cast-lemmas":
+   [{"id":
+     "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Cast-lemmas",
+     "data":
+     {"title": "Cast lemmas",
+      "shortTitle": null,
+      "sectionNum": "1.10.",
+      "context":
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
+       {"title": "Chapter 0 Complex Number Game",
+        "shortTitle": null,
+        "number": "1"},
+       {"title": "Cast lemmas", "shortTitle": null, "number": "10"}]},
+     "address": "/Chapter-0-Complex-Number-Game/Cast-lemmas/"}],
+   "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Arithemtic-operations":
+   [{"id":
+     "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Arithemtic-operations",
+     "data":
+     {"title": "Arithemtic operations",
+      "shortTitle": null,
+      "sectionNum": "1.2.",
+      "context":
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
+       {"title": "Chapter 0 Complex Number Game",
+        "shortTitle": null,
+        "number": "1"},
+       {"title": "Arithemtic operations", "shortTitle": null, "number": "2"}]},
+     "address": "/Chapter-0-Complex-Number-Game/Arithemtic-operations/"}],
+   "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Additive-group-structure":
+   [{"id":
+     "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game--Additive-group-structure",
+     "data":
+     {"title": "Additive group structure",
+      "shortTitle": null,
+      "sectionNum": "1.5.",
+      "context":
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
+       {"title": "Chapter 0 Complex Number Game",
+        "shortTitle": null,
+        "number": "1"},
+       {"title": "Additive group structure",
+        "shortTitle": null,
+        "number": "5"}]},
+     "address": "/Chapter-0-Complex-Number-Game/Additive-group-structure/"}],
+   "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game":
+   [{"id": "MAT3253-Complex-Variables--Chapter-0-Complex-Number-Game",
+     "data":
+     {"title": "Chapter 0 Complex Number Game",
+      "shortTitle": null,
+      "sectionNum": "1.",
+      "context":
+      [{"title": "MAT3253 Complex Variables",
+        "shortTitle": null,
+        "number": null},
+       {"title": "Chapter 0 Complex Number Game",
+        "shortTitle": null,
+        "number": "1"}]},
+     "address": "/Chapter-0-Complex-Number-Game/"}],
    "MAT3253-Complex-Variables":
    [{"id": "MAT3253-Complex-Variables",
      "data":
@@ -450,6 +658,1666 @@
         "Complex conjugate"]}},
      "address":
      "/Chapter-1___3-Complex-conjugate-and-modulus/Complex-conjugate/"}],
+   "complex_number_game.zero_re":
+   [{"id": "complex_number_game___zero_re",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Arithemtic-operations/#complex_number_game___zero_re":
+      {"display": "zero_re",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Arithemtic operations"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Arithemtic-operations/"}],
+   "complex_number_game.zero_im":
+   [{"id": "complex_number_game___zero_im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Arithemtic-operations/#complex_number_game___zero_im":
+      {"display": "zero_im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Arithemtic operations"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Arithemtic-operations/"}],
+   "complex_number_game.zero_def":
+   [{"id": "complex_number_game___zero_def",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Arithemtic-operations/#complex_number_game___zero_def":
+      {"display": "zero_def",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Arithemtic operations"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Arithemtic-operations/"}],
+   "complex_number_game.zero":
+   [{"id": "complex_number_game___zero",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Construction/#complex_number_game___zero":
+      {"display": "zero",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Construction"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Construction/"}],
+   "complex_number_game.sub_re":
+   [{"id": "complex_number_game___sub_re",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___sub_re":
+      {"display": "sub_re",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.sub_im":
+   [{"id": "complex_number_game___sub_im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___sub_im":
+      {"display": "sub_im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.sub_conj":
+   [{"id": "complex_number_game___sub_conj",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___sub_conj":
+      {"display": "sub_conj",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.star_def":
+   [{"id": "complex_number_game___star_def",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Involution/#complex_number_game___star_def":
+      {"display": "star_def",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Involution"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Involution/"}],
+   "complex_number_game.smul_re":
+   [{"id": "complex_number_game___smul_re",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Scalar-multiplication/#complex_number_game___smul_re":
+      {"display": "smul_re",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Scalar multiplication"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Scalar-multiplication/"}],
+   "complex_number_game.smul_im":
+   [{"id": "complex_number_game___smul_im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Scalar-multiplication/#complex_number_game___smul_im":
+      {"display": "smul_im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Scalar multiplication"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Scalar-multiplication/"}],
+   "complex_number_game.sample6":
+   [{"id": "complex_number_game___sample6",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___sample6":
+      {"display": "sample6",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.sample5":
+   [{"id": "complex_number_game___sample5",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Construction/#complex_number_game___sample5":
+      {"display": "sample5",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Construction"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Construction/"}],
+   "complex_number_game.sample4":
+   [{"id": "complex_number_game___sample4",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Construction/#complex_number_game___sample4":
+      {"display": "sample4",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Construction"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Construction/"}],
+   "complex_number_game.sample3":
+   [{"id": "complex_number_game___sample3",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Construction/#complex_number_game___sample3":
+      {"display": "sample3",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Construction"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Construction/"}],
+   "complex_number_game.sample2":
+   [{"id": "complex_number_game___sample2",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Construction/#complex_number_game___sample2":
+      {"display": "sample2",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Construction"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Construction/"}],
+   "complex_number_game.sample1":
+   [{"id": "complex_number_game___sample1",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Construction/#complex_number_game___sample1":
+      {"display": "sample1",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Construction"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Construction/"}],
+   "complex_number_game.re_sq_le_normSq":
+   [{"id": "complex_number_game___re_sq_le_normSq",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___re_sq_le_normSq":
+      {"display": "re_sq_le_normSq",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.re_ofRational_mul":
+   [{"id": "complex_number_game___re_ofRational_mul",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___re_ofRational_mul":
+      {"display": "re_ofRational_mul",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.re_ofNat":
+   [{"id": "complex_number_game___re_ofNat",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Cast-lemmas/#complex_number_game___re_ofNat":
+      {"display": "re_ofNat",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Cast lemmas"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Cast-lemmas/"}],
+   "complex_number_game.re_nnratCast":
+   [{"id": "complex_number_game___re_nnratCast",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Cast-lemmas/#complex_number_game___re_nnratCast":
+      {"display": "re_nnratCast",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Cast lemmas"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Cast-lemmas/"}],
+   "complex_number_game.re_mul_ofRational":
+   [{"id": "complex_number_game___re_mul_ofRational",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___re_mul_ofRational":
+      {"display": "re_mul_ofRational",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.re_eq_add_conj":
+   [{"id": "complex_number_game___re_eq_add_conj",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___re_eq_add_conj":
+      {"display": "re_eq_add_conj",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.re_add_im":
+   [{"id": "complex_number_game___re_add_im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___re_add_im":
+      {"display": "re_add_im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.rational_smul":
+   [{"id": "complex_number_game___rational_smul",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Scalar-multiplication/#complex_number_game___rational_smul":
+      {"display": "rational_smul",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Scalar multiplication"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Scalar-multiplication/"}],
+   "complex_number_game.rational_eq_coe'":
+   [{"id": "complex_number_game___rational_eq_coe___",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___rational_eq_coe___":
+      {"display": "rational_eq_coe'",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.ratCast_re":
+   [{"id": "complex_number_game___ratCast_re",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Cast-lemmas/#complex_number_game___ratCast_re":
+      {"display": "ratCast_re",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Cast lemmas"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Cast-lemmas/"}],
+   "complex_number_game.ratCast_im":
+   [{"id": "complex_number_game___ratCast_im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Cast-lemmas/#complex_number_game___ratCast_im":
+      {"display": "ratCast_im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Cast lemmas"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Cast-lemmas/"}],
+   "complex_number_game.one_re":
+   [{"id": "complex_number_game___one_re",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Arithemtic-operations/#complex_number_game___one_re":
+      {"display": "one_re",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Arithemtic operations"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Arithemtic-operations/"}],
+   "complex_number_game.one_im":
+   [{"id": "complex_number_game___one_im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Arithemtic-operations/#complex_number_game___one_im":
+      {"display": "one_im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Arithemtic operations"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Arithemtic-operations/"}],
+   "complex_number_game.one_def":
+   [{"id": "complex_number_game___one_def",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Arithemtic-operations/#complex_number_game___one_def":
+      {"display": "one_def",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Arithemtic operations"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Arithemtic-operations/"}],
+   "complex_number_game.one":
+   [{"id": "complex_number_game___one",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Construction/#complex_number_game___one":
+      {"display": "one",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Construction"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Construction/"}],
+   "complex_number_game.ofReal_zpow":
+   [{"id": "complex_number_game___ofReal_zpow",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___ofReal_zpow":
+      {"display": "ofReal_zpow",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.ofReal_qsmul":
+   [{"id": "complex_number_game___ofReal_qsmul",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___ofReal_qsmul":
+      {"display": "ofReal_qsmul",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.ofReal_nnqsmul":
+   [{"id": "complex_number_game___ofReal_nnqsmul",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___ofReal_nnqsmul":
+      {"display": "ofReal_nnqsmul",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.ofRational_zsmul":
+   [{"id": "complex_number_game___ofRational_zsmul",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Cast-lemmas/#complex_number_game___ofRational_zsmul":
+      {"display": "ofRational_zsmul",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Cast lemmas"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Cast-lemmas/"}],
+   "complex_number_game.ofRational_zero":
+   [{"id": "complex_number_game___ofRational_zero",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___ofRational_zero":
+      {"display": "ofRational_zero",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.ofRational_sub":
+   [{"id": "complex_number_game___ofRational_sub",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___ofRational_sub":
+      {"display": "ofRational_sub",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.ofRational_re":
+   [{"id": "complex_number_game___ofRational_re",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___ofRational_re":
+      {"display": "ofRational_re",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.ofRational_ratCast":
+   [{"id": "complex_number_game___ofRational_ratCast",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Cast-lemmas/#complex_number_game___ofRational_ratCast":
+      {"display": "ofRational_ratCast",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Cast lemmas"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Cast-lemmas/"}],
+   "complex_number_game.ofRational_pow":
+   [{"id": "complex_number_game___ofRational_pow",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___ofRational_pow":
+      {"display": "ofRational_pow",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.ofRational_one":
+   [{"id": "complex_number_game___ofRational_one",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___ofRational_one":
+      {"display": "ofRational_one",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.ofRational_ofNat":
+   [{"id": "complex_number_game___ofRational_ofNat",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Cast-lemmas/#complex_number_game___ofRational_ofNat":
+      {"display": "ofRational_ofNat",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Cast lemmas"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Cast-lemmas/"}],
+   "complex_number_game.ofRational_nsmul":
+   [{"id": "complex_number_game___ofRational_nsmul",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Cast-lemmas/#complex_number_game___ofRational_nsmul":
+      {"display": "ofRational_nsmul",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Cast lemmas"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Cast-lemmas/"}],
+   "complex_number_game.ofRational_nnratCast":
+   [{"id": "complex_number_game___ofRational_nnratCast",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Cast-lemmas/#complex_number_game___ofRational_nnratCast":
+      {"display": "ofRational_nnratCast",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Cast lemmas"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Cast-lemmas/"}],
+   "complex_number_game.ofRational_neg":
+   [{"id": "complex_number_game___ofRational_neg",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___ofRational_neg":
+      {"display": "ofRational_neg",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.ofRational_ne_zero":
+   [{"id": "complex_number_game___ofRational_ne_zero",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___ofRational_ne_zero":
+      {"display": "ofRational_ne_zero",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.ofRational_ne_one":
+   [{"id": "complex_number_game___ofRational_ne_one",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___ofRational_ne_one":
+      {"display": "ofRational_ne_one",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.ofRational_natCast":
+   [{"id": "complex_number_game___ofRational_natCast",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Cast-lemmas/#complex_number_game___ofRational_natCast":
+      {"display": "ofRational_natCast",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Cast lemmas"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Cast-lemmas/"}],
+   "complex_number_game.ofRational_mul'":
+   [{"id": "complex_number_game___ofRational_mul___",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___ofRational_mul___":
+      {"display": "ofRational_mul'",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.ofRational_mul":
+   [{"id": "complex_number_game___ofRational_mul",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___ofRational_mul":
+      {"display": "ofRational_mul",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.ofRational_inv":
+   [{"id": "complex_number_game___ofRational_inv",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Inversion/#complex_number_game___ofRational_inv":
+      {"display": "ofRational_inv",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Inversion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Inversion/"}],
+   "complex_number_game.ofRational_intCast":
+   [{"id": "complex_number_game___ofRational_intCast",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Cast-lemmas/#complex_number_game___ofRational_intCast":
+      {"display": "ofRational_intCast",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Cast lemmas"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Cast-lemmas/"}],
+   "complex_number_game.ofRational_inj":
+   [{"id": "complex_number_game___ofRational_inj",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___ofRational_inj":
+      {"display": "ofRational_inj",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.ofRational_im":
+   [{"id": "complex_number_game___ofRational_im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___ofRational_im":
+      {"display": "ofRational_im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.ofRational_eq_zero":
+   [{"id": "complex_number_game___ofRational_eq_zero",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___ofRational_eq_zero":
+      {"display": "ofRational_eq_zero",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.ofRational_eq_one":
+   [{"id": "complex_number_game___ofRational_eq_one",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___ofRational_eq_one":
+      {"display": "ofRational_eq_one",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.ofRational_eq_coe":
+   [{"id": "complex_number_game___ofRational_eq_coe",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___ofRational_eq_coe":
+      {"display": "ofRational_eq_coe",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.ofRational_div":
+   [{"id": "complex_number_game___ofRational_div",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___ofRational_div":
+      {"display": "ofRational_div",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.ofRational_def":
+   [{"id": "complex_number_game___ofRational_def",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___ofRational_def":
+      {"display": "ofRational_def",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.ofRational_add":
+   [{"id": "complex_number_game___ofRational_add",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___ofRational_add":
+      {"display": "ofRational_add",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.ofRational'":
+   [{"id": "complex_number_game___ofRational___",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___ofRational___":
+      {"display": "ofRational'",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.ofRational":
+   [{"id": "complex_number_game___ofRational",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___ofRational":
+      {"display": "ofRational",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.normSq_zero":
+   [{"id": "complex_number_game___normSq_zero",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___normSq_zero":
+      {"display": "normSq_zero",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.normSq_sub":
+   [{"id": "complex_number_game___normSq_sub",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___normSq_sub":
+      {"display": "normSq_sub",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.normSq_pos":
+   [{"id": "complex_number_game___normSq_pos",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___normSq_pos":
+      {"display": "normSq_pos",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.normSq_one":
+   [{"id": "complex_number_game___normSq_one",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___normSq_one":
+      {"display": "normSq_one",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.normSq_ofRational":
+   [{"id": "complex_number_game___normSq_ofRational",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___normSq_ofRational":
+      {"display": "normSq_ofRational",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.normSq_ofNat":
+   [{"id": "complex_number_game___normSq_ofNat",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___normSq_ofNat":
+      {"display": "normSq_ofNat",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.normSq_nonneg":
+   [{"id": "complex_number_game___normSq_nonneg",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___normSq_nonneg":
+      {"display": "normSq_nonneg",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.normSq_neg":
+   [{"id": "complex_number_game___normSq_neg",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___normSq_neg":
+      {"display": "normSq_neg",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.normSq_natCast":
+   [{"id": "complex_number_game___normSq_natCast",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___normSq_natCast":
+      {"display": "normSq_natCast",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.normSq_mul":
+   [{"id": "complex_number_game___normSq_mul",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___normSq_mul":
+      {"display": "normSq_mul",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.normSq_mk":
+   [{"id": "complex_number_game___normSq_mk",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___normSq_mk":
+      {"display": "normSq_mk",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.normSq_inv":
+   [{"id": "complex_number_game___normSq_inv",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___normSq_inv":
+      {"display": "normSq_inv",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.normSq_intCast":
+   [{"id": "complex_number_game___normSq_intCast",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___normSq_intCast":
+      {"display": "normSq_intCast",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.normSq_eq_zero":
+   [{"id": "complex_number_game___normSq_eq_zero",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___normSq_eq_zero":
+      {"display": "normSq_eq_zero",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.normSq_eq_conj_mul_self":
+   [{"id": "complex_number_game___normSq_eq_conj_mul_self",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___normSq_eq_conj_mul_self":
+      {"display": "normSq_eq_conj_mul_self",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.normSq_div":
+   [{"id": "complex_number_game___normSq_div",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___normSq_div":
+      {"display": "normSq_div",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.normSq_conj":
+   [{"id": "complex_number_game___normSq_conj",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___normSq_conj":
+      {"display": "normSq_conj",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.normSq_apply":
+   [{"id": "complex_number_game___normSq_apply",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___normSq_apply":
+      {"display": "normSq_apply",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.normSq_add_mul_I":
+   [{"id": "complex_number_game___normSq_add_mul_I",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___normSq_add_mul_I":
+      {"display": "normSq_add_mul_I",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.normSq_add":
+   [{"id": "complex_number_game___normSq_add",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___normSq_add":
+      {"display": "normSq_add",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.normSq":
+   [{"id": "complex_number_game___normSq",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___normSq":
+      {"display": "normSq",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.neg_re":
+   [{"id": "complex_number_game___neg_re",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Arithemtic-operations/#complex_number_game___neg_re":
+      {"display": "neg_re",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Arithemtic operations"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Arithemtic-operations/"}],
+   "complex_number_game.neg_im":
+   [{"id": "complex_number_game___neg_im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Arithemtic-operations/#complex_number_game___neg_im":
+      {"display": "neg_im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Arithemtic operations"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Arithemtic-operations/"}],
+   "complex_number_game.natCast_re":
+   [{"id": "complex_number_game___natCast_re",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Cast-lemmas/#complex_number_game___natCast_re":
+      {"display": "natCast_re",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Cast lemmas"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Cast-lemmas/"}],
+   "complex_number_game.natCast_im":
+   [{"id": "complex_number_game___natCast_im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Cast-lemmas/#complex_number_game___natCast_im":
+      {"display": "natCast_im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Cast lemmas"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Cast-lemmas/"}],
+   "complex_number_game.mul_re":
+   [{"id": "complex_number_game___mul_re",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Arithemtic-operations/#complex_number_game___mul_re":
+      {"display": "mul_re",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Arithemtic operations"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Arithemtic-operations/"}],
+   "complex_number_game.mul_im":
+   [{"id": "complex_number_game___mul_im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Arithemtic-operations/#complex_number_game___mul_im":
+      {"display": "mul_im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Arithemtic operations"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Arithemtic-operations/"}],
+   "complex_number_game.mul_conj":
+   [{"id": "complex_number_game___mul_conj",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___mul_conj":
+      {"display": "mul_conj",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.mul_I_re":
+   [{"id": "complex_number_game___mul_I_re",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___mul_I_re":
+      {"display": "mul_I_re",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.mul_I_im":
+   [{"id": "complex_number_game___mul_I_im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___mul_I_im":
+      {"display": "mul_I_im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.mk_eq_add_mul_I":
+   [{"id": "complex_number_game___mk_eq_add_mul_I",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___mk_eq_add_mul_I":
+      {"display": "mk_eq_add_mul_I",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.inv_re":
+   [{"id": "complex_number_game___inv_re",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Inversion/#complex_number_game___inv_re":
+      {"display": "inv_re",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Inversion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Inversion/"}],
+   "complex_number_game.inv_im":
+   [{"id": "complex_number_game___inv_im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Inversion/#complex_number_game___inv_im":
+      {"display": "inv_im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Inversion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Inversion/"}],
+   "complex_number_game.inv_def":
+   [{"id": "complex_number_game___inv_def",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Inversion/#complex_number_game___inv_def":
+      {"display": "inv_def",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Inversion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Inversion/"}],
+   "complex_number_game.inv_I":
+   [{"id": "complex_number_game___inv_I",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___inv_I":
+      {"display": "inv_I",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.intCast_re":
+   [{"id": "complex_number_game___intCast_re",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Cast-lemmas/#complex_number_game___intCast_re":
+      {"display": "intCast_re",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Cast lemmas"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Cast-lemmas/"}],
+   "complex_number_game.intCast_im":
+   [{"id": "complex_number_game___intCast_im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Cast-lemmas/#complex_number_game___intCast_im":
+      {"display": "intCast_im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Cast lemmas"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Cast-lemmas/"}],
+   "complex_number_game.instRepr":
+   [{"id": "complex_number_game___instRepr",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Construction/#complex_number_game___instRepr":
+      {"display": "instRepr",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Construction"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Construction/"}],
+   "complex_number_game.instRatCast":
+   [{"id": "complex_number_game___instRatCast",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Cast-lemmas/#complex_number_game___instRatCast":
+      {"display": "instRatCast",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Cast lemmas"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Cast-lemmas/"}],
+   "complex_number_game.instNNRatCast":
+   [{"id": "complex_number_game___instNNRatCast",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Cast-lemmas/#complex_number_game___instNNRatCast":
+      {"display": "instNNRatCast",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Cast lemmas"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Cast-lemmas/"}],
+   "complex_number_game.instField":
+   [{"id": "complex_number_game___instField",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___instField":
+      {"display": "instField",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.instDivInvMonoid":
+   [{"id": "complex_number_game___instDivInvMonoid",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Inversion/#complex_number_game___instDivInvMonoid":
+      {"display": "instDivInvMonoid",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Inversion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Inversion/"}],
+   "complex_number_game.instCharZero":
+   [{"id": "complex_number_game___instCharZero",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___instCharZero":
+      {"display": "instCharZero",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.im_sq_le_normSq":
+   [{"id": "complex_number_game___im_sq_le_normSq",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___im_sq_le_normSq":
+      {"display": "im_sq_le_normSq",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.im_ofRational_mul":
+   [{"id": "complex_number_game___im_ofRational_mul",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___im_ofRational_mul":
+      {"display": "im_ofRational_mul",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.im_ofNat":
+   [{"id": "complex_number_game___im_ofNat",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Cast-lemmas/#complex_number_game___im_ofNat":
+      {"display": "im_ofNat",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Cast lemmas"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Cast-lemmas/"}],
+   "complex_number_game.im_nnratCast":
+   [{"id": "complex_number_game___im_nnratCast",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Cast-lemmas/#complex_number_game___im_nnratCast":
+      {"display": "im_nnratCast",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Cast lemmas"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Cast-lemmas/"}],
+   "complex_number_game.im_mul_ofRational":
+   [{"id": "complex_number_game___im_mul_ofRational",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___im_mul_ofRational":
+      {"display": "im_mul_ofRational",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.im_eq_add_conj":
+   [{"id": "complex_number_game___im_eq_add_conj",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___im_eq_add_conj":
+      {"display": "im_eq_add_conj",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.ext_iff":
+   [{"id": "complex_number_game___ext_iff",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Construction/#complex_number_game___ext_iff":
+      {"display": "ext_iff",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Construction"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Construction/"}],
+   "complex_number_game.ext":
+   [{"id": "complex_number_game___ext",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Arithemtic-operations/#complex_number_game___ext":
+      {"display": "ext",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Arithemtic operations"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Arithemtic-operations/"}],
+   "complex_number_game.eta":
+   [{"id": "complex_number_game___eta",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Arithemtic-operations/#complex_number_game___eta":
+      {"display": "eta",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Arithemtic operations"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Arithemtic-operations/"}],
+   "complex_number_game.equivRationalProd_apply":
+   [{"id": "complex_number_game___equivRationalProd_apply",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Arithemtic-operations/#complex_number_game___equivRationalProd_apply":
+      {"display": "apply",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Arithemtic operations"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Arithemtic-operations/"}],
+   "complex_number_game.equivRationalProd":
+   [{"id": "complex_number_game___equivRationalProd",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Arithemtic-operations/#complex_number_game___equivRationalProd":
+      {"display": "equivRationalProd",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Arithemtic operations"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Arithemtic-operations/"}],
+   "complex_number_game.div_re":
+   [{"id": "complex_number_game___div_re",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Inversion/#complex_number_game___div_re":
+      {"display": "div_re",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Inversion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Inversion/"}],
+   "complex_number_game.div_ratCast_re":
+   [{"id": "complex_number_game___div_ratCast_re",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___div_ratCast_re":
+      {"display": "div_ratCast_re",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.div_ratCast_im":
+   [{"id": "complex_number_game___div_ratCast_im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___div_ratCast_im":
+      {"display": "div_ratCast_im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.div_ratCast":
+   [{"id": "complex_number_game___div_ratCast",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___div_ratCast":
+      {"display": "div_ratCast",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.div_ofReal_re":
+   [{"id": "complex_number_game___div_ofReal_re",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___div_ofReal_re":
+      {"display": "div_ofReal_re",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.div_ofReal_im":
+   [{"id": "complex_number_game___div_ofReal_im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___div_ofReal_im":
+      {"display": "div_ofReal_im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.div_ofRational":
+   [{"id": "complex_number_game___div_ofRational",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___div_ofRational":
+      {"display": "div_ofRational",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.div_ofNat_re":
+   [{"id": "complex_number_game___div_ofNat_re",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___div_ofNat_re":
+      {"display": "div_ofNat_re",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.div_ofNat_im":
+   [{"id": "complex_number_game___div_ofNat_im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___div_ofNat_im":
+      {"display": "div_ofNat_im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.div_ofNat":
+   [{"id": "complex_number_game___div_ofNat",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___div_ofNat":
+      {"display": "div_ofNat",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.div_natCast_re":
+   [{"id": "complex_number_game___div_natCast_re",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___div_natCast_re":
+      {"display": "div_natCast_re",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.div_natCast_im":
+   [{"id": "complex_number_game___div_natCast_im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___div_natCast_im":
+      {"display": "div_natCast_im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.div_natCast":
+   [{"id": "complex_number_game___div_natCast",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___div_natCast":
+      {"display": "div_natCast",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.div_intCast_re":
+   [{"id": "complex_number_game___div_intCast_re",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___div_intCast_re":
+      {"display": "div_intCast_re",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.div_intCast_im":
+   [{"id": "complex_number_game___div_intCast_im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___div_intCast_im":
+      {"display": "div_intCast_im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.div_intCast":
+   [{"id": "complex_number_game___div_intCast",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___div_intCast":
+      {"display": "div_intCast",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.div_im":
+   [{"id": "complex_number_game___div_im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Inversion/#complex_number_game___div_im":
+      {"display": "div_im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Inversion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Inversion/"}],
+   "complex_number_game.div_I":
+   [{"id": "complex_number_game___div_I",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___div_I":
+      {"display": "div_I",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.conj_re":
+   [{"id": "complex_number_game___conj_re",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Involution/#complex_number_game___conj_re":
+      {"display": "conj_re",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Involution"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Involution/"}],
+   "complex_number_game.conj_ofReal":
+   [{"id": "complex_number_game___conj_ofReal",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Involution/#complex_number_game___conj_ofReal":
+      {"display": "conj_ofReal",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Involution"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Involution/"}],
+   "complex_number_game.conj_ofNat":
+   [{"id": "complex_number_game___conj_ofNat",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Involution/#complex_number_game___conj_ofNat":
+      {"display": "conj_ofNat",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Involution"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Involution/"}],
+   "complex_number_game.conj_neg_I":
+   [{"id": "complex_number_game___conj_neg_I",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Involution/#complex_number_game___conj_neg_I":
+      {"display": "conj_neg_I",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Involution"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Involution/"}],
+   "complex_number_game.conj_natCast":
+   [{"id": "complex_number_game___conj_natCast",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Involution/#complex_number_game___conj_natCast":
+      {"display": "conj_natCast",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Involution"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Involution/"}],
+   "complex_number_game.conj_inv":
+   [{"id": "complex_number_game___conj_inv",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Field/#complex_number_game___conj_inv":
+      {"display": "conj_inv",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Field"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Field/"}],
+   "complex_number_game.conj_im":
+   [{"id": "complex_number_game___conj_im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Involution/#complex_number_game___conj_im":
+      {"display": "conj_im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Involution"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Involution/"}],
+   "complex_number_game.conj_eq_iff_real":
+   [{"id": "complex_number_game___conj_eq_iff_real",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Involution/#complex_number_game___conj_eq_iff_real":
+      {"display": "conj_eq_iff_real",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Involution"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Involution/"}],
+   "complex_number_game.conj_I":
+   [{"id": "complex_number_game___conj_I",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Involution/#complex_number_game___conj_I":
+      {"display": "conj_I",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Involution"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Involution/"}],
+   "complex_number_game.complexQ.re":
+   [{"id": "complex_number_game___complexQ___re",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Construction/#complex_number_game___complexQ___re":
+      {"display": "re",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Construction"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Construction/"}],
+   "complex_number_game.complexQ.mul_inv_cancel":
+   [{"id": "complex_number_game___complexQ___mul_inv_cancel",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Inversion/#complex_number_game___complexQ___mul_inv_cancel":
+      {"display": "complexQ.mul_inv_cancel",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Inversion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Inversion/"}],
+   "complex_number_game.complexQ.inv_zero":
+   [{"id": "complex_number_game___complexQ___inv_zero",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Inversion/#complex_number_game___complexQ___inv_zero":
+      {"display": "complexQ.inv_zero",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Inversion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Inversion/"}],
+   "complex_number_game.complexQ.im":
+   [{"id": "complex_number_game___complexQ___im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Construction/#complex_number_game___complexQ___im":
+      {"display": "im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Construction"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Construction/"}],
+   "complex_number_game.complexQ":
+   [{"id": "complex_number_game___complexQ",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Construction/#complex_number_game___complexQ":
+      {"display": "complexQ",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Construction"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Construction/"}],
+   "complex_number_game.commRing":
+   [{"id": "complex_number_game___commRing",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Ring-structure/#complex_number_game___commRing":
+      {"display": "commRing",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Ring structure"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Ring-structure/"}],
+   "complex_number_game.add_re":
+   [{"id": "complex_number_game___add_re",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Arithemtic-operations/#complex_number_game___add_re":
+      {"display": "add_re",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Arithemtic operations"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Arithemtic-operations/"}],
+   "complex_number_game.add_im":
+   [{"id": "complex_number_game___add_im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Arithemtic-operations/#complex_number_game___add_im":
+      {"display": "add_im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Arithemtic operations"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Arithemtic-operations/"}],
+   "complex_number_game.add_conj":
+   [{"id": "complex_number_game___add_conj",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___add_conj":
+      {"display": "add_conj",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.addGroupWithOne":
+   [{"id": "complex_number_game___addGroupWithOne",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Additive-group-structure/#complex_number_game___addGroupWithOne":
+      {"display": "addGroupWithOne",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Additive group structure"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Additive-group-structure/"}],
+   "complex_number_game.addCommGroup":
+   [{"id": "complex_number_game___addCommGroup",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Additive-group-structure/#complex_number_game___addCommGroup":
+      {"display": "addCommGroup",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Additive group structure"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Additive-group-structure/"}],
+   "complex_number_game.SMul.instSMulRationalComplex":
+   [{"id": "complex_number_game___SMul___instSMulRationalComplex",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Scalar-multiplication/#complex_number_game___SMul___instSMulRationalComplex":
+      {"display": "instSMulRationalComplex",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Scalar multiplication"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Scalar-multiplication/"}],
+   "complex_number_game.Napolean_problem":
+   [{"id": "complex_number_game___Napolean_problem",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Geometric-applications/#complex_number_game___Napolean_problem":
+      {"display": "Napolean_problem",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Geometric applications"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Geometric-applications/"}],
+   "complex_number_game.I_sq":
+   [{"id": "complex_number_game___I_sq",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___I_sq":
+      {"display": "I_sq",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.I_re":
+   [{"id": "complex_number_game___I_re",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Arithemtic-operations/#complex_number_game___I_re":
+      {"display": "I_re",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Arithemtic operations"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Arithemtic-operations/"}],
+   "complex_number_game.I_pow_four":
+   [{"id": "complex_number_game___I_pow_four",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Norm-square-function/#complex_number_game___I_pow_four":
+      {"display": "I_pow_four",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Norm square function"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Norm-square-function/"}],
+   "complex_number_game.I_ne_zero":
+   [{"id": "complex_number_game___I_ne_zero",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Arithemtic-operations/#complex_number_game___I_ne_zero":
+      {"display": "I_ne_zero",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Arithemtic operations"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Arithemtic-operations/"}],
+   "complex_number_game.I_mul_re":
+   [{"id": "complex_number_game___I_mul_re",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___I_mul_re":
+      {"display": "I_mul_re",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.I_mul_im":
+   [{"id": "complex_number_game___I_mul_im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Coercion/#complex_number_game___I_mul_im":
+      {"display": "I_mul_im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Coercion"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Coercion/"}],
+   "complex_number_game.I_mul_I":
+   [{"id": "complex_number_game___I_mul_I",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Arithemtic-operations/#complex_number_game___I_mul_I":
+      {"display": "I_mul_I",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Arithemtic operations"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Arithemtic-operations/"}],
+   "complex_number_game.I_mul":
+   [{"id": "complex_number_game___I_mul",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Arithemtic-operations/#complex_number_game___I_mul":
+      {"display": "I_mul",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Arithemtic operations"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Arithemtic-operations/"}],
+   "complex_number_game.I_im":
+   [{"id": "complex_number_game___I_im",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Arithemtic-operations/#complex_number_game___I_im":
+      {"display": "I_im",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Arithemtic operations"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Arithemtic-operations/"}],
+   "complex_number_game.I":
+   [{"id": "complex_number_game___I",
+     "data":
+     {"/Chapter-0-Complex-Number-Game/Construction/#complex_number_game___I":
+      {"display": "I",
+       "context":
+       ["MAT3253 Complex Variables",
+        "Chapter 0 Complex Number Game",
+        "Construction"]}},
+     "address": "/Chapter-0-Complex-Number-Game/Construction/"}],
    "complex_lhopital_zero_zero'":
    [{"id": "complex_lhopital_zero_zero___",
      "data":
