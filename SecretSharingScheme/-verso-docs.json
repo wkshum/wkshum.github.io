@@ -1,0 +1,1393 @@
+{"99": "<code>A ∈ (thresholdAccessStructure n t).maximallyUnauthorized</code>",
+ "98":
+ "<code class=\"docstring\">Applies extensionality lemmas that are registered with the `@[ext]` attribute.\n* `ext pat*` applies extensionality theorems as much as possible,\n  using the patterns `pat*` to introduce the variables in extensionality theorems using `rintro`.\n  For example, the patterns are used to name the variables introduced by lemmas such as `funext`.\n* Without patterns,`ext` applies extensionality lemmas as much\n  as possible but introduces anonymous hypotheses whenever needed.\n* `ext pat* : n` applies ext theorems only up to depth `n`.\n\nThe `ext1 pat*` tactic is like `ext pat*` except that it only applies a single extensionality theorem.\n\nUnused patterns will generate warning.\nPatterns that don't match the variables will typically result in the introduction of anonymous hypotheses.\n</code>",
+ "97":
+ "<code>HSub.hSub.{u, v, w} {α : Type u} {β : Type v} {γ : outParam (Type w)} [self : HSub α β γ] : α → β → γ</code><span class=\"sep\"></span><code class=\"docstring\">`a - b` computes the difference of `a` and `b`.\nThe meaning of this notation is type-dependent.\n* For natural numbers, this operator saturates at 0: `a - b = 0` when `a ≤ b`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `-` in identifiers is `sub` (when used as a binary operator).</code>",
+ "96":
+ "<code>GT.gt.{u} {α : Type u} [LT α] (a b : α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`a &gt; b` is an abbreviation for `b &lt; a`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `&gt;` in identifiers is `gt`.</code>",
+ "95": "<code>t ≤ n</code>",
+ "94": "<code>t &gt; 0</code>",
+ "93":
+ "<code>AccessStructure.threshold_maximalUnauthorized_eq (n t : ℕ) (h_t : t &gt; 0) (h_t_le_n : t ≤ n) :\n  (thresholdAccessStructure n t).maximallyUnauthorized = {A | A.ncard = t - 1}</code>",
+ "92":
+ "<code>Set.exists_subset_card_eq.{u_1} {α : Type u_1} {s : Set α} {n : ℕ} (hns : n ≤ s.ncard) : ∃ t ⊆ s, t.ncard = n</code><span class=\"sep\"></span><code class=\"docstring\">We can shrink a set to any smaller size. </code>",
+ "91": "<code>B ⊆ A ∧ B.ncard = t</code>",
+ "90": "<code>t ≤ A.ncard</code>",
+ "9":
+ "<code class=\"docstring\">`namespace &lt;id&gt;` opens a section with label `&lt;id&gt;` that influences naming and name resolution inside\nthe section:\n* Declarations names are prefixed: `def seventeen : ℕ := 17` inside a namespace `Nat` is given the\n  full name `Nat.seventeen`.\n* Names introduced by `export` declarations are also prefixed by the identifier.\n* All names starting with `&lt;id&gt;.` become available in the namespace without the prefix. These names\n  are preferred over names introduced by outer namespaces or `open`.\n* Within a namespace, declarations can be `protected`, which excludes them from the effects of\n  opening the namespace.\n\nAs with `section`, namespaces can be nested and the scope of a namespace is terminated by a\ncorresponding `end &lt;id&gt;` or the end of the file.\n\n`namespace` also acts like `section` in delimiting the scope of `variable`, `open`, and other scoped commands.\n</code>",
+ "89":
+ "<code>Set.ncard_le_ncard.{u_1} {α : Type u_1} {s t : Set α} (hst : s ⊆ t) (ht : t.Finite := by toFinite_tac) :\n  s.ncard ≤ t.ncard</code>",
+ "88": "<code>B ⊆ A</code>",
+ "87": "<code>B.ncard = t</code>",
+ "864":
+ "<code>∀ (B : Set (Fin n)) (hB : B ∈ Γ.auth) (shares : (i : ↑B) → Share ↑i), (recon_linear B hB) shares = recon B hB shares</code>",
+ "863":
+ "<code>(B : Set (Fin n)) → B ∈ Γ.auth → ((i : ↑B) → Share ↑i) →ₗ[F] Secret</code>",
+ "862":
+ "<code>∀ (s : Secret) (r : Random), dealer_linear (s, r) = dealer s r</code>",
+ "861": "<code>Secret × Random →ₗ[F] (i : Fin n) → Share i</code>",
+ "860": "<code>(i : Fin n) → Module F (Share i)</code>",
+ "86": "<code>A ∈ (thresholdAccessStructure n t).auth</code>",
+ "859": "<code>Module F Random</code>",
+ "858": "<code>(i : Fin n) → AddCommMonoid (Share i)</code>",
+ "857": "<code>AddCommMonoid Random</code>",
+ "856": "<code>RealizedSecretSharingScheme n Γ</code>",
+ "855":
+ "<code>LinearSecretSharingScheme.mk.{u_1, u_2, u_3} {n : ℕ} {Γ : AccessStructure n} {F : Type u_1} [Field F]\n  (toRealizedSecretSharingScheme : RealizedSecretSharingScheme n Γ)\n  [secret_add : AddCommMonoid toRealizedSecretSharingScheme.Secret]\n  [random_add : AddCommMonoid toRealizedSecretSharingScheme.Random]\n  [share_add : (i : Fin n) → AddCommMonoid (toRealizedSecretSharingScheme.Share i)]\n  [secret_module : Module F toRealizedSecretSharingScheme.Secret]\n  [random_module : Module F toRealizedSecretSharingScheme.Random]\n  [share_module : (i : Fin n) → Module F (toRealizedSecretSharingScheme.Share i)]\n  (dealer_linear :\n    toRealizedSecretSharingScheme.Secret × toRealizedSecretSharingScheme.Random →ₗ[F]\n      (i : Fin n) → toRealizedSecretSharingScheme.Share i)\n  (h_dealer_eq :\n    ∀ (s : toRealizedSecretSharingScheme.Secret) (r : toRealizedSecretSharingScheme.Random),\n      dealer_linear (s, r) = toRealizedSecretSharingScheme.dealer s r)\n  (recon_linear :\n    (B : Set (Fin n)) →\n      B ∈ Γ.auth → ((i : ↑B) → toRealizedSecretSharingScheme.Share ↑i) →ₗ[F] toRealizedSecretSharingScheme.Secret)\n  (h_recon_eq :\n    ∀ (B : Set (Fin n)) (hB : B ∈ Γ.auth) (shares : (i : ↑B) → toRealizedSecretSharingScheme.Share ↑i),\n      (recon_linear B hB) shares = toRealizedSecretSharingScheme.recon B hB shares) :\n  LinearSecretSharingScheme n Γ F</code>",
+ "854":
+ "<code>∀ (B : Set (Fin n)) (hB : B ∈ Γ.auth) (shares : (i : ↑B) → Share ↑i), (recon_linear B hB) shares = recon B hB shares</code>",
+ "853":
+ "<code>∀ (s : Secret) (r : Random), dealer_linear (s, r) = dealer s r</code>",
+ "852": "<code>(i : Fin n) → Module F (Share i)</code>",
+ "851": "<code>Module F Random</code>",
+ "850": "<code>(i : Fin n) → AddCommMonoid (Share i)</code>",
+ "85":
+ "<code class=\"docstring\">If the main goal's target type is an inductive type, `constructor` solves it with\nthe first matching constructor, or else fails.\n</code>",
+ "849": "<code>AddCommMonoid Random</code>",
+ "848": "<code>toSecretSharingScheme.PerfectSecurity Γ</code>",
+ "847": "<code>toSecretSharingScheme.Correctness Γ recon</code>",
+ "846":
+ "<code>SecretSharingScheme.RealizedSecretSharingScheme.mk.{u_1, u_2} {n : ℕ} {Γ : AccessStructure n}\n  (toSecretSharingScheme : SecretSharingScheme n) (recon : toSecretSharingScheme.ReconstructionAlgorithm Γ)\n  (h_correctness : toSecretSharingScheme.Correctness Γ recon) (h_security : toSecretSharingScheme.PerfectSecurity Γ) :\n  RealizedSecretSharingScheme n Γ</code>",
+ "845": "<code>RealizedSecretSharingScheme n Γ</code>",
+ "844": "<code>toSecretSharingScheme.PerfectSecurity Γ</code>",
+ "843": "<code>toSecretSharingScheme.Correctness Γ recon</code>",
+ "842": "<code>PMF Random</code>",
+ "841": "<code>Nonempty Random</code>",
+ "840": "<code>Fintype Random</code>",
+ "84":
+ "<code>AccessStructure.threshold_auth_iff (n t : ℕ) (A : Set (Fin n)) : A ∈ (thresholdAccessStructure n t).auth ↔ t ≤ A.ncard</code>",
+ "839": "<code>(i : Fin n) → Fintype (Share i)</code>",
+ "838": "<code>Fin n → Type ?u.53607</code>",
+ "837": "<code>Fintype.card Secret ≥ 2</code>",
+ "836": "<code>Fintype Secret</code>",
+ "835": "<code>Type ?u.53658</code>",
+ "834": "<code>Type ?u.53607</code>",
+ "833": "<code>PMF Random</code>",
+ "832": "<code>Nonempty Random</code>",
+ "831": "<code>Fintype Random</code>",
+ "830": "<code>(i : Fin n) → Fintype (Share i)</code>",
+ "83": "<code>A ⊆ B</code>",
+ "829": "<code>Fin n → Type ?u.53607</code>",
+ "828": "<code>Fintype.card Secret ≥ 2</code>",
+ "827": "<code>Fintype Secret</code>",
+ "826": "<code>Type ?u.53658</code>",
+ "825": "<code>Type ?u.53607</code>",
+ "824": "<code>LinearSecretSharingScheme n✝ Γ✝ F✝</code>",
+ "823": "<code>Field F✝</code>",
+ "822": "<code>AccessStructure n✝</code>",
+ "821":
+ "<code>∀ {d : ℕ} (A : Fin d → Secret) (K : Fin d → Random) (x : Fin d → F) (B : Set (Fin n)) (hB : B ∈ Γ.auth),\n  let shares := fun j i =&gt; dealer (A j) (K j) i;\n  let responses := fun i =&gt; toLinearSecretSharingScheme.worker_compute_impl (↑i) (fun j =&gt; shares j ↑i) x;\n  recon B hB responses = ∑ j, x j • A j</code>",
+ "820": "<code>Module F Secret</code>",
+ "82": "<code>x ⊆ A</code>",
+ "819": "<code>Module F Secret</code>",
+ "818": "<code>AddCommMonoid Secret</code>",
+ "817": "<code>AddCommMonoid Secret</code>",
+ "816": "<code>Fin d✝ → F</code>",
+ "815": "<code>Fin d✝ → Share i</code>",
+ "814":
+ "<code>{d : ℕ} → (i : Fin n) → (Fin d → Share i) → (Fin d → F) → toLinearSecretSharingScheme.Share i</code>",
+ "813": "<code>toSecretSharingScheme.ReconstructionAlgorithm Γ</code>",
+ "812": "<code>Secret → Random → (i : Fin n) → Share i</code>",
+ "811": "<code>Type u_4</code>",
+ "810": "<code>Fin n → Type u_3</code>",
+ "81": "<code>x.ncard = t</code>",
+ "809": "<code>Type u_3</code>",
+ "808":
+ "<code>LinearSecretSharingScheme.SecureDistributedMatrixMultiplication.toDistMatrixMul.{u_2, u_3, u_4} {n : ℕ}\n  {Γ : AccessStructure n} {F : Type u_2} [Field F] (self : SecureDistributedMatrixMultiplication n Γ F) :\n  DistributedMatrixMultiplication n Γ F</code>",
+ "807":
+ "<code>LinearSecretSharingScheme.SecureDistributedMatrixMultiplication.{u_2, u_3, u_4} (n : ℕ) (Γ : AccessStructure n)\n  (F : Type u_2) [Field F] : Type (max (max u_2 (u_3 + 1)) (u_4 + 1))</code>",
+ "806":
+ "<code>SecretSharingScheme.RealizedSecretSharingScheme.toSecretSharingScheme.{u_1, u_2} {n : ℕ} {Γ : AccessStructure n}\n  (self : RealizedSecretSharingScheme n Γ) : SecretSharingScheme n</code>",
+ "805":
+ "<code>(fun i =&gt; L.worker_compute_impl (↑i) (fun j =&gt; L.dealer (A j) (K j) ↑i) x) =\n  L.shares_of_set (L.target_computation A x) (L.aggregate_key K x) B</code>",
+ "804": "<code>(i : ↑B) → L.Share ↑i</code>",
+ "803":
+ "<code>LinearSecretSharingScheme.distributed_computing_correctness.{u_1, u_2, u_3} {n : ℕ} {Γ : AccessStructure n}\n  {F : Type u_1} [Field F] (L : LinearSecretSharingScheme n Γ F) {d : ℕ} (A : Fin d → L.Secret) (K : Fin d → L.Random)\n  (x : Fin d → F) (B : Set (Fin n)) (hB : B ∈ Γ.auth) :\n  have worker_responses := fun i =&gt; L.worker_compute_impl (↑i) (fun j =&gt; L.dealer (A j) (K j) ↑i) x;\n  L.recon B hB worker_responses = L.target_computation A x</code>",
+ "802":
+ "<code>map_smul.{u_8, u_9, u_10, u_11} {F : Type u_8} {M : Type u_9} {X : Type u_10} {Y : Type u_11} [SMul M X] [SMul M Y]\n  [FunLike F X Y] [MulActionHomClass F M X Y] (f : F) (c : M) (x : X) : f (c • x) = c • f x</code>",
+ "801":
+ "<code class=\"docstring\">`simp_rw` functions as a mix of `simp` and `rw`. Like `rw`, it applies each\nrewrite rule in the given order, but like `simp` it repeatedly applies these\nrules and also under binders like `∀ x, ...`, `∃ x, ...` and `fun x ↦...`.\nUsage:\n\n- `simp_rw [lemma_1, ..., lemma_n]` will rewrite the goal by applying the\n  lemmas in that order. A lemma preceded by `←` is applied in the reverse direction.\n- `simp_rw [lemma_1, ..., lemma_n] at h₁ ... hₙ` will rewrite the given hypotheses.\n- `simp_rw [...] at *` rewrites in the whole context: all hypotheses and the goal.\n\nLemmas passed to `simp_rw` must be expressions that are valid arguments to `simp`.\nFor example, neither `simp` nor `rw` can solve the following, but `simp_rw` can:\n\n```lean\nexample {a : ℕ}\n    (h1 : ∀ a b : ℕ, a - 1 ≤ b ↔ a ≤ b + 1)\n    (h2 : ∀ a b : ℕ, a ≤ b ↔ ∀ c, c &lt; a → c &lt; b) :\n    (∀ b, a - 1 ≤ b) = ∀ b c : ℕ, c &lt; a → c &lt; b + 1 := by\n  simp_rw [h1, h2]\n```\n</code>",
+ "800":
+ "<code>map_sum.{u_1, u_3, u_4, u_7} {ι : Type u_1} {M : Type u_3} {N : Type u_4} [AddCommMonoid M] [AddCommMonoid N]\n  {G : Type u_7} [FunLike G M N] [AddMonoidHomClass G M N] (g : G) (f : ι → M) (s : Finset ι) :\n  g (∑ x ∈ s, f x) = ∑ x ∈ s, g (f x)</code>",
+ "80":
+ "<code class=\"docstring\">* `unfold id` unfolds all occurrences of definition `id` in the target.\n* `unfold id1 id2 ...` is equivalent to `unfold id1; unfold id2; ...`.\n* `unfold id at h` unfolds at the hypothesis `h`.\n\nDefinitions can be either global or local definitions.\n\nFor non-recursive global definitions, this tactic is identical to `delta`.\nFor recursive global definitions, it uses the \"unfolding lemma\" `id.eq_def`,\nwhich is generated for each recursive definition, to unfold according to the recursive definition given by the user.\nOnly one level of unfolding is performed, in contrast to `simp only [id]`, which unfolds definition `id` recursively.\n</code>",
+ "8": "<code>Set (Set (Fin n))</code>",
+ "799":
+ "<code>Finset.sum_apply.{u_1, u_7, u_8} {ι : Type u_1} {α : Type u_7} {M : α → Type u_8} [(a : α) → AddCommMonoid (M a)]\n  (a : α) (s : Finset ι) (g : ι → (a : α) → M a) : (∑ c ∈ s, g c) a = ∑ c ∈ s, g c a</code>",
+ "798": "<code>j ∈ Finset.univ</code>",
+ "797":
+ "<code class=\"docstring\">Step-wise reasoning over transitive relations.\n```\ncalc\n  a = b := pab\n  b = c := pbc\n  ...\n  y = z := pyz\n```\nproves `a = z` from the given step-wise proofs. `=` can be replaced with any\nrelation implementing the typeclass `Trans`. Instead of repeating the right-\nhand sides, subsequent left-hand sides can be replaced with `_`.\n```\ncalc\n  a = b := pab\n  _ = c := pbc\n  ...\n  _ = z := pyz\n```\nIt is also possible to write the *first* relation as `&lt;lhs&gt;\\n  _ = &lt;rhs&gt; :=\n&lt;proof&gt;`. This is useful for aligning relation symbols, especially on longer\nidentifiers:\n```\ncalc abc\n  _ = bce := pabce\n  _ = cef := pbcef\n  ...\n  _ = xyz := pwxyz\n```\n\n`calc` works as a term, as a tactic or as a `conv` tactic.\n\nSee [Theorem Proving in Lean 4][tpil4] for more information.\n\n[tpil4]: https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html#calculational-proofs\n</code>",
+ "796":
+ "<code>LinearMap.{u_14, u_15, u_16, u_17} {R : Type u_14} {S : Type u_15} [Semiring R] [Semiring S] (σ : R →+* S)\n  (M : Type u_16) (M₂ : Type u_17) [AddCommMonoid M] [AddCommMonoid M₂] [Module R M] [Module S M₂] :\n  Type (max u_16 u_17)</code><span class=\"sep\"></span><code class=\"docstring\">A map `f` between an `R`-module and an `S`-module over a ring homomorphism `σ : R →+* S`\nis semilinear if it satisfies the two properties `f (x + y) = f x + f y` and\n`f (c • x) = (σ c) • f x`. Elements of `LinearMap σ M M₂` (available under the notation\n`M →ₛₗ[σ] M₂`) are bundled versions of such maps. For plain linear maps (i.e. for which\n`σ = RingHom.id R`), the notation `M →ₗ[R] M₂` is available. An unbundled version of plain linear\nmaps is available with the predicate `IsLinearMap`, but it should be avoided most of the time. </code>",
+ "795":
+ "<code>Prod.{u, v} (α : Type u) (β : Type v) : Type (max u v)</code><span class=\"sep\"></span><code class=\"docstring\">The product type, usually written `α × β`. Product types are also called pair or tuple types.\nElements of this type are pairs in which the first element is an `α` and the second element is a\n`β`.\n\nProducts nest to the right, so `(x, y, z) : α × β × γ` is equivalent to `(x, (y, z)) : α × (β × γ)`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `×` in identifiers is `Prod`.</code>",
+ "794": "<code>L.Secret × L.Random →ₗ[F] (i : Fin n) → L.Share i</code>",
+ "793":
+ "<code>LinearSecretSharingScheme.worker_homomorphism.{u_1, u_2, u_3} {n : ℕ} {Γ : AccessStructure n} {F : Type u_1} [Field F]\n  (L : LinearSecretSharingScheme n Γ F) {d : ℕ} (A : Fin d → L.Secret) (K : Fin d → L.Random) (x : Fin d → F)\n  (i : Fin n) :\n  L.worker_compute_impl i (fun j =&gt; L.dealer (A j) (K j) i) x =\n    L.dealer (L.target_computation A x) (L.aggregate_key K x) i</code>",
+ "792":
+ "<code>Prod.snd_sum.{u_1, u_3, u_4} {ι : Type u_1} {M : Type u_3} {N : Type u_4} [AddCommMonoid M] [AddCommMonoid N]\n  {s : Finset ι} {f : ι → M × N} : (∑ c ∈ s, f c).2 = ∑ c ∈ s, (f c).2</code>",
+ "791":
+ "<code>Prod.smul_mk.{u_8, u_9, u_10} {E : Type u_8} {α : Type u_9} {β : Type u_10} [SMul E α] [SMul E β] (c : E) (a : α)\n  (b : β) : c • (a, b) = (c • a, c • b)</code>",
+ "790":
+ "<code>Prod.fst_sum.{u_1, u_3, u_4} {ι : Type u_1} {M : Type u_3} {N : Type u_4} [AddCommMonoid M] [AddCommMonoid N]\n  {s : Finset ι} {f : ι → M × N} : (∑ c ∈ s, f c).1 = ∑ c ∈ s, (f c).1</code>",
+ "79":
+ "<code>∀ {A B : Set (Fin n)},\n  A ∈ generatedAccessStructure {A | A.ncard = t} → A ⊆ B → B ∈ generatedAccessStructure {A | A.ncard = t}</code>",
+ "789":
+ "<code>Prod.mk.{u, v} {α : Type u} {β : Type v} (fst : α) (snd : β) : α × β</code><span class=\"sep\"></span><code class=\"docstring\">Constructs a pair. This is usually written `(x, y)` instead of `Prod.mk x y`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `(a, b)` in identifiers is `mk`.</code>",
+ "788":
+ "<code>HSMul.hSMul.{u, v, w} {α : Type u} {β : Type v} {γ : outParam (Type w)} [self : HSMul α β γ] : α → β → γ</code><span class=\"sep\"></span><code class=\"docstring\">`a • b` computes the product of `a` and `b`.\nThe meaning of this notation is type-dependent, but it is intended to be used for left actions. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `•` in identifiers is `smul`.</code>",
+ "787":
+ "<code>LinearSecretSharingScheme.sum_prod_smul.{u_2, u_3, u_4} {n : ℕ} {Γ : AccessStructure n} {F : Type u_2} [Field F]\n  (L : LinearSecretSharingScheme n Γ F) {d : ℕ} (x : Fin d → F) (A : Fin d → L.Secret) (K : Fin d → L.Random) :\n  ∑ j, x j • (A j, K j) = (∑ j, x j • A j, ∑ j, x j • K j)</code>",
+ "786": "<code>Fin d → L.Random</code>",
+ "785":
+ "<code>LinearSecretSharingScheme.aggregate_key.{u_1, u_2, u_3} {n : ℕ} {Γ : AccessStructure n} {F : Type u_1} [Field F]\n  (L : LinearSecretSharingScheme n Γ F) {d : ℕ} (K : Fin d → L.Random) (x : Fin d → F) : L.Random</code>",
+ "784": "<code>Fin d → L.Secret</code>",
+ "783":
+ "<code>LinearSecretSharingScheme.target_computation.{u_1, u_2, u_3} {n : ℕ} {Γ : AccessStructure n} {F : Type u_1} [Field F]\n  (L : LinearSecretSharingScheme n Γ F) {d : ℕ} (A : Fin d → L.Secret) (x : Fin d → F) : L.Secret</code>",
+ "782": "<code>Fin d → L.Share i</code>",
+ "781":
+ "<code>LinearSecretSharingScheme.worker_compute_impl.{u_1, u_2, u_3} {n : ℕ} {Γ : AccessStructure n} {F : Type u_1} [Field F]\n  (L : LinearSecretSharingScheme n Γ F) {d : ℕ} (i : Fin n) (shares : Fin d → L.Share i) (x : Fin d → F) : L.Share i</code>",
+ "780": "<code>LinearSecretSharingScheme n Γ F</code>",
+ "78": "<code>Set (Set (Fin n))</code>",
+ "779":
+ "<code>(B : Set (Fin n)) → B ∈ Γ.auth → ((i : ↑B) → Share ↑i) →ₗ[F] Secret</code>",
+ "778":
+ "<code>LinearSecretSharingScheme.h_recon_eq.{u_1, u_2, u_3} {n : ℕ} {Γ : AccessStructure n} {F : Type u_1} [Field F]\n  (self : LinearSecretSharingScheme n Γ F) (B : Set (Fin n)) (hB : B ∈ Γ.auth) (shares : (i : ↑B) → self.Share ↑i) :\n  (self.recon_linear B hB) shares = self.recon B hB shares</code>",
+ "777":
+ "<code>LinearSecretSharingScheme.recon_linear.{u_1, u_2, u_3} {n : ℕ} {Γ : AccessStructure n} {F : Type u_1} [Field F]\n  (self : LinearSecretSharingScheme n Γ F) (B : Set (Fin n)) (_hB : B ∈ Γ.auth) :\n  ((i : ↑B) → self.Share ↑i) →ₗ[F] self.Secret</code>",
+ "776": "<code>Secret × Random →ₗ[F] (i : Fin n) → Share i</code>",
+ "775": "<code>Random</code>",
+ "774": "<code>Secret</code>",
+ "773":
+ "<code>LinearSecretSharingScheme.h_dealer_eq.{u_1, u_2, u_3} {n : ℕ} {Γ : AccessStructure n} {F : Type u_1} [Field F]\n  (self : LinearSecretSharingScheme n Γ F) (s : self.Secret) (r : self.Random) :\n  self.dealer_linear (s, r) = self.dealer s r</code>",
+ "772":
+ "<code>LinearSecretSharingScheme.dealer_linear.{u_1, u_2, u_3} {n : ℕ} {Γ : AccessStructure n} {F : Type u_1} [Field F]\n  (self : LinearSecretSharingScheme n Γ F) : self.Secret × self.Random →ₗ[F] (i : Fin n) → self.Share i</code>",
+ "771":
+ "<code>LinearSecretSharingScheme.share_module.{u_1, u_2, u_3} {n : ℕ} {Γ : AccessStructure n} {F : Type u_1} [Field F]\n  (self : LinearSecretSharingScheme n Γ F) (i : Fin n) : Module F (self.Share i)</code>",
+ "770":
+ "<code>LinearSecretSharingScheme.random_module.{u_1, u_2, u_3} {n : ℕ} {Γ : AccessStructure n} {F : Type u_1} [Field F]\n  (self : LinearSecretSharingScheme n Γ F) : Module F self.Random</code>",
+ "77":
+ "<code>AccessStructure.thresholdAccessStructure (n t : ℕ) : AccessStructure n</code>",
+ "769":
+ "<code>LinearSecretSharingScheme.secret_module.{u_1, u_2, u_3} {n : ℕ} {Γ : AccessStructure n} {F : Type u_1} [Field F]\n  (self : LinearSecretSharingScheme n Γ F) : Module F self.Secret</code>",
+ "768":
+ "<code>LinearSecretSharingScheme.share_add.{u_1, u_2, u_3} {n : ℕ} {Γ : AccessStructure n} {F : Type u_1} [Field F]\n  (self : LinearSecretSharingScheme n Γ F) (i : Fin n) : AddCommMonoid (self.Share i)</code>",
+ "767":
+ "<code>LinearSecretSharingScheme.random_add.{u_1, u_2, u_3} {n : ℕ} {Γ : AccessStructure n} {F : Type u_1} [Field F]\n  (self : LinearSecretSharingScheme n Γ F) : AddCommMonoid self.Random</code>",
+ "766": "<code>Type u_3</code>",
+ "765":
+ "<code>LinearSecretSharingScheme.secret_add.{u_1, u_2, u_3} {n : ℕ} {Γ : AccessStructure n} {F : Type u_1} [Field F]\n  (self : LinearSecretSharingScheme n Γ F) : AddCommMonoid self.Secret</code>",
+ "764":
+ "<code>LinearSecretSharingScheme.{u_1, u_2, u_3} (n : ℕ) (Γ : AccessStructure n) (F : Type u_1) [Field F] :\n  Type (max (max u_1 (u_2 + 1)) (u_3 + 1))</code>",
+ "763":
+ "<code>(B : Set (Fin n)) → B ∈ Γ.auth → ((i : ↑B) → Share ↑i) → Secret</code>",
+ "762":
+ "<code>{d : ℕ} → (i : Fin n) → (Fin d → Share i) → (Fin d → F) → Share i</code>",
+ "761": "<code>(i : ↑B) → Share ↑i</code>",
+ "760": "<code>Secret → Random → (i : Fin n) → Share i</code>",
+ "76":
+ "<code>∀ (S : Set (Set (Fin n))), generatedAccessStructure (generatedAccessStructure S) = generatedAccessStructure S</code><span class=\"sep\"></span><code class=\"docstring\">Closures are idempotent </code>",
+ "759": "<code>Fin d</code>",
+ "758": "<code>Fin d → (i : Fin n) → Share i</code>",
+ "757": "<code>Fin d → F</code>",
+ "756": "<code>Fin d → Random</code>",
+ "755": "<code>Fin d → Secret</code>",
+ "754":
+ "<code>DistributedMatrixMultiplication.h_distributed_correctness.{u_1, u_2, u_3, u_4} {n : ℕ} {Γ : AccessStructure n}\n  {F : Type u_1} [Field F] (self : DistributedMatrixMultiplication n Γ F) {d : ℕ} (A : Fin d → self.Secret)\n  (K : Fin d → self.Random) (x : Fin d → F) (B : Set (Fin n)) (hB : B ∈ Γ.auth) :\n  let shares := fun j i =&gt; self.encode (A j) (K j) i;\n  let responses := fun i =&gt; self.worker_compute (↑i) (fun j =&gt; shares j ↑i) x;\n  self.reconstruct B hB responses = ∑ j, x j • A j</code>",
+ "753":
+ "<code>Module.{u, v} (R : Type u) (M : Type v) [Semiring R] [AddCommMonoid M] : Type (max u v)</code><span class=\"sep\"></span><code class=\"docstring\">A module is a generalization of vector spaces to a scalar semiring.\nIt consists of a scalar semiring `R` and an additive monoid of \"vectors\" `M`,\nconnected by a \"scalar multiplication\" operation `r • x : M`\n(where `r : R` and `x : M`) with some natural associativity and\ndistributivity axioms similar to those on a ring. </code>",
+ "752":
+ "<code>DistributedMatrixMultiplication.secret_module.{u_1, u_2, u_3, u_4} {n : ℕ} {Γ : AccessStructure n} {F : Type u_1}\n  [Field F] (self : DistributedMatrixMultiplication n Γ F) : Module F self.Secret</code>",
+ "751":
+ "<code>AddCommMonoid.{u} (M : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">An additive commutative monoid is an additive monoid with commutative `(+)`. </code>",
+ "750":
+ "<code>DistributedMatrixMultiplication.secret_add.{u_1, u_2, u_3, u_4} {n : ℕ} {Γ : AccessStructure n} {F : Type u_1} [Field F]\n  (self : DistributedMatrixMultiplication n Γ F) : AddCommMonoid self.Secret</code>",
+ "75":
+ "<code>∀ (S : Set (Set (Fin n))), S ⊆ generatedAccessStructure S</code><span class=\"sep\"></span><code class=\"docstring\">An element is less than or equal its closure </code>",
+ "749":
+ "<code>DistributedMatrixMultiplication.reconstruct.{u_1, u_2, u_3, u_4} {n : ℕ} {Γ : AccessStructure n} {F : Type u_1}\n  [Field F] (self : DistributedMatrixMultiplication n Γ F) (B : Set (Fin n)) (hB : B ∈ Γ.auth) :\n  ((i : ↑B) → self.Share ↑i) → self.Secret</code>",
+ "748":
+ "<code>DistributedMatrixMultiplication.worker_compute.{u_1, u_2, u_3, u_4} {n : ℕ} {Γ : AccessStructure n} {F : Type u_1}\n  [Field F] (self : DistributedMatrixMultiplication n Γ F) {d : ℕ} (i : Fin n) :\n  (Fin d → self.Share i) → (Fin d → F) → self.Share i</code>",
+ "747": "<code>Fin n → Type u_3</code>",
+ "746": "<code>Type u_4</code>",
+ "745":
+ "<code>DistributedMatrixMultiplication.encode.{u_1, u_2, u_3, u_4} {n : ℕ} {Γ : AccessStructure n} {F : Type u_1} [Field F]\n  (self : DistributedMatrixMultiplication n Γ F) : self.Secret → self.Random → (i : Fin n) → self.Share i</code>",
+ "744":
+ "<code>DistributedMatrixMultiplication.Random.{u_1, u_2, u_3, u_4} {n : ℕ} {Γ : AccessStructure n} {F : Type u_1} [Field F]\n  (self : DistributedMatrixMultiplication n Γ F) : Type u_4</code>",
+ "743":
+ "<code>DistributedMatrixMultiplication.Share.{u_1, u_2, u_3, u_4} {n : ℕ} {Γ : AccessStructure n} {F : Type u_1} [Field F]\n  (self : DistributedMatrixMultiplication n Γ F) : Fin n → Type u_3</code>",
+ "742":
+ "<code>DistributedMatrixMultiplication.Secret.{u_1, u_2, u_3, u_4} {n : ℕ} {Γ : AccessStructure n} {F : Type u_1} [Field F]\n  (self : DistributedMatrixMultiplication n Γ F) : Type u_2</code>",
+ "741":
+ "<code>DistributedMatrixMultiplication.{u_1, u_2, u_3, u_4} (n : ℕ) (Γ : AccessStructure n) (F : Type u_1) [Field F] :\n  Type (max (max (max u_1 (u_2 + 1)) (u_3 + 1)) (u_4 + 1))</code><span class=\"sep\"></span><code class=\"docstring\">### Abstract Distributed Matrix Multiplication Protocol\nThis structure defines the interface and correctness\ncondition for any distributed matrix multiplication scheme,\nindependent of how it is implemented.\n</code>",
+ "740": "<code>(DisjointScheme p Qs).PerfectSecurity (DisjointAS Qs)</code>",
+ "74": "<code>x✝¹ ≤ x✝</code>",
+ "739":
+ "<code>(DisjointScheme p Qs).Correctness (DisjointAS Qs) (DisjointReconstruction p Qs)</code>",
+ "738":
+ "<code>(DisjointScheme p Qs).ReconstructionAlgorithm (DisjointAS Qs)</code>",
+ "737": "<code>SecretSharingScheme n</code>",
+ "736":
+ "<code>DisjointRealizedScheme {n : ℕ} (p : ℕ) [Fact (Nat.Prime p)] (Qs : Set (Set (Fin n)))\n  (h_disjoint : Qs.PairwiseDisjoint id) (h_nonempty : ∀ Q ∈ Qs, Q.Nonempty) :\n  RealizedSecretSharingScheme n (DisjointAS Qs)</code><span class=\"sep\"></span><code class=\"docstring\">The function `DisjointReconstruction` realizes the disjoint access structure\n</code>",
+ "735":
+ "<code>{x_1 | x = (DisjointScheme p Qs).shares_of_set s x_1 B}.card =\n  {x_1 | x = (DisjointScheme p Qs).shares_of_set s' x_1 B}.card</code>",
+ "734":
+ "<code>Finset.sum_ite.{u_1, u_3} {ι : Type u_1} {M : Type u_3} [AddCommMonoid M] {s : Finset ι} {p : ι → Prop}\n  [DecidablePred p] (f g : ι → M) : (∑ x ∈ s, if p x then f x else g x) = ∑ x ∈ s with p x, f x + ∑ x ∈ s with ¬p x, g x</code>",
+ "733":
+ "<code>{x_1 | (DisjointScheme p Qs).shares_of_set s x_1 B = x}.card =\n  {x_1 | (DisjointScheme p Qs).shares_of_set s' x_1 B = x}.card</code>",
+ "732": "<code>∀ x ∈ Qs, ¬x ⊆ B</code>",
+ "731":
+ "<code>tsum_fintype.{u_1, u_2} {α : Type u_1} {β : Type u_2} [AddCommMonoid α] [TopologicalSpace α] {L : SummationFilter β}\n  [L.LeAtTop] [Fintype β] (f : β → α) : ∑'[L] (b : β), f b = ∑ b, f b</code>",
+ "730":
+ "<code>Set.ncard_eq_toFinset_card'.{u_1} {α : Type u_1} (s : Set α) [Fintype ↑s] : s.ncard = s.toFinset.card</code>",
+ "73":
+ "<code>∀ (x x_1 : Set (Set (Fin n))), x ≤ x_1 → generatedAccessStructure x ⊆ generatedAccessStructure x_1</code><span class=\"sep\"></span><code class=\"docstring\">The underlying function of an `OrderHom` is monotone. </code>",
+ "729":
+ "<code class=\"docstring\">Apply congruence (recursively) to goals of the form `⊢ f as = f bs` and `⊢ f as ≍ f bs`.\n* `congr n` controls the depth of the recursive applications.\n  This is useful when `congr` is too aggressive in breaking down the goal.\n  For example, given `⊢ f (g (x + y)) = f (g (y + x))`,\n  `congr` produces the goals `⊢ x = y` and `⊢ y = x`,\n  while `congr 2` produces the intended `⊢ x + y = y + x`.\n* If, at any point, a subgoal matches a hypothesis then the subgoal will be closed.\n* You can use `congr with p (: n)?` to call `ext p (: n)?` to all subgoals generated by `congr`.\n  For example, if the goal is `⊢ f '' s = g '' s` then `congr with x` generates the goal\n  `x : α ⊢ f x = g x`.\n</code>",
+ "728":
+ "<code>{ρ | ∀ (i : Fin n) (hi : i ∈ B), GenerateShares Qs s ρ i = x ⟨i, hi⟩}.ncard =\n  {ρ | ∀ (i : Fin n) (hi : i ∈ B), GenerateShares Qs s' ρ i = x ⟨i, hi⟩}.ncard</code>",
+ "727": "<code>Q ⊆ B</code>",
+ "726":
+ "<code>{ρ | (DisjointScheme p Qs).shares_of_set s ρ B = x}.ncard = {ρ | (DisjointScheme p Qs).shares_of_set s' ρ B = x}.ncard</code>",
+ "725":
+ "<code>(i : ↑B) →\n  { Secret := ZMod p, Random := Fin n → ZMod p, hSecret := ZMod.fintype p, hSecret_card := ⋯,\n        Share := fun x =&gt; Option (ZMod p), hShare := fun i =&gt; instFintypeOption, hRandom := Pi.instFintype,\n        hRandomNonempty := ⋯, dealer := fun s ρ i =&gt; GenerateShares Qs s ρ i }.Share\n    ↑i</code>",
+ "724":
+ "<code>B ∉ { auth := {A | ∃ Q ∈ Qs, Q ⊆ A}, h_monotone := ⋯ }.auth</code>",
+ "723":
+ "<code>{ Secret := ZMod p, Random := Fin n → ZMod p, hSecret := ZMod.fintype p, hSecret_card := ⋯,\n    Share := fun x =&gt; Option (ZMod p), hShare := fun i =&gt; instFintypeOption, hRandom := Pi.instFintype,\n    hRandomNonempty := ⋯, dealer := fun s ρ i =&gt; GenerateShares Qs s ρ i }.Random</code>",
+ "722": "<code>Nonempty (Fin n → ZMod p)</code>",
+ "721":
+ "<code>Pi.instFintype.{u_3, u_4} {α : Type u_3} {β : α → Type u_4} [DecidableEq α] [Fintype α] [(a : α) → Fintype (β a)] :\n  Fintype ((a : α) → β a)</code><span class=\"sep\"></span><code class=\"docstring\">A dependent product of fintypes, indexed by a fintype, is a fintype. </code>",
+ "720": "<code>Fintype (Fin n → ZMod p)</code>",
+ "72":
+ "<code>Set (Set (Fin n)) → Set (Set (Fin n))</code><span class=\"sep\"></span><code class=\"docstring\">The underlying function of an `OrderHom`. </code>",
+ "719":
+ "<code>instFintypeOption.{u_3} {α : Type u_3} [Fintype α] : Fintype (Option α)</code>",
+ "718": "<code>Fin n → Fintype (Option (ZMod p))</code>",
+ "717": "<code>ZMod.fintype (n : ℕ) [NeZero n] : Fintype (ZMod n)</code>",
+ "716": "<code>Fintype (ZMod p)</code>",
+ "715":
+ "<code>SecretSharingScheme.mk.{u, v} {n : ℕ} (Secret : Type u) (Random : Type v) [hSecret : Fintype Secret]\n  (hSecret_card : Fintype.card Secret ≥ 2) (Share : Fin n → Type u) [hShare : (i : Fin n) → Fintype (Share i)]\n  [hRandom : Fintype Random] [hRandomNonempty : Nonempty Random] (μ : PMF Random)\n  (dealer : Secret → Random → (i : Fin n) → Share i) : SecretSharingScheme n</code>",
+ "714":
+ "<code>{ Secret := ZMod p, Random := Fin n → ZMod p, hSecret := ZMod.fintype p, hSecret_card := ⋯,\n    Share := fun x =&gt; Option (ZMod p), hShare := fun i =&gt; instFintypeOption, hRandom := Pi.instFintype,\n    hRandomNonempty := ⋯, dealer := fun s ρ i =&gt; GenerateShares Qs s ρ i }.Secret</code>",
+ "713":
+ "<code>DisjointScheme_Security {n : ℕ} (p : ℕ) [Fact (Nat.Prime p)] (Qs : Set (Set (Fin n)))\n  (h_disjoint : Qs.PairwiseDisjoint id) (h_nonempty : ∀ Q ∈ Qs, Q.Nonempty) :\n  (DisjointScheme p Qs).PerfectSecurity (DisjointAS Qs)</code>",
+ "712":
+ "<code>shift_is_bijection {n p : ℕ} [Fact (Nat.Prime p)] {Qs : Set (Set (Fin n))} {A : Set (Fin n)} {S1 S2 : ZMod p}\n  (h_disjoint : Qs.PairwiseDisjoint id) (h_nonempty : ∀ Q ∈ Qs, Q.Nonempty) (h_unauth : ∀ Q ∈ Qs, ¬Q ⊆ A)\n  (shares_A : (i : Fin n) → i ∈ A → _root_.Share p) :\n  Set.BijOn (fun ρ =&gt; ρ + shift Qs A S1 S2) {ρ | ∀ (i : Fin n) (hi : i ∈ A), GenerateShares Qs S1 ρ i = shares_A i hi}\n    {ρ | ∀ (i : Fin n) (hi : i ∈ A), GenerateShares Qs S2 ρ i = shares_A i hi}</code>",
+ "711":
+ "<code>_root_.Share (p : ℕ) : Type</code><span class=\"sep\"></span><code class=\"docstring\">A share is an optional value in ZMod p.\nIf the participant is not in any qualified set, it is none.\n</code>",
+ "710": "<code>(i : Fin n) → i ∈ A → _root_.Share p</code>",
+ "71":
+ "<code>ClosureOperator.{u_1} (α : Type u_1) [Preorder α] : Type u_1</code><span class=\"sep\"></span><code class=\"docstring\">A closure operator on the preorder `α` is a monotone function which is extensive (every `x`\nis less than its closure) and idempotent. </code>",
+ "709":
+ "<code>PerfectSecurity_card_eq {n p : ℕ} [Fact (Nat.Prime p)] (Qs : Set (Set (Fin n))) (h_disjoint : Qs.PairwiseDisjoint id)\n  (h_nonempty : ∀ Q ∈ Qs, Q.Nonempty) (A : Set (Fin n)) (h_unauth : ∀ Q ∈ Qs, ¬Q ⊆ A)\n  (shares_A : (i : Fin n) → i ∈ A → _root_.Share p) (S1 S2 : ZMod p) :\n  {ρ | ∀ (i : Fin n) (hi : i ∈ A), GenerateShares Qs S1 ρ i = shares_A i hi}.ncard =\n    {ρ | ∀ (i : Fin n) (hi : i ∈ A), GenerateShares Qs S2 ρ i = shares_A i hi}.ncard</code>",
+ "708": "<code>x ∈ (choose h✝).toFinset</code>",
+ "707":
+ "<code>Inhabited.default.{u} {α : Sort u} [self : Inhabited α] : α</code><span class=\"sep\"></span><code class=\"docstring\">`default` is a function that produces a \"default\" element of any\n`Inhabited` type. This element does not have any particular specified\nproperties, but it is often an all-zeroes value. </code>",
+ "706": "<code>¬∃ Q ∈ Qs, Q ⊆ B</code>",
+ "705": "<code>∃ Q ∈ Qs, Q ⊆ B</code>",
+ "704":
+ "<code>Option.get!.{u} {α : Type u} [Inhabited α] : Option α → α</code><span class=\"sep\"></span><code class=\"docstring\">Extracts the value from an `Option`, panicking on `none`.\n</code>",
+ "703": "<code>ReconstructSecret Qs (GenerateShares Qs s r) B = some s</code>",
+ "702": "<code>(DisjointScheme p Qs).Random</code>",
+ "701": "<code>(DisjointScheme p Qs).Secret</code>",
+ "700":
+ "<code>DisjointScheme_Correctness {n : ℕ} (p : ℕ) [Fact (Nat.Prime p)] (Qs : Set (Set (Fin n)))\n  (h_disjoint : Qs.PairwiseDisjoint id) (h_nonempty : ∀ Q ∈ Qs, Q.Nonempty) :\n  (DisjointScheme p Qs).Correctness (DisjointAS Qs) (DisjointReconstruction p Qs)</code>",
+ "70":
+ "<code>AccessStructure.generatedAccessStructureClosure (n : ℕ) : ClosureOperator (Set (Set (Fin n)))</code><span class=\"sep\"></span><code class=\"docstring\">The generated access structure operation is a\nclosure operator.\n</code>",
+ "7": "<code>Set (Fin n)</code>",
+ "699":
+ "<code>ReconstructSecret {n p : ℕ} (Qs : Set (Set (Fin n))) (shares : Fin n → _root_.Share p) (G : Set (Fin n)) :\n  Option (ZMod p)</code><span class=\"sep\"></span><code class=\"docstring\">Reconstruct the secret from a set of participants G and their shares.\nIf G contains a qualified set Q, we sum the shares of Q.\n</code>",
+ "698":
+ "<code class=\"docstring\">Pattern matching. `match e, ... with | p, ... =&gt; f | ...` matches each given\nterm `e` against each pattern `p` of a match alternative. When all patterns\nof an alternative match, the `match` term evaluates to the value of the\ncorresponding right-hand side `f` with the pattern variables bound to the\nrespective matched values.\nIf used as `match h : e, ... with | p, ... =&gt; f | ...`, `h : e = p` is available\nwithin `f`.\n\nWhen not constructing a proof, `match` does not automatically substitute variables\nmatched on in dependent variables' types. Use `match (generalizing := true) ...` to\nenforce this.\n\nSyntax quotations can also be used in a pattern match.\nThis matches a `Syntax` value against quotations, pattern variables, or `_`.\n\nQuoted identifiers only match identical identifiers - custom matching such as by the preresolved\nnames only should be done explicitly.\n\n`Syntax.atom`s are ignored during matching by default except when part of a built-in literal.\nFor users introducing new atoms, we recommend wrapping them in dedicated syntax kinds if they\nshould participate in matching.\nFor example, in\n```lean\nsyntax \"c\" (\"foo\" &lt;|&gt; \"bar\") ...\n```\n`foo` and `bar` are indistinguishable during matching, but in\n```lean\nsyntax foo := \"foo\"\nsyntax \"c\" (foo &lt;|&gt; \"bar\") ...\n```\nthey are not.\n</code>",
+ "697": "<code>Fin n → Option (ZMod p)</code>",
+ "696": "<code>(i : ↑B) → (DisjointScheme p Qs).Share ↑i</code>",
+ "695": "<code>B ∈ (DisjointAS Qs).auth</code>",
+ "694":
+ "<code>DisjointReconstruction {n : ℕ} (p : ℕ) [Fact (Nat.Prime p)] (Qs : Set (Set (Fin n))) :\n  (DisjointScheme p Qs).ReconstructionAlgorithm (DisjointAS Qs)</code>",
+ "693": "<code>PMF (Fin n → ZMod p)</code>",
+ "692": "<code>Nat.Prime.two_le {p : ℕ} : Nat.Prime p → 2 ≤ p</code>",
+ "691": "<code>Fact (Nat.Prime p✝)</code>",
+ "690": "<code>Fintype.card (ZMod p) ≥ 2</code>",
+ "69":
+ "<code>Eq.{u_1} {α : Sort u_1} : α → α → Prop</code><span class=\"sep\"></span><code class=\"docstring\">The equality relation. It has one introduction rule, `Eq.refl`.\nWe use `a = b` as notation for `Eq a b`.\nA fundamental property of equality is that it is an equivalence relation.\n```\nvariable (α : Type) (a b c d : α)\nvariable (hab : a = b) (hcb : c = b) (hcd : c = d)\n\nexample : a = d :=\n  Eq.trans (Eq.trans hab (Eq.symm hcb)) hcd\n```\nEquality is much more than an equivalence relation, however. It has the important property that every assertion\nrespects the equivalence, in the sense that we can substitute equal expressions without changing the truth value.\nThat is, given `h1 : a = b` and `h2 : p a`, we can construct a proof for `p b` using substitution: `Eq.subst h1 h2`.\nExample:\n```\nexample (α : Type) (a b : α) (p : α → Prop)\n        (h1 : a = b) (h2 : p a) : p b :=\n  Eq.subst h1 h2\n\nexample (α : Type) (a b : α) (p : α → Prop)\n    (h1 : a = b) (h2 : p a) : p b :=\n  h1 ▸ h2\n```\nThe triangle in the second presentation is a macro built on top of `Eq.subst` and `Eq.symm`, and you can enter it by typing `\\t`.\nFor more information: [Equality](https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html#equality)\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `=` in identifiers is `eq`.</code>",
+ "689":
+ "<code>GenerateShares {n p : ℕ} [Fact (Nat.Prime p)] (Qs : Set (Set (Fin n))) (S : ZMod p) (ρ : Fin n → ZMod p) :\n  Fin n → _root_.Share p</code><span class=\"sep\"></span><code class=\"docstring\">Generate shares for a secret S using random values ρ.\nFor each Q ∈ Qs, we use the max element to balance the sum.\n</code>",
+ "688": "<code>ZMod p → (Fin n → ZMod p) → Fin n → _root_.Share p</code>",
+ "687": "<code>Fin n → Type</code>",
+ "686": "<code>Type</code>",
+ "685":
+ "<code>DisjointScheme {n : ℕ} (p : ℕ) [Fact (Nat.Prime p)] (Qs : Set (Set (Fin n))) : SecretSharingScheme n</code>",
+ "684":
+ "<code>Set.Subset.trans.{u} {α : Type u} {a b c : Set α} (ab : a ⊆ b) (bc : b ⊆ c) : a ⊆ c</code>",
+ "683": "<code>Q ⊆ A</code>",
+ "682": "<code>A ∈ {A | ∃ Q ∈ Qs, Q ⊆ A}</code>",
+ "681":
+ "<code>∀ {A B : Set (Fin n)}, A ∈ {A | ∃ Q ∈ Qs, Q ⊆ A} → A ⊆ B → B ∈ {A | ∃ Q ∈ Qs, Q ⊆ A}</code>",
+ "680":
+ "<code>DisjointAS {n : ℕ} (Qs : Set (Set (Fin n))) : AccessStructure n</code>",
+ "68":
+ "<code>AccessStructure.generatedAccessStructure_idempotent {n : ℕ} (S : Set (Set (Fin n))) :\n  generatedAccessStructure (generatedAccessStructure S) = generatedAccessStructure S</code><span class=\"sep\"></span><code class=\"docstring\">The generated access structure operation is idempotent.\n</code>",
+ "679":
+ "<code class=\"docstring\">Apply congruence (recursively) to goals of the form `⊢ f as = f bs` and `⊢ f as ≍ f bs`.\nThe optional parameter is the depth of the recursive applications.\nThis is useful when `congr` is too aggressive in breaking down the goal.\nFor example, given `⊢ f (g (x + y)) = f (g (y + x))`,\n`congr` produces the goals `⊢ x = y` and `⊢ y = x`,\nwhile `congr 2` produces the intended `⊢ x + y = y + x`.\n</code>",
+ "678": "<code>IsValidSharing Qs S (GenerateShares Qs S ρ)</code>",
+ "677":
+ "<code>∑ i ∈ ⋯.toFinset, Option.getD (GenerateShares Qs S ρ i) 0 = S</code>",
+ "676": "<code>choose hG ∈ Qs ∧ choose hG ⊆ G</code>",
+ "675":
+ "<code>ReconstructSecret_correct {n p : ℕ} [Fact (Nat.Prime p)] (Qs : Set (Set (Fin n))) (h_disjoint : Qs.PairwiseDisjoint id)\n  (h_nonempty : ∀ Q ∈ Qs, Q.Nonempty) (S : ZMod p) (ρ : Fin n → ZMod p) (G : Set (Fin n)) (hG : ∃ Q ∈ Qs, Q ⊆ G) :\n  ReconstructSecret Qs (GenerateShares Qs S ρ) G = some S</code>",
+ "674":
+ "<code>if_neg.{u} {c : Prop} {h : Decidable c} (hnc : ¬c) {α : Sort u} {t e : α} : (if c then t else e) = e</code>",
+ "673":
+ "<code>Finset.ne_of_mem_erase.{u_1} {α : Type u_1} [DecidableEq α] {s : Finset α} {a b : α} : b ∈ s.erase a → b ≠ a</code>",
+ "672": "<code>x ≠ last</code>",
+ "671":
+ "<code>Finset.mem_of_mem_erase.{u_1} {α : Type u_1} [DecidableEq α] {s : Finset α} {a b : α} : b ∈ s.erase a → b ∈ s</code>",
+ "670": "<code>x ∈ Qfin</code>",
+ "67":
+ "<code>Iff.mpr {a b : Prop} (self : a ↔ b) : b → a</code><span class=\"sep\"></span><code class=\"docstring\">Modus ponens for if and only if, reversed. If `a ↔ b` and `b`, then `a`. </code>",
+ "669": "<code>x ∈ Qfin.erase last</code>",
+ "668": "<code>∑ x ∈ Qfin.erase last, g x = ∑ x ∈ Qfin.erase last, ρ x</code>",
+ "667":
+ "<code>Finset.sum_insert.{u_1, u_4} {ι : Type u_1} {M : Type u_4} {s : Finset ι} {a : ι} [AddCommMonoid M] {f : ι → M}\n  [DecidableEq ι] : a ∉ s → ∑ x ∈ insert a s, f x = f a + ∑ x ∈ s, f x</code>",
+ "666":
+ "<code>Finset.insert_erase.{u_1} {α : Type u_1} [DecidableEq α] {s : Finset α} {a : α} (h : a ∈ s) : insert a (s.erase a) = s</code>",
+ "665": "<code>¬i = ⋯.toFinset.max' ⋯</code>",
+ "664": "<code>i = ⋯.toFinset.max' ⋯</code>",
+ "663": "<code>choose hex = Q</code>",
+ "662":
+ "<code>dif_pos.{u} {c : Prop} {h : Decidable c} (hc : c) {α : Sort u} {t : c → α} {e : ¬c → α} : dite c t e = t hc</code>",
+ "661": "<code>i ∈ Q ↔ i ∈ Qfin</code>",
+ "660": "<code>i ∈ Q ↔ Q i</code>",
+ "66": "<code>B ∈ T</code>",
+ "659":
+ "<code class=\"docstring\">The `dsimp` tactic is the definitional simplifier. It is similar to `simp` but only\napplies theorems that hold by reflexivity. Thus, the result is guaranteed to be\ndefinitionally equal to the input.\n</code>",
+ "658": "<code>i ∈ Qfin</code>",
+ "657":
+ "<code>∀ i ∈ Qfin, g i = if i = last then S - ∑ j ∈ Qfin.erase last, ρ j else ρ i</code>",
+ "656": "<code>x✝ ∈ Qfin</code>",
+ "655":
+ "<code>Set.mem_toFinset.{u_1} {α : Type u_1} {s : Set α} [Fintype ↑s] {a : α} : a ∈ s.toFinset ↔ a ∈ s</code>",
+ "654":
+ "<code>Set.toFinite_toFinset.{u} {α : Type u} (s : Set α) [Fintype ↑s] : ⋯.toFinset = s.toFinset</code>",
+ "653": "<code>true_and (p : Prop) : (True ∧ p) = p</code>",
+ "652":
+ "<code>Finset.mem_univ.{u_1} {α : Type u_1} [Fintype α] (x : α) : x ∈ Finset.univ</code>",
+ "651":
+ "<code>Finset.mem_filter.{u_1} {α : Type u_1} {p : α → Prop} [DecidablePred p] {s : Finset α} {a : α} :\n  a ∈ Finset.filter p s ↔ a ∈ s ∧ p a</code>",
+ "650":
+ "<code>Finset.sum_filter.{u_1, u_4} {ι : Type u_1} {M : Type u_4} {s : Finset ι} [AddCommMonoid M] (p : ι → Prop)\n  [DecidablePred p] (f : ι → M) : ∑ a ∈ s with p a, f a = ∑ a ∈ s, if p a then f a else 0</code>",
+ "65":
+ "<code>Iff.mp {a b : Prop} (self : a ↔ b) : a → b</code><span class=\"sep\"></span><code class=\"docstring\">Modus ponens for if and only if. If `a ↔ b` and `a`, then `b`. </code>",
+ "649": "<code>(∑ i, if i ∈ Q then g i else 0) = ∑ i ∈ Qfin, g i</code>",
+ "648":
+ "<code>Finset.max'_mem.{u_2} {α : Type u_2} [LinearOrder α] (s : Finset α) (H : s.Nonempty) : s.max' H ∈ s</code>",
+ "647": "<code>last ∈ Qfin</code>",
+ "646": "<code>Qfin.Nonempty</code>",
+ "645": "<code>∃ Q' ∈ Qs, i ∈ Q'</code>",
+ "644":
+ "<code class=\"docstring\">`rcases` is a tactic that will perform `cases` recursively, according to a pattern. It is used to\ndestructure hypotheses or expressions composed of inductive types like `h1 : a ∧ b ∧ c ∨ d` or\n`h2 : ∃ x y, trans_rel R x y`. Usual usage might be `rcases h1 with ⟨ha, hb, hc⟩ | hd` or\n`rcases h2 with ⟨x, y, _ | ⟨z, hxz, hzy⟩⟩` for these examples.\n\nEach element of an `rcases` pattern is matched against a particular local hypothesis (most of which\nare generated during the execution of `rcases` and represent individual elements destructured from\nthe input expression). An `rcases` pattern has the following grammar:\n\n* A name like `x`, which names the active hypothesis as `x`.\n* A blank `_`, which does nothing (letting the automatic naming system used by `cases` name the\n  hypothesis).\n* A hyphen `-`, which clears the active hypothesis and any dependents.\n* The keyword `rfl`, which expects the hypothesis to be `h : a = b`, and calls `subst` on the\n  hypothesis (which has the effect of replacing `b` with `a` everywhere or vice versa).\n* A type ascription `p : ty`, which sets the type of the hypothesis to `ty` and then matches it\n  against `p`. (Of course, `ty` must unify with the actual type of `h` for this to work.)\n* A tuple pattern `⟨p1, p2, p3⟩`, which matches a constructor with many arguments, or a series\n  of nested conjunctions or existentials. For example if the active hypothesis is `a ∧ b ∧ c`,\n  then the conjunction will be destructured, and `p1` will be matched against `a`, `p2` against `b`\n  and so on.\n* A `@` before a tuple pattern as in `@⟨p1, p2, p3⟩` will bind all arguments in the constructor,\n  while leaving the `@` off will only use the patterns on the explicit arguments.\n* An alternation pattern `p1 | p2 | p3`, which matches an inductive type with multiple constructors,\n  or a nested disjunction like `a ∨ b ∨ c`.\n\nA pattern like `⟨a, b, c⟩ | ⟨d, e⟩` will do a split over the inductive datatype,\nnaming the first three parameters of the first constructor as `a,b,c` and the\nfirst two of the second constructor `d,e`. If the list is not as long as the\nnumber of arguments to the constructor or the number of constructors, the\nremaining variables will be automatically named. If there are nested brackets\nsuch as `⟨⟨a⟩, b | c⟩ | d` then these will cause more case splits as necessary.\nIf there are too many arguments, such as `⟨a, b, c⟩` for splitting on\n`∃ x, ∃ y, p x`, then it will be treated as `⟨a, ⟨b, c⟩⟩`, splitting the last\nparameter as necessary.\n\n`rcases` also has special support for quotient types: quotient induction into Prop works like\nmatching on the constructor `quot.mk`.\n\n`rcases h : e with PAT` will do the same as `rcases e with PAT` with the exception that an\nassumption `h : e = PAT` will be added to the context.\n</code>",
+ "643": "<code>∀ Q ∈ Qs, i ∉ Q</code>",
+ "642":
+ "<code class=\"docstring\">`refine e` behaves like `exact e`, except that named (`?x`) or unnamed (`?_`)\nholes in `e` that are not solved by unification with the main goal's target type\nare converted into new goals, using the hole's name, if any, as the goal case name.\n</code>",
+ "641":
+ "<code>GenerateShares_isValid {n p : ℕ} [Fact (Nat.Prime p)] (Qs : Set (Set (Fin n))) (h_disjoint : Qs.PairwiseDisjoint id)\n  (h_nonempty : ∀ Q ∈ Qs, Q.Nonempty) (S : ZMod p) (ρ : Fin n → ZMod p) : IsValidSharing Qs S (GenerateShares Qs S ρ)</code>",
+ "640": "<code>Function.onFun Disjoint id Q' Q</code>",
+ "64": "<code>B ≤ A</code>",
+ "639": "<code>¬choose ⋯ = Q</code>",
+ "638":
+ "<code class=\"docstring\">`by_contra h` proves `⊢ p` by contradiction,\nintroducing a hypothesis `h : ¬p` and proving `False`.\n* If `p` is a negation `¬q`, `h : q` will be introduced instead of `¬¬q`.\n* If `p` is decidable, it uses `Decidable.byContradiction` instead of `Classical.byContradiction`.\n* If `h` is omitted, the introduced variable will be called `this`.\n</code>",
+ "637":
+ "<code>Set.not_disjoint_iff.{u} {α : Type u} {s t : Set α} : ¬Disjoint s t ↔ ∃ x ∈ s, x ∈ t</code>",
+ "636": "<code>¬Disjoint Q' Q</code>",
+ "635":
+ "<code>Inter.inter.{u} {α : Type u} [self : Inter α] : α → α → α</code><span class=\"sep\"></span><code class=\"docstring\">`a ∩ b` is the intersection of `a` and `b`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∩` in identifiers is `inter`.</code>",
+ "634": "<code>i ∈ Q' ∩ Q</code>",
+ "633": "<code>Q' ∈ Qs ∧ i ∈ Q'</code>",
+ "632": "<code>Set (Fin n) → Prop</code>",
+ "631":
+ "<code class=\"docstring\">The `let` tactic is for adding definitions to the local context of the main goal.\nThe definition can be unfolded, unlike definitions introduced by `have`.\n\n* `let x : t := e` adds the definition `x : t := e` if `e` is a term of type `t`.\n* `let x := e` uses the type of `e` for `t`.\n* `let : t := e` and `let := e` use `this` for the name of the hypothesis.\n* `let pat := e` for a pattern `pat` is equivalent to `match e with | pat =&gt; _`,\n  where `_` stands for the tactics that follow this one.\n  It is convenient for types that let only one applicable constructor.\n  For example, given `p : α × β × γ`, `let ⟨x, y, z⟩ := p` produces the\n  local variables `x : α`, `y : β`, and `z : γ`.\n* The syntax `let (eq := h) pat := e` is equivalent to `match h : e with | pat =&gt; _`,\n  which adds the equation `h : e = pat` to the local context.\n\nThe tactic supports all the same syntax variants and options as the `let` term.\n\n## Properties and relations\n\n* Unlike `have`, it is possible to unfold definitions introduced using `let`, using tactics\n  such as `simp`, `dsimp`, `unfold`, and `subst`.\n* The `clear_value` tactic turns a `let` definition into a `have` definition after the fact.\n  The tactic might fail if the local context depends on the value of the variable.\n* The `let` tactic is preferred for data (non-propositions).\n* Sometimes `have` is used for non-propositions to ensure that the variable is never unfolded,\n  which may be important for performance reasons.\n</code>",
+ "630": "<code>i ∈ Q</code>",
+ "63": "<code>B ∈ S</code>",
+ "629":
+ "<code>GenerateShares_Q_eq {n : ℕ} {Qs : Set (Set (Fin n))} (h_disjoint : Qs.PairwiseDisjoint id) {Q : Set (Fin n)}\n  (hQ : Q ∈ Qs) {i : Fin n} (hi : i ∈ Q) : choose ⋯ = Q</code>",
+ "628":
+ "<code>Set.BijOn.injOn.{u_1, u_2} {α : Type u_1} {β : Type u_2} {s : Set α} {t : Set β} {f : α → β} (h : Set.BijOn f s t) :\n  Set.InjOn f s</code>",
+ "627":
+ "<code>Set.InjOn.ncard_image.{u_1, u_2} {α : Type u_1} {β : Type u_2} {s : Set α} {f : α → β} (H : Set.InjOn f s) :\n  (f '' s).ncard = s.ncard</code>",
+ "626":
+ "<code>Set.BijOn.image_eq.{u_1, u_2} {α : Type u_1} {β : Type u_2} {s : Set α} {t : Set β} {f : α → β} (h : Set.BijOn f s t) :\n  f '' s = t</code>",
+ "625":
+ "<code>PerfectSecurity_thm {n p : ℕ} [Fact (Nat.Prime p)] (Qs : Set (Set (Fin n))) (h_disjoint : Qs.PairwiseDisjoint id)\n  (h_nonempty : ∀ Q ∈ Qs, Q.Nonempty) (A : Set (Fin n)) (h_unauth : ∀ Q ∈ Qs, ¬Q ⊆ A)\n  (shares_A : (i : Fin n) → i ∈ A → Share p) (S1 S2 : ZMod p) :\n  {ρ | ∀ (i : Fin n) (hi : i ∈ A), GenerateShares Qs S1 ρ i = shares_A i hi}.ncard =\n    {ρ | ∀ (i : Fin n) (hi : i ∈ A), GenerateShares Qs S2 ρ i = shares_A i hi}.ncard</code>",
+ "624":
+ "<code>Set.BijOn.equiv.{u_1, u_2} {α : Type u_1} {β : Type u_2} {s : Set α} {t : Set β} (f : α → β) (h : Set.BijOn f s t) :\n  ↑s ≃ ↑t</code><span class=\"sep\"></span><code class=\"docstring\">If a function is a bijection between two sets `s` and `t`, then it induces an\nequivalence between the types `↥s` and `↥t`. </code>",
+ "623":
+ "<code>Set.encard_congr.{u_1, u_2} {α : Type u_1} {β : Type u_2} {s : Set α} {t : Set β} (e : ↑s ≃ ↑t) : s.encard = t.encard</code>",
+ "622":
+ "<code>Set.ncard_def.{u_1} {α : Type u_1} (s : Set α) : s.ncard = s.encard.toNat</code>",
+ "621":
+ "<code>Set.BijOn (fun ρ =&gt; ρ + shift Qs A S1 S2) {ρ | ∀ (i : Fin n) (hi : i ∈ A), GenerateShares Qs S1 ρ i = shares_A i hi}\n  {ρ | ∀ (i : Fin n) (hi : i ∈ A), GenerateShares Qs S2 ρ i = shares_A i hi}</code>",
+ "620":
+ "<code>PerfectSecurity {n p : ℕ} [Fact (Nat.Prime p)] (Qs : Set (Set (Fin n))) (h_disjoint : Qs.PairwiseDisjoint id)\n  (h_nonempty : ∀ Q ∈ Qs, Q.Nonempty) (A : Set (Fin n)) (h_unauth : ∀ Q ∈ Qs, ¬Q ⊆ A)\n  (shares_A : (i : Fin n) → i ∈ A → Share p) (S1 S2 : ZMod p) :\n  {ρ | ∀ (i : Fin n) (hi : i ∈ A), GenerateShares Qs S1 ρ i = shares_A i hi}.ncard =\n    {ρ | ∀ (i : Fin n) (hi : i ∈ A), GenerateShares Qs S2 ρ i = shares_A i hi}.ncard</code>",
+ "62": "<code>A ∈ generatedAccessStructure S</code>",
+ "619": "<code>eq_comm.{u_1} {α : Sort u_1} {a b : α} : a = b ↔ b = a</code>",
+ "618": "<code>a✝ ∈ A</code>",
+ "617":
+ "<code>∀ (i : Fin n) (hi : i ∈ A), GenerateShares Qs S2 ρ i = shares_A i hi</code>",
+ "616":
+ "<code>sub_eq_add_neg.{u_1} {G : Type u_1} [SubNegMonoid G] (a b : G) : a - b = a + -b</code><span class=\"sep\"></span><code class=\"docstring\">Subtracting an element is the same as adding by its negative.\nThis is a duplicate of `SubNegMonoid.sub_eq_add_neg` ensuring that the types unfold better. </code>",
+ "615":
+ "<code>Set.image.{u, v} {α : Type u} {β : Type v} (f : α → β) (s : Set α) : Set β</code><span class=\"sep\"></span><code class=\"docstring\">The image of `s : Set α` by `f : α → β`, written `f '' s`, is the set of `b : β` such that\n`f a = b` for some `a ∈ s`. </code>",
+ "614":
+ "<code>ρ ∈ {ρ | ∀ (i : Fin n) (hi : i ∈ A), GenerateShares Qs S2 ρ i = shares_A i hi}</code>",
+ "613":
+ "<code>(fun ρ =&gt; ρ + shift Qs A S1 S2) x = (fun ρ =&gt; ρ + shift Qs A S1 S2) y</code>",
+ "612":
+ "<code>y ∈ {ρ | ∀ (i : Fin n) (hi : i ∈ A), GenerateShares Qs S1 ρ i = shares_A i hi}</code>",
+ "611":
+ "<code>x ∈ {ρ | ∀ (i : Fin n) (hi : i ∈ A), GenerateShares Qs S1 ρ i = shares_A i hi}</code>",
+ "610":
+ "<code>Set.SurjOn.{u, v} {α : Type u} {β : Type v} (f : α → β) (s : Set α) (t : Set β) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`f` is surjective from `s` to `t` if `t` is contained in the image of `s`. </code>",
+ "61":
+ "<code class=\"docstring\">`intros` repeatedly applies `intro` to introduce zero or more hypotheses\nuntil the goal is no longer a *binding expression*\n(i.e., a universal quantifier, function type, implication, or `have`/`let`),\nwithout performing any definitional reductions (no unfolding, beta, eta, etc.).\nThe introduced hypotheses receive inaccessible (hygienic) names.\n\n`intros x y z` is equivalent to `intro x y z` and exists only for historical reasons.\nThe `intro` tactic should be preferred in this case.\n\n## Properties and relations\n\n- `intros` succeeds even when it introduces no hypotheses.\n\n- `repeat intro` is like `intros`, but it performs definitional reductions\n  to expose binders, and as such it may introduce more hypotheses than `intros`.\n\n- `intros` is equivalent to `intro _ _ … _`,\n  with the fewest trailing `_` placeholders needed so that the goal is no longer a binding expression.\n  The trailing introductions do not perform any definitional reductions.\n\n## Examples\n\nImplications:\n```lean\nexample (p q : Prop) : p → q → p := by\n  intros\n  /- Tactic state\n     a✝¹ : p\n     a✝ : q\n     ⊢ p      -/\n  assumption\n```\n\nLet-bindings:\n```lean\nexample : let n := 1; let k := 2; n + k = 3 := by\n  intros\n  /- n✝ : Nat := 1\n     k✝ : Nat := 2\n     ⊢ n✝ + k✝ = 3 -/\n  rfl\n```\n\nDoes not unfold definitions:\n```lean\ndef AllEven (f : Nat → Nat) := ∀ n, f n % 2 = 0\n\nexample : ∀ (f : Nat → Nat), AllEven f → AllEven (fun k =&gt; f (k + 1)) := by\n  intros\n  /- Tactic state\n     f✝ : Nat → Nat\n     a✝ : AllEven f✝\n     ⊢ AllEven fun k =&gt; f✝ (k + 1) -/\n  sorry\n```\n</code>",
+ "609":
+ "<code>ρ ∈ {ρ | ∀ (i : Fin n) (hi : i ∈ A), GenerateShares Qs S1 ρ i = shares_A i hi}</code>",
+ "608":
+ "<code>Set.BijOn.{u, v} {α : Type u} {β : Type v} (f : α → β) (s : Set α) (t : Set β) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`f` is bijective from `s` to `t` if `f` is injective on `s` and `f '' s = t`. </code>",
+ "607": "<code>(i : Fin n) → i ∈ A → Share p</code>",
+ "606":
+ "<code>shift_is_bijection {n p : ℕ} [Fact (Nat.Prime p)] {Qs : Set (Set (Fin n))} {A : Set (Fin n)} {S1 S2 : ZMod p}\n  (h_disjoint : Qs.PairwiseDisjoint id) (h_nonempty : ∀ Q ∈ Qs, Q.Nonempty) (h_unauth : ∀ Q ∈ Qs, ¬Q ⊆ A)\n  (shares_A : (i : Fin n) → i ∈ A → Share p) :\n  Set.BijOn (fun ρ =&gt; ρ + shift Qs A S1 S2) {ρ | ∀ (i : Fin n) (hi : i ∈ A), GenerateShares Qs S1 ρ i = shares_A i hi}\n    {ρ | ∀ (i : Fin n) (hi : i ∈ A), GenerateShares Qs S2 ρ i = shares_A i hi}</code>",
+ "605":
+ "<code>Fact.out {p : Prop} [self : Fact p] : p</code><span class=\"sep\"></span><code class=\"docstring\">`Fact.out` contains the unwrapped witness for the fact represented by the instance of\n`Fact p`. </code>",
+ "604": "<code>Fact.mk {p : Prop} (out : p) : Fact p</code>",
+ "603":
+ "<code class=\"docstring\">`rotate_left n` rotates goals to the left by `n`. That is, `rotate_left 1`\ntakes the main goal and puts it to the back of the subgoal list.\nIf `n` is omitted, it defaults to `1`.\n</code>",
+ "602": "<code>¬i = (choose ⋯).toFinset.max' ⋯</code>",
+ "601": "<code>i = (choose ⋯).toFinset.max' ⋯</code>",
+ "600": "<code>shift Qs A S1 S2 i = 0</code>",
+ "60": "<code>S ⊆ T</code>",
+ "6":
+ "<code>AccessStructure.h_monotone {n : ℕ} (self : AccessStructure n) {A B : Set (Fin n)} :\n  A ∈ self.auth → A ⊆ B → B ∈ self.auth</code>",
+ "599": "<code>¬∃ Q ∈ Qs, i ∈ Q</code>",
+ "598":
+ "<code>generateShares_shift_eq {n p : ℕ} [Fact (Nat.Prime p)] {Qs : Set (Set (Fin n))} {A : Set (Fin n)} {S1 S2 : ZMod p}\n  (h_disjoint : Qs.PairwiseDisjoint id) (h_nonempty : ∀ Q ∈ Qs, Q.Nonempty) (h_unauth : ∀ Q ∈ Qs, ¬Q ⊆ A)\n  (ρ : Fin n → ZMod p) (i : Fin n) (hi : i ∈ A) :\n  GenerateShares Qs S2 (ρ + shift Qs A S1 S2) i = GenerateShares Qs S1 ρ i</code>",
+ "597":
+ "<code class=\"docstring\">`ring` solves equations in *commutative* (semi)rings, allowing for variables in the\nexponent. If the goal is not appropriate for `ring` (e.g. not an equality) `ring_nf` will be\nsuggested. See also `ring1`, which fails if the goal is not an equality.\n\n* `ring!` will use a more aggressive reducibility setting to determine equality of atoms.\n\nExamples:\n```\nexample (n : ℕ) (m : ℤ) : 2^(n+1) * m = 2 * 2^n * m := by ring\nexample (a b : ℤ) (n : ℕ) : (a + b)^(n + 2) = (a^2 + b^2 + a * b + b * a) * (a + b)^n := by ring\nexample (x y : ℕ) : x + id y = y + id x := by ring!\nexample (x : ℕ) (h : x * 2 &gt; 5): x + x &gt; 5 := by ring; assumption -- suggests ring_nf\n```\n</code>",
+ "596":
+ "<code class=\"docstring\">Apply function extensionality and introduce new hypotheses.\nThe tactic `funext` will keep applying the `funext` lemma until the goal target is not reducible to\n```\n  |-  ((fun x =&gt; ...) = (fun x =&gt; ...))\n```\nThe variant `funext h₁ ... hₙ` applies `funext` `n` times, and uses the given identifiers to name the new hypotheses.\nPatterns can be used like in the `intro` tactic. Example, given a goal\n```\n  |-  ((fun x : Nat × Bool =&gt; ...) = (fun x =&gt; ...))\n```\n`funext (a, b)` applies `funext` once and performs pattern matching on the newly introduced pair.\n</code>",
+ "595":
+ "<code>Neg.neg.{u} {α : Type u} [self : Neg α] : α → α</code><span class=\"sep\"></span><code class=\"docstring\">`-a` computes the negative or opposite of `a`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `-` in identifiers is `neg` (when used as a unary operator).</code>",
+ "594":
+ "<code>shift_symm {n p : ℕ} [Fact (Nat.Prime p)] {Qs : Set (Set (Fin n))} {A : Set (Fin n)} {S1 S2 : ZMod p} :\n  shift Qs A S2 S1 = -shift Qs A S1 S2</code>",
+ "593": "<code>x ∈ ⋯.toFinset.erase last</code>",
+ "592": "<code>choose ⋯ = Q.toFinset.max' ⋯</code>",
+ "591":
+ "<code>∀ (j : Fin n), ¬j = Q.toFinset.max' ⋯ → j ∈ Q → shift Qs A S1 S2 j = if pivot Q A = some j then S2 - S1 else 0</code>",
+ "590": "<code>Q.toFinset.max' ⋯ ∈ A</code>",
+ "59":
+ "<code>AccessStructure.generatedAccessStructure_mono {n : ℕ} {S T : Set (Set (Fin n))} (h : S ⊆ T) :\n  generatedAccessStructure S ⊆ generatedAccessStructure T</code><span class=\"sep\"></span><code class=\"docstring\">If S ⊆ T, then the access structure generated\nby `T` contains the subsets in the access structure\ngenerated by `S`.\n</code>",
+ "589": "<code>last = Q.toFinset.max' ⋯</code>",
+ "588": "<code>∀ Q ∈ Qs, ∃ a ∈ Q, a ∉ A</code>",
+ "587":
+ "<code>Set.not_subset.{u} {α : Type u} {s t : Set α} : ¬s ⊆ t ↔ ∃ a ∈ s, a ∉ t</code>",
+ "586": "<code>∃ x, pivot Q A = some x ∧ x ∈ ⋯.toFinset.erase last</code>",
+ "585": "<code>pivot Q A = some j</code>",
+ "584":
+ "<code>Set.disjoint_left.{u} {α : Type u} {s t : Set α} : Disjoint s t ↔ ∀ ⦃a : α⦄, a ∈ s → a ∉ t</code>",
+ "583": "<code>¬Q' = Q</code>",
+ "582":
+ "<code>Disjoint.{u_1} {α : Type u_1} [PartialOrder α] [OrderBot α] (a b : α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">Two elements of a lattice are disjoint if their inf is the bottom element.\n  (This generalizes disjoint sets, viewed as members of the subset lattice.)\n\nNote that we define this without reference to `⊓`, as this allows us to talk about orders where\nthe infimum is not unique, or where implementing `Inf` would require additional `Decidable`\narguments. </code>",
+ "581":
+ "<code>Function.onFun.{u₁, u₂, u₃} {α : Sort u₁} {β : Sort u₂} {φ : Sort u₃} (f : β → β → φ) (g : α → β) : α → α → φ</code><span class=\"sep\"></span><code class=\"docstring\">Given functions `f : β → β → φ` and `g : α → β`, produce a function `α → α → φ` that evaluates\n`g` on each argument, then applies `f` to the results. Can be used, e.g., to transfer a relation\nfrom `β` to `α`. </code>",
+ "580": "<code>Q' ≠ Q → Function.onFun Disjoint id Q' Q</code>",
+ "58":
+ "<code>le_rfl.{u_1} {α : Type u_1} [Preorder α] {a : α} : a ≤ a</code><span class=\"sep\"></span><code class=\"docstring\">A version of `le_refl` where the argument is implicit </code>",
+ "579": "<code>j ∈ Q' ∧ j ∉ A ∧ j ≠ ⋯.toFinset.max' ⋯</code>",
+ "578": "<code>j ∈ Q' ∧ j ∈ Q</code>",
+ "577": "<code>Q' = Q</code>",
+ "576": "<code>pivot Q' A = some j</code>",
+ "575": "<code>Q' ∈ Qs</code>",
+ "574":
+ "<code>if_congr.{u_1} {α : Sort u_1} {P Q : Prop} [Decidable P] [Decidable Q] {x y u v : α} (h_c : P ↔ Q) (h_t : x = u)\n  (h_e : y = v) : (if P then x else y) = if Q then u else v</code>",
+ "573": "<code>j ∈ ⋯.toFinset.erase last</code>",
+ "572":
+ "<code>∀ j ∈ ⋯.toFinset.erase last, shift Qs A S1 S2 j = if pivot Q A = some j then S2 - S1 else 0</code>",
+ "571": "<code>last ∈ A</code>",
+ "570": "<code>last = ⋯.toFinset.max' ⋯</code>",
+ "57": "<code>x ∈ S</code>",
+ "569": "<code>∀ Q ∈ Qs, ¬Q ⊆ A</code>",
+ "568":
+ "<code>sum_shift_eq_diff {n p : ℕ} [Fact (Nat.Prime p)] {Qs : Set (Set (Fin n))} {A : Set (Fin n)} {S1 S2 : ZMod p}\n  (h_disjoint : Qs.PairwiseDisjoint id) (h_nonempty : ∀ Q ∈ Qs, Q.Nonempty) (h_unauth : ∀ Q ∈ Qs, ¬Q ⊆ A)\n  (Q : Set (Fin n)) (hQ : Q ∈ Qs) (last : Fin n) (h_last : last = ⋯.toFinset.max' ⋯) (h_last_in_A : last ∈ A) :\n  ∑ j ∈ ⋯.toFinset.erase last, shift Qs A S1 S2 j = S2 - S1</code>",
+ "567":
+ "<code class=\"docstring\">This tactic applies to a goal whose target has the form `x ~ x`,\nwhere `~` is equality, heterogeneous equality or any relation that\nhas a reflexivity lemma tagged with the attribute @[refl].\n</code>",
+ "566":
+ "<code class=\"docstring\">`contradiction` closes the main goal if its hypotheses are \"trivially contradictory\".\n\n- Inductive type/family with no applicable constructors\n  ```lean\n  example (h : False) : p := by contradiction\n  ```\n- Injectivity of constructors\n  ```lean\n  example (h : none = some true) : p := by contradiction  --\n  ```\n- Decidable false proposition\n  ```lean\n  example (h : 2 + 2 = 3) : p := by contradiction\n  ```\n- Contradictory hypotheses\n  ```lean\n  example (h : p) (h' : ¬ p) : q := by contradiction\n  ```\n- Other simple contradictions such as\n  ```lean\n  example (x : Nat) (h : x ≠ x) : p := by contradiction\n  ```\n</code>",
+ "565": "<code>i ∉ A</code>",
+ "564": "<code>i ∈ Q ∧ i ∉ A ∧ i ≠ ⋯.toFinset.max' ⋯</code>",
+ "563": "<code>pivot Q A = some i</code>",
+ "562": "<code>Q ∈ Qs</code>",
+ "561": "<code>¬∃ Q ∈ Qs, pivot Q A = some i</code>",
+ "560": "<code>i ∈ A</code>",
+ "56":
+ "<code>AccessStructure.generatedAccessStructure_extensive {n : ℕ} (S : Set (Set (Fin n))) : S ⊆ generatedAccessStructure S</code>",
+ "559": "<code>∀ Q ∈ Qs, Q.Nonempty</code>",
+ "558":
+ "<code>id.{u} {α : Sort u} (a : α) : α</code><span class=\"sep\"></span><code class=\"docstring\">The identity function. `id` takes an implicit argument `α : Sort u`\n(a type in any universe), and an argument `a : α`, and returns `a`.\n\nAlthough this may look like a useless function, one application of the identity\nfunction is to explicitly put a type on an expression. If `e` has type `T`,\nand `T'` is definitionally equal to `T`, then `@id T' e` typechecks, and Lean\nknows that this expression has type `T'` rather than `T`. This can make a\ndifference for typeclass inference, since `T` and `T'` may have different\ntypeclass instances on them. `show T' from e` is sugar for an `@id T' e`\nexpression.\n</code>",
+ "557":
+ "<code>Set.PairwiseDisjoint.{u_1, u_4} {α : Type u_1} {ι : Type u_4} [PartialOrder α] [OrderBot α] (s : Set ι) (f : ι → α) :\n  Prop</code><span class=\"sep\"></span><code class=\"docstring\">A set is `PairwiseDisjoint` under `f`, if the images of any distinct two elements under `f`\nare disjoint.\n\n`s.Pairwise Disjoint` is (definitionally) the same as `s.PairwiseDisjoint id`. We prefer the latter\nin order to allow dot notation on `Set.PairwiseDisjoint`, even though the former unfolds more\nnicely. </code>",
+ "556": "<code>Qs.PairwiseDisjoint id</code>",
+ "555":
+ "<code>shift_eq_zero_on_A {n p : ℕ} [Fact (Nat.Prime p)] {Qs : Set (Set (Fin n))} {A : Set (Fin n)} {S1 S2 : ZMod p}\n  (_h_disjoint : Qs.PairwiseDisjoint id) (h_nonempty : ∀ Q ∈ Qs, Q.Nonempty) (i : Fin n) (hi : i ∈ A) :\n  shift Qs A S1 S2 i = 0</code>",
+ "554": "<code>choose h✝ ∈ Q ∧ choose h✝ ∉ A</code>",
+ "553":
+ "<code>Finset.sup'.{u_2, u_3} {α : Type u_2} {β : Type u_3} [SemilatticeSup α] (s : Finset β) (H : s.Nonempty) (f : β → α) : α</code><span class=\"sep\"></span><code class=\"docstring\">Given nonempty finset `s` then `s.sup' H f` is the supremum of its image under `f` in (possibly\nunbounded) join-semilattice `α`, where `H` is a proof of nonemptiness. If `α` has a bottom element\nyou may instead use `Finset.sup` which does not require `s` nonempty. </code>",
+ "552": "<code>(Q.toFinset.sup' ⋯ fun x =&gt; x) ∈ A ∧ choose h✝ = x</code>",
+ "551":
+ "<code>Finset.max'_eq_sup'.{u_2} {α : Type u_2} [LinearOrder α] (s : Finset α) (H : s.Nonempty) : s.max' H = s.sup' H id</code>",
+ "550":
+ "<code>(have last := ⋯.toFinset.max' ⋯;\n  if last ∈ A then none else none) =\n  some x</code>",
+ "55":
+ "<code>mem_upperClosure.{u_1} {α : Type u_1} [Preorder α] {s : Set α} {x : α} : x ∈ upperClosure s ↔ ∃ a ∈ s, a ≤ x</code>",
+ "549":
+ "<code>(have last := ⋯.toFinset.max' ⋯;\n  if last ∈ A then some (choose h✝) else none) =\n  some x</code>",
+ "548":
+ "<code>(if hQ : Q.Nonempty then\n    have last := ⋯.toFinset.max' ⋯;\n    if last ∈ A then if h_diff : ∃ x ∈ Q, x ∉ A then some (choose h_diff) else none else none\n  else none) =\n  some x</code>",
+ "547": "<code>pivot Q A = some x</code>",
+ "546":
+ "<code>pivot_mem {n : ℕ} {Q A : Set (Fin n)} (hQ : Q.Nonempty) (x : Fin n) :\n  pivot Q A = some x → x ∈ Q ∧ x ∉ A ∧ x ≠ ⋯.toFinset.max' ⋯</code>",
+ "545":
+ "<code>Set.subset_def.{u} {α : Type u} {s t : Set α} : (s ⊆ t) = ∀ x ∈ s, x ∈ t</code>",
+ "544":
+ "<code>Bool</code><span class=\"sep\"></span><code class=\"docstring\">When `true` (default: `false`), rewrites a proposition `p` to `True` or `False` by inferring\na `Decidable p` instance and reducing it.\n</code>",
+ "543": "<code>¬∃ x ∈ Q, x ∉ A</code>",
+ "542":
+ "<code class=\"docstring\">Splits all if-then-else-expressions into multiple goals.\nGiven a goal of the form `g (if p then x else y)`, `split_ifs` will produce\ntwo goals: `p ⊢ g x` and `¬p ⊢ g y`.\nIf there are multiple ite-expressions, then `split_ifs` will split them all,\nstarting with a top-most one whose condition does not contain another\nite-expression.\n`split_ifs at *` splits all ite-expressions in all hypotheses as well as the goal.\n`split_ifs with h₁ h₂ h₃` overrides the default names for the hypotheses.\n</code>",
+ "541":
+ "<code>Bool.true : Bool</code><span class=\"sep\"></span><code class=\"docstring\">The Boolean value `true`, not to be confused with the proposition `True`. </code>",
+ "540": "<code>¬Q ⊆ A</code>",
+ "54":
+ "<code class=\"docstring\">The `simp` tactic uses lemmas and hypotheses to simplify the main goal target or\nnon-dependent hypotheses. It has many variants:\n- `simp` simplifies the main goal target using lemmas tagged with the attribute `[simp]`.\n- `simp [h₁, h₂, ..., hₙ]` simplifies the main goal target using the lemmas tagged\n  with the attribute `[simp]` and the given `hᵢ`'s, where the `hᵢ`'s are expressions.-\n- If an `hᵢ` is a defined constant `f`, then `f` is unfolded. If `f` has equational lemmas associated\n  with it (and is not a projection or a `reducible` definition), these are used to rewrite with `f`.\n- `simp [*]` simplifies the main goal target using the lemmas tagged with the\n  attribute `[simp]` and all hypotheses.\n- `simp only [h₁, h₂, ..., hₙ]` is like `simp [h₁, h₂, ..., hₙ]` but does not use `[simp]` lemmas.\n- `simp [-id₁, ..., -idₙ]` simplifies the main goal target using the lemmas tagged\n  with the attribute `[simp]`, but removes the ones named `idᵢ`.\n- `simp at h₁ h₂ ... hₙ` simplifies the hypotheses `h₁ : T₁` ... `hₙ : Tₙ`. If\n  the target or another hypothesis depends on `hᵢ`, a new simplified hypothesis\n  `hᵢ` is introduced, but the old one remains in the local context.\n- `simp at *` simplifies all the hypotheses and the target.\n- `simp [*] at *` simplifies target and all (propositional) hypotheses using the\n  other hypotheses.\n</code>",
+ "539":
+ "<code>pivot_spec {n : ℕ} {Q A : Set (Fin n)} (hQ : Q.Nonempty) (h_unauth : ¬Q ⊆ A) :\n  (pivot Q A).isSome = true ↔ ⋯.toFinset.max' ⋯ ∈ A</code>",
+ "538": "<code>∃ Q ∈ Qs, pivot Q A = some i</code>",
+ "537":
+ "<code>shift {n p : ℕ} [Fact (Nat.Prime p)] (Qs : Set (Set (Fin n))) (A : Set (Fin n)) (S1 S2 : ZMod p) (i : Fin n) : ZMod p</code>",
+ "536": "<code>∃ x ∈ Q, x ∉ A</code>",
+ "535": "<code>Q.Nonempty</code>",
+ "534": "<code>pivot {n : ℕ} (Q A : Set (Fin n)) : Option (Fin n)</code>",
+ "533": "<code>∃ Q ∈ Qs, Q ⊆ G</code>",
+ "532":
+ "<code>ReconstructSecret {n p : ℕ} (Qs : Set (Set (Fin n))) (shares : Fin n → Share p) (G : Set (Fin n)) : Option (ZMod p)</code><span class=\"sep\"></span><code class=\"docstring\">Reconstruct the secret from a set of participants G and their shares.\nIf G contains a qualified set Q, we sum the shares of Q.\n</code>",
+ "531":
+ "<code>Option.some.{u} {α : Type u} (val : α) : Option α</code><span class=\"sep\"></span><code class=\"docstring\">Some value of type `α`. </code>",
+ "530":
+ "<code>Finset.max'.{u_2} {α : Type u_2} [LinearOrder α] (s : Finset α) (H : s.Nonempty) : α</code><span class=\"sep\"></span><code class=\"docstring\">Given a nonempty finset `s` in a linear order `α`, then `s.max' H` is its maximum, as an\nelement of `α`, where `H` is a proof of nonemptiness. Without this assumption, use instead `s.max`,\ntaking values in `WithBot α`. </code>",
+ "53":
+ "<code>Iff (a b : Prop) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">If and only if, or logical bi-implication. `a ↔ b` means that `a` implies `b` and vice versa.\nBy `propext`, this implies that `a` and `b` are equal and hence any expression involving `a`\nis equivalent to the corresponding expression with `b` instead.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `↔` in identifiers is `iff`.\n\n * The recommended spelling of `&lt;-&gt;` in identifiers is `iff` (prefer `↔` over `&lt;-&gt;`).</code>",
+ "529":
+ "<code>Set.Finite.toFinset_nonempty.{u} {α : Type u} {s : Set α} (hs : s.Finite) : hs.toFinset.Nonempty ↔ s.Nonempty</code>",
+ "528": "<code>Fact (Nat.Prime p)</code>",
+ "527":
+ "<code>Finset.Nonempty.{u_1} {α : Type u_1} (s : Finset α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">The property `s.Nonempty` expresses the fact that the finset `s` is not empty. It should be used\nin theorem assumptions instead of `∃ x, x ∈ s` or `s ≠ ∅` as it gives access to a nice API thanks\nto the dot notation. </code>",
+ "526": "<code>Q_finset.Nonempty</code>",
+ "525":
+ "<code>Set.Finite.toFinset.{u} {α : Type u} {s : Set α} (h : s.Finite) : Finset α</code><span class=\"sep\"></span><code class=\"docstring\">Using choice, get the `Finset` that represents this `Set`. </code>",
+ "524": "<code>Q.Finite</code>",
+ "523":
+ "<code>Classical.choose_spec.{u} {α : Sort u} {p : α → Prop} (h : ∃ x, p x) : p (choose h)</code>",
+ "522": "<code>Q ∈ Qs ∧ i ∈ Q</code>",
+ "521":
+ "<code class=\"docstring\">`have` is used to declare local hypotheses and opaque local definitions.\n\nIt has the same syntax as `let`, and it is equivalent to `let +nondep`,\ncreating a *nondependent* let expression.\n</code>",
+ "520": "<code>∃ Q ∈ Qs, i ∈ Q</code>",
+ "52":
+ "<code>AccessStructure.mem_generatedAccessStructure_iff {n : ℕ} (S : Set (Set (Fin n))) (A : Set (Fin n)) :\n  A ∈ generatedAccessStructure S ↔ ∃ B ∈ S, B ⊆ A</code><span class=\"sep\"></span><code class=\"docstring\">An explicit statement of what `upper close` means.\n</code>",
+ "519": "<code>Fin n → ZMod p</code>",
+ "518":
+ "<code>GenerateShares {n p : ℕ} [Fact (Nat.Prime p)] (Qs : Set (Set (Fin n))) (S : ZMod p) (ρ : Fin n → ZMod p) :\n  Fin n → Share p</code><span class=\"sep\"></span><code class=\"docstring\">Generate shares for a secret S using random values ρ.\nFor each Q ∈ Qs, we use the max element to balance the sum.\n</code>",
+ "517":
+ "<code>Option.isSome.{u_1} {α : Type u_1} : Option α → Bool</code><span class=\"sep\"></span><code class=\"docstring\">Returns `true` on `some x` and `false` on `none`. </code>",
+ "516":
+ "<code>Option.none.{u} {α : Type u} : Option α</code><span class=\"sep\"></span><code class=\"docstring\">No value. </code>",
+ "515": "<code>Fin n → Share p</code>",
+ "514": "<code>ZMod p</code>",
+ "513":
+ "<code>IsValidSharing {n p : ℕ} (Qs : Set (Set (Fin n))) (S : ZMod p) (σ : Fin n → Share p) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">The validity of a sharing of a secret S with respect to the disjoint qualified sets Qs.\n</code>",
+ "512":
+ "<code>ZMod : ℕ → Type</code><span class=\"sep\"></span><code class=\"docstring\">The integers modulo `n : ℕ`. </code>",
+ "511":
+ "<code>Option.{u} (α : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">Optional values, which are either `some` around a value from the underlying type or `none`.\n\n`Option` can represent nullable types or computations that might fail. In the codomain of a function\ntype, it can also represent partiality.\n</code>",
+ "510":
+ "<code>Share (p : ℕ) : Type</code><span class=\"sep\"></span><code class=\"docstring\">A share is an optional value in ZMod p.\nIf the participant is not in any qualified set, it is none.\n</code>",
+ "51":
+ "<code>upperClosure.{u_1} {α : Type u_1} [Preorder α] (s : Set α) : UpperSet α</code><span class=\"sep\"></span><code class=\"docstring\">The greatest upper set containing a given set. </code>",
+ "509":
+ "<code>Nat.Prime (p : ℕ) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`Nat.Prime p` means that `p` is a prime number, that is, a natural number\nat least 2 whose only divisors are `p` and `1`.\nThe theorem `Nat.prime_def` witnesses this description of a prime number. </code>",
+ "508":
+ "<code>Fact (p : Prop) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">Wrapper for adding elementary propositions to the type class systems.\nWarning: this can easily be abused. See the rest of this docstring for details.\n\nCertain propositions should not be treated as a class globally,\nbut sometimes it is very convenient to be able to use the type class system\nin specific circumstances.\n\nFor example, `ZMod p` is a field if and only if `p` is a prime number.\nIn order to be able to find this field instance automatically by type class search,\nwe have to turn `p.prime` into an instance implicit assumption.\n\nOn the other hand, making `Nat.prime` a class would require a major refactoring of the library,\nand it is questionable whether making `Nat.prime` a class is desirable at all.\nThe compromise is to add the assumption `[Fact p.prime]` to `ZMod.field`.\n\nIn particular, this class is not intended for turning the type class system\ninto an automated theorem prover for first-order logic. </code>",
+ "507":
+ "<code>(shamirScheme n t x h_distinct h_nonzero).PerfectSecurity (thresholdAccessStructure n t)</code>",
+ "506":
+ "<code>ne_of_gt.{u_1} {α : Type u_1} [Preorder α] {a b : α} (h : b &lt; a) : a ≠ b</code>",
+ "505":
+ "<code>(shamirScheme n t x h_distinct h_nonzero).Correctness (thresholdAccessStructure n t) (shamir_reconstruction n t x)</code>",
+ "504":
+ "<code>(B : Set (Fin n)) → B ∈ (thresholdAccessStructure n t).auth → (↑B → F) → F</code>",
+ "503":
+ "<code>ShamirScheme.shamirRealizedScheme.{u_1} {F : Type u_1} [Field F] [Fintype F] (n t : ℕ) (x : Fin n → F)\n  (h_distinct : Function.Injective x) (h_nonzero : ∀ (i : Fin n), x i ≠ 0) (ht : t &gt; 0) :\n  RealizedSecretSharingScheme n (thresholdAccessStructure n t)</code>",
+ "502": "<code>(shamirScheme n t x h_distinct h_nonzero).Secret = F</code>",
+ "501":
+ "<code>∀ (s : F) (m : Fin (t - 1) → F), eval 0 (shamir_polynomial t s m) = s</code>",
+ "500":
+ "<code>ShamirScheme.shamir_scheme_correctness.{u_1} {F : Type u_1} [Field F] [Fintype F] (n t : ℕ) (x : Fin n → F)\n  (h_distinct : Function.Injective x) (h_nonzero : ∀ (i : Fin n), x i ≠ 0) (ht : t ≠ 0) :\n  (shamirScheme n t x h_distinct h_nonzero).Correctness (thresholdAccessStructure n t) (shamir_reconstruction n t x)</code>",
+ "50":
+ "<code>AccessStructure.generatedAccessStructure {n : ℕ} (S : Set (Set (Fin n))) : Set (Set (Fin n))</code>",
+ "5":
+ "<code>Fin (n : ℕ) : Type</code><span class=\"sep\"></span><code class=\"docstring\">Natural numbers less than some upper bound.\n\nIn particular, a `Fin n` is a natural number `i` with the constraint that `i &lt; n`. It is the\ncanonical type with `n` elements.\n</code>",
+ "499": "<code>i ∉ Classical.choose ⋯</code>",
+ "498": "<code>Ne.symm.{u} {α : Sort u} {a b : α} (h : a ≠ b) : b ≠ a</code>",
+ "497":
+ "<code>Finset.mem_erase_of_ne_of_mem.{u_1} {α : Type u_1} [DecidableEq α] {s : Finset α} {a b : α} :\n  a ≠ b → a ∈ s → a ∈ s.erase b</code>",
+ "496":
+ "<code>Finset.prod_eq_zero.{u_1, u_4} {ι : Type u_1} {M₀ : Type u_4} [CommMonoidWithZero M₀] {f : ι → M₀} {s : Finset ι}\n  {i : ι} (hi : i ∈ s) (h : f i = 0) : ∏ j ∈ s, f j = 0</code>",
+ "495":
+ "<code>Or.inr {a b : Prop} (h : b) : a ∨ b</code><span class=\"sep\"></span><code class=\"docstring\">`Or.inr` is \"right injection\" into an `Or`. If `h : b` then `Or.inr h : a ∨ b`. </code>",
+ "494": "<code>j ∈ B</code>",
+ "493": "<code>¬j = i</code>",
+ "492": "<code>j ∈ Classical.choose ⋯</code>",
+ "491":
+ "<code>Function.Injective.ne.{u_1, u_2} {α : Sort u_1} {β : Sort u_2} {f : α → β} (hf : Function.Injective f) {a₁ a₂ : α} :\n  a₁ ≠ a₂ → f a₁ ≠ f a₂</code>",
+ "490":
+ "<code>sub_ne_zero_of_ne.{u_1} {α : Type u_1} [SubtractionMonoid α] {a b : α} : a ≠ b → a - b ≠ 0</code>",
+ "49":
+ "<code>AccessStructure.maximallyUnauthorized {n : ℕ} (Γ : AccessStructure n) : Set (Set (Fin n))</code><span class=\"sep\"></span><code class=\"docstring\">The family of maximally unauthorized sets.\n</code>",
+ "489":
+ "<code>inv_mul_cancel₀.{u_3} {G₀ : Type u_3} [GroupWithZero G₀] {a : G₀} (h : a ≠ 0) : a⁻¹ * a = 1</code>",
+ "488": "<code>j ∈ (Classical.choose ⋯).toFinset.erase i</code>",
+ "487":
+ "<code>Finset.prod_eq_one.{u_1, u_4} {ι : Type u_1} {M : Type u_4} {s : Finset ι} [CommMonoid M] {f : ι → M}\n  (h : ∀ x ∈ s, f x = 1) : ∏ x ∈ s, f x = 1</code>",
+ "486":
+ "<code>Polynomial.eval_prod.{u, u_1} {R : Type u} [CommSemiring R] {ι : Type u_1} (s : Finset ι) (p : ι → R[X]) (x : R) :\n  eval x (∏ j ∈ s, p j) = ∏ j ∈ s, eval x (p j)</code><span class=\"sep\"></span><code class=\"docstring\">Polynomial evaluation commutes with `Finset.prod`\n</code>",
+ "485":
+ "<code>Lagrange.basisDivisor.{u_1} {F : Type u_1} [Field F] (x y : F) : F[X]</code><span class=\"sep\"></span><code class=\"docstring\">`basisDivisor x y` is the unique linear or constant polynomial such that\nwhen evaluated at `x` it gives `1` and `y` it gives `0` (where when `x = y` it is identically `0`).\nSuch polynomials are the building blocks for the Lagrange interpolants. </code>",
+ "484":
+ "<code>Finset.erase.{u_1} {α : Type u_1} [DecidableEq α] (s : Finset α) (a : α) : Finset α</code><span class=\"sep\"></span><code class=\"docstring\">`erase s a` is the set `s - {a}`, that is, the elements of `s` which are\nnot equal to `a`. </code>",
+ "483":
+ "<code>Finset.sum_eq_single.{u_1, u_4} {ι : Type u_1} {M : Type u_4} [AddCommMonoid M] {s : Finset ι} {f : ι → M} (a : ι)\n  (h₀ : ∀ b ∈ s, b ≠ a → f b = 0) (h₁ : a ∉ s → f a = 0) : ∑ x ∈ s, f x = f a</code>",
+ "482": "<code>i ∈ Classical.choose ⋯</code>",
+ "481":
+ "<code>Lagrange.basis.{u_1, u_2} {F : Type u_1} [Field F] {ι : Type u_2} [DecidableEq ι] (s : Finset ι) (v : ι → F) (i : ι) :\n  F[X]</code><span class=\"sep\"></span><code class=\"docstring\">Lagrange basis polynomials indexed by `s : Finset ι`, defined at nodes `v i` for a\nmap `v : ι → F`. For `i, j ∈ s`, `basis s v i` evaluates to 0 at `v j` for `i ≠ j`. When\n`v` is injective on `s`, `basis s v i` evaluates to 1 at `v i`. </code>",
+ "480": "<code>Nat.pred_lt {n : ℕ} : n ≠ 0 → n.pred &lt; n</code>",
+ "48":
+ "<code>AccessStructure.isMaximallyUnauthorized {n : ℕ} (Γ : AccessStructure n) (A : Set (Fin n)) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A set `A` is a maximally unauthorized set if it is\nunauthorized and any proper superset of `A` is authorized.\n</code>",
+ "479":
+ "<code>Classical.choose ⋯ ⊆ B ∧ Fintype.card ↑(Classical.choose ⋯) = t</code>",
+ "478": "<code>¬t = 0</code>",
+ "477": "<code>Classical.choose ⋯ ⊆ B ∧ (Classical.choose ⋯).ncard = t</code>",
+ "476":
+ "<code>Polynomial.degree_le_natDegree.{u} {R : Type u} [Semiring R] {p : R[X]} : p.degree ≤ ↑p.natDegree</code>",
+ "475":
+ "<code>Function.Injective.injOn.{u_1, u_2} {α : Type u_1} {β : Type u_2} {f : α → β} (h : Function.Injective f) {s : Set α} :\n  Set.InjOn f s</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `Set.injOn_of_injective`.</code>",
+ "474":
+ "<code>Finset.card_image_of_injective.{u_1, u_2} {α : Type u_1} {β : Type u_2} {f : α → β} [DecidableEq β] (s : Finset α)\n  (H : Function.Injective f) : #(image f s) = #s</code>",
+ "473":
+ "<code>Set.InjOn.{u, v} {α : Type u} {β : Type v} (f : α → β) (s : Set α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`f` is injective on `s` if the restriction of `f` to `s` is injective. </code>",
+ "472":
+ "<code>Lagrange.degree_interpolate_lt.{u_1, u_2} {F : Type u_1} [Field F] {ι : Type u_2} [DecidableEq ι] {s : Finset ι}\n  {v : ι → F} (r : ι → F) (hvs : Set.InjOn v ↑s) : ((Lagrange.interpolate s v) r).degree &lt; ↑(#s)</code>",
+ "471":
+ "<code>max_lt.{u_1} {α : Type u_1} [LinearOrder α] {a b c : α} (h₁ : b &lt; a) (h₂ : c &lt; a) : max b c &lt; a</code>",
+ "470":
+ "<code>Polynomial.degree_sub_le.{u} {R : Type u} [Ring R] (p q : R[X]) : (p - q).degree ≤ max p.degree q.degree</code>",
+ "47":
+ "<code>Set.ncard_lt_ncard.{u_1} {α : Type u_1} {s t : Set α} (h : s ⊂ t) (ht : t.Finite := by toFinite_tac) : s.ncard &lt; t.ncard</code>",
+ "469":
+ "<code>lt_of_le_of_lt.{u_1} {α : Type u_1} [Preorder α] {a b c : α} (hab : a ≤ b) (hbc : b &lt; c) : a &lt; c</code>",
+ "468":
+ "<code>Polynomial.degree.{u} {R : Type u} [Semiring R] (p : R[X]) : WithBot ℕ</code><span class=\"sep\"></span><code class=\"docstring\">`degree p` is the degree of the polynomial `p`, i.e. the largest `X`-exponent in `p`.\n`degree p = some n` when `p ≠ 0` and `n` is the highest power of `X` that appears in `p`, otherwise\n`degree 0 = ⊥`. </code>",
+ "467":
+ "<code>Polynomial.eq_of_degree_sub_lt_of_eval_finset_eq.{u_1} {R : Type u_1} [CommRing R] [IsDomain R] {f g : R[X]}\n  (s : Finset R) (degree_fg_lt : (f - g).degree &lt; ↑(#s)) (eval_fg : ∀ x ∈ s, eval x f = eval x g) : f = g</code>",
+ "466": "<code>t ≠ 0</code>",
+ "465":
+ "<code>ShamirScheme.shamir_interpolation_correct.{u_1} {F : Type u_1} [Field F] [Fintype F] (n t : ℕ) (x : Fin n → F)\n  (h_distinct : Function.Injective x) (_h_nonzero : ∀ (i : Fin n), x i ≠ 0) (s : F) (m : Fin (t - 1) → F)\n  (B : Set (Fin n)) (hB : B ∈ (thresholdAccessStructure n t).auth) (ht : t ≠ 0) :\n  have h_card := ⋯;\n  have S := Classical.choose ⋯;\n  have S_finset := S.toFinset;\n  have shares := fun i =&gt; shamir_poly t s m (x ↑i);\n  have shares_ext := fun i =&gt; if h : i ∈ B then shares ⟨i, h⟩ else 0;\n  (Lagrange.interpolate S_finset x) shares_ext = shamir_polynomial t s m</code>",
+ "464":
+ "<code>LE.le.trans.{u_1} {α : Type u_1} [Preorder α] {a b c : α} : a ≤ b → b ≤ c → a ≤ c</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `le_trans`.</code>",
+ "463":
+ "<code>max_le.{u_1} {α : Type u_1} [LinearOrder α] {a b c : α} (h₁ : a ≤ c) (h₂ : b ≤ c) : max a b ≤ c</code>",
+ "462":
+ "<code>Polynomial.natDegree_add_le.{u} {R : Type u} [Semiring R] (p q : R[X]) : (p + q).natDegree ≤ max p.natDegree q.natDegree</code>",
+ "461":
+ "<code>Finset.mem_univ.{u_1} {α : Type u_1} [Fintype α] (x : α) : x ∈ univ</code>",
+ "460":
+ "<code>Finset.le_sup.{u_2, u_3} {α : Type u_2} {β : Type u_3} [SemilatticeSup α] [OrderBot α] {s : Finset β} {f : β → α}\n  {b : β} (hb : b ∈ s) : f b ≤ s.sup f</code>",
+ "46":
+ "<code>LE.le.not_gt.{u_1} {α : Type u_1} [Preorder α] {a b : α} (hab : a ≤ b) : ¬b &lt; a</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `not_lt_of_ge`.</code>",
+ "459":
+ "<code>Polynomial.natDegree_C_mul_X_pow_le.{u} {R : Type u} [Semiring R] (a : R) (n : ℕ) : (C a * X ^ n).natDegree ≤ n</code>",
+ "458":
+ "<code>Finset.sup_le.{u_2, u_3} {α : Type u_2} {β : Type u_3} [SemilatticeSup α] [OrderBot α] {s : Finset β} {f : β → α}\n  {a : α} : (∀ b ∈ s, f b ≤ a) → s.sup f ≤ a</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of the reverse direction of `Finset.sup_le_iff`.</code>",
+ "457":
+ "<code>Polynomial.natDegree_sum_le.{w, u_1} {ι : Type w} (s : Finset ι) {S : Type u_1} [Semiring S] (f : ι → S[X]) :\n  (∑ i ∈ s, f i).natDegree ≤ fold max 0 (natDegree ∘ f) s</code>",
+ "456":
+ "<code>le_trans.{u_1} {α : Type u_1} [Preorder α] {a b c : α} : a ≤ b → b ≤ c → a ≤ c</code><span class=\"sep\"></span><code class=\"docstring\">The relation `≤` on a preorder is transitive. </code>",
+ "455":
+ "<code>(∑ i, C (m i) * X ^ (↑i + 1)).natDegree ≤ univ.sup fun i =&gt; ↑i + 1</code>",
+ "454":
+ "<code>Finset.sup.{u_2, u_3} {α : Type u_2} {β : Type u_3} [SemilatticeSup α] [OrderBot α] (s : Finset β) (f : β → α) : α</code><span class=\"sep\"></span><code class=\"docstring\">Supremum of a finite set: `sup {a, b, c} f = f a ⊔ f b ⊔ f c` </code>",
+ "453":
+ "<code>(shamir_polynomial t s m).natDegree ≤ univ.sup fun i =&gt; ↑i + 1</code>",
+ "452":
+ "<code>Polynomial.natDegree.{u} {R : Type u} [Semiring R] (p : R[X]) : ℕ</code><span class=\"sep\"></span><code class=\"docstring\">`natDegree p` forces `degree p` to ℕ, by defining `natDegree 0 = 0`. </code>",
+ "451":
+ "<code>ShamirScheme.shamir_polynomial_degree_le.{u_1} {F : Type u_1} [Field F] [Fintype F] (t : ℕ) (s : F)\n  (m : Fin (t - 1) → F) : (shamir_polynomial t s m).natDegree ≤ t - 1</code>",
+ "450":
+ "<code>Polynomial.eval_pow.{u} {R : Type u} [CommSemiring R] {p : R[X]} {x : R} (n : ℕ) : eval x (p ^ n) = eval x p ^ n</code>",
+ "45": "<code>A.ncard ≤ C.ncard</code>",
+ "449":
+ "<code>Polynomial.eval_X.{u} {R : Type u} [Semiring R] {x : R} : eval x X = x</code>",
+ "448":
+ "<code>Polynomial.eval_C.{u} {R : Type u} {a : R} [Semiring R] {x : R} : eval x (C a) = a</code>",
+ "447":
+ "<code>Polynomial.eval_finset_sum.{u, y} {R : Type u} {ι : Type y} [Semiring R] (s : Finset ι) (g : ι → R[X]) (x : R) :\n  eval x (∑ i ∈ s, g i) = ∑ i ∈ s, eval x (g i)</code>",
+ "446":
+ "<code>ShamirScheme.shamir_polynomial_eval.{u_1} {F : Type u_1} [Field F] [Fintype F] (t : ℕ) (s : F) (m : Fin (t - 1) → F)\n  (z : F) : eval z (shamir_polynomial t s m) = shamir_poly t s m z</code>",
+ "445":
+ "<code>Polynomial.X.{u} {R : Type u} [Semiring R] : R[X]</code><span class=\"sep\"></span><code class=\"docstring\">`X` is the polynomial variable (aka indeterminate). </code>",
+ "444":
+ "<code>Polynomial.C.{u} {R : Type u} [Semiring R] : R →+* R[X]</code><span class=\"sep\"></span><code class=\"docstring\">`C a` is the constant polynomial `a`.\n`C` is provided as a ring homomorphism.\n</code>",
+ "443":
+ "<code>Polynomial.{u_1} (R : Type u_1) [Semiring R] : Type u_1</code><span class=\"sep\"></span><code class=\"docstring\">`Polynomial R` is the type of univariate polynomials over `R`,\ndenoted as `R[X]` within the `Polynomial` namespace.\n\nPolynomials should be seen as (semi-)rings with the additional constructor `X`.\nThe embedding from `R` is called `C`. </code>",
+ "442":
+ "<code>ShamirScheme.shamir_polynomial.{u_1} {F : Type u_1} [Field F] (t : ℕ) (s : F) (m : Fin (t - 1) → F) : F[X]</code>",
+ "441":
+ "<code class=\"docstring\">`assumption` tries to solve the main goal using a hypothesis of compatible type, or else fails.\nNote also the `‹t›` term notation, which is a shorthand for `show t by assumption`.\n</code>",
+ "440":
+ "<code>∀ (s : F), PMF.map (fun r i =&gt; shamir_poly t s r (x ↑i)) (uniform_coeffs t) = PMF.uniformOfFintype (↑B → F)</code>",
+ "44":
+ "<code>HasSubset.Subset.trans.{u} {α : Type u} [HasSubset α] [IsTrans α fun x1 x2 =&gt; x1 ⊆ x2] {a b c : α} :\n  a ⊆ b → b ⊆ c → a ⊆ c</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `subset_trans`.</code>",
+ "439": "<code>(shamirScheme n t x h_distinct h_nonzero).Random</code>",
+ "438": "<code>(shamirScheme n t x h_distinct h_nonzero).Secret</code>",
+ "437": "<code>B ∉ (thresholdAccessStructure n t).auth</code>",
+ "436":
+ "<code>ShamirScheme.shamir_perfect_security.{u_1} {F : Type u_1} [Field F] [Fintype F] (n t : ℕ) (x : Fin n → F)\n  (h_distinct : Function.Injective x) (h_nonzero : ∀ (i : Fin n), x i ≠ 0) :\n  (shamirScheme n t x h_distinct h_nonzero).PerfectSecurity (thresholdAccessStructure n t)</code>",
+ "435":
+ "<code>Classical.choose_spec.{u} {α : Sort u} {p : α → Prop} (h : ∃ x, p x) : p (Classical.choose h)</code>",
+ "434":
+ "<code>ShamirScheme.shamir_shares_uniform.{u_1} {F : Type u_1} [Field F] [Fintype F] (n t : ℕ) (x : Fin n → F)\n  (h_distinct : Function.Injective x) (h_nonzero : ∀ (i : Fin n), x i ≠ 0) (B : Set (Fin n)) (hB : B.ncard &lt; t)\n  (s : F) : PMF.map (fun r i =&gt; shamir_poly t s r (x ↑i)) (uniform_coeffs t) = PMF.uniformOfFintype (↑B → F)</code>",
+ "433":
+ "<code>Finset.sum_add_distrib.{u_1, u_4} {ι : Type u_1} {M : Type u_4} {s : Finset ι} [AddCommMonoid M] {f g : ι → M} :\n  ∑ x ∈ s, (f x + g x) = ∑ x ∈ s, f x + ∑ x ∈ s, g x</code>",
+ "432":
+ "<code>add_mul.{v} {R : Type v} [Mul R] [Add R] [RightDistribClass R] (a b c : R) : (a + b) * c = a * c + b * c</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `right_distrib`.</code>",
+ "431": "<code>∑ x_1, ↑m x_1 * x i ^ (↑x_1 + 1) = 0</code>",
+ "430":
+ "<code>shamir_poly t s (↑m) (x ↑⟨i, hi⟩) = shamir_poly t s 0 (x ↑⟨i, hi⟩)</code>",
+ "43":
+ "<code class=\"docstring\">The `have` tactic is for adding opaque definitions and hypotheses to the local context of the main goal.\nThe definitions forget their associated value and cannot be unfolded, unlike definitions added by the `let` tactic.\n\n* `have h : t := e` adds the hypothesis `h : t` if `e` is a term of type `t`.\n* `have h := e` uses the type of `e` for `t`.\n* `have : t := e` and `have := e` use `this` for the name of the hypothesis.\n* `have pat := e` for a pattern `pat` is equivalent to `match e with | pat =&gt; _`,\n  where `_` stands for the tactics that follow this one.\n  It is convenient for types that have only one applicable constructor.\n  For example, given `h : p ∧ q ∧ r`, `have ⟨h₁, h₂, h₃⟩ := h` produces the\n  hypotheses `h₁ : p`, `h₂ : q`, and `h₃ : r`.\n* The syntax `have (eq := h) pat := e` is equivalent to `match h : e with | pat =&gt; _`,\n  which adds the equation `h : e = pat` to the local context.\n\nThe tactic supports all the same syntax variants and options as the `have` term.\n\n## Properties and relations\n\n* It is not possible to unfold a variable introduced using `have`, since the definition's value is forgotten.\n  The `let` tactic introduces definitions that can be unfolded.\n* The `have h : t := e` is like doing `let h : t := e; clear_value h`.\n* The `have` tactic is preferred for propositions, and `let` is preferred for non-propositions.\n* Sometimes `have` is used for non-propositions to ensure that the variable is never unfolded,\n  which may be important for performance reasons.\n    Consider using the equivalent `let +nondep` to indicate the intent.\n\n</code>",
+ "429":
+ "<code>sub_mul.{u} {α : Type u} [NonUnitalNonAssocRing α] (a b c : α) : (a - b) * c = a * c - b * c</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `mul_sub_right_distrib`.</code>",
+ "428":
+ "<code>∑ x_1, ↑m x_1 * x i ^ (↑x_1 + 1) = ∑ x_1, m₀ x_1 * x i ^ (↑x_1 + 1)</code>",
+ "427":
+ "<code>∀ (y : ↑B → F), ∃ m₀, ∀ (a : Fin n) (b : a ∈ B), s + ∑ j, m₀ j * x a ^ (↑j + 1) = y ⟨a, b⟩</code>",
+ "426":
+ "<code>shamir_poly t s (↑m) (x ↑⟨i, hi⟩) = shamir_poly t s m₀ (x ↑⟨i, hi⟩)</code>",
+ "425": "<code>a ∈ B</code>",
+ "424":
+ "<code>∀ (y : ↑B → F), ∃ m₀, ∀ (a : Fin n) (b : a ∈ B), shamir_poly t s m₀ (x a) = y ⟨a, b⟩</code>",
+ "423":
+ "<code>{ m // (fun i =&gt; shamir_poly t s m (x ↑i)) = fun i =&gt; shamir_poly t s 0 (x ↑i) }</code>",
+ "422":
+ "<code>Subtype.val.{u} {α : Sort u} {p : α → Prop} (self : Subtype p) : α</code><span class=\"sep\"></span><code class=\"docstring\">The value in the underlying type that satisfies the predicate.\n</code>",
+ "421":
+ "<code>{ m // (fun i =&gt; shamir_poly t s m (x ↑i)) = fun i =&gt; shamir_poly t s m₀ (x ↑i) }</code>",
+ "420":
+ "<code>Equiv.mk.{u_1, u_2} {α : Sort u_1} {β : Sort u_2} (toFun : α → β) (invFun : β → α)\n  (left_inv : Function.LeftInverse invFun toFun := by intro;\n    first\n    | rfl\n    | ext &lt;;&gt; rfl)\n  (right_inv : Function.RightInverse invFun toFun := by intro;\n    first\n    | rfl\n    | ext &lt;;&gt; rfl) :\n  α ≃ β</code>",
+ "42":
+ "<code>False : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`False` is the empty proposition. Thus, it has no introduction rules.\nIt represents a contradiction. `False` elimination rule, `False.rec`,\nexpresses the fact that anything follows from a contradiction.\nThis rule is sometimes called ex falso (short for ex falso sequitur quodlibet),\nor the principle of explosion.\nFor more information: [Propositional Logic](https://lean-lang.org/theorem_proving_in_lean4/propositions_and_proofs.html#propositional-logic)\n</code>",
+ "419":
+ "<code>Fintype.card_congr.{u_4, u_5} {α : Type u_4} {β : Type u_5} [Fintype α] [Fintype β] (f : α ≃ β) :\n  Fintype.card α = Fintype.card β</code>",
+ "418": "<code>(fun i =&gt; shamir_poly t s m₀ (x ↑i)) = y</code>",
+ "417":
+ "<code>funext_iff.{u, v} {α : Sort u} {β : α → Sort v} {f g : (x : α) → β x} : f = g ↔ ∀ (x : α), f x = g x</code>",
+ "416": "<code>Function.Surjective (shamir_linear_map n t x B)</code>",
+ "415":
+ "<code>(fun i =&gt; ∑ j, m₀ j * x ↑i ^ (↑j + 1)) = fun i =&gt; y i - s</code>",
+ "414":
+ "<code>∀ (y : ↑B → F), ∃ m₀, (fun i =&gt; shamir_poly t s m₀ (x ↑i)) = y</code>",
+ "413":
+ "<code>ShamirScheme.shamir_fiber_card_constant.{u_1} {F : Type u_1} [Field F] [Fintype F] (n t : ℕ) (x : Fin n → F)\n  (h_distinct : Function.Injective x) (h_nonzero : ∀ (i : Fin n), x i ≠ 0) (B : Set (Fin n)) (hB : B.ncard &lt; t)\n  (s : F) : ∃ k, ∀ (y : ↑B → F), Fintype.card { m // (fun i =&gt; shamir_poly t s m (x ↑i)) = y } = k</code>",
+ "412":
+ "<code>ENNReal.mul_eq_top {a b : ENNReal} : a * b = ⊤ ↔ a ≠ 0 ∧ b = ⊤ ∨ a = ⊤ ∧ b ≠ 0</code>",
+ "411":
+ "<code>Nat.cast_ne_zero.{u_1} {R : Type u_1} [AddMonoidWithOne R] [CharZero R] {n : ℕ} : ↑n ≠ 0 ↔ n ≠ 0</code>",
+ "410":
+ "<code>mul_div_cancel₀.{u_3} {G₀ : Type u_3} [CommGroupWithZero G₀] {b : G₀} (a : G₀) (hb : b ≠ 0) : b * (a / b) = a</code>",
+ "41": "<code>C ∈ Γ.auth</code>",
+ "409":
+ "<code class=\"docstring\">`norm_num` normalizes numerical expressions in the goal. By default, it supports the operations\n`+` `-` `*` `/` `⁻¹` `^` and `%` over types with (at least) an `AddMonoidWithOne` instance, such as\n`ℕ`, `ℤ`, `ℚ`, `ℝ`, `ℂ`. In addition to evaluating numerical expressions, `norm_num` will use `simp`\nto simplify the goal. If the goal has the form `A = B`, `A ≠ B`, `A &lt; B` or `A ≤ B`, where `A` and\n`B` are numerical expressions, `norm_num` will try to close it. It also has a relatively simple\nprimality prover.\n\nThis tactic is extensible. Extensions can allow `norm_num` to evaluate more kinds of expressions, or\nto prove more kinds of propositions. See the `@[norm_num]` attribute for further information on\nextending `norm_num`.\n\n* `norm_num at l` normalizes at location(s) `l`.\n* `norm_num [h1, ...]` adds the arguments `h1, ...` to the `simp` set in addition to the default\n  `simp` set. All options for `simp` arguments are supported, in particular `←`, `↑` and `↓`.\n* `norm_num only` does not use the default `simp` set for simplification. `norm_num only [h1, ...]`\n  uses only the arguments `h1, ...` in addition to the routines tagged `@[norm_num]`.\n  `norm_num only` still performs post-processing steps, like `simp only`, use `norm_num1` if you\n  exclusively want to normalize numerical expressions.\n* `norm_num (config := cfg)` uses `cfg` as configuration for `simp` calls (see the `simp` tactic for\n  further details).\n\nExamples:\n```lean\nexample : 43 ≤ 74 + (33 : ℤ) := by norm_num\nexample : ¬ (7-2)/(2*3) ≥ (1:ℝ) + 2/(3^2) := by norm_num\n```\n</code>",
+ "408":
+ "<code>Top.top.{u_1} {α : Type u_1} [self : Top α] : α</code><span class=\"sep\"></span><code class=\"docstring\">The top (`⊤`, `\\top`) element \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `⊤` in identifiers is `top`.</code>",
+ "407":
+ "<code>ENNReal.toReal (a : ENNReal) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">`toReal x` returns `x` if it is real, `0` otherwise. </code>",
+ "406":
+ "<code>ENNReal.toReal_eq_toReal_iff' {x y : ENNReal} (hx : x ≠ ⊤) (hy : y ≠ ⊤) : x.toReal = y.toReal ↔ x = y</code>",
+ "405":
+ "<code>(∑ a, if y = f a then (↑k * ↑(Fintype.card B))⁻¹ else 0) = ↑k * (↑k * ↑(Fintype.card B))⁻¹</code>",
+ "404":
+ "<code>division_def.{u_1} {G : Type u_1} [DivInvMonoid G] (a b : G) : a / b = a * b⁻¹</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `div_eq_mul_inv`.\n\n---\n\nDividing by an element is the same as multiplying by its inverse.\n\nThis is a duplicate of `DivInvMonoid.div_eq_mul_inv` ensuring that the types unfold better.\n</code>",
+ "403": "<code>¬k = 0</code>",
+ "402": "<code>k = 0</code>",
+ "401":
+ "<code>Finset.sum_comm.{u_3, u_4, u_5} {α : Type u_3} {β : Type u_4} {γ : Type u_5} [AddCommMonoid β] {s : Finset γ}\n  {t : Finset α} {f : γ → α → β} : ∑ x ∈ s, ∑ y ∈ t, f x y = ∑ y ∈ t, ∑ x ∈ s, f x y</code>",
+ "400":
+ "<code>Finset.card_filter.{u_1} {ι : Type u_1} (p : ι → Prop) [DecidablePred p] (s : Finset ι) :\n  #({i ∈ s | p i}) = ∑ i ∈ s, if p i then 1 else 0</code>",
+ "40":
+ "<code>HasSSubset.SSubset.{u} {α : Type u} [self : HasSSubset α] : α → α → Prop</code><span class=\"sep\"></span><code class=\"docstring\">Strict subset relation: `a ⊂ b`  \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `⊂` in identifiers is `ssubset`.</code>",
+ "4":
+ "<code>Set.{u} (α : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">A set is a collection of elements of some type `α`.\n\nAlthough `Set` is defined as `α → Prop`, this is an implementation detail which should not be\nrelied on. Instead, `setOf` and membership of a set (`∈`) should be used to convert between sets\nand predicates.\n</code>",
+ "399":
+ "<code>tsum.{u_4, u_5} {α : Type u_4} {β : Type u_5} [AddCommMonoid α] [TopologicalSpace α] (f : β → α)\n  (L : SummationFilter β := SummationFilter.unconditional β) : α</code><span class=\"sep\"></span><code class=\"docstring\">`∑' i, f i` is the unconditional sum of `f` if it exists, or 0 otherwise.\n\nMore generally, if `L` is a `SummationFilter`, `∑'[L] i, f i` is the sum of `f` with respect to\n`L` if it exists, and `0` otherwise.\n\n(Note that even if the unconditional sum exists, it might not be unique if the topology is not\nseparated. When the support of `f` is finite, we make the most reasonable choice, to use the sum\nover the support. Otherwise, we choose arbitrarily an `a` satisfying `HasSum f a`. Similar remarks\napply to more general summation filters.)\n</code>",
+ "398": "<code>Fintype.card A = ∑ y, Fintype.card { x // f x = y }</code>",
+ "397": "<code>Fintype.card A = k * Fintype.card B</code>",
+ "396":
+ "<code class=\"docstring\">`aesop &lt;clause&gt;*` tries to solve the current goal by applying a set of rules\nregistered with the `@[aesop]` attribute. See [its\nREADME](https://github.com/JLimperg/aesop#readme) for a tutorial and a\nreference.\n\nThe variant `aesop?` prints the proof it found as a `Try this` suggestion.\n\nClauses can be used to customise the behaviour of an Aesop call. Available\nclauses are:\n\n- `(add &lt;phase&gt; &lt;priority&gt; &lt;builder&gt; &lt;rule&gt;)` adds a rule. `&lt;phase&gt;` is\n  `unsafe`, `safe` or `norm`. `&lt;priority&gt;` is a percentage for unsafe rules and\n  an integer for safe and norm rules. `&lt;rule&gt;` is the name of a declaration or\n  local hypothesis. `&lt;builder&gt;` is the rule builder used to turn `&lt;rule&gt;` into\n  an Aesop rule. Example: `(add unsafe 50% apply Or.inl)`.\n- `(erase &lt;rule&gt;)` disables a globally registered Aesop rule. Example: `(erase\n  Aesop.BuiltinRules.assumption)`.\n- `(rule_sets := [&lt;ruleset&gt;,*])` enables or disables named sets of rules for\n  this Aesop call. Example: `(rule_sets := [-builtin, MyRuleSet])`.\n- `(config { &lt;opt&gt; := &lt;value&gt; })` adjusts Aesop's search options. See\n  `Aesop.Options`.\n- `(simp_config { &lt;opt&gt; := &lt;value&gt; })` adjusts options for Aesop's built-in\n  `simp` rule. The given options are directly passed to `simp`. For example,\n  `(simp_config := { zeta := false })` makes Aesop use\n  `simp (config := { zeta := false })`.\n</code>",
+ "395":
+ "<code>div_eq_mul_inv.{u_1} {G : Type u_1} [DivInvMonoid G] (a b : G) : a / b = a * b⁻¹</code><span class=\"sep\"></span><code class=\"docstring\">Dividing by an element is the same as multiplying by its inverse.\n\nThis is a duplicate of `DivInvMonoid.div_eq_mul_inv` ensuring that the types unfold better.\n</code>",
+ "394":
+ "<code>Finset.mem_filter.{u_1} {α : Type u_1} {p : α → Prop} [DecidablePred p] {s : Finset α} {a : α} :\n  a ∈ filter p s ↔ a ∈ s ∧ p a</code>",
+ "393":
+ "<code>if_pos.{u} {c : Prop} {h : Decidable c} (hc : c) {α : Sort u} {t e : α} : (if c then t else e) = t</code>",
+ "392": "<code>x ∈ {x | f x = y}</code>",
+ "391":
+ "<code>Finset.sum_congr.{u_1, u_4} {ι : Type u_1} {M : Type u_4} {s₁ s₂ : Finset ι} [AddCommMonoid M] {f g : ι → M}\n  (h : s₁ = s₂) : (∀ x ∈ s₂, f x = g x) → s₁.sum f = s₂.sum g</code>",
+ "390":
+ "<code>Fintype.card_subtype.{u_1} {α : Type u_1} [Fintype α] (p : α → Prop) [Fintype { a // p a }] [DecidablePred p] :\n  Fintype.card { x // p x } = #{x | p x}</code>",
+ "39": "<code>C ⊂ A</code>",
+ "389":
+ "<code>Finset.filter.{u_1} {α : Type u_1} (p : α → Prop) [DecidablePred p] (s : Finset α) : Finset α</code><span class=\"sep\"></span><code class=\"docstring\">`Finset.filter p s` is the set of elements of `s` that satisfy `p`.\n\nFor example, one can use `s.filter (· ∈ t)` to get the intersection of `s` with `t : Set α`\nas a `Finset α` (when a `DecidablePred (· ∈ t)` instance is available). </code>",
+ "388":
+ "<code class=\"docstring\">`any_goals tac` applies the tactic `tac` to every goal,\nconcatenating the resulting goals for successful tactic applications.\nIf the tactic fails on all of the goals, the entire `any_goals` tactic fails.\n\nThis tactic is like `all_goals try tac` except that it fails if none of the applications of `tac` succeeds.\n</code>",
+ "387":
+ "<code>tsum_eq_sum.{u_1, u_2} {α : Type u_1} {β : Type u_2} [AddCommMonoid α] [TopologicalSpace α] {f : β → α}\n  {L : SummationFilter β} [L.LeAtTop] {s : Finset β} (hf : ∀ b ∉ s, f b = 0) : ∑'[L] (b : β), f b = ∑ b ∈ s, f b</code>",
+ "386":
+ "<code>ENNReal : Type</code><span class=\"sep\"></span><code class=\"docstring\">The extended nonnegative real numbers. This is usually denoted [0, ∞],\nand is relevant as the codomain of a measure. </code>",
+ "385": "<code>ENNReal</code>",
+ "384":
+ "<code class=\"docstring\">`if c then t else e` is notation for `ite c t e`, \"if-then-else\", which decides to\nreturn `t` or `e` depending on whether `c` is true or false. The explicit argument\n`c : Prop` does not have any actual computational content, but there is an additional\n`[Decidable c]` argument synthesized by typeclass inference which actually\ndetermines how to evaluate `c` to true or false. Write `if h : c then t else e`\ninstead for a \"dependent if-then-else\" `dite`, which allows `t`/`e` to use the fact\nthat `c` is true/false.\n</code>",
+ "383":
+ "<code>(∑' (a : A), if y = f a then 1 / ↑(Fintype.card A) else 0) = ↑k / ↑(Fintype.card A)</code>",
+ "382":
+ "<code>ite.{u} {α : Sort u} (c : Prop) [h : Decidable c] (t e : α) : α</code><span class=\"sep\"></span><code class=\"docstring\">`if c then t else e` is notation for `ite c t e`, \"if-then-else\", which decides to\nreturn `t` or `e` depending on whether `c` is true or false. The explicit argument\n`c : Prop` does not have any actual computational content, but there is an additional\n`[Decidable c]` argument synthesized by typeclass inference which actually\ndetermines how to evaluate `c` to true or false. Write `if h : c then t else e`\ninstead for a \"dependent if-then-else\" `dite`, which allows `t`/`e` to use the fact\nthat `c` is true/false.\n</code>",
+ "381":
+ "<code>Subtype.{u} {α : Sort u} (p : α → Prop) : Sort (max 1 u)</code><span class=\"sep\"></span><code class=\"docstring\">All the elements of a type that satisfy a predicate.\n\n`Subtype p`, usually written `{ x : α // p x }` or `{ x // p x }`, contains all elements `x : α` for\nwhich `p x` is true. Its constructor is a pair of the value and the proof that it satisfies the\npredicate. In run-time code, `{ x : α // p x }` is represented identically to `α`.\n\nThere is a coercion from `{ x : α // p x }` to `α`, so elements of a subtype may be used where the\nunderlying type is expected.\n\nExamples:\n * `{ n : Nat // n % 2 = 0 }` is the type of even numbers.\n * `{ xs : Array String // xs.size = 5 }` is the type of arrays with five `String`s.\n * Given `xs : List α`, `List { x : α // x ∈ xs }` is the type of lists in which all elements are\n   contained in `xs`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `{ x // p x }` in identifiers is `subtype`.</code>",
+ "380": "<code>Nonempty B</code>",
+ "38":
+ "<code>(A ∈ Γ.auth ∧ A ⊆ B) ∧ ∀ C ∈ Γ.auth, C ⊆ B → A.ncard ≤ C.ncard</code>",
+ "379": "<code>Nonempty A</code>",
+ "378": "<code>Fintype B</code>",
+ "377": "<code>Fintype A</code>",
+ "376": "<code>A</code>",
+ "375": "<code>B</code>",
+ "374": "<code>∀ (y : B), Fintype.card { x // f x = y } = k</code>",
+ "373": "<code>A → B</code>",
+ "372":
+ "<code>ShamirScheme.map_uniform_of_fiber_card_eq.{u} {A B : Type u} [Fintype A] [Fintype B] [Nonempty A] [Nonempty B]\n  (f : A → B) (k : ℕ) (h_fibers : ∀ (y : B), Fintype.card { x // f x = y } = k) :\n  PMF.map f (PMF.uniformOfFintype A) = PMF.uniformOfFintype B</code>",
+ "371":
+ "<code>_root_.funext.{u, v} {α : Sort u} {β : α → Sort v} {f g : (x : α) → β x} (h : ∀ (x : α), f x = g x) : f = g</code><span class=\"sep\"></span><code class=\"docstring\">**Function extensionality.** If two functions return equal results for all possible arguments, then\nthey are equal.\n\nIt is called “extensionality” because it provides a way to prove two objects equal based on the\nproperties of the underlying mathematical functions, rather than based on the syntax used to denote\nthem. Function extensionality is a theorem that can be [proved using quotient\ntypes](https://lean-lang.org/doc/reference/4.29.0/find/?domain=Verso.Genre.Manual.section&name=quotient-funext).\n</code>",
+ "370":
+ "<code>rfl.{u} {α : Sort u} {a : α} : a = a</code><span class=\"sep\"></span><code class=\"docstring\">`rfl : a = a` is the unique constructor of the equality type. This is the\nsame as `Eq.refl` except that it takes `a` implicitly instead of explicitly.\n\nThis is a more powerful theorem than it may appear at first, because although\nthe statement of the theorem is `a = a`, Lean will allow anything that is\ndefinitionally equal to that type. So, for instance, `2 + 2 = 4` is proven in\nLean by `rfl`, because both sides are the same up to definitional equality.\n</code>",
+ "37":
+ "<code class=\"docstring\">`simp_all` is a stronger version of `simp [*] at *` where the hypotheses and target\nare simplified multiple times until no simplification is applicable.\nOnly non-dependent propositional hypotheses are considered.\n</code>",
+ "369":
+ "<code>False.elim.{u} {C : Sort u} (h : False) : C</code><span class=\"sep\"></span><code class=\"docstring\">`False.elim : False → C` says that from `False`, any desired proposition\n`C` holds. Also known as ex falso quodlibet (EFQ) or the principle of explosion.\n\nThe target type is actually `C : Sort u` which means it works for both\npropositions and types. When executed, this acts like an \"unreachable\"\ninstruction: it is **undefined behavior** to run, but it will probably print\n\"unreachable code\". (You would need to construct a proof of false to run it\nanyway, which you can only do using `sorry` or unsound axioms.)\n</code>",
+ "368": "<code>∀ (x : Fin B.ncard), ¬↑x = ↑j</code>",
+ "367":
+ "<code>Or (a b : Prop) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`Or a b`, or `a ∨ b`, is the disjunction of propositions. There are two\nconstructors for `Or`, called `Or.inl : a → a ∨ b` and `Or.inr : b → a ∨ b`,\nand you can use `match` or `cases` to destruct an `Or` assumption into the\ntwo cases.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∨` in identifiers is `or`.\n\n * The recommended spelling of `\\/` in identifiers is `or` (prefer `∨` over `\\/`).</code>",
+ "366": "<code>↑x_1 &lt; B.ncard</code>",
+ "365":
+ "<code>Bool</code><span class=\"sep\"></span><code class=\"docstring\">When `contextual` is true (default: `false`) and simplification encounters an implication `p → q`\nit includes `p` as an additional simp lemma when simplifying `q`.\n</code>",
+ "364":
+ "<code>Fin.eta {n : ℕ} (a : Fin n) (h : ↑a &lt; n) : ⟨↑a, h⟩ = a</code>",
+ "363": "<code>reduceDIte : Lean.Meta.Simp.Simproc</code>",
+ "362":
+ "<code>Finset.sum_image.{u_1, u_2, u_4} {ι : Type u_1} {κ : Type u_2} {M : Type u_4} [AddCommMonoid M] {f : ι → M}\n  [DecidableEq ι] {s : Finset κ} {g : κ → ι} : Set.InjOn g ↑s → ∑ x ∈ image g s, f x = ∑ x ∈ s, f (g x)</code><span class=\"sep\"></span><code class=\"docstring\">If a function is injective on a finset, sums over the original\nfinset or its image coincide.\nSee also `sum_image_of_pairwise_eq_zero` for a version with weaker assumptions. </code>",
+ "361":
+ "<code>Set.injOn_of_eq_iff_eq.{u_1, u_2} {α : Type u_1} {β : Type u_2} {f : α → β} (s : Set α)\n  (h : ∀ (x y : α), f x = f y ↔ x = y) : Set.InjOn f s</code>",
+ "360": "<code>implies_true.{u} (α : Sort u) : (∀ (a : α), True) = True</code>",
+ "36":
+ "<code class=\"docstring\">`use e₁, e₂, ⋯` instantiates all existential quantifiers in the main goal by using `e₁`, `e₂`, ...\nas witnesses, creates goals for all the remaining witnesses, and tries to discharge these goals\nautomatically.\n\n`use` is similar to `exists` or `existsi`, but unlike `exists` it is equivalent to applying the\ntactic `refine ⟨e₁, e₂, ⋯, ?_, ⋯, ?_⟩` with any number of placeholders (rather than just one) and\nthen trying to close goals associated to the placeholders with a configurable discharger (rather\nthan just `try trivial`).\n\n* `use! e₁, e₂, ⋯` applies constructors everywhere rather than just for goals that correspond to the\n  last argument of a constructor. This gives the effect that nested constructors are being flattened\n  out, with the supplied values being used along the leaves and nodes of the tree of constructors.\n* `use (discharger := tac) e₁, e₂, ...` calls `tac` as a discharger, on all remaining `Prop`-valued\n  goals. If this option is omitted, `use` calls `try with_reducible use_discharger` as default\n  discharger.\n  To turn off the discharger and keep all goals, use `(discharger := skip)`.\n  To allow \"heavy refls\", use `(discharger := try use_discharger)`.\n  If `tac` fails on the new goal, `use (discharger := tac)` fails (hint: you might want to use\n  `(discharger := try tac)` instead).\n\nExamples:\n\n```lean\nexample : ∃ x : Nat, x = x := by use 42\n\nexample : ∃ x : Nat, ∃ y : Nat, x = y := by use 42, 42\n\nexample : Nonempty Nat := by use 5\n\nexample : Nonempty (PNat ≃ Nat) := by\n  use PNat.natPred, Nat.succPNat\n  · exact PNat.succPNat_natPred\n  · intro; rfl\n\n-- With `use!` one can feed in each `42` one at a time:\nexample : ∃ n : {n : Nat // n % 2 = 0}, n.val &gt; 10 := by use! 20; simp\n\nexample : ∃ p : Nat × Nat, p.1 = p.2 := by use! (42, 42)\n/-\nThe second line makes use of the fact that `use!` tries refining with the argument before\napplying a constructor. Also note that `use`/`use!` by default uses a tactic\ncalled `use_discharger` to discharge goals, so `use! 42` will close the goal in this example since\n`use_discharger` applies `rfl`, which as a consequence solves for the other `Nat` metavariable.\n-/\n```\n</code>",
+ "359": "<code>Fin.ext_iff {n : ℕ} {a b : Fin n} : a = b ↔ ↑a = ↑b</code>",
+ "358":
+ "<code>Finset.coe_univ.{u_1} {α : Type u_1} [Fintype α] : ↑univ = Set.univ</code>",
+ "357":
+ "<code>MulZeroClass.zero_mul.{u} {M₀ : Type u} [self : MulZeroClass M₀] (a : M₀) : 0 * a = 0</code><span class=\"sep\"></span><code class=\"docstring\">Zero is a left absorbing element for multiplication </code>",
+ "356":
+ "<code>dite_mul.{u_2} {α : Type u_2} (P : Prop) [Decidable P] [Mul α] (a : P → α) (b : ¬P → α) (c : α) :\n  (if h : P then a h else b h) * c = if h : P then a h * c else b h * c</code>",
+ "355":
+ "<code>pos_of_gt.{u} {α : Type u} [AddZeroClass α] [Preorder α] [CanonicallyOrderedAdd α] {a b : α} (h : a &lt; b) : 0 &lt; b</code>",
+ "354": "<code>Fin.is_lt {n : ℕ} (a : Fin n) : ↑a &lt; n</code>",
+ "353":
+ "<code>Finset.subset_univ.{u_1} {α : Type u_1} [Fintype α] (s : Finset α) : s ⊆ univ</code>",
+ "352":
+ "<code>Finset.sum_subset.{u_1, u_4} {ι : Type u_1} {M : Type u_4} {s₁ s₂ : Finset ι} [AddCommMonoid M] {f : ι → M}\n  (h : s₁ ⊆ s₂) (hf : ∀ x ∈ s₂, x ∉ s₁ → f x = 0) : ∑ x ∈ s₁, f x = ∑ x ∈ s₂, f x</code>",
+ "351":
+ "<code>Fin.mk {n : ℕ} (val : ℕ) (isLt : val &lt; n) : Fin n</code><span class=\"sep\"></span><code class=\"docstring\">Creates a `Fin n` from `i : Nat` and a proof that `i &lt; n`. </code>",
+ "350": "<code>↑j &lt; B.ncard</code>",
+ "35": "<code>Set.Subset.refl.{u} {α : Type u} (a : Set α) : a ⊆ a</code>",
+ "349": "<code>∀ (i : ↑B), ∑ j, p j * x ↑i ^ (↑j + 1) = s i</code>",
+ "348":
+ "<code>Finset.sum_mul.{u_1, u_4} {ι : Type u_1} {R : Type u_4} [NonUnitalNonAssocSemiring R] (s : Finset ι) (f : ι → R)\n  (a : R) : (∑ i ∈ s, f i) * a = ∑ i ∈ s, f i * a</code>",
+ "347":
+ "<code>mul_assoc.{u_1} {G : Type u_1} [Semigroup G] (a b c : G) : a * b * c = a * (b * c)</code>",
+ "346":
+ "<code>pow_succ.{u_2} {M : Type u_2} [Monoid M] (a : M) (n : ℕ) : a ^ (n + 1) = a ^ n * a</code>",
+ "345":
+ "<code>HDiv.hDiv.{u, v, w} {α : Type u} {β : Type v} {γ : outParam (Type w)} [self : HDiv α β γ] : α → β → γ</code><span class=\"sep\"></span><code class=\"docstring\">`a / b` computes the result of dividing `a` by `b`.\nThe meaning of this notation is type-dependent.\n* For most types like `Nat`, `Int`, `Rat`, `Real`, `a / 0` is defined to be `0`.\n* For `Nat`, `a / b` rounds downwards.\n* For `Int`, `a / b` rounds downwards if `b` is positive or upwards if `b` is negative.\n  It is implemented as `Int.ediv`, the unique function satisfying\n  `a % b + b * (a / b) = a` and `0 ≤ a % b &lt; natAbs b` for `b ≠ 0`.\n  Other rounding conventions are available using the functions\n  `Int.fdiv` (floor rounding) and `Int.tdiv` (truncation rounding).\n* For `Float`, `a / 0` follows the IEEE 754 semantics for division,\n  usually resulting in `inf` or `nan`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `/` in identifiers is `div`.</code>",
+ "344": "<code>∀ (i : ↑B), ∑ j, p j * x ↑i ^ ↑j = s i / x ↑i</code>",
+ "343":
+ "<code>Equiv.apply_symm_apply.{u, v} {α : Sort u} {β : Sort v} (e : α ≃ β) (x : β) : e (e.symm x) = x</code>",
+ "342": "<code>∑ j, p j * x ↑(f (f.symm i)) ^ ↑j = s (f (f.symm i))</code>",
+ "341":
+ "<code>Equiv.symm.{u, v} {α : Sort u} {β : Sort v} (e : α ≃ β) : β ≃ α</code><span class=\"sep\"></span><code class=\"docstring\">Inverse of an equivalence `e : α ≃ β`. </code>",
+ "340":
+ "<code>congr_fun.{u, v} {α : Sort u} {β : α → Sort v} {f g : (x : α) → β x} (h : f = g) (a : α) : f a = g a</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `congrFun`.</code>",
+ "34":
+ "<code>Exists.intro.{u} {α : Sort u} {p : α → Prop} (w : α) (h : p w) : Exists p</code><span class=\"sep\"></span><code class=\"docstring\">Existential introduction. If `a : α` and `h : p a`,\nthen `⟨a, h⟩` is a proof that `∃ x : α, p x`. </code>",
+ "339":
+ "<code>mul_comm.{u_1} {G : Type u_1} [CommMagma G] (a b : G) : a * b = b * a</code>",
+ "338":
+ "<code>dotProduct.{v, u_2} {m : Type u_2} {α : Type v} [Fintype m] [Mul α] [AddCommMonoid α] (v w : m → α) : α</code><span class=\"sep\"></span><code class=\"docstring\">`dotProduct v w` is the sum of the entrywise products `v i * w i`.\n\nSee also `dotProductEquiv`. </code>",
+ "337":
+ "<code>(of fun i j =&gt; x ↑(f i) ^ ↑j) *ᵥ p = fun i =&gt; s (f i)</code>",
+ "336":
+ "<code>Exists.elim.{u} {α : Sort u} {p : α → Prop} {b : Prop} (h₁ : ∃ x, p x) (h₂ : ∀ (a : α), p a → b) : b</code>",
+ "335":
+ "<code>isUnit_iff_ne_zero.{u_3} {G₀ : Type u_3} [GroupWithZero G₀] {a : G₀} : IsUnit a ↔ a ≠ 0</code>",
+ "334":
+ "<code>Inv.inv.{u} {α : Type u} [self : Inv α] : α → α</code><span class=\"sep\"></span><code class=\"docstring\">`a⁻¹` computes the inverse of `a`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `⁻¹` in identifiers is `inv`.</code>",
+ "333":
+ "<code>Matrix.mulVec.{v, u_2, u_3} {m : Type u_2} {n : Type u_3} {α : Type v} [NonUnitalNonAssocSemiring α] [Fintype n]\n  (M : Matrix m n α) (v : n → α) : m → α</code><span class=\"sep\"></span><code class=\"docstring\">`M *ᵥ v` (notation for `mulVec M v`) is the matrix-vector product of matrix `M` and vector `v`,\nwhere `v` is seen as a column vector.\n\nThe notation has precedence 73, which comes immediately before ` ⬝ᵥ ` for `dotProduct`,\nso that `A *ᵥ v ⬝ᵥ B *ᵥ w` is parsed as `(A *ᵥ v) ⬝ᵥ (B *ᵥ w)`.\n</code>",
+ "332":
+ "<code>∀ (b : Fin B.ncard → F), ∃ p, (of fun i j =&gt; x ↑(f i) ^ ↑j) *ᵥ p = b</code>",
+ "331":
+ "<code>Subtype.ext.{u} {α : Sort u} {p : α → Prop} {a1 a2 : { x // p x }} : ↑a1 = ↑a2 → a1 = a2</code>",
+ "330":
+ "<code>Equiv.injective.{u, v} {α : Sort u} {β : Sort v} (e : α ≃ β) : Function.Injective ⇑e</code>",
+ "33":
+ "<code>Set.toFinite.{u} {α : Type u} (s : Set α) [Finite ↑s] : s.Finite</code><span class=\"sep\"></span><code class=\"docstring\">Constructor for `Set.Finite` using a `Finite` instance. </code>",
+ "329":
+ "<code>LT.lt.ne.{u_1} {α : Type u_1} [Preorder α] {a b : α} (h : a &lt; b) : a ≠ b</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `ne_of_lt`.</code>",
+ "328": "<code>↑(f j) = ↑(f i)</code>",
+ "327": "<code>i &lt; j</code>",
+ "326":
+ "<code>Function.Injective.eq_iff.{u_1, u_2} {α : Sort u_1} {β : Sort u_2} {f : α → β} (I : Function.Injective f) {a b : α} :\n  f a = f b ↔ a = b</code>",
+ "325":
+ "<code>sub_eq_zero.{u_3} {G : Type u_3} [AddGroup G] {a b : G} : a - b = 0 ↔ a = b</code>",
+ "324":
+ "<code>Finset.prod_eq_zero_iff.{u_1, u_4} {ι : Type u_1} {M₀ : Type u_4} [CommMonoidWithZero M₀] {f : ι → M₀} {s : Finset ι}\n  [Nontrivial M₀] [NoZeroDivisors M₀] : ∏ x ∈ s, f x = 0 ↔ ∃ a ∈ s, f a = 0</code>",
+ "323":
+ "<code>Finset.Ioi.{u_1} {α : Type u_1} [Preorder α] [LocallyFiniteOrderTop α] (a : α) : Finset α</code><span class=\"sep\"></span><code class=\"docstring\">The finset $(a, ∞)$ of elements `x` such that `a &lt; x`. Basically `Set.Ioi a` as a finset. </code>",
+ "322":
+ "<code>Matrix.det_vandermonde.{u_1} {R : Type u_1} [CommRing R] {n : ℕ} (v : Fin n → R) :\n  (vandermonde v).det = ∏ i, ∏ j ∈ Ioi i, (v j - v i)</code><span class=\"sep\"></span><code class=\"docstring\">The formula for the determinant of a Vandermonde matrix. </code>",
+ "321":
+ "<code class=\"docstring\">`erw [rules]` is a shorthand for `rw (transparency := .default) [rules]`.\nThis does rewriting up to unfolding of regular definitions (by comparison to regular `rw`\nwhich only unfolds `@[reducible]` definitions). </code>",
+ "320":
+ "<code>Matrix.of.{v, u_2, u_3} {m : Type u_2} {n : Type u_3} {α : Type v} : (m → n → α) ≃ Matrix m n α</code><span class=\"sep\"></span><code class=\"docstring\">Cast a function into a matrix.\n\nThe two sides of the equivalence are definitionally equal types. We want to use an explicit cast\nto distinguish the types because `Matrix` has different instances to pi types (such as `Pi.mul`,\nwhich performs elementwise multiplication, vs `Matrix.mul`).\n\nIf you are defining a matrix, in terms of its entries, use `of (fun i j ↦ _)`. The\npurpose of this approach is to ensure that terms of the form `(fun i j ↦ _) * (fun i j ↦ _)` do not\nappear, as the type of `*` can be misleading.\n</code>",
+ "32":
+ "<code class=\"docstring\">`exact e` closes the main goal if its target type matches that of `e`.\n</code>",
+ "319":
+ "<code>Matrix.det.{v, u_2} {n : Type u_2} [DecidableEq n] [Fintype n] {R : Type v} [CommRing R] (M : Matrix n n R) : R</code><span class=\"sep\"></span><code class=\"docstring\">The determinant of a matrix given by the Leibniz formula. </code>",
+ "318": "<code>(of fun i j =&gt; x ↑(f i) ^ ↑j).det ≠ 0</code>",
+ "317": "<code>∀ (i : Fin B.ncard), ∑ j, p j * x ↑(f i) ^ ↑j = s (f i)</code>",
+ "316":
+ "<code>Fintype.equivOfCardEq.{u_1, u_2} {α : Type u_1} {β : Type u_2} [Fintype α] [Fintype β]\n  (h : Fintype.card α = Fintype.card β) : α ≃ β</code><span class=\"sep\"></span><code class=\"docstring\">Two `Fintype`s with the same cardinality are (noncomputably) in bijection.\n\nSee `Fintype.truncEquivOfCardEq` for the computable version,\nand `Fintype.truncEquivFinOfCardEq` and `Fintype.equivFinOfCardEq` for\nthe specialization to `Fin`.\n</code>",
+ "315":
+ "<code>Nonempty.intro.{u} {α : Sort u} (val : α) : Nonempty α</code><span class=\"sep\"></span><code class=\"docstring\">If `val : α`, then `α` is nonempty. </code>",
+ "314":
+ "<code>Equiv.{u_1, u_2} (α : Sort u_1) (β : Sort u_2) : Sort (max (max 1 u_1) u_2)</code><span class=\"sep\"></span><code class=\"docstring\">`α ≃ β` is the type of functions from `α → β` with a two-sided inverse. </code>",
+ "313": "<code>∀ (i : Fin n), ¬x i = 0</code>",
+ "312":
+ "<code class=\"docstring\">Location specifications are used by many tactics that can operate on either the\nhypotheses or the goal. It can have one of the forms:\n* 'empty' is not actually present in this syntax, but most tactics use\n  `(location)?` matchers. It means to target the goal only.\n* `at h₁ ... hₙ`: target the hypotheses `h₁`, ..., `hₙ`\n* `at h₁ h₂ ⊢`: target the hypotheses `h₁` and `h₂`, and the goal\n* `at *`: target all hypotheses and the goal\n</code>",
+ "311":
+ "<code>Bool</code><span class=\"sep\"></span><code class=\"docstring\">When `true` (default: `false`), local definitions are unfolded.\nThat is, given a local context containing `x : t := e`, then the free variable `x` reduces to `e`.\nOtherwise, `x` must be provided as a `simp` argument.\n</code>",
+ "310":
+ "<code>True : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`True` is a proposition and has only an introduction rule, `True.intro : True`.\nIn other words, `True` is simply true, and has a canonical proof, `True.intro`\nFor more information: [Propositional Logic](https://lean-lang.org/theorem_proving_in_lean4/propositions_and_proofs.html#propositional-logic)\n</code>",
+ "31":
+ "<code>Set.Nonempty.{u} {α : Type u} (s : Set α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">The property `s.Nonempty` expresses the fact that the set `s` is not empty. It should be used\nin theorem assumptions instead of `∃ x, x ∈ s` or `s ≠ ∅` as it gives access to a nice API thanks\nto the dot notation. </code>",
+ "309": "<code>True</code>",
+ "308": "<code>Fin B.ncard ≃ ↑B</code>",
+ "307":
+ "<code>HPow.hPow.{u, v, w} {α : Type u} {β : Type v} {γ : outParam (Type w)} [self : HPow α β γ] : α → β → γ</code><span class=\"sep\"></span><code class=\"docstring\">`a ^ b` computes `a` to the power of `b`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `^` in identifiers is `pow`.</code>",
+ "306":
+ "<code>HMul.hMul.{u, v, w} {α : Type u} {β : Type v} {γ : outParam (Type w)} [self : HMul α β γ] : α → β → γ</code><span class=\"sep\"></span><code class=\"docstring\">`a * b` computes the product of `a` and `b`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `*` in identifiers is `mul`.</code>",
+ "305":
+ "<code>∀ (s : ↑B → F), ∃ p, ∀ (i : ↑B), ∑ j, p j * x ↑i ^ ↑j = s i</code>",
+ "304": "<code>Fin B.ncard</code>",
+ "303": "<code>Fin B.ncard → F</code>",
+ "302":
+ "<code>∀ (s : ↑B → F), ∃ p, ∀ (i : ↑B), ∑ j, p j * x ↑i ^ (↑j + 1) = s i</code>",
+ "301":
+ "<code>Function.Surjective.{u_1, u_2} {α : Sort u_1} {β : Sort u_2} (f : α → β) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A function `f : α → β` is called surjective if every `b : β` is equal to `f a`\nfor some `a : α`. </code>",
+ "300":
+ "<code>ShamirScheme.shamir_linear_map_surjective.{u_1} {F : Type u_1} [Field F] [Fintype F] (n t : ℕ) (x : Fin n → F)\n  (h_distinct : Function.Injective x) (h_nonzero : ∀ (i : Fin n), x i ≠ 0) (B : Set (Fin n)) (hB : B.ncard &lt; t) :\n  Function.Surjective (shamir_linear_map n t x B)</code>",
+ "30":
+ "<code>Set.Finite.{u} {α : Type u} (s : Set α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A set is finite if the corresponding `Subtype` is finite,\ni.e., if there exists a natural `n : ℕ` and an equivalence `s ≃ Fin n`. </code>",
+ "3":
+ "<code>AccessStructure.auth {n : ℕ} (self : AccessStructure n) : Set (Set (Fin n))</code>",
+ "299":
+ "<code>ShamirScheme.shamir_linear_map.{u_1} {F : Type u_1} [Field F] (n t : ℕ) (x : Fin n → F) (B : Set (Fin n))\n  (r : Fin (t - 1) → F) : ↑B → F</code>",
+ "298":
+ "<code>Polynomial.eval.{u} {R : Type u} [Semiring R] (x : R) (p : R[X]) : R</code><span class=\"sep\"></span><code class=\"docstring\">`eval x p` is the evaluation of the polynomial `p` at `x` </code>",
+ "297":
+ "<code>Lagrange.interpolate.{u_1, u_2} {F : Type u_1} [Field F] {ι : Type u_2} [DecidableEq ι] (s : Finset ι) (v : ι → F) :\n  (ι → F) →ₗ[F] F[X]</code><span class=\"sep\"></span><code class=\"docstring\">Lagrange interpolation: given a finset `s : Finset ι`, a nodal map `v : ι → F` injective on\n`s` and a value function `r : ι → F`, `interpolate s v r` is the unique\npolynomial of degree `&lt; #s` that takes value `r i` on `v i` for all `i` in `s`. </code>",
+ "296": "<code>i ∈ B</code>",
+ "295":
+ "<code class=\"docstring\">\"Dependent\" if-then-else, normally written via the notation `if h : c then t(h) else e(h)`,\nis sugar for `dite c (fun h =&gt; t(h)) (fun h =&gt; e(h))`, and it is the same as\n`if c then t else e` except that `t` is allowed to depend on a proof `h : c`,\nand `e` can depend on `h : ¬c`. (Both branches use the same name for the hypothesis,\neven though it has different types in the two cases.)\n\nWe use this to be able to communicate the if-then-else condition to the branches.\nFor example, `Array.get arr i h` expects a proof `h : i &lt; arr.size` in order to\navoid a bounds check, so you can write `if h : i &lt; arr.size then arr.get i h else ...`\nto avoid the bounds check inside the if branch. (Of course in this case we have only\nlifted the check into an explicit `if`, but we could also use this proof multiple times\nor derive `i &lt; arr.size` from some other proposition that we are checking in the `if`.)\n</code>",
+ "294":
+ "<code>Classical.choose.{u} {α : Sort u} {p : α → Prop} (h : ∃ x, p x) : α</code><span class=\"sep\"></span><code class=\"docstring\">Given that there exists an element satisfying `p`, returns one such element.\n\nThis is a straightforward consequence of, and equivalent to, `Classical.choice`.\n\nSee also `choose_spec`, which asserts that the returned value has property `p`.\n</code>",
+ "293":
+ "<code class=\"docstring\">`let` is used to declare a local definition. Example:\n```\nlet x := 1\nlet y := x + 1\nx + y\n```\nSince functions are first class citizens in Lean, you can use `let` to declare\nlocal functions too.\n```\nlet double := fun x =&gt; 2*x\ndouble (double 3)\n```\nFor recursive definitions, you should use `let rec`.\nYou can also perform pattern matching using `let`. For example,\nassume `p` has type `Nat × Nat`, then you can write\n```\nlet (x, y) := p\nx + y\n```\n\nThe *anaphoric let* `let := v` defines a variable called `this`.\n</code>",
+ "292": "<code>↑B → F</code>",
+ "291":
+ "<code>ShamirScheme.shamir_reconstruction.{u_1} {F : Type u_1} [Field F] (n t : ℕ) (x : Fin n → F) (B : Set (Fin n))\n  (hB : B ∈ (thresholdAccessStructure n t).auth) (shares : ↑B → F) : F</code>",
+ "290": "<code>x ∈ ↑a</code>",
+ "29":
+ "<code>Set.exists_min_image.{u, v} {α : Type u} {β : Type v} [LinearOrder β] (s : Set α) (f : α → β) (h1 : s.Finite) :\n  s.Nonempty → ∃ a ∈ s, ∀ b ∈ s, f a ≤ f b</code>",
+ "289": "<code>x ∈ a.toFinset</code>",
+ "288":
+ "<code>Set.ncard_eq_toFinset_card'.{u_1} {α : Type u_1} (s : Set α) [Fintype ↑s] : s.ncard = #s.toFinset</code>",
+ "287":
+ "<code class=\"docstring\">This is a \"finishing\" tactic modification of `simp`. It has two forms.\n\n* `simpa [rules, ⋯] using e` will simplify the goal and the type of\n`e` using `rules`, then try to close the goal using `e`.\n\nSimplifying the type of `e` makes it more likely to match the goal\n(which has also been simplified). This construction also tends to be\nmore robust under changes to the simp lemma set.\n\n* `simpa [rules, ⋯]` will simplify the goal and the type of a\nhypothesis `this` if present in the context, then try to close the goal using\nthe `assumption` tactic.\n</code>",
+ "286":
+ "<code>Set.toFinset.{u_1} {α : Type u_1} (s : Set α) [Fintype ↑s] : Finset α</code><span class=\"sep\"></span><code class=\"docstring\">Construct a finset enumerating a set `s`, given a `Fintype` instance. </code>",
+ "285":
+ "<code>Exists.intro.{u} {α : Sort u} {p : α → Prop} (w : α) (h : p w) : _root_.Exists p</code><span class=\"sep\"></span><code class=\"docstring\">Existential introduction. If `a : α` and `h : p a`,\nthen `⟨a, h⟩` is a proof that `∃ x : α, p x`. </code>",
+ "284": "<code>∃ t_1 ⊆ B, t_1.ncard = t</code>",
+ "283":
+ "<code>Finset.card.{u_1} {α : Type u_1} (s : Finset α) : ℕ</code><span class=\"sep\"></span><code class=\"docstring\">`s.card` is the number of elements of `s`, aka its cardinality.\n\nThe notation `#s` can be accessed in the `Finset` locale. </code>",
+ "282":
+ "<code>Finset.{u_4} (α : Type u_4) : Type u_4</code><span class=\"sep\"></span><code class=\"docstring\">`Finset α` is the type of finite sets of elements of `α`. It is implemented\nas a multiset (a list up to permutation) which has no duplicate elements. </code>",
+ "281": "<code>#a = t ∧ ∀ x ∈ a, x ∈ B</code>",
+ "280": "<code>Finset (Fin n)</code>",
+ "28":
+ "<code class=\"docstring\">`apply_rules [l₁, l₂, ...]` tries to solve the main goal by iteratively\napplying the list of lemmas `[l₁, l₂, ...]` or by applying a local hypothesis.\nIf `apply` generates new goals, `apply_rules` iteratively tries to solve those goals.\nYou can use `apply_rules [-h]` to omit a local hypothesis.\n\n`apply_rules` will also use `rfl`, `trivial`, `congrFun` and `congrArg`.\nThese can be disabled, as can local hypotheses, by using `apply_rules only [...]`.\n\nYou can use `apply_rules using [a₁, ...]` to use all lemmas which have been labelled\nwith the attributes `aᵢ` (these attributes must be created using `register_label_attr`).\n\nYou can pass a further configuration via the syntax `apply_rules (config := {...})`.\nThe options supported are the same as for `solve_by_elim` (and include all the options for `apply`).\n\n`apply_rules` will try calling `symm` on hypotheses and `exfalso` on the goal as needed.\nThis can be disabled with `apply_rules (config := {symm := false, exfalso := false})`.\n\nYou can bound the iteration depth using the syntax `apply_rules (config := {maxDepth := n})`.\n\nUnlike `solve_by_elim`, `apply_rules` does not perform backtracking, and greedily applies\na lemma from the list until it gets stuck.\n</code>",
+ "279": "<code>t ≤ B.ncard</code>",
+ "278": "<code>a ⊆ B</code>",
+ "277": "<code>a.ncard = t</code>",
+ "276":
+ "<code>ShamirScheme.threshold_auth_iff (n t : ℕ) (B : Set (Fin n)) : B ∈ (thresholdAccessStructure n t).auth ↔ t ≤ B.ncard</code>",
+ "275": "<code>F → (Fin (t - 1) → F) → Fin n → F</code>",
+ "274": "<code>PMF (Fin (t - 1) → F)</code>",
+ "273": "<code>Nonempty (Fin (t - 1) → F)</code>",
+ "272": "<code>Fintype (Fin (t - 1) → F)</code>",
+ "271": "<code>Fin n → Fintype F</code>",
+ "270": "<code>Fin n → Type u_1</code>",
+ "27":
+ "<code>LE.le.{u} {α : Type u} [self : LE α] : α → α → Prop</code><span class=\"sep\"></span><code class=\"docstring\">The less-equal relation: `x ≤ y` \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `≤` in identifiers is `le`.\n\n * The recommended spelling of `&lt;=` in identifiers is `le` (prefer `≤` over `&lt;=`).</code>",
+ "269": "<code>Fintype.card F ≥ 2</code>",
+ "268": "<code>Fintype F</code>",
+ "267": "<code>Type u_1</code>",
+ "266": "<code>∀ (i : Fin n), x i ≠ 0</code>",
+ "265":
+ "<code>Function.Injective.{u_1, u_2} {α : Sort u_1} {β : Sort u_2} (f : α → β) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A function `f : α → β` is called injective if `f x = f y` implies `x = y`. </code>",
+ "264": "<code>Function.Injective x</code>",
+ "263": "<code>Fin n → F</code>",
+ "262":
+ "<code>ShamirScheme.shamirScheme.{u_1} {F : Type u_1} [Field F] [Fintype F] (n t : ℕ) (x : Fin n → F)\n  (_h_distinct : Function.Injective x) (_h_nonzero : ∀ (i : Fin n), x i ≠ 0) : SecretSharingScheme n</code><span class=\"sep\"></span><code class=\"docstring\">Shamir's Secret Sharing Scheme. </code>",
+ "261": "<code>Nat.succ_le_of_lt {n m : ℕ} (h : n &lt; m) : n.succ ≤ m</code>",
+ "260":
+ "<code>inferInstance.{u} {α : Sort u} [i : α] : α</code><span class=\"sep\"></span><code class=\"docstring\">`inferInstance` synthesizes a value of any target type by typeclass\ninference. This function has the same type signature as the identity\nfunction, but the square brackets on the `[i : α]` argument means that it will\nattempt to construct this argument by typeclass inference. (This will fail if\n`α` is not a `class`.) Example:\n```\n#check (inferInstance : Inhabited Nat) -- Inhabited Nat\n\ndef foo : Inhabited (Nat × Nat) :=\n  inferInstance\n\nexample : foo.default = (default, default) :=\n  rfl\n```\n</code>",
+ "26":
+ "<code>setOf.{u} {α : Type u} (p : α → Prop) : Set α</code><span class=\"sep\"></span><code class=\"docstring\">Turn a predicate `p : α → Prop` into a set, also written as `{x | p x}` </code>",
+ "259":
+ "<code>Fintype.one_lt_card_iff_nontrivial.{u_1} {α : Type u_1} [Fintype α] : 1 &lt; Fintype.card α ↔ Nontrivial α</code>",
+ "258": "<code>Fintype.card F &gt; 1</code>",
+ "257":
+ "<code>zero_ne_one.{u_2} {α : Type u_2} [Zero α] [One α] [NeZero 1] : 0 ≠ 1</code>",
+ "256": "<code>0 ≠ 1</code>",
+ "255": "<code>Fintype F</code>",
+ "254": "<code>Field F</code>",
+ "253": "<code>Type u_2</code>",
+ "252":
+ "<code>ShamirScheme.FiniteField.card_ge_two.{u_2} (F : Type u_2) [Field F] [Fintype F] : Fintype.card F ≥ 2</code>",
+ "251":
+ "<code>ShamirScheme.uniform_coeffs.{u_1} {F : Type u_1} [Field F] [Fintype F] (t : ℕ) : PMF (Fin (t - 1) → F)</code>",
+ "250":
+ "<code>Fin.val {n : ℕ} (self : Fin n) : ℕ</code><span class=\"sep\"></span><code class=\"docstring\">The number that is strictly less than `n`.\n\n`Fin.val` is a coercion, so any `Fin n` can be used in a position where a `Nat` is expected.\n</code>",
+ "25":
+ "<code>Set.ncard.{u_1} {α : Type u_1} (s : Set α) : ℕ</code><span class=\"sep\"></span><code class=\"docstring\">The cardinality of `s : Set α` . Has the junk value `0` if `s` is infinite </code>",
+ "249": "<code>Fin (t - 1)</code>",
+ "248": "<code>Fin (t - 1) → F</code>",
+ "247": "<code>F</code>",
+ "246":
+ "<code>ShamirScheme.shamir_poly.{u_1} {F : Type u_1} [Field F] (t : ℕ) (s : F) (m : Fin (t - 1) → F) (z : F) : F</code><span class=\"sep\"></span><code class=\"docstring\">Shamir's secret sharing polynomial evaluation.\ns is the secret (constant term).\nm contains the t-1 random coefficients m_1, ..., m_{t-1}.\nz is the evaluation point. </code>",
+ "245":
+ "<code>Field.{u} (K : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">A `Field` is a `CommRing` with multiplicative inverses for nonzero elements.\n\nAn instance of `Field K` includes maps `ratCast : ℚ → K` and `qsmul : ℚ → K → K`.\nThose two fields are needed to implement the `DivisionRing K → Algebra ℚ K` instance since we need\nto control the specific definitions for some special cases of `K` (in particular `K = ℚ` itself).\nSee also note [forgetful inheritance].\n\nIf the field has positive characteristic `p`, our division by zero convention forces\n`ratCast (1 / p) = 1 / 0 = 0`. </code>",
+ "244":
+ "<code class=\"docstring\">The syntax `variable (X Y ... Z : Type*)` creates a new distinct implicit universe variable\n`&gt; 0` for each variable in the sequence. </code>",
+ "243": "<code>Type u_1</code>",
+ "242":
+ "<code class=\"docstring\">Declares one or more typed variables, or modifies whether already-declared variables are\n  implicit.\n\nIntroduces variables that can be used in definitions within the same `namespace` or `section` block.\nWhen a definition mentions a variable, Lean will add it as an argument of the definition. This is\nuseful in particular when writing many definitions that have parameters in common (see below for an\nexample).\n\nVariable declarations have the same flexibility as regular function parameters. In particular they\ncan be [explicit, implicit][binder docs], or [instance implicit][tpil classes] (in which case they\ncan be anonymous). This can be changed, for instance one can turn explicit variable `x` into an\nimplicit one with `variable {x}`. Note that currently, you should avoid changing how variables are\nbound and declare new variables at the same time; see [issue 2789] for more on this topic.\n\nIn *theorem bodies* (i.e. proofs), variables are not included based on usage in order to ensure that\nchanges to the proof cannot change the statement of the overall theorem. Instead, variables are only\navailable to the proof if they have been mentioned in the theorem header or in an `include` command\nor are instance implicit and depend only on such variables.\n\nSee [*Variables and Sections* from Theorem Proving in Lean][tpil vars] for a more detailed\ndiscussion.\n\n[tpil vars]:\nhttps://lean-lang.org/theorem_proving_in_lean4/dependent_type_theory.html#variables-and-sections\n(Variables and Sections on Theorem Proving in Lean) [tpil classes]:\nhttps://lean-lang.org/theorem_proving_in_lean4/type_classes.html (Type classes on Theorem Proving in\nLean) [binder docs]:\nhttps://leanprover-community.github.io/mathlib4_docs/Lean/Expr.html#Lean.BinderInfo (Documentation\nfor the BinderInfo type) [issue 2789]: https://github.com/leanprover/lean4/issues/2789 (Issue 2789\non github)\n\n## Examples\n\n```lean\nsection\n  variable\n    {α : Type u}      -- implicit\n    (a : α)           -- explicit\n    [instBEq : BEq α] -- instance implicit, named\n    [Hashable α]      -- instance implicit, anonymous\n\n  def isEqual (b : α) : Bool :=\n    a == b\n\n  #check isEqual\n  -- isEqual.{u} {α : Type u} (a : α) [instBEq : BEq α] (b : α) : Bool\n\n  variable\n    {a} -- `a` is implicit now\n\n  def eqComm {b : α} := a == b ↔ b == a\n\n  #check eqComm\n  -- eqComm.{u} {α : Type u} {a : α} [instBEq : BEq α] {b : α} : Prop\nend\n```\n\nThe following shows a typical use of `variable` to factor out definition arguments:\n\n```lean\nvariable (Src : Type)\n\nstructure Logger where\n  trace : List (Src × String)\n#check Logger\n-- Logger (Src : Type) : Type\n\nnamespace Logger\n  -- switch `Src : Type` to be implicit until the `end Logger`\n  variable {Src}\n\n  def empty : Logger Src where\n    trace := []\n  #check empty\n  -- Logger.empty {Src : Type} : Logger Src\n\n  variable (log : Logger Src)\n\n  def len :=\n    log.trace.length\n  #check len\n  -- Logger.len {Src : Type} (log : Logger Src) : Nat\n\n  variable (src : Src) [BEq Src]\n\n  -- at this point all of `log`, `src`, `Src` and the `BEq` instance can all become arguments\n\n  def filterSrc :=\n    log.trace.filterMap\n      fun (src', str') =&gt; if src' == src then some str' else none\n  #check filterSrc\n  -- Logger.filterSrc {Src : Type} (log : Logger Src) (src : Src) [inst✝ : BEq Src] : List String\n\n  def lenSrc :=\n    log.filterSrc src |&gt;.length\n  #check lenSrc\n  -- Logger.lenSrc {Src : Type} (log : Logger Src) (src : Src) [inst✝ : BEq Src] : Nat\nend Logger\n```\n\nThe following example demonstrates availability of variables in proofs:\n```lean\nvariable\n  {α : Type}    -- available in the proof as indirectly mentioned through `a`\n  [ToString α]  -- available in the proof as `α` is included\n  (a : α)       -- available in the proof as mentioned in the header\n  {β : Type}    -- not available in the proof\n  [ToString β]  -- not available in the proof\n\ntheorem ex : a = a := rfl\n```\nAfter elaboration of the proof, the following warning will be generated to highlight the unused\nhypothesis:\n```\nincluded section variable '[ToString α]' is not used in 'ex', consider excluding it\n```\nIn such cases, the offending variable declaration should be moved down or into a section so that\nonly theorems that do depend on it follow it until the end of the section.\n</code>",
+ "241":
+ "<code class=\"docstring\">`congr!` tries to prove the main goal by repeatedly applying congruence rules. For example, on a\ngoal of the form `⊢ f a1 a2 ... = f b1 b2 ...`, `congr!` will make new goals `⊢ a1 = b1`,\n`⊢ a2 = b2`, ...\n\n`congr!` is a more powerful version of the `congr` tactic that uses congruence lemmas (tagged with\n`@[congr]`), reflexivity rules (tagged with `@[refl]`) and proof discharging strategies. The full\nlist of congruence proof strategies is documented in the module `Mathlib.Tactic.CongrExclamation`.\nThe `congr!` tactic is used by the `convert` and `convert_to` tactics.\n\n* `congr! n`, where `n` is a positive numeral, controls the depth with which congruence is\n  applied. For example, if the main goal is `n + n + 1 = 2 * n + 1`, then `congr! 1` results in one\n  goal, `⊢ n + n = 2 * n`, and `congr! 2` (or more) results in two (impossible) goals\n  `⊢ HAdd.hAdd = HMul.hMul` and `⊢ n = 2`.\n  By default, the depth is unlimited.\n* `congr! with x ⟨y₁, y₂⟩ (z₁ | z₂)` names or pattern-matches the variables introduced by\n  congruence rules, like `rintro x ⟨y₁, y₂⟩ (z₁ | z₂)` would.\n* `congr! (config := cfg)` uses the configuration options in `cfg` to control the congruence\n  rules (see `Congr!.Config`).\n</code>",
+ "240":
+ "<code>PMF.pure.{u_1} {α : Type u_1} (a : α) : PMF α</code><span class=\"sep\"></span><code class=\"docstring\">The pure `PMF` is the `PMF` where all the mass lies in one point.\nThe value of `pure a` is `1` at `a` and `0` elsewhere. </code>",
+ "24":
+ "<code>A ∈ {C | C ∈ Γ.auth ∧ C ⊆ B} ∧ ∀ C ∈ {C | C ∈ Γ.auth ∧ C ⊆ B}, A.ncard ≤ C.ncard</code>",
+ "239":
+ "<code>Function.comp.{u, v, w} {α : Sort u} {β : Sort v} {δ : Sort w} (f : β → δ) (g : α → β) : α → δ</code><span class=\"sep\"></span><code class=\"docstring\">Function composition, usually written with the infix operator `∘`. A new function is created from\ntwo existing functions, where one function's output is used as input to the other.\n\nExamples:\n * `Function.comp List.reverse (List.drop 2) [3, 2, 4, 1] = [1, 4]`\n * `(List.reverse ∘ List.drop 2) [3, 2, 4, 1] = [1, 4]`\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∘` in identifiers is `comp`.</code>",
+ "238":
+ "<code>PMF.bind.{u_1, u_2} {α : Type u_1} {β : Type u_2} (p : PMF α) (f : α → PMF β) : PMF β</code><span class=\"sep\"></span><code class=\"docstring\">The monadic bind operation for `PMF`. </code>",
+ "237":
+ "<code>Subtype.mk.{u} {α : Sort u} {p : α → Prop} (val : α) (property : p val) : Subtype p</code>",
+ "236": "<code>↑T</code>",
+ "235": "<code>(i : ↑T') → scheme.Share ↑i</code>",
+ "234": "<code>PMF ((i : ↑T') → scheme.Share ↑i)</code>",
+ "233":
+ "<code>congr_arg.{u, v} {α : Sort u} {β : Sort v} {a₁ a₂ : α} (f : α → β) (h : a₁ = a₂) : f a₁ = f a₂</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `congrArg`.</code>",
+ "232":
+ "<code class=\"docstring\">`convert e`, where the term `e` is inferred to have type `t`, replaces the main goal `⊢ t'` with new\ngoals for proving the equality `t' = t` using congruence. The goals are created like `congr!` would.\nLike `refine e`, any holes (`?_` or `?x`) in `e` that are not solved by unification are converted\ninto new goals, using the hole's name, if any, as the goal case name.\nLike `congr!`, `convert` introduces variables while applying congruence rules. These can be\npattern-matched, like `rintro` would, using the `with` keyword.\n\nSee also `convert_to t`, where `t` specifies the expected type, instead of a proof term of type `t`.\nIn other words, `convert_to t` works like `convert (?_ : t)`. Both tactics use the same options.\n\n* `convert ← e` creates equality goals in the opposite direction (with the goal type on the right).\n* `convert e using n`, where `n` is a positive numeral, controls the depth with which congruence is\n  applied. For example, if the main goal is `⊢ Prime (n + n + 1)` and `e : Prime (2 * n + 1)`, then\n  `convert e using 2` results in one goal, `⊢ n + n = 2 * n`, and `convert e using 3` (or more)\n  results in two (impossible) goals `⊢ HAdd.hAdd = HMul.hMul` and `⊢ n = 2`.\n  By default, the depth is unlimited.\n* `convert e with x ⟨y₁, y₂⟩ (z₁ | z₂)` names or pattern-matches the variables introduced by\n  congruence rules, like `rintro x ⟨y₁, y₂⟩ (z₁ | z₂)` would.\n* `convert (config := cfg) e` uses the configuration options in `cfg` to control the congruence\n  rules (see `Congr!.Config`).\n\nExamples:\n\n```lean\n-- `convert using` controls the depth of congruence.\nexample {n : ℕ} (e : Prime (2 * n + 1)) :\n    Prime (n + n + 1) := by\n  convert e using 2\n  -- One goal: ⊢ n + n = 2 * n\n  ring\n\n-- `convert` can fail where `exact` succeeds.\nexample (h : p 0) : p 1 := by\n  fail_if_success\n    convert h -- fails, left-over goal 1 = 0\n    done\n  exact h -- succeeds\n\n-- `convert with` names introduced variables.\nexample (p q : Nat → Prop) (h : ∀ ε &gt; 0, p ε) :\n    ∀ ε &gt; 0, q ε := by\n  convert h using 2 with ε hε\n  -- Goal now looks like:\n  -- hε : ε &gt; 0\n  -- ⊢ q ε ↔ p ε\n  sorry\n```\n</code>",
+ "231":
+ "<code>PMF.map (fun r =&gt; scheme.shares_of_set s1 r T') scheme.μ = PMF.map (fun r =&gt; scheme.shares_of_set s2 r T') scheme.μ</code>",
+ "230": "<code>T ⊆ T'</code>",
+ "23":
+ "<code class=\"docstring\">The `obtain` tactic is a combination of `have` and `rcases`. See `rcases` for\na description of supported patterns.\n\n```lean\nobtain ⟨patt⟩ : type := proof\n```\nis equivalent to\n```lean\nhave h : type := proof\nrcases h with ⟨patt⟩\n```\n\nIf `⟨patt⟩` is omitted, `rcases` will try to infer the pattern.\n\nIf `type` is omitted, `:= proof` is required.\n</code>",
+ "229": "<code>Γ.isMaximallyUnauthorized T'</code>",
+ "228":
+ "<code>not_lt_of_ge.{u_1} {α : Type u_1} [Preorder α] {a b : α} (hab : a ≤ b) : ¬b &lt; a</code>",
+ "227":
+ "<code>Classical.not_not {a : Prop} : ¬¬a ↔ a</code><span class=\"sep\"></span><code class=\"docstring\">The Double Negation Theorem: `¬¬P` is equivalent to `P`.\nThe left-to-right direction, double negation elimination (DNE),\nis classically true but not constructively. </code>",
+ "226": "<code>T' ⊂ B</code>",
+ "225":
+ "<code>Set.exists_max_image.{u, v} {α : Type u} {β : Type v} [LinearOrder β] (s : Set α) (f : α → β) (h1 : s.Finite) :\n  s.Nonempty → ∃ a ∈ s, ∀ b ∈ s, f b ≤ f a</code>",
+ "224":
+ "<code>T' ∈ {B | T ⊆ B ∧ B ∉ Γ.auth} ∧ ∀ B ∈ {B | T ⊆ B ∧ B ∉ Γ.auth}, T'.ncard ≥ B.ncard</code>",
+ "223": "<code>{B | T ⊆ B ∧ B ∉ Γ.auth}.Finite</code>",
+ "222":
+ "<code>∃ T', T ⊆ T' ∧ T' ∉ Γ.auth ∧ ∀ (B : Set (Fin n)), T' ⊂ B → B ∈ Γ.auth</code>",
+ "221":
+ "<code>T ⊆ T' ∧ T' ∉ Γ.auth ∧ ∀ (B : Set (Fin n)), T' ⊂ B → B ∈ Γ.auth</code>",
+ "220": "<code>T ∉ Γ.auth</code>",
+ "22":
+ "<code>Membership.mem.{u, v} {α : outParam (Type u)} {γ : Type v} [self : Membership α γ] : γ → α → Prop</code><span class=\"sep\"></span><code class=\"docstring\">The membership relation `a ∈ s : Prop` where `a : α`, `s : γ`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∈` in identifiers is `mem`.</code>",
+ "219":
+ "<code>∀ T ∉ Γ.auth, ∃ T', Γ.isMaximallyUnauthorized T' ∧ T ⊆ T'</code>",
+ "218": "<code>Γ.isMaximallyUnauthorized T</code>",
+ "217": "<code>scheme.PerfectSecurity Γ</code>",
+ "216":
+ "<code>∀ (T : Set (Fin n)),\n  Γ.isMaximallyUnauthorized T →\n    ∀ (s1 s2 : scheme.Secret),\n      PMF.map (fun r =&gt; scheme.shares_of_set s1 r T) scheme.μ = PMF.map (fun r =&gt; scheme.shares_of_set s2 r T) scheme.μ</code>",
+ "215":
+ "<code>Iff.intro {a b : Prop} (mp : a → b) (mpr : b → a) : a ↔ b</code><span class=\"sep\"></span><code class=\"docstring\">If `a → b` and `b → a` then `a` and `b` are equivalent. </code>",
+ "214":
+ "<code>SecretSharingScheme.PerfectSecurity_iff_maximal.{u_1, u_2} {n : ℕ} (scheme : SecretSharingScheme n)\n  (Γ : AccessStructure n) :\n  scheme.PerfectSecurity Γ ↔\n    ∀ (T : Set (Fin n)),\n      Γ.isMaximallyUnauthorized T →\n        ∀ (s1 s2 : scheme.Secret),\n          PMF.map (fun r =&gt; scheme.shares_of_set s1 r T) scheme.μ =\n            PMF.map (fun r =&gt; scheme.shares_of_set s2 r T) scheme.μ</code>",
+ "213":
+ "<code>SecretSharingScheme.information_ratio.{u_1, u_2} {n : ℕ} (scheme : SecretSharingScheme n) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The information ratio is max_j log(|Sj|) / log(|S|).\n</code>",
+ "212":
+ "<code>Finset.sum.{u_1, u_3} {ι : Type u_1} {M : Type u_3} [AddCommMonoid M] (s : Finset ι) (f : ι → M) : M</code><span class=\"sep\"></span><code class=\"docstring\">`∑ x ∈ s, f x` is the sum of `f x` as `x` ranges over the elements\nof the finite set `s`.\n\nWhen the index type is a `Fintype`, the notation `∑ x, f x`, is a shorthand for\n`∑ x ∈ Finset.univ, f x`. </code>",
+ "211":
+ "<code>SecretSharingScheme.total_share_size.{u_1, u_2} {n : ℕ} (scheme : SecretSharingScheme n) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The Total share size is sum_j log(|Sj|).\n</code>",
+ "210": "<code>ℝ</code>",
+ "21": "<code>B ∈ Γ.auth</code>",
+ "209":
+ "<code>Option.getD.{u_1} {α : Type u_1} (opt : Option α) (dflt : α) : α</code><span class=\"sep\"></span><code class=\"docstring\">Gets an optional value, returning a given default on `none`.\n\nThis function is `@[macro_inline]`, so `dflt` will not be evaluated unless `opt` turns out to be\n`none`.\n\nExamples:\n * `(some \"hello\").getD \"goodbye\" = \"hello\"`\n * `none.getD \"goodbye\" = \"goodbye\"`\n</code>",
+ "208":
+ "<code>Finset.max.{u_2} {α : Type u_2} [LinearOrder α] (s : Finset α) : WithBot α</code><span class=\"sep\"></span><code class=\"docstring\">Let `s` be a finset in a linear order. Then `s.max` is the maximum of `s` if `s` is not empty,\nand `⊥` otherwise. It belongs to `WithBot α`. If you want to get an element of `α`, see\n`s.max'`. </code>",
+ "207":
+ "<code>Finset.image.{u_1, u_2} {α : Type u_1} {β : Type u_2} [DecidableEq β] (f : α → β) (s : Finset α) : Finset β</code><span class=\"sep\"></span><code class=\"docstring\">`image f s` is the forward image of `s` under `f`. </code>",
+ "206":
+ "<code>Finset.univ.{u_1} {α : Type u_1} [Fintype α] : Finset α</code><span class=\"sep\"></span><code class=\"docstring\">`univ` is the universal finite set of type `Finset α` implied from\nthe assumption `Fintype α`. </code>",
+ "205":
+ "<code>SecretSharingScheme.max_share_size.{u_1, u_2} {n : ℕ} (scheme : SecretSharingScheme n) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The maximum share size is max_j log(|Sj|).\n</code>",
+ "204":
+ "<code>SecretSharingScheme.share_size.{u_1, u_2} {n : ℕ} (scheme : SecretSharingScheme n) (i : Fin n) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The size of the share of participant i is log(|Si|).\n</code>",
+ "203":
+ "<code>Real.log (x : ℝ) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The real logarithm function, equal to the inverse of the exponential for `x &gt; 0`,\nto `log |x|` for `x &lt; 0`, and to `0` for `0`. We use this unconventional extension to\n`(-∞, 0]` as it gives the formula `log (x * y) = log x + log y` for all nonzero `x` and `y`, and\nthe derivative of `log` is `1/x` away from `0`. </code>",
+ "202":
+ "<code class=\"docstring\">`letI` behaves like `let`, but inlines the value instead of producing a `let` term. </code>",
+ "201":
+ "<code>SecretSharingScheme.secret_size.{u_1, u_2} {n : ℕ} (scheme : SecretSharingScheme n) : ℝ</code><span class=\"sep\"></span><code class=\"docstring\">The size of secret is log(|S|).\n</code>",
+ "200":
+ "<code>SecretSharingScheme.RealizedSecretSharingScheme.h_security.{u_1, u_2} {n : ℕ} {Γ : AccessStructure n}\n  (self : RealizedSecretSharingScheme n Γ) : self.PerfectSecurity Γ</code>",
+ "20":
+ "<code class=\"docstring\">Introduces one or more hypotheses, optionally naming and/or pattern-matching them.\nFor each hypothesis to be introduced, the remaining main goal's target type must\nbe a `let` or function type.\n\n* `intro` by itself introduces one anonymous hypothesis, which can be accessed\n  by e.g. `assumption`. It is equivalent to `intro _`.\n* `intro x y` introduces two hypotheses and names them. Individual hypotheses\n  can be anonymized via `_`, given a type ascription, or matched against a pattern:\n  ```lean\n  -- ... ⊢ α × β → ...\n  intro (a, b)\n  -- ..., a : α, b : β ⊢ ...\n  ```\n* `intro rfl` is short for `intro h; subst h`, if `h` is an equality where the left-hand or right-hand side\n  is a variable.\n* Alternatively, `intro` can be combined with pattern matching much like `fun`:\n  ```lean\n  intro\n  | n + 1, 0 =&gt; tac\n  | ...\n  ```\n</code>",
+ "2": "<code>ℕ</code>",
+ "199": "<code>toSecretSharingScheme.ReconstructionAlgorithm Γ</code>",
+ "198":
+ "<code>SecretSharingScheme.RealizedSecretSharingScheme.h_correctness.{u_1, u_2} {n : ℕ} {Γ : AccessStructure n}\n  (self : RealizedSecretSharingScheme n Γ) : self.Correctness Γ self.recon</code>",
+ "197":
+ "<code>SecretSharingScheme.RealizedSecretSharingScheme.recon.{u_1, u_2} {n : ℕ} {Γ : AccessStructure n}\n  (self : RealizedSecretSharingScheme n Γ) : self.ReconstructionAlgorithm Γ</code>",
+ "196":
+ "<code>SecretSharingScheme.RealizedSecretSharingScheme.{u_1, u_2} (n : ℕ) (Γ : AccessStructure n) :\n  Type (max (u_1 + 1) (u_2 + 1))</code><span class=\"sep\"></span><code class=\"docstring\">A structure representing a secret sharing scheme that\nrealizes a given access structure Γ.\n</code>",
+ "195":
+ "<code>PMF.map.{u_1, u_2} {α : Type u_1} {β : Type u_2} (f : α → β) (p : PMF α) : PMF β</code><span class=\"sep\"></span><code class=\"docstring\">The functorial action of a function on a `PMF`. </code>",
+ "194": "<code>B ∉ Γ.auth</code>",
+ "193":
+ "<code>SecretSharingScheme.PerfectSecurity.{u_1, u_2} {n : ℕ} (S : SecretSharingScheme n) (Γ : AccessStructure n) : Prop</code>",
+ "192": "<code>S.Random</code>",
+ "191": "<code>S.Secret</code>",
+ "190": "<code>S.ReconstructionAlgorithm Γ</code>",
+ "19":
+ "<code>HasSubset.Subset.{u} {α : Type u} [self : HasSubset α] : α → α → Prop</code><span class=\"sep\"></span><code class=\"docstring\">Subset relation: `a ⊆ b`  \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `⊆` in identifiers is `subset`.</code>",
+ "189":
+ "<code>SecretSharingScheme.Correctness.{u_1, u_2} {n : ℕ} (S : SecretSharingScheme n) (Γ : AccessStructure n)\n  (recon : S.ReconstructionAlgorithm Γ) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">Correctness means that for every authorized set `B ∈ Γ`,\nand secret `s ∈ S`, the participants in `B` can\nreconstruct the secret correctly with probability 1.\n</code>",
+ "188": "<code>↑B</code>",
+ "187":
+ "<code>SecretSharingScheme.ReconstructionAlgorithm.{u_1, u_2} {n : ℕ} (scheme : SecretSharingScheme n)\n  (Γ : AccessStructure n) : Type u_1</code><span class=\"sep\"></span><code class=\"docstring\">Reconstruction algorithm\nFor every authorized subset `B`, the reconstruction\nalgorithm is a function that takes the shares in\n`B` as input and return a term of type `Secret`\n</code>",
+ "186": "<code>↑A</code>",
+ "185": "<code>scheme.Random</code>",
+ "184": "<code>scheme.Secret</code>",
+ "183": "<code>SecretSharingScheme n</code>",
+ "182":
+ "<code>SecretSharingScheme.shares_of_set.{u_1, u_2} {n : ℕ} (scheme : SecretSharingScheme n) (s : scheme.Secret)\n  (r : scheme.Random) (A : Set (Fin n)) (i : ↑A) : scheme.Share ↑i</code><span class=\"sep\"></span><code class=\"docstring\">Given a share s and a random string `r`, the restriction\nof `Π(s,r)` to `A` is denoted `shares_of_set`.\nWe may also denote it by `Π_A(s,r)`\n\n`shares_of_set` is a function that maps `s`, `r`, and `A`\nto a function from `A` to the shares associated with the\nparticipants in `A`\n</code>",
+ "181":
+ "<code class=\"docstring\">Makes names from other namespaces visible without writing the namespace prefix.\n\nNames that are made available with `open` are visible within the current `section` or `namespace`\nblock. This makes referring to (type) definitions and theorems easier, but note that it can also\nmake [scoped instances], notations, and attributes from a different namespace available.\n\nThe `open` command can be used in a few different ways:\n\n* `open Some.Namespace.Path1 Some.Namespace.Path2` makes all non-protected names in\n  `Some.Namespace.Path1` and `Some.Namespace.Path2` available without the prefix, so that\n  `Some.Namespace.Path1.x` and `Some.Namespace.Path2.y` can be referred to by writing only `x` and\n  `y`.\n\n* `open Some.Namespace.Path hiding def1 def2` opens all non-protected names in `Some.Namespace.Path`\n  except `def1` and `def2`.\n\n* `open Some.Namespace.Path (def1 def2)` only makes `Some.Namespace.Path.def1` and\n  `Some.Namespace.Path.def2` available without the full prefix, so `Some.Namespace.Path.def3` would\n  be unaffected.\n\n  This works even if `def1` and `def2` are `protected`.\n\n* `open Some.Namespace.Path renaming def1 → def1', def2 → def2'` same as `open Some.Namespace.Path\n  (def1 def2)` but `def1`/`def2`'s names are changed to `def1'`/`def2'`.\n\n  This works even if `def1` and `def2` are `protected`.\n\n* `open scoped Some.Namespace.Path1 Some.Namespace.Path2` **only** opens [scoped instances],\n  notations, and attributes from `Namespace1` and `Namespace2`; it does **not** make any other name\n  available.\n\n* `open &lt;any of the open shapes above&gt; in` makes the names `open`-ed visible only in the next\n  command or expression.\n\n[scoped instance]: https://lean-lang.org/theorem_proving_in_lean4/type_classes.html#scoped-instances\n(Scoped instances in Theorem Proving in Lean)\n\n\n## Examples\n\n```lean\n/-- SKI combinators https://en.wikipedia.org/wiki/SKI_combinator_calculus -/\nnamespace Combinator.Calculus\n  def I (a : α) : α := a\n  def K (a : α) : β → α := fun _ =&gt; a\n  def S (x : α → β → γ) (y : α → β) (z : α) : γ := x z (y z)\nend Combinator.Calculus\n\nsection\n  -- open everything under `Combinator.Calculus`, *i.e.* `I`, `K` and `S`,\n  -- until the section ends\n  open Combinator.Calculus\n\n  theorem SKx_eq_K : S K x = I := rfl\nend\n\n-- open everything under `Combinator.Calculus` only for the next command (the next `theorem`, here)\nopen Combinator.Calculus in\ntheorem SKx_eq_K' : S K x = I := rfl\n\nsection\n  -- open only `S` and `K` under `Combinator.Calculus`\n  open Combinator.Calculus (S K)\n\n  theorem SKxy_eq_y : S K x y = y := rfl\n\n  -- `I` is not in scope, we have to use its full path\n  theorem SKxy_eq_Iy : S K x y = Combinator.Calculus.I y := rfl\nend\n\nsection\n  open Combinator.Calculus\n    renaming\n      I → identity,\n      K → konstant\n\n  #check identity\n  #check konstant\nend\n\nsection\n  open Combinator.Calculus\n    hiding S\n\n  #check I\n  #check K\nend\n\nsection\n  namespace Demo\n    inductive MyType\n    | val\n\n    namespace N1\n      scoped infix:68 \" ≋ \" =&gt; BEq.beq\n\n      scoped instance : BEq MyType where\n        beq _ _ := true\n\n      def Alias := MyType\n    end N1\n  end Demo\n\n  -- bring `≋` and the instance in scope, but not `Alias`\n  open scoped Demo.N1\n\n  #check Demo.MyType.val == Demo.MyType.val\n  #check Demo.MyType.val ≋ Demo.MyType.val\n  -- #check Alias -- unknown identifier 'Alias'\nend\n```\n</code>",
+ "180":
+ "<code>SecretSharingScheme.dealer.{u, v} {n : ℕ} (self : SecretSharingScheme n) :\n  self.Secret → self.Random → (i : Fin n) → self.Share i</code>",
+ "18":
+ "<code>And (a b : Prop) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`And a b`, or `a ∧ b`, is the conjunction of propositions. It can be\nconstructed and destructed like a pair: if `ha : a` and `hb : b` then\n`⟨ha, hb⟩ : a ∧ b`, and if `h : a ∧ b` then `h.left : a` and `h.right : b`.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `∧` in identifiers is `and`.\n\n * The recommended spelling of `/\\` in identifiers is `and` (prefer `∧` over `/\\`).</code>",
+ "179":
+ "<code>PMF.uniformOfFintype.{u_2} (α : Type u_2) [Fintype α] [Nonempty α] : PMF α</code><span class=\"sep\"></span><code class=\"docstring\">The uniform pmf taking the same uniform value on all of the fintype `α` </code>",
+ "178":
+ "<code>PMF.{u} (α : Type u) : Type u</code><span class=\"sep\"></span><code class=\"docstring\">A probability mass function, or discrete probability measures is a function `α → ℝ≥0∞` such\nthat the values have (infinite) sum `1`. </code>",
+ "177":
+ "<code>SecretSharingScheme.μ.{u, v} {n : ℕ} (self : SecretSharingScheme n) : PMF self.Random</code>",
+ "176":
+ "<code>Nonempty.{u} (α : Sort u) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`Nonempty α` is a typeclass that says that `α` is not an empty type,\nthat is, there exists an element in the type. It differs from `Inhabited α`\nin that `Nonempty α` is a `Prop`, which means that it does not actually carry\nan element of `α`, only a proof that *there exists* such an element.\nGiven `Nonempty α`, you can construct an element of `α` *nonconstructively*\nusing `Classical.choice`.\n</code>",
+ "175":
+ "<code>SecretSharingScheme.hRandomNonempty.{u, v} {n : ℕ} (self : SecretSharingScheme n) : Nonempty self.Random</code>",
+ "174": "<code>Type v</code>",
+ "173":
+ "<code>SecretSharingScheme.hRandom.{u, v} {n : ℕ} (self : SecretSharingScheme n) : Fintype self.Random</code>",
+ "172": "<code>Fin n → Type u</code>",
+ "171":
+ "<code>SecretSharingScheme.hShare.{u, v} {n : ℕ} (self : SecretSharingScheme n) (i : Fin n) : Fintype (self.Share i)</code>",
+ "170":
+ "<code>SecretSharingScheme.Share.{u, v} {n : ℕ} (self : SecretSharingScheme n) : Fin n → Type u</code>",
+ "17":
+ "<code>Nat : Type</code><span class=\"sep\"></span><code class=\"docstring\">The natural numbers, starting at zero.\n\nThis type is special-cased by both the kernel and the compiler, and overridden with an efficient\nimplementation. Both use a fast arbitrary-precision arithmetic library (usually\n[GMP](https://gmplib.org/)); at runtime, `Nat` values that are sufficiently small are unboxed.\n</code>",
+ "169":
+ "<code>Fintype.card.{u_4} (α : Type u_4) [Fintype α] : ℕ</code><span class=\"sep\"></span><code class=\"docstring\">`card α` is the number of elements in `α`, defined when `α` is a fintype. </code>",
+ "168":
+ "<code>SecretSharingScheme.hSecret_card.{u, v} {n : ℕ} (self : SecretSharingScheme n) : Fintype.card self.Secret ≥ 2</code>",
+ "167": "<code>Type u</code>",
+ "166":
+ "<code>Fintype.{u_4} (α : Type u_4) : Type u_4</code><span class=\"sep\"></span><code class=\"docstring\">`Fintype α` means that `α` is finite, i.e. there are only\nfinitely many distinct elements of type `α`. The evidence of this\nis a finset `elems` (a list up to permutation without duplicates),\ntogether with a proof that everything of type `α` is in the list. </code>",
+ "165":
+ "<code>SecretSharingScheme.hSecret.{u, v} {n : ℕ} (self : SecretSharingScheme n) : Fintype self.Secret</code>",
+ "164": "<code class=\"docstring\">The universe parameter v</code>",
+ "163":
+ "<code>SecretSharingScheme.Random.{u, v} {n : ℕ} (self : SecretSharingScheme n) : Type v</code>",
+ "162": "<code class=\"docstring\">The universe parameter u</code>",
+ "161":
+ "<code class=\"docstring\">A type universe. `Type ≡ Type 0`, `Type u ≡ Sort (u + 1)`. </code>",
+ "160":
+ "<code>SecretSharingScheme.Secret.{u, v} {n : ℕ} (self : SecretSharingScheme n) : Type u</code>",
+ "16":
+ "<code class=\"docstring\">`by tac` constructs a term of the expected type by running the tactic(s) `tac`. </code>",
+ "159":
+ "<code>SecretSharingScheme.{u, v} (n : ℕ) : Type (max (u + 1) (v + 1))</code><span class=\"sep\"></span><code class=\"docstring\">A secret sharing scheme with `n` participants consist\nof the following data.\n\n`Secret` is a finite type and has size at least 2\n`Random` is another finite type that is nonempty\nThe share of participant `i` has type `Share i`,\nfor i = 0,1,..., n-1.\nWe assume that `Share i` is a finite type for all `i`.\n\nShare is a function that maps `Fin n` to `Type u`,\nrepresenting the share of the `n` participants\n\nA `dealer` is a function that maps a pair of `Secret`\nand `Random` to the `n` shares.\n</code>",
+ "158":
+ "<code class=\"docstring\">Declares one or more universe variables.\n\n`universe u v`\n\n`Prop`, `Type`, `Type u` and `Sort u` are types that classify other types, also known as\n*universes*. In `Type u` and `Sort u`, the variable `u` stands for the universe's *level*, and a\nuniverse at level `u` can only classify universes that are at levels lower than `u`. For more\ndetails on type universes, please refer to [the relevant chapter of Theorem Proving in Lean][tpil\nuniverses].\n\nJust as type arguments allow polymorphic definitions to be used at many different types, universe\nparameters, represented by universe variables, allow a definition to be used at any required level.\nWhile Lean mostly handles universe levels automatically, declaring them explicitly can provide more\ncontrol when writing signatures. The `universe` keyword allows the declared universe variables to be\nused in a collection of definitions, and Lean will ensure that these definitions use them\nconsistently.\n\n[tpil universes]: https://lean-lang.org/theorem_proving_in_lean4/dependent_type_theory.html#types-as-objects\n(Type universes on Theorem Proving in Lean)\n\n```lean\n/- Explicit type-universe parameter. -/\ndef id₁.{u} (α : Type u) (a : α) := a\n\n/- Implicit type-universe parameter, equivalent to `id₁`.\n  Requires option `autoImplicit true`, which is the default. -/\ndef id₂ (α : Type u) (a : α) := a\n\n/- Explicit standalone universe variable declaration, equivalent to `id₁` and `id₂`. -/\nuniverse u\ndef id₃ (α : Type u) (a : α) := a\n```\n\nOn a more technical note, using a universe variable only in the right-hand side of a definition\ncauses an error if the universe has not been declared previously.\n\n```lean\ndef L₁.{u} := List (Type u)\n\n-- def L₂ := List (Type u) -- error: `unknown universe level 'u'`\n\nuniverse u\ndef L₃ := List (Type u)\n```\n\n## Examples\n\n```lean\nuniverse u v w\n\nstructure Pair (α : Type u) (β : Type v) : Type (max u v) where\n  a : α\n  b : β\n\n#check Pair.{v, w}\n-- Pair : Type v → Type w → Type (max v w)\n```\n</code>",
+ "157":
+ "<code class=\"docstring\">`end` closes a `section` or `namespace` scope. If the scope is named `&lt;id&gt;`, it has to be closed\nwith `end &lt;id&gt;`. The `end` command is optional at the end of a file.\n</code>",
+ "156":
+ "<code>LT.lt.not_ge.{u_1} {α : Type u_1} [Preorder α] {a b : α} (hab : a &lt; b) : ¬b ≤ a</code><span class=\"sep\"></span><code class=\"docstring\">**Alias** of `not_le_of_gt`.</code>",
+ "155": "<code>x ⊆ B</code>",
+ "154": "<code>B.ncard &lt; t</code>",
+ "153": "<code>B ⊂ A</code>",
+ "152": "<code>A.ncard = t</code>",
+ "151": "<code>B = A</code>",
+ "150":
+ "<code>lt_of_le_of_ne.{u_1} {α : Type u_1} [PartialOrder α] {a b : α} : a ≤ b → a ≠ b → a &lt; b</code>",
+ "15":
+ "<code>AccessStructure.auth_contains_minimal_auth {n : ℕ} (Γ : AccessStructure n) (B : Set (Fin n)) :\n  B ∈ Γ.auth → ∃ A ∈ Γ.auth, Γ.isMinimalAuthorized A ∧ A ⊆ B</code><span class=\"sep\"></span><code class=\"docstring\">Every authorized set contains a minimal authorized subset.\n</code>",
+ "149":
+ "<code>Ne.{u} {α : Sort u} (a b : α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`a ≠ b`, or `Ne a b` is defined as `¬ (a = b)` or `a = b → False`,\nand asserts that `a` and `b` are not equal.\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `≠` in identifiers is `ne`.</code>",
+ "148": "<code>A.ncard ≠ t</code>",
+ "147": "<code>B ∈ {A | A.ncard = t}</code>",
+ "146":
+ "<code>∀ B ⊂ A, B ∉ { auth := generatedAccessStructure {A | A.ncard = t}, h_monotone := ⋯ }.auth</code>",
+ "145":
+ "<code>A ∈ { auth := generatedAccessStructure {A | A.ncard = t}, h_monotone := ⋯ }.auth</code>",
+ "144":
+ "<code class=\"docstring\">The `rintro` tactic is a combination of the `intros` tactic with `rcases` to\nallow for destructuring patterns while introducing variables. See `rcases` for\na description of supported patterns. For example, `rintro (a | ⟨b, c⟩) ⟨d, e⟩`\nwill introduce two variables, and then do case splits on both of them producing\ntwo subgoals, one with variables `a d e` and the other with `b c d e`.\n\n`rintro`, unlike `rcases`, also supports the form `(x y : ty)` for introducing\nand type-ascripting multiple variables at once, similar to binders.\n</code>",
+ "143":
+ "<code>AccessStructure.mk {n : ℕ} (auth : Set (Set (Fin n)))\n  (h_monotone : ∀ {A B : Set (Fin n)}, A ∈ auth → A ⊆ B → B ∈ auth) : AccessStructure n</code>",
+ "142":
+ "<code>Set.ext.{u} {α : Type u} {a b : Set α} (h : ∀ (x : α), x ∈ a ↔ x ∈ b) : a = b</code>",
+ "141":
+ "<code class=\"docstring\">`apply e` tries to match the current goal against the conclusion of `e`'s type.\nIf it succeeds, then the tactic returns as many subgoals as the number of premises that\nhave not been fixed by type inference or type class resolution.\nNon-dependent premises are added before dependent ones.\n\nThe `apply` tactic uses higher-order pattern matching, type class resolution,\nand first-order unification with dependent types.\n\n\nExtensions:\n\n * * `apply (config := cfg) e` allows for additional configuration (see `Lean.Meta.ApplyConfig`):\n     * `newGoals` controls which new goals are added by `apply`, in which order.\n     * `-synthAssignedInstances` will not synthesize instance implicit arguments if they have been\n       assigned by `isDefEq`.\n     * `+allowSynthFailures` will create new goals when instance synthesis fails, rather than erroring.\n     * `+approx` enables `isDefEq` approximations (see `Lean.Meta.approxDefEq`).</code>",
+ "140":
+ "<code>AccessStructure.threshold_minimalAuthorized_eq (n t : ℕ) :\n  (thresholdAccessStructure n t).minimalAuthorized = {A | A.ncard = t}</code>",
+ "14":
+ "<code>AccessStructure.minimalAuthorized {n : ℕ} (Γ : AccessStructure n) : Set (Set (Fin n))</code>",
+ "139":
+ "<code class=\"docstring\">`grind` is a tactic inspired by modern SMT solvers. **Picture a virtual whiteboard**:\nevery time grind discovers a new equality, inequality, or logical fact,\nit writes it on the board, groups together terms known to be equal,\nand lets each reasoning engine read from and contribute to the shared workspace.\nThese engines work together to handle equality reasoning, apply known theorems,\npropagate new facts, perform case analysis, and run specialized solvers\nfor domains like linear arithmetic and commutative rings.\n\nSee [the reference manual's chapter on `grind`](https://lean-lang.org/doc/reference/4.29.0/find/?domain=Verso.Genre.Manual.section&name=grind-tactic) for more information.\n\n`grind` is *not* designed for goals whose search space explodes combinatorially,\nthink large pigeonhole instances, graph‑coloring reductions, high‑order N‑queens boards,\nor a 200‑variable Sudoku encoded as Boolean constraints.  Such encodings require\n thousands (or millions) of case‑splits that overwhelm `grind`’s branching search.\n\nFor **bit‑level or combinatorial problems**, consider using **`bv_decide`**.\n`bv_decide` calls a state‑of‑the‑art SAT solver (CaDiCaL) and then returns a\n*compact, machine‑checkable certificate*.\n\n### Equality reasoning\n\n`grind` uses **congruence closure** to track equalities between terms.\nWhen two terms are known to be equal, congruence closure automatically deduces\nequalities between more complex expressions built from them.\nFor example, if `a = b`, then congruence closure will also conclude that `f a` = `f b`\nfor any function `f`. This forms the foundation for efficient equality reasoning in `grind`.\nHere is an example:\n```\nexample (f : Nat → Nat) (h : a = b) : f (f b) = f (f a) := by\n  grind\n```\n\n### Applying theorems using E-matching\n\nTo apply existing theorems, `grind` uses a technique called **E-matching**,\nwhich finds matches for known theorem patterns while taking equalities into account.\nCombined with congruence closure, E-matching helps `grind` discover\nnon-obvious consequences of theorems and equalities automatically.\n\nConsider the following functions and theorems:\n```\ndef f (a : Nat) : Nat :=\n  a + 1\n\ndef g (a : Nat) : Nat :=\n  a - 1\n\n@[grind =]\ntheorem gf (x : Nat) : g (f x) = x := by\n  simp [f, g]\n```\nThe theorem `gf` asserts that `g (f x) = x` for all natural numbers `x`.\nThe attribute `[grind =]` instructs `grind` to use the left-hand side of the equation,\n`g (f x)`, as a pattern for E-matching.\nSuppose we now have a goal involving:\n```\nexample {a b} (h : f b = a) : g a = b := by\n  grind\n```\nAlthough `g a` is not an instance of the pattern `g (f x)`,\nit becomes one modulo the equation `f b = a`. By substituting `a`\nwith `f b` in `g a`, we obtain the term `g (f b)`,\nwhich matches the pattern `g (f x)` with the assignment `x := b`.\nThus, the theorem `gf` is instantiated with `x := b`,\nand the new equality `g (f b) = b` is asserted.\n`grind` then uses congruence closure to derive the implied equality\n`g a = g (f b)` and completes the proof.\n\nThe pattern used to instantiate theorems affects the effectiveness of `grind`.\nFor example, the pattern `g (f x)` is too restrictive in the following case:\nthe theorem `gf` will not be instantiated because the goal does not even\ncontain the function symbol `g`.\n\n```\nexample (h₁ : f b = a) (h₂ : f c = a) : b = c := by\n  grind\n```\n\nYou can use the command `grind_pattern` to manually select a pattern for a given theorem.\nIn the following example, we instruct `grind` to use `f x` as the pattern,\nallowing it to solve the goal automatically:\n```\ngrind_pattern gf =&gt; f x\n\nexample {a b c} (h₁ : f b = a) (h₂ : f c = a) : b = c := by\n  grind\n```\nYou can enable the option `trace.grind.ematch.instance` to make `grind` print a\ntrace message for each theorem instance it generates.\n\nYou can also specify a **multi-pattern** to control when `grind` should apply a theorem.\nA multi-pattern requires that all specified patterns are matched in the current context\nbefore the theorem is applied. This is useful for theorems such as transitivity rules,\nwhere multiple premises must be simultaneously present for the rule to apply.\nThe following example demonstrates this feature using a transitivity axiom for a binary relation `R`:\n```\nopaque R : Int → Int → Prop\naxiom Rtrans {x y z : Int} : R x y → R y z → R x z\n\ngrind_pattern Rtrans =&gt; R x y, R y z\n\nexample {a b c d} : R a b → R b c → R c d → R a d := by\n  grind\n```\nBy specifying the multi-pattern `R x y, R y z`, we instruct `grind` to\ninstantiate `Rtrans` only when both `R x y` and `R y z` are available in the context.\nIn the example, `grind` applies `Rtrans` to derive `R a c` from `R a b` and `R b c`,\nand can then repeat the same reasoning to deduce `R a d` from `R a c` and `R c d`.\n\nInstead of using `grind_pattern` to explicitly specify a pattern,\nyou can use the `@[grind]` attribute or one of its variants, which will use a heuristic to\ngenerate a (multi-)pattern. The complete list is available in the reference manual. The main ones are:\n\n- `@[grind →]` will select a multi-pattern from the hypotheses of the theorem (i.e. it will use the theorem for forwards reasoning).\n  In more detail, it will traverse the hypotheses of the theorem from left-to-right, and each time it encounters a minimal indexable\n  (i.e. has a constant as its head) subexpression which \"covers\" (i.e. fixes the value of) an argument which was not\n  previously covered, it will add that subexpression as a pattern, until all arguments have been covered.\n- `@[grind ←]` will select a multi-pattern from the conclusion of theorem (i.e. it will use the theorem for backwards reasoning).\n  This may fail if not all the arguments to the theorem appear in the conclusion.\n- `@[grind]` will traverse the conclusion and then the hypotheses left-to-right, adding patterns as they increase the coverage,\n  stopping when all arguments are covered.\n- `@[grind =]` checks that the conclusion of the theorem is an equality, and then uses the left-hand-side of the equality as a pattern.\n  This may fail if not all of the arguments appear in the left-hand-side.\n\nHere is the previous example again but using the attribute `[grind →]`\n```\nopaque R : Int → Int → Prop\n@[grind →] axiom Rtrans {x y z : Int} : R x y → R y z → R x z\n\nexample {a b c d} : R a b → R b c → R c d → R a d := by\n  grind\n```\n\nTo control theorem instantiation and avoid generating an unbounded number of instances,\n`grind` uses a generation counter. Terms in the original goal are assigned generation zero.\nWhen `grind` applies a theorem using terms of generation `≤ n`, any new terms it creates\nare assigned generation `n + 1`. This limits how far the tactic explores when applying\ntheorems and helps prevent an excessive number of instantiations.\n\n#### Key options:\n- `grind (ematch := &lt;num&gt;)` controls the number of E-matching rounds.\n- `grind [&lt;name&gt;, ...]` instructs `grind` to use the declaration `name` during E-matching.\n- `grind only [&lt;name&gt;, ...]` is like `grind [&lt;name&gt;, ...]` but does not use theorems tagged with `@[grind]`.\n- `grind (gen := &lt;num&gt;)` sets the maximum generation.\n\n### Linear integer arithmetic (`lia`)\n\n`grind` can solve goals that reduce to **linear integer arithmetic (LIA)** using an\nintegrated decision procedure called **`lia`**.  It understands\n\n* equalities   `p = 0`\n* inequalities  `p ≤ 0`\n* disequalities `p ≠ 0`\n* divisibility  `d ∣ p`\n\nThe solver incrementally assigns integer values to variables; when a partial\nassignment violates a constraint it adds a new, implied constraint and retries.\nThis *model-based* search is **complete for LIA**.\n\n#### Key options:\n\n* `grind -lia` disable the solver (useful for debugging)\n* `grind +qlia` accept rational models (shrinks the search space but is incomplete for ℤ)\n\n#### Examples:\n\n```\n-- Even + even is never odd.\nexample {x y : Int} : 2 * x + 4 * y ≠ 5 := by\n  grind\n\n-- Mixing equalities and inequalities.\nexample {x y : Int} :\n    2 * x + 3 * y = 0 → 1 ≤ x → y &lt; 1 := by\n  grind\n\n-- Reasoning with divisibility.\nexample (a b : Int) :\n    2 ∣ a + 1 → 2 ∣ b + a → ¬ 2 ∣ b + 2 * a := by\n  grind\n\nexample (x y : Int) :\n    27 ≤ 11*x + 13*y →\n    11*x + 13*y ≤ 45 →\n    -10 ≤ 7*x - 9*y →\n    7*x - 9*y ≤ 4 → False := by\n  grind\n\n-- Types that implement the `ToInt` type-class.\nexample (a b c : UInt64)\n    : a ≤ 2 → b ≤ 3 → c - a - b = 0 → c ≤ 5 := by\n  grind\n```\n\n### Algebraic solver (`ring`)\n\n`grind` ships with an algebraic solver nick-named **`ring`** for goals that can\nbe phrased as polynomial equations (or disequations) over commutative rings,\nsemirings, or fields.\n\n*Works out of the box*\nAll core numeric types and relevant Mathlib types already provide the required\ntype-class instances, so the solver is ready to use in most developments.\n\nWhat it can decide:\n\n* equalities of the form `p = q`\n* disequalities `p ≠ q`\n* basic reasoning under field inverses (`a / b := a * b⁻¹`)\n* goals that mix ring facts with other `grind` engines\n\n#### Key options:\n\n* `grind -ring` turn the solver off (useful when debugging)\n* `grind (ringSteps := n)` cap the number of steps performed by this procedure.\n\n#### Examples\n\n```\nopen Lean Grind\n\nexample [CommRing α] (x : α) : (x + 1) * (x - 1) = x^2 - 1 := by\n  grind\n\n-- Characteristic 256 means 16 * 16 = 0.\nexample [CommRing α] [IsCharP α 256] (x : α) :\n    (x + 16) * (x - 16) = x^2 := by\n  grind\n\n-- Works on built-in rings such as `UInt8`.\nexample (x : UInt8) : (x + 16) * (x - 16) = x^2 := by\n  grind\n\nexample [CommRing α] (a b c : α) :\n    a + b + c = 3 →\n    a^2 + b^2 + c^2 = 5 →\n    a^3 + b^3 + c^3 = 7 →\n    a^4 + b^4 = 9 - c^4 := by\n  grind\n\nexample [Field α] [NoNatZeroDivisors α] (a : α) :\n    1 / a + 1 / (2 * a) = 3 / (2 * a) := by\n  grind\n```\n\n### Other options\n\n- `grind (splits := &lt;num&gt;)` caps the *depth* of the search tree.  Once a branch performs `num` splits\n  `grind` stops splitting further in that branch.\n- `grind -splitIte` disables case splitting on if-then-else expressions.\n- `grind -splitMatch` disables case splitting on `match` expressions.\n- `grind +splitImp` instructs `grind` to split on any hypothesis `A → B` whose antecedent `A` is **propositional**.\n- `grind -linarith` disables the linear arithmetic solver for (ordered) modules and rings.\n\n### Additional Examples\n\n```\nexample {a b} {as bs : List α} : (as ++ bs ++ [b]).getLastD a = b := by\n  grind\n\nexample (x : BitVec (w+1)) : (BitVec.cons x.msb (x.setWidth w)) = x := by\n  grind\n\nexample (as : Array α) (lo hi i j : Nat) :\n    lo ≤ i → i &lt; j → j ≤ hi → j &lt; as.size → min lo (as.size - 1) ≤ i := by\n  grind\n```\n</code>",
+ "138":
+ "<code>GE.ge.{u} {α : Type u} [LE α] (a b : α) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`a ≥ b` is an abbreviation for `b ≤ a`. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `≥` in identifiers is `ge`.\n\n * The recommended spelling of `&gt;=` in identifiers is `ge` (prefer `≥` over `&gt;=`).</code>",
+ "137": "<code>A.ncard &lt; B.ncard</code>",
+ "136": "<code>B.ncard ≥ t</code>",
+ "135": "<code>Nat.sub_add_cancel {n m : ℕ} (h : m ≤ n) : n - m + m = n</code>",
+ "134":
+ "<code>Eq.symm.{u} {α : Sort u} {a b : α} (h : a = b) : b = a</code><span class=\"sep\"></span><code class=\"docstring\">Equality is symmetric: if `a = b` then `b = a`.\n\nBecause this is in the `Eq` namespace, if you have a variable `h : a = b`,\n`h.symm` can be used as shorthand for `Eq.symm h` as a proof of `b = a`.\n\nFor more information: [Equality](https://lean-lang.org/theorem_proving_in_lean4/quantifiers_and_equality.html#equality)\n</code>",
+ "133":
+ "<code class=\"docstring\">The `omega` tactic, for resolving integer and natural linear arithmetic problems.\n\nIt is not yet a full decision procedure (no \"dark\" or \"grey\" shadows),\nbut should be effective on many problems.\n\nWe handle hypotheses of the form `x = y`, `x &lt; y`, `x ≤ y`, and `k ∣ x` for `x y` in `Nat` or `Int`\n(and `k` a literal), along with negations of these statements.\n\nWe decompose the sides of the inequalities as linear combinations of atoms.\n\nIf we encounter `x / k` or `x % k` for literal integers `k` we introduce new auxiliary variables\nand the relevant inequalities.\n\nOn the first pass, we do not perform case splits on natural subtraction.\nIf `omega` fails, we recursively perform a case split on\na natural subtraction appearing in a hypothesis, and try again.\n\nThe options\n```\nomega +splitDisjunctions +splitNatSub +splitNatAbs +splitMinMax\n```\ncan be used to:\n* `splitDisjunctions`: split any disjunctions found in the context,\n  if the problem is not otherwise solvable.\n* `splitNatSub`: for each appearance of `((a - b : Nat) : Int)`, split on `a ≤ b` if necessary.\n* `splitNatAbs`: for each appearance of `Int.natAbs a`, split on `0 ≤ a` if necessary.\n* `splitMinMax`: for each occurrence of `min a b`, split on `min a b = a ∨ min a b = b`\nCurrently, all of these are on by default.\n</code>",
+ "132":
+ "<code>HAdd.hAdd.{u, v, w} {α : Type u} {β : Type v} {γ : outParam (Type w)} [self : HAdd α β γ] : α → β → γ</code><span class=\"sep\"></span><code class=\"docstring\">`a + b` computes the sum of `a` and `b`.\nThe meaning of this notation is type-dependent. \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `+` in identifiers is `add`.</code>",
+ "131":
+ "<code>Set.ncard_insert_of_notMem.{u_1} {α : Type u_1} {s : Set α} {a : α} (h : a ∉ s) (hs : s.Finite := by toFinite_tac) :\n  (insert a s).ncard = s.ncard + 1</code>",
+ "130":
+ "<code class=\"docstring\">`rw` is like `rewrite`, but also tries to close the goal by \"cheap\" (reducible) `rfl` afterwards.\n</code>",
+ "13":
+ "<code class=\"docstring\">The universe of propositions. `Prop ≡ Sort 0`.\n\nEvery proposition is propositionally equal to either `True` or `False`. </code>",
+ "129":
+ "<code>Set.mem_insert.{u_1} {α : Type u_1} (x : α) (s : Set α) : x ∈ insert x s</code>",
+ "128": "<code>insert x A ⊆ A</code>",
+ "127":
+ "<code>Set.subset_insert.{u_1} {α : Type u_1} (x : α) (s : Set α) : s ⊆ insert x s</code>",
+ "126":
+ "<code>And.intro {a b : Prop} (left : a) (right : b) : a ∧ b</code><span class=\"sep\"></span><code class=\"docstring\">`And.intro : a → b → a ∧ b` is the constructor for the And operation. </code>",
+ "125": "<code>¬A.ncard = t - 1</code>",
+ "124":
+ "<code>Insert.insert.{u, v} {α : outParam (Type u)} {γ : Type v} [self : Insert α γ] : α → γ → γ</code><span class=\"sep\"></span><code class=\"docstring\">`insert x xs` inserts the element `x` into the collection `xs`. </code>",
+ "123":
+ "<code class=\"docstring\">`refine' e` behaves like `refine e`, except that unsolved placeholders (`_`)\nand implicit parameters are also converted into new goals.\n</code>",
+ "122":
+ "<code>Set.nonempty_compl.{u_1} {α : Type u_1} {s : Set α} : sᶜ.Nonempty ↔ s ≠ Set.univ</code>",
+ "121":
+ "<code class=\"docstring\">`linarith` attempts to find a contradiction between hypotheses that are linear (in)equalities.\nEquivalently, it can prove a linear inequality by assuming its negation and proving `False`.\n\nIn theory, `linarith` should prove any goal that is true in the theory of linear arithmetic over\nthe rationals. While there is some special handling for non-dense orders like `Nat` and `Int`,\nthis tactic is not complete for these theories and will not prove every true goal. It will solve\ngoals over arbitrary types that instantiate `CommRing`, `LinearOrder` and `IsStrictOrderedRing`.\n\nAn example:\n```lean\nexample (x y z : ℚ) (h1 : 2*x &lt; 3*y) (h2 : -4*x + 2*z &lt; 0)\n        (h3 : 12*y - 4* z &lt; 0) : False := by\n  linarith\n```\n\n`linarith` will use all appropriate hypotheses and the negation of the goal, if applicable.\nDisequality hypotheses require case splitting and are not normally considered\n(see the `splitNe` option below).\n\n`linarith [t1, t2, t3]` will additionally use proof terms `t1, t2, t3`.\n\n`linarith only [h1, h2, h3, t1, t2, t3]` will use only the goal (if relevant), local hypotheses\n`h1`, `h2`, `h3`, and proofs `t1`, `t2`, `t3`. It will ignore the rest of the local context.\n\n`linarith!` will use a stronger reducibility setting to try to identify atoms. For example,\n```lean\nexample (x : ℚ) : id x ≥ x := by\n  linarith\n```\nwill fail, because `linarith` will not identify `x` and `id x`. `linarith!` will.\nThis can sometimes be expensive.\n\n`linarith (config := { .. })` takes a config object with five\noptional arguments:\n* `discharger` specifies a tactic to be used for reducing an algebraic equation in the\n  proof stage. The default is `ring`. Other options include `simp` for basic\n  problems.\n* `transparency` controls how hard `linarith` will try to match atoms to each other. By default\n  it will only unfold `reducible` definitions.\n* If `splitHypotheses` is true, `linarith` will split conjunctions in the context into separate\n  hypotheses.\n* If `splitNe` is `true`, `linarith` will case split on disequality hypotheses.\n  For a given `x ≠ y` hypothesis, `linarith` is run with both `x &lt; y` and `x &gt; y`,\n  and so this runs linarith exponentially many times with respect to the number of\n  disequality hypotheses. (`false` by default.)\n* If `exfalso` is `false`, `linarith` will fail when the goal is neither an inequality nor `False`.\n  (`true` by default.)\n* If `minimize` is `false`, `linarith?` will report all hypotheses appearing in its initial\n  proof without attempting to drop redundancies. (`true` by default.)\n* `restrict_type` (not yet implemented in mathlib4)\n  will only use hypotheses that are inequalities over `tp`. This is useful\n  if you have e.g. both integer- and rational-valued inequalities in the local context, which can\n  sometimes confuse the tactic.\n\nA variant, `nlinarith`, does some basic preprocessing to handle some nonlinear goals.\n\nThe option `set_option trace.linarith true` will trace certain intermediate stages of the `linarith`\nroutine.\n</code>",
+ "120": "<code>¬n = t - 1</code>",
+ "12":
+ "<code>AccessStructure.isMinimalAuthorized {n : ℕ} (Γ : AccessStructure n) (A : Set (Fin n)) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">A set `A` is a minimal authorized set if it is authorized\nand no proper subset of `A` is authorized.\n</code>",
+ "119": "<code>n &lt; t</code>",
+ "118":
+ "<code>Set.univ ∈ (thresholdAccessStructure n t).maximallyUnauthorized</code>",
+ "117": "<code>0 &lt; t</code>",
+ "116":
+ "<code>Set.ncard_univ.{u_3} (α : Type u_3) : Set.univ.ncard = Nat.card α</code>",
+ "115": "<code>¬A = Set.univ</code>",
+ "114":
+ "<code>Set.univ.{u} {α : Type u} : Set α</code><span class=\"sep\"></span><code class=\"docstring\">The universal set on a type `α` is the set containing all elements of `α`.\n\nThis is conceptually the \"same as\" `α` (in set theory, it is actually the same), but type theory\nmakes the distinction that `α` is a type while `Set.univ` is a term of type `Set α`. `Set.univ` can\nitself be coerced to a type `↥Set.univ` which is in bijection with (but distinct from) `α`. </code>",
+ "113": "<code>A = Set.univ</code>",
+ "112":
+ "<code class=\"docstring\">`by_cases (h :)? p` splits the main goal into two cases, assuming `h : p` in the first branch, and `h : ¬ p` in the second branch.\n</code>",
+ "111": "<code>x ∉ A</code>",
+ "110": "<code>Fin n</code>",
+ "11": "<code>AccessStructure n</code>",
+ "109":
+ "<code>Not (a : Prop) : Prop</code><span class=\"sep\"></span><code class=\"docstring\">`Not p`, or `¬p`, is the negation of `p`. It is defined to be `p → False`,\nso if your goal is `¬p` you can use `intro h` to turn the goal into\n`h : p ⊢ False`, and if you have `hn : ¬p` and `h : p` then `hn h : False`\nand `(hn h).elim` will prove anything.\nFor more information: [Propositional Logic](https://lean-lang.org/theorem_proving_in_lean4/propositions_and_proofs.html#propositional-logic)\n\n\nConventions for notations in identifiers:\n\n * The recommended spelling of `¬` in identifiers is `not`.</code>",
+ "108": "<code>¬A ∈ {A | A.ncard = t - 1}</code>",
+ "107":
+ "<code class=\"docstring\">`contrapose` transforms the main goal into its contrapositive. If the goal has the form `⊢ P → Q`,\nthen `contrapose` turns it into `⊢ ¬ Q → ¬ P`. If the goal has the form `⊢ P ↔ Q`, then `contrapose`\nturns it into `⊢ ¬ P ↔ ¬ Q`.\n\n* `contrapose h` on a goal of the form `h : P ⊢ Q` turns the goal into `h : ¬ Q ⊢ ¬ P`. This is\n  equivalent to `revert h; contrapose; intro h`.\n* `contrapose h with new_h` uses the name `new_h` for the introduced hypothesis. This is equivalent\n  to `revert h; contrapose; intro new_h`.\n* `contrapose!`, `contrapose! h` and `contrapose! h with new_h` push negation deeper into the goal\n  after contraposing (but before introducing the new hypothesis). See the `push Not` tactic for more\n  details on the pushing algorithm.\n* `contrapose! (config := cfg)` controls the options for negation pushing. All options for\n  `Mathlib.Tactic.Push.Config` are supported:\n  * `contrapose! +distrib` rewrites `¬ (p ∧ q)` into `¬ p ∨ ¬ q` instead of `p → ¬ q`.\n\nExamples:\n```lean4\nvariables (P Q R : Prop)\n\nexample (H : ¬ Q → ¬ P) : P → Q := by\n  contrapose\n  exact H\n\nexample (H : ¬ P ↔ ¬ Q) : P ↔ Q := by\n  contrapose\n  exact H\n\nexample (H : ¬ Q → ¬ P) (h : P) : Q := by\n  contrapose h\n  exact H h\n\nexample (H : ¬ R → P → ¬ Q) : (P ∧ Q) → R := by\n  contrapose!\n  exact H\n\nexample (H : ¬ R → ¬ P ∨ ¬ Q) : (P ∧ Q) → R := by\n  contrapose! +distrib\n  exact H\n```\n</code>",
+ "106": "<code>B ∈ (thresholdAccessStructure n t).auth</code>",
+ "105":
+ "<code>LT.lt.{u} {α : Type u} [self : LT α] : α → α → Prop</code><span class=\"sep\"></span><code class=\"docstring\">The less-than relation: `x &lt; y` \n\nConventions for notations in identifiers:\n\n * The recommended spelling of `&lt;` in identifiers is `lt`.</code>",
+ "104": "<code>A ⊂ B</code>",
+ "103": "<code>∀ (B : Set (Fin n)), A ⊂ B → t ≤ B.ncard</code>",
+ "102":
+ "<code>lt_of_not_ge.{u_1} {α : Type u_1} [LinearOrder α] {a b : α} (h : ¬b ≤ a) : a &lt; b</code>",
+ "101": "<code>A.ncard &lt; t</code>",
+ "100": "<code>A ∈ {A | A.ncard = t - 1}</code>",
+ "10":
+ "<code>AccessStructure.unauthorized {n : ℕ} (Γ : AccessStructure n) : Set (Set (Fin n))</code>",
+ "1": "<code>AccessStructure (n : ℕ) : Type</code>",
+ "0":
+ "<code class=\"docstring\">A `section`/`end` pair delimits the scope of `variable`, `include`, `open`, `set_option`, and `local`\ncommands. Sections can be nested. `section &lt;id&gt;` provides a label to the section that has to appear\nwith the matching `end`. In either case, the `end` can be omitted, in which case the section is\nclosed at the end of the file.\n</code>"}
