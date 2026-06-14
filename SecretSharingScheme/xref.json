@@ -2,43 +2,11 @@
  {"title": "Sections or chapters of the manual",
   "description": null,
   "contents":
-  {"Secret-Sharing---and-Secure-Distributed-Matrix-Multiplication--Section-5___-Distributed-Hierarchy":
+  {"Secret-Sharing---and-Secure-Distributed-Matrix-Multiplication--Shamir-Scheme":
    [{"id":
-     "Secret-Sharing---and-Secure-Distributed-Matrix-Multiplication--Section-5___-Distributed-Hierarchy",
+     "Secret-Sharing---and-Secure-Distributed-Matrix-Multiplication--Shamir-Scheme",
      "data":
-     {"title": "Section 5. Distributed Hierarchy",
-      "shortTitle": null,
-      "sectionNum": "5.",
-      "context":
-      [{"title":
-        "Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "shortTitle": null,
-        "number": null},
-       {"title": "Section 5. Distributed Hierarchy",
-        "shortTitle": null,
-        "number": "5"}]},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
-   "Secret-Sharing---and-Secure-Distributed-Matrix-Multiplication--Section-4___-Disjoint-Access-Structure":
-   [{"id":
-     "Secret-Sharing---and-Secure-Distributed-Matrix-Multiplication--Section-4___-Disjoint-Access-Structure",
-     "data":
-     {"title": "Section 4. Disjoint Access Structure",
-      "shortTitle": null,
-      "sectionNum": "4.",
-      "context":
-      [{"title":
-        "Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "shortTitle": null,
-        "number": null},
-       {"title": "Section 4. Disjoint Access Structure",
-        "shortTitle": null,
-        "number": "4"}]},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
-   "Secret-Sharing---and-Secure-Distributed-Matrix-Multiplication--Section-3___-Shamir-Scheme":
-   [{"id":
-     "Secret-Sharing---and-Secure-Distributed-Matrix-Multiplication--Section-3___-Shamir-Scheme",
-     "data":
-     {"title": "Section 3. Shamir Scheme",
+     {"title": "Shamir Scheme",
       "shortTitle": null,
       "sectionNum": "3.",
       "context":
@@ -46,10 +14,8 @@
         "Secret Sharing   and Secure Distributed Matrix Multiplication",
         "shortTitle": null,
         "number": null},
-       {"title": "Section 3. Shamir Scheme",
-        "shortTitle": null,
-        "number": "3"}]},
-     "address": "/Section-3___-Shamir-Scheme/"}],
+       {"title": "Shamir Scheme", "shortTitle": null, "number": "3"}]},
+     "address": "/Shamir-Scheme/"}],
    "Secret-Sharing---and-Secure-Distributed-Matrix-Multiplication--Secret-Sharing-Scheme":
    [{"id":
      "Secret-Sharing---and-Secure-Distributed-Matrix-Multiplication--Secret-Sharing-Scheme",
@@ -64,6 +30,36 @@
         "number": null},
        {"title": "Secret Sharing Scheme", "shortTitle": null, "number": "2"}]},
      "address": "/Secret-Sharing-Scheme/"}],
+   "Secret-Sharing---and-Secure-Distributed-Matrix-Multiplication--Distributed-Hierarchy":
+   [{"id":
+     "Secret-Sharing---and-Secure-Distributed-Matrix-Multiplication--Distributed-Hierarchy",
+     "data":
+     {"title": "Distributed Hierarchy",
+      "shortTitle": null,
+      "sectionNum": "5.",
+      "context":
+      [{"title":
+        "Secret Sharing   and Secure Distributed Matrix Multiplication",
+        "shortTitle": null,
+        "number": null},
+       {"title": "Distributed Hierarchy", "shortTitle": null, "number": "5"}]},
+     "address": "/Distributed-Hierarchy/"}],
+   "Secret-Sharing---and-Secure-Distributed-Matrix-Multiplication--Disjoint-Access-Structure":
+   [{"id":
+     "Secret-Sharing---and-Secure-Distributed-Matrix-Multiplication--Disjoint-Access-Structure",
+     "data":
+     {"title": "Disjoint Access Structure",
+      "shortTitle": null,
+      "sectionNum": "4.",
+      "context":
+      [{"title":
+        "Secret Sharing   and Secure Distributed Matrix Multiplication",
+        "shortTitle": null,
+        "number": null},
+       {"title": "Disjoint Access Structure",
+        "shortTitle": null,
+        "number": "4"}]},
+     "address": "/Disjoint-Access-Structure/"}],
    "Secret-Sharing---and-Secure-Distributed-Matrix-Multiplication--Access-Structure":
    [{"id":
      "Secret-Sharing---and-Secure-Distributed-Matrix-Multiplication--Access-Structure",
@@ -97,255 +93,255 @@
   {"sum_shift_eq_diff":
    [{"id": "sum_shift_eq_diff",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#sum_shift_eq_diff":
+     {"/Disjoint-Access-Structure/#sum_shift_eq_diff":
       {"display": "sum_shift_eq_diff",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "shift_symm":
    [{"id": "shift_symm",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#shift_symm":
+     {"/Disjoint-Access-Structure/#shift_symm":
       {"display": "shift_symm",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "shift_is_bijection":
    [{"id": "shift_is_bijection",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#shift_is_bijection":
+     {"/Disjoint-Access-Structure/#shift_is_bijection":
       {"display": "shift_is_bijection",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "shift_eq_zero_on_A":
    [{"id": "shift_eq_zero_on_A",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#shift_eq_zero_on_A":
+     {"/Disjoint-Access-Structure/#shift_eq_zero_on_A":
       {"display": "shift_eq_zero_on_A",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "shift":
    [{"id": "shift",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#shift":
+     {"/Disjoint-Access-Structure/#shift":
       {"display": "shift",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "pivot_spec":
    [{"id": "pivot_spec",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#pivot_spec":
+     {"/Disjoint-Access-Structure/#pivot_spec":
       {"display": "pivot_spec",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "pivot_mem":
    [{"id": "pivot_mem",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#pivot_mem":
+     {"/Disjoint-Access-Structure/#pivot_mem":
       {"display": "pivot_mem",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "pivot":
    [{"id": "pivot",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#pivot":
+     {"/Disjoint-Access-Structure/#pivot":
       {"display": "pivot",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "generateShares_shift_eq":
    [{"id": "generateShares_shift_eq",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#generateShares_shift_eq":
+     {"/Disjoint-Access-Structure/#generateShares_shift_eq":
       {"display": "generateShares_shift_eq",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "Share":
    [{"id": "Share",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#Share":
+     {"/Disjoint-Access-Structure/#Share":
       {"display": "Share",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "ShamirScheme.uniform_coeffs":
    [{"id": "ShamirScheme___uniform_coeffs",
      "data":
-     {"/Section-3___-Shamir-Scheme/#ShamirScheme___uniform_coeffs":
+     {"/Shamir-Scheme/#ShamirScheme___uniform_coeffs":
       {"display": "uniform_coeffs",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 3. Shamir Scheme"]}},
-     "address": "/Section-3___-Shamir-Scheme/"}],
+        "Shamir Scheme"]}},
+     "address": "/Shamir-Scheme/"}],
    "ShamirScheme.threshold_auth_iff":
    [{"id": "ShamirScheme___threshold_auth_iff",
      "data":
-     {"/Section-3___-Shamir-Scheme/#ShamirScheme___threshold_auth_iff":
+     {"/Shamir-Scheme/#ShamirScheme___threshold_auth_iff":
       {"display": "threshold_auth_iff",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 3. Shamir Scheme"]}},
-     "address": "/Section-3___-Shamir-Scheme/"}],
+        "Shamir Scheme"]}},
+     "address": "/Shamir-Scheme/"}],
    "ShamirScheme.shamir_shares_uniform":
    [{"id": "ShamirScheme___shamir_shares_uniform",
      "data":
-     {"/Section-3___-Shamir-Scheme/#ShamirScheme___shamir_shares_uniform":
+     {"/Shamir-Scheme/#ShamirScheme___shamir_shares_uniform":
       {"display": "shamir_shares_uniform",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 3. Shamir Scheme"]}},
-     "address": "/Section-3___-Shamir-Scheme/"}],
+        "Shamir Scheme"]}},
+     "address": "/Shamir-Scheme/"}],
    "ShamirScheme.shamir_scheme_correctness":
    [{"id": "ShamirScheme___shamir_scheme_correctness",
      "data":
-     {"/Section-3___-Shamir-Scheme/#ShamirScheme___shamir_scheme_correctness":
+     {"/Shamir-Scheme/#ShamirScheme___shamir_scheme_correctness":
       {"display": "shamir_scheme_correctness",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 3. Shamir Scheme"]}},
-     "address": "/Section-3___-Shamir-Scheme/"}],
+        "Shamir Scheme"]}},
+     "address": "/Shamir-Scheme/"}],
    "ShamirScheme.shamir_reconstruction":
    [{"id": "ShamirScheme___shamir_reconstruction",
      "data":
-     {"/Section-3___-Shamir-Scheme/#ShamirScheme___shamir_reconstruction":
+     {"/Shamir-Scheme/#ShamirScheme___shamir_reconstruction":
       {"display": "shamir_reconstruction",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 3. Shamir Scheme"]}},
-     "address": "/Section-3___-Shamir-Scheme/"}],
+        "Shamir Scheme"]}},
+     "address": "/Shamir-Scheme/"}],
    "ShamirScheme.shamir_polynomial_eval":
    [{"id": "ShamirScheme___shamir_polynomial_eval",
      "data":
-     {"/Section-3___-Shamir-Scheme/#ShamirScheme___shamir_polynomial_eval":
+     {"/Shamir-Scheme/#ShamirScheme___shamir_polynomial_eval":
       {"display": "shamir_polynomial_eval",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 3. Shamir Scheme"]}},
-     "address": "/Section-3___-Shamir-Scheme/"}],
+        "Shamir Scheme"]}},
+     "address": "/Shamir-Scheme/"}],
    "ShamirScheme.shamir_polynomial_degree_le":
    [{"id": "ShamirScheme___shamir_polynomial_degree_le",
      "data":
-     {"/Section-3___-Shamir-Scheme/#ShamirScheme___shamir_polynomial_degree_le":
+     {"/Shamir-Scheme/#ShamirScheme___shamir_polynomial_degree_le":
       {"display": "shamir_polynomial_degree_le",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 3. Shamir Scheme"]}},
-     "address": "/Section-3___-Shamir-Scheme/"}],
+        "Shamir Scheme"]}},
+     "address": "/Shamir-Scheme/"}],
    "ShamirScheme.shamir_polynomial":
    [{"id": "ShamirScheme___shamir_polynomial",
      "data":
-     {"/Section-3___-Shamir-Scheme/#ShamirScheme___shamir_polynomial":
+     {"/Shamir-Scheme/#ShamirScheme___shamir_polynomial":
       {"display": "shamir_polynomial",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 3. Shamir Scheme"]}},
-     "address": "/Section-3___-Shamir-Scheme/"}],
+        "Shamir Scheme"]}},
+     "address": "/Shamir-Scheme/"}],
    "ShamirScheme.shamir_poly":
    [{"id": "ShamirScheme___shamir_poly",
      "data":
-     {"/Section-3___-Shamir-Scheme/#ShamirScheme___shamir_poly":
+     {"/Shamir-Scheme/#ShamirScheme___shamir_poly":
       {"display": "shamir_poly",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 3. Shamir Scheme"]}},
-     "address": "/Section-3___-Shamir-Scheme/"}],
+        "Shamir Scheme"]}},
+     "address": "/Shamir-Scheme/"}],
    "ShamirScheme.shamir_perfect_security":
    [{"id": "ShamirScheme___shamir_perfect_security",
      "data":
-     {"/Section-3___-Shamir-Scheme/#ShamirScheme___shamir_perfect_security":
+     {"/Shamir-Scheme/#ShamirScheme___shamir_perfect_security":
       {"display": "shamir_perfect_security",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 3. Shamir Scheme"]}},
-     "address": "/Section-3___-Shamir-Scheme/"}],
+        "Shamir Scheme"]}},
+     "address": "/Shamir-Scheme/"}],
    "ShamirScheme.shamir_linear_map_surjective":
    [{"id": "ShamirScheme___shamir_linear_map_surjective",
      "data":
-     {"/Section-3___-Shamir-Scheme/#ShamirScheme___shamir_linear_map_surjective":
+     {"/Shamir-Scheme/#ShamirScheme___shamir_linear_map_surjective":
       {"display": "shamir_linear_map_surjective",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 3. Shamir Scheme"]}},
-     "address": "/Section-3___-Shamir-Scheme/"}],
+        "Shamir Scheme"]}},
+     "address": "/Shamir-Scheme/"}],
    "ShamirScheme.shamir_linear_map":
    [{"id": "ShamirScheme___shamir_linear_map",
      "data":
-     {"/Section-3___-Shamir-Scheme/#ShamirScheme___shamir_linear_map":
+     {"/Shamir-Scheme/#ShamirScheme___shamir_linear_map":
       {"display": "shamir_linear_map",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 3. Shamir Scheme"]}},
-     "address": "/Section-3___-Shamir-Scheme/"}],
+        "Shamir Scheme"]}},
+     "address": "/Shamir-Scheme/"}],
    "ShamirScheme.shamir_interpolation_correct":
    [{"id": "ShamirScheme___shamir_interpolation_correct",
      "data":
-     {"/Section-3___-Shamir-Scheme/#ShamirScheme___shamir_interpolation_correct":
+     {"/Shamir-Scheme/#ShamirScheme___shamir_interpolation_correct":
       {"display": "shamir_interpolation_correct",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 3. Shamir Scheme"]}},
-     "address": "/Section-3___-Shamir-Scheme/"}],
+        "Shamir Scheme"]}},
+     "address": "/Shamir-Scheme/"}],
    "ShamirScheme.shamir_fiber_card_constant":
    [{"id": "ShamirScheme___shamir_fiber_card_constant",
      "data":
-     {"/Section-3___-Shamir-Scheme/#ShamirScheme___shamir_fiber_card_constant":
+     {"/Shamir-Scheme/#ShamirScheme___shamir_fiber_card_constant":
       {"display": "shamir_fiber_card_constant",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 3. Shamir Scheme"]}},
-     "address": "/Section-3___-Shamir-Scheme/"}],
+        "Shamir Scheme"]}},
+     "address": "/Shamir-Scheme/"}],
    "ShamirScheme.shamirScheme":
    [{"id": "ShamirScheme___shamirScheme",
      "data":
-     {"/Section-3___-Shamir-Scheme/#ShamirScheme___shamirScheme":
+     {"/Shamir-Scheme/#ShamirScheme___shamirScheme":
       {"display": "shamirScheme",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 3. Shamir Scheme"]}},
-     "address": "/Section-3___-Shamir-Scheme/"}],
+        "Shamir Scheme"]}},
+     "address": "/Shamir-Scheme/"}],
    "ShamirScheme.shamirRealizedScheme":
    [{"id": "ShamirScheme___shamirRealizedScheme",
      "data":
-     {"/Section-3___-Shamir-Scheme/#ShamirScheme___shamirRealizedScheme":
+     {"/Shamir-Scheme/#ShamirScheme___shamirRealizedScheme":
       {"display": "shamirRealizedScheme",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 3. Shamir Scheme"]}},
-     "address": "/Section-3___-Shamir-Scheme/"}],
+        "Shamir Scheme"]}},
+     "address": "/Shamir-Scheme/"}],
    "ShamirScheme.map_uniform_of_fiber_card_eq":
    [{"id": "ShamirScheme___map_uniform_of_fiber_card_eq",
      "data":
-     {"/Section-3___-Shamir-Scheme/#ShamirScheme___map_uniform_of_fiber_card_eq":
+     {"/Shamir-Scheme/#ShamirScheme___map_uniform_of_fiber_card_eq":
       {"display": "map_uniform_of_fiber_card_eq",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 3. Shamir Scheme"]}},
-     "address": "/Section-3___-Shamir-Scheme/"}],
+        "Shamir Scheme"]}},
+     "address": "/Shamir-Scheme/"}],
    "ShamirScheme.FiniteField.card_ge_two":
    [{"id": "ShamirScheme___FiniteField___card_ge_two",
      "data":
-     {"/Section-3___-Shamir-Scheme/#ShamirScheme___FiniteField___card_ge_two":
+     {"/Shamir-Scheme/#ShamirScheme___FiniteField___card_ge_two":
       {"display": "FiniteField.card_ge_two",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 3. Shamir Scheme"]}},
-     "address": "/Section-3___-Shamir-Scheme/"}],
+        "Shamir Scheme"]}},
+     "address": "/Shamir-Scheme/"}],
    "SecretSharingScheme.μ":
    [{"id": "SecretSharingScheme______",
      "data":
@@ -574,400 +570,400 @@
    "ReconstructSecret_correct":
    [{"id": "ReconstructSecret_correct",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#ReconstructSecret_correct":
+     {"/Disjoint-Access-Structure/#ReconstructSecret_correct":
       {"display": "ReconstructSecret_correct",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "ReconstructSecret":
    [{"id": "ReconstructSecret",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#ReconstructSecret":
+     {"/Disjoint-Access-Structure/#ReconstructSecret":
       {"display": "ReconstructSecret",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "PerfectSecurity_thm":
    [{"id": "PerfectSecurity_thm",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#PerfectSecurity_thm":
+     {"/Disjoint-Access-Structure/#PerfectSecurity_thm":
       {"display": "PerfectSecurity_thm",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "PerfectSecurity_card_eq":
    [{"id": "PerfectSecurity_card_eq",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#PerfectSecurity_card_eq":
+     {"/Disjoint-Access-Structure/#PerfectSecurity_card_eq":
       {"display": "PerfectSecurity_card_eq",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "PerfectSecurity":
    [{"id": "PerfectSecurity",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#PerfectSecurity":
+     {"/Disjoint-Access-Structure/#PerfectSecurity":
       {"display": "PerfectSecurity",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "LinearSecretSharingScheme.worker_homomorphism":
    [{"id": "LinearSecretSharingScheme___worker_homomorphism",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#LinearSecretSharingScheme___worker_homomorphism":
+     {"/Distributed-Hierarchy/#LinearSecretSharingScheme___worker_homomorphism":
       {"display": "worker_homomorphism",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "LinearSecretSharingScheme.worker_compute_impl":
    [{"id": "LinearSecretSharingScheme___worker_compute_impl",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#LinearSecretSharingScheme___worker_compute_impl":
+     {"/Distributed-Hierarchy/#LinearSecretSharingScheme___worker_compute_impl":
       {"display": "worker_compute_impl",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "LinearSecretSharingScheme.target_computation":
    [{"id": "LinearSecretSharingScheme___target_computation",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#LinearSecretSharingScheme___target_computation":
+     {"/Distributed-Hierarchy/#LinearSecretSharingScheme___target_computation":
       {"display": "target_computation",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "LinearSecretSharingScheme.sum_prod_smul":
    [{"id": "LinearSecretSharingScheme___sum_prod_smul",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#LinearSecretSharingScheme___sum_prod_smul":
+     {"/Distributed-Hierarchy/#LinearSecretSharingScheme___sum_prod_smul":
       {"display": "sum_prod_smul",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "LinearSecretSharingScheme.share_module":
    [{"id": "LinearSecretSharingScheme___share_module",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#LinearSecretSharingScheme___share_module":
+     {"/Distributed-Hierarchy/#LinearSecretSharingScheme___share_module":
       {"display": "share_module",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "LinearSecretSharingScheme.share_add":
    [{"id": "LinearSecretSharingScheme___share_add",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#LinearSecretSharingScheme___share_add":
+     {"/Distributed-Hierarchy/#LinearSecretSharingScheme___share_add":
       {"display": "share_add",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "LinearSecretSharingScheme.secret_module":
    [{"id": "LinearSecretSharingScheme___secret_module",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#LinearSecretSharingScheme___secret_module":
+     {"/Distributed-Hierarchy/#LinearSecretSharingScheme___secret_module":
       {"display": "secret_module",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "LinearSecretSharingScheme.secret_add":
    [{"id": "LinearSecretSharingScheme___secret_add",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#LinearSecretSharingScheme___secret_add":
+     {"/Distributed-Hierarchy/#LinearSecretSharingScheme___secret_add":
       {"display": "secret_add",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "LinearSecretSharingScheme.recon_linear":
    [{"id": "LinearSecretSharingScheme___recon_linear",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#LinearSecretSharingScheme___recon_linear":
+     {"/Distributed-Hierarchy/#LinearSecretSharingScheme___recon_linear":
       {"display": "recon_linear",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "LinearSecretSharingScheme.random_module":
    [{"id": "LinearSecretSharingScheme___random_module",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#LinearSecretSharingScheme___random_module":
+     {"/Distributed-Hierarchy/#LinearSecretSharingScheme___random_module":
       {"display": "random_module",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "LinearSecretSharingScheme.random_add":
    [{"id": "LinearSecretSharingScheme___random_add",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#LinearSecretSharingScheme___random_add":
+     {"/Distributed-Hierarchy/#LinearSecretSharingScheme___random_add":
       {"display": "random_add",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "LinearSecretSharingScheme.h_recon_eq":
    [{"id": "LinearSecretSharingScheme___h_recon_eq",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#LinearSecretSharingScheme___h_recon_eq":
+     {"/Distributed-Hierarchy/#LinearSecretSharingScheme___h_recon_eq":
       {"display": "h_recon_eq",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "LinearSecretSharingScheme.h_dealer_eq":
    [{"id": "LinearSecretSharingScheme___h_dealer_eq",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#LinearSecretSharingScheme___h_dealer_eq":
+     {"/Distributed-Hierarchy/#LinearSecretSharingScheme___h_dealer_eq":
       {"display": "h_dealer_eq",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "LinearSecretSharingScheme.distributed_computing_correctness":
    [{"id": "LinearSecretSharingScheme___distributed_computing_correctness",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#LinearSecretSharingScheme___distributed_computing_correctness":
+     {"/Distributed-Hierarchy/#LinearSecretSharingScheme___distributed_computing_correctness":
       {"display": "distributed_computing_correctness",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "LinearSecretSharingScheme.dealer_linear":
    [{"id": "LinearSecretSharingScheme___dealer_linear",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#LinearSecretSharingScheme___dealer_linear":
+     {"/Distributed-Hierarchy/#LinearSecretSharingScheme___dealer_linear":
       {"display": "dealer_linear",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "LinearSecretSharingScheme.aggregate_key":
    [{"id": "LinearSecretSharingScheme___aggregate_key",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#LinearSecretSharingScheme___aggregate_key":
+     {"/Distributed-Hierarchy/#LinearSecretSharingScheme___aggregate_key":
       {"display": "aggregate_key",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "LinearSecretSharingScheme.SecureDistributedMatrixMultiplication.toDistMatrixMul":
    [{"id":
      "LinearSecretSharingScheme___SecureDistributedMatrixMultiplication___toDistMatrixMul",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#LinearSecretSharingScheme___SecureDistributedMatrixMultiplication___toDistMatrixMul":
+     {"/Distributed-Hierarchy/#LinearSecretSharingScheme___SecureDistributedMatrixMultiplication___toDistMatrixMul":
       {"display": "toDistMatrixMul",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "LinearSecretSharingScheme.SecureDistributedMatrixMultiplication":
    [{"id": "LinearSecretSharingScheme___SecureDistributedMatrixMultiplication",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#LinearSecretSharingScheme___SecureDistributedMatrixMultiplication":
+     {"/Distributed-Hierarchy/#LinearSecretSharingScheme___SecureDistributedMatrixMultiplication":
       {"display": "SecureDistributedMatrixMultiplication",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "LinearSecretSharingScheme":
    [{"id": "LinearSecretSharingScheme",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#LinearSecretSharingScheme":
+     {"/Distributed-Hierarchy/#LinearSecretSharingScheme":
       {"display": "LinearSecretSharingScheme",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "IsValidSharing":
    [{"id": "IsValidSharing",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#IsValidSharing":
+     {"/Disjoint-Access-Structure/#IsValidSharing":
       {"display": "IsValidSharing",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "GenerateShares_isValid":
    [{"id": "GenerateShares_isValid",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#GenerateShares_isValid":
+     {"/Disjoint-Access-Structure/#GenerateShares_isValid":
       {"display": "GenerateShares_isValid",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "GenerateShares_Q_eq":
    [{"id": "GenerateShares_Q_eq",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#GenerateShares_Q_eq":
+     {"/Disjoint-Access-Structure/#GenerateShares_Q_eq":
       {"display": "GenerateShares_Q_eq",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "GenerateShares":
    [{"id": "GenerateShares",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#GenerateShares":
+     {"/Disjoint-Access-Structure/#GenerateShares":
       {"display": "GenerateShares",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "DistributedMatrixMultiplication.worker_compute":
    [{"id": "DistributedMatrixMultiplication___worker_compute",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#DistributedMatrixMultiplication___worker_compute":
+     {"/Distributed-Hierarchy/#DistributedMatrixMultiplication___worker_compute":
       {"display": "worker_compute",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "DistributedMatrixMultiplication.secret_module":
    [{"id": "DistributedMatrixMultiplication___secret_module",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#DistributedMatrixMultiplication___secret_module":
+     {"/Distributed-Hierarchy/#DistributedMatrixMultiplication___secret_module":
       {"display": "secret_module",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "DistributedMatrixMultiplication.secret_add":
    [{"id": "DistributedMatrixMultiplication___secret_add",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#DistributedMatrixMultiplication___secret_add":
+     {"/Distributed-Hierarchy/#DistributedMatrixMultiplication___secret_add":
       {"display": "secret_add",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "DistributedMatrixMultiplication.reconstruct":
    [{"id": "DistributedMatrixMultiplication___reconstruct",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#DistributedMatrixMultiplication___reconstruct":
+     {"/Distributed-Hierarchy/#DistributedMatrixMultiplication___reconstruct":
       {"display": "reconstruct",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "DistributedMatrixMultiplication.h_distributed_correctness":
    [{"id": "DistributedMatrixMultiplication___h_distributed_correctness",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#DistributedMatrixMultiplication___h_distributed_correctness":
+     {"/Distributed-Hierarchy/#DistributedMatrixMultiplication___h_distributed_correctness":
       {"display": "h_distributed_correctness",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "DistributedMatrixMultiplication.encode":
    [{"id": "DistributedMatrixMultiplication___encode",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#DistributedMatrixMultiplication___encode":
+     {"/Distributed-Hierarchy/#DistributedMatrixMultiplication___encode":
       {"display": "encode",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "DistributedMatrixMultiplication.Share":
    [{"id": "DistributedMatrixMultiplication___Share",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#DistributedMatrixMultiplication___Share":
+     {"/Distributed-Hierarchy/#DistributedMatrixMultiplication___Share":
       {"display": "Share",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "DistributedMatrixMultiplication.Secret":
    [{"id": "DistributedMatrixMultiplication___Secret",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#DistributedMatrixMultiplication___Secret":
+     {"/Distributed-Hierarchy/#DistributedMatrixMultiplication___Secret":
       {"display": "Secret",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "DistributedMatrixMultiplication.Random":
    [{"id": "DistributedMatrixMultiplication___Random",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#DistributedMatrixMultiplication___Random":
+     {"/Distributed-Hierarchy/#DistributedMatrixMultiplication___Random":
       {"display": "Random",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "DistributedMatrixMultiplication":
    [{"id": "DistributedMatrixMultiplication",
      "data":
-     {"/Section-5___-Distributed-Hierarchy/#DistributedMatrixMultiplication":
+     {"/Distributed-Hierarchy/#DistributedMatrixMultiplication":
       {"display": "DistributedMatrixMultiplication",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 5. Distributed Hierarchy"]}},
-     "address": "/Section-5___-Distributed-Hierarchy/"}],
+        "Distributed Hierarchy"]}},
+     "address": "/Distributed-Hierarchy/"}],
    "DisjointScheme_Security":
    [{"id": "DisjointScheme_Security",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#DisjointScheme_Security":
+     {"/Disjoint-Access-Structure/#DisjointScheme_Security":
       {"display": "DisjointScheme_Security",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "DisjointScheme_Correctness":
    [{"id": "DisjointScheme_Correctness",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#DisjointScheme_Correctness":
+     {"/Disjoint-Access-Structure/#DisjointScheme_Correctness":
       {"display": "DisjointScheme_Correctness",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "DisjointScheme":
    [{"id": "DisjointScheme",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#DisjointScheme":
+     {"/Disjoint-Access-Structure/#DisjointScheme":
       {"display": "DisjointScheme",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "DisjointReconstruction":
    [{"id": "DisjointReconstruction",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#DisjointReconstruction":
+     {"/Disjoint-Access-Structure/#DisjointReconstruction":
       {"display": "DisjointReconstruction",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "DisjointRealizedScheme":
    [{"id": "DisjointRealizedScheme",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#DisjointRealizedScheme":
+     {"/Disjoint-Access-Structure/#DisjointRealizedScheme":
       {"display": "DisjointRealizedScheme",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "DisjointAS":
    [{"id": "DisjointAS",
      "data":
-     {"/Section-4___-Disjoint-Access-Structure/#DisjointAS":
+     {"/Disjoint-Access-Structure/#DisjointAS":
       {"display": "DisjointAS",
        "context":
        ["Secret Sharing   and Secure Distributed Matrix Multiplication",
-        "Section 4. Disjoint Access Structure"]}},
-     "address": "/Section-4___-Disjoint-Access-Structure/"}],
+        "Disjoint Access Structure"]}},
+     "address": "/Disjoint-Access-Structure/"}],
    "AccessStructure.unauthorized":
    [{"id": "AccessStructure___unauthorized",
      "data":
